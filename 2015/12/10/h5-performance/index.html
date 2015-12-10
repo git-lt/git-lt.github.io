@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="Blog,HEXO," />
+  <meta name="keywords" content="性能优化," />
 
 
 
@@ -39,22 +39,18 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="记录一下在搭建博客中的经验和爬过的坑个人博客一般部署在Github、Coding或GitFace这样的代码托管平台中，这里使用国内正火的Coding.net平台，以确保博客的访问速度，避免被墙。在阅读本篇之前，假如你已经掌握了hexo的本地环境搭建、git版本管理工具、coding代码托管平台的基本使用。">
+<meta name="description" content="前言在用户量日益增长和客户对体验要求越来越高的情况下，前端方面需进行性能优化，框架升级，优化开发流程，提高开发效率，改善用户体验，减少带宽消耗。以下参考 腾讯ISUX 及 阿里无线前端性能优化指南 理出以下前端性能优化升级项">
 <meta property="og:type" content="article">
-<meta property="og:title" content="部署Hexo博客到Coding">
-<meta property="og:url" content="http://toggle.coding.io/2015/09/24/hexo-to-coding-150924/index.html">
+<meta property="og:title" content="洽客前端性能优化指南V1.0.0">
+<meta property="og:url" content="http://toggle.coding.io/2015/12/10/h5-performance/index.html">
 <meta property="og:site_name" content="Aitter Blog">
-<meta property="og:description" content="记录一下在搭建博客中的经验和爬过的坑个人博客一般部署在Github、Coding或GitFace这样的代码托管平台中，这里使用国内正火的Coding.net平台，以确保博客的访问速度，避免被墙。在阅读本篇之前，假如你已经掌握了hexo的本地环境搭建、git版本管理工具、coding代码托管平台的基本使用。">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/001.jpg">
-<meta property="og:image" content="http://7oxisv.com1.z0.glb.clouddn.com/005.png">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/coding2.jpg">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/webhook01.png">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/webhook02.jpg">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/webhook031.jpg">
-<meta property="og:updated_time" content="2015-09-24T06:39:15.283Z">
+<meta property="og:description" content="前言在用户量日益增长和客户对体验要求越来越高的情况下，前端方面需进行性能优化，框架升级，优化开发流程，提高开发效率，改善用户体验，减少带宽消耗。以下参考 腾讯ISUX 及 阿里无线前端性能优化指南 理出以下前端性能优化升级项">
+<meta property="og:image" content="http://isux.tencent.com/wp-content/uploads/2015/01/20150108170945527.png">
+<meta property="og:image" content="https://camo.githubusercontent.com/3f9c3d51b6afe0784ca3b664ca346f78196d77ad/687474703a2f2f696d67322e746263646e2e636e2f4c312f3436312f312f37636164373432316231363761613436323462356666626233386230613435656535643130643632">
+<meta property="og:updated_time" content="2015-12-10T12:31:45.169Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="部署Hexo博客到Coding">
-<meta name="twitter:description" content="记录一下在搭建博客中的经验和爬过的坑个人博客一般部署在Github、Coding或GitFace这样的代码托管平台中，这里使用国内正火的Coding.net平台，以确保博客的访问速度，避免被墙。在阅读本篇之前，假如你已经掌握了hexo的本地环境搭建、git版本管理工具、coding代码托管平台的基本使用。">
+<meta name="twitter:title" content="洽客前端性能优化指南V1.0.0">
+<meta name="twitter:description" content="前言在用户量日益增长和客户对体验要求越来越高的情况下，前端方面需进行性能优化，框架升级，优化开发流程，提高开发效率，改善用户体验，减少带宽消耗。以下参考 腾讯ISUX 及 阿里无线前端性能优化指南 理出以下前端性能优化升级项">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -64,7 +60,7 @@
   };
 </script>
 
-  <title> 部署Hexo博客到Coding | Aitter Blog </title>
+  <title> 洽客前端性能优化指南V1.0.0 | Aitter Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -189,7 +185,7 @@
           
           
             
-              部署Hexo博客到Coding
+              洽客前端性能优化指南V1.0.0
             
           
         </h1>
@@ -198,8 +194,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-09-24T12:42:22+08:00" content="2015-09-24">
-            2015-09-24
+          <time itemprop="dateCreated" datetime="2015-12-10T20:29:00+08:00" content="2015-12-10">
+            2015-12-10
           </time>
         </span>
 
@@ -208,8 +204,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/node/" itemprop="url" rel="index">
-                  <span itemprop="name">node</span>
+                <a href="/categories/移动前端/" itemprop="url" rel="index">
+                  <span itemprop="name">移动前端</span>
                 </a>
               </span>
 
@@ -224,8 +220,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/09/24/hexo-to-coding-150924/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/24/hexo-to-coding-150924/" itemprop="commentsCount"></span>
+              <a href="/2015/12/10/h5-performance/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/10/h5-performance/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -239,34 +235,87 @@
       
 
       
-        <span itemprop="articleBody"><p>记录一下在搭建博客中的经验和爬过的坑<br>个人博客一般部署在Github、Coding或GitFace这样的代码托管平台中，这里使用国内正火的Coding.net平台，以确保博客的访问速度，避免被墙。<br>在阅读本篇之前，假如你已经掌握了hexo的本地环境搭建、git版本管理工具、coding代码托管平台的基本使用。<br><a id="more"></a></p>
-<h2 id="Coding准备">Coding准备</h2><h3 id="新建项目">新建项目</h3><p>登陆 <a href="https://coding.net" target="_blank" rel="external">Coding</a> ，创建一个新的项目 <strong>blog</strong> ，获取 <strong>SSH</strong> 地址<br><img src="http://7xi480.com1.z0.glb.clouddn.com/001.jpg" alt=""></p>
-<blockquote>
-<p>SSH、HTTPS、GIT 三种地址的区别 详情参考<a href="http://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols" target="_blank" rel="external">官方DOC</a>：</p>
-<ul>
-<li>HTTPS：一般用于自己对他人的项目进行Clone，在进行fetch和push的时候都要输入登陆账号和密码。</li>
-<li>SSH：用于项目拥有者管理项目，需要在本地预先配置好SSH Key，在fetch和push时不需要输入账号和密码。</li>
-<li>GIT：用于clone项目，下载速度快，不能进行fetch和push操作。</li>
+        <span itemprop="articleBody"><h2 id="前言">前言</h2><p>在用户量日益增长和客户对体验要求越来越高的情况下，前端方面需进行性能优化，框架升级，优化开发流程，提高开发效率，改善用户体验，减少带宽消耗。以下参考 腾讯ISUX 及 阿里无线前端性能优化指南 理出以下前端性能优化升级项<br><a id="more"></a></p>
+<h2 id="前端项目">前端项目</h2><ul>
+<li>Admin 商家管理平台</li>
+<li>Mall 洽客身边店</li>
+<li>User 导购端H5页面</li>
+<li>Qiakr 洽客内部管理平台 (单页化-组件化-分离 先从这个项目开始尝试)</li>
+<li>Data 数据平台 （已完成 单页 模块）</li>
+<li>Home 洽管官网 （已完成 单页）</li>
 </ul>
-</blockquote>
-<h3 id="添加SSH_Key">添加SSH Key</h3><p>在第一次本地与Coding.net建立关系时，需要设置SHH公钥，生成方法参考 <a href="https://coding.net/help/about_coding/what_is_ssh_publickey?key=ssh" target="_blank" rel="external">Coding官网教程</a><br>生成成功后在Coding的设置里添加新公钥<br><img src="http://7oxisv.com1.z0.glb.clouddn.com/005.png" alt=""></p>
-<p>验证SSH Key 是否添加成功<br><code>ssh -T git@coding.net</code><br><strong>坑：</strong>这种方式不能验证成功，错误提示为：<br><code>ssh: connect to host coding.net port 22: Bad file number</code><br><strong>解决：</strong>很多教程上就是上面的写法，原因是coding最近更改了域名导致以前的方式验证失败，正确的验证命令是<br><code>ssh -T git@git.coding.net</code><br>成功提示：<code>Coding.net Tips : [Hello coderlt! You&#39;ve connected to Coding.net by SSH successfully! ]</code></p>
-<p>这样下来，本地的博客代码就可以正常推送到Coding中了，下面做一下hexo的相关配置</p>
-<h2 id="Hexo部署">Hexo部署</h2><h3 id="安装插件">安装插件</h3><p>使用git推送代码到管理平台，必须先安装hexo的git发布插件<br><code>hexo-deployer-git</code>:<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span></span><br></pre></td></tr></table></figure></p>
-<p>修改_config.yml的deploy配置<br><figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">    <span class="attribute">type</span>: git <span class="comment">//此处为git，不用修改</span></span><br><span class="line">    <span class="attribute">repository</span>: <span class="attribute">https</span>:<span class="comment">//git.coding.net/codert/blog.git  //填入从coding项目中获得的项目SSH地址</span></span><br><span class="line">    <span class="attribute">branch</span>: master  <span class="comment">//一般为master</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="Hexo发布">Hexo发布</h2><p>配置好以上环境后，就可以使用Hexo一键部署了<br><figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="title">hexo</span> deploy -g <span class="comment">#生成加部署</span></span><br></pre></td></tr></table></figure></p>
-<p>编译项目文件到 <code>public</code> 文件夹中，并提交到Coding项目blog的mastrer分支中</p>
-<h2 id="Coding_演示模式">Coding 演示模式</h2><p>开启演示<a href="https://coding.net/help/doc/paas/paas.html" target="_blank" rel="external">Coding演示平台手册</a>：<br>设置好访问域名、应用内存，点击 <code>一键部署</code>，稍等片刻就可以访问自己的博客了<br>部署成功后，界面如下：<br><img src="http://7xi480.com1.z0.glb.clouddn.com/coding2.jpg" alt=""></p>
-<p><strong>注意：</strong>我们部署到Coding上的博客文件，是Hexo编译生成的静态文件，而Coding上对静态文件的项目开启演示有必要条件，项目根目录下必需有StaticFile文件，我们在Hexo博客项目themes\next\source\目录下添加文件<code>StaticFile</code>与 <code>README.MDOWN</code></p>
-<h2 id="部署后自动更新">部署后自动更新</h2><h3 id="webhook_介绍">webhook 介绍</h3><p>Webhook 允许第三方应用监听 Coding.net 上的特定事件，在这些事件发生时通过 HTTP POST 方式通知( 超时5秒) 到第三方应用指定的 Web URL。 例如项目有新的内容 Push，或是 Merge Request 有更新等。 WebHook 可方便用户实现自动部署，自动测试，自动打包，监控项目变化等。</p>
-<h3 id="webhook_配置">webhook 配置</h3><p>在项目中打开<strong>设置</strong>，菜单选择 <strong>webhook</strong>， 新建webhook<br><img src="http://7xi480.com1.z0.glb.clouddn.com/webhook01.png" alt=""></p>
-<p>地址填写blog的演示地址，最后以 <code>/_</code> 结尾，值可以随意设置一个值hexo<br><img src="http://7xi480.com1.z0.glb.clouddn.com/webhook02.jpg" alt=""></p>
-<p>在项目中打开<strong>演示</strong>，菜单选择 <strong>环境变量</strong>，添加环境变量， 将刚刚设置的webhook添加上去<br><img src="http://7xi480.com1.z0.glb.clouddn.com/webhook031.jpg" alt=""></p>
-<p>重启演示，就可以在本地编译 <code>hexo deploy -g</code> ，Coding中就能自动更新了</p>
-<blockquote>
-<p>我的博客项目演示: <a href="http://toggle.coding.io/">http://toggle.coding.io/</a></p>
-</blockquote>
-<p>Over</p>
+<h2 id="急需解决的问题">急需解决的问题</h2><ol>
+<li>活动页 加载及体验上的优化</li>
+<li>身边店首页 加载优化（目标：1s首屏加载）</li>
+<li>异步请求及静态资源缓存(提升加载速度，节省带宽)</li>
+<li>后台数据查询时间优化</li>
+</ol>
+<h2 id="将要解决的问题【需要添加人手共同构建】">将要解决的问题【需要添加人手共同构建】</h2><ul>
+<li>前后端分离 -&gt; 自动化: 编译 打包 发布 部署 -&gt; 前端工程化</li>
+<li>CSS 与 JS 基础组件库的建立 -&gt; 组件化 -&gt; 模块化<br>【需要添加人手共同构建】</li>
+</ul>
+<p><img src="http://isux.tencent.com/wp-content/uploads/2015/01/20150108170945527.png" style="width:90%"><br><img src="https://camo.githubusercontent.com/3f9c3d51b6afe0784ca3b664ca346f78196d77ad/687474703a2f2f696d67322e746263646e2e636e2f4c312f3436312f312f37636164373432316231363761613436323462356666626233386230613435656535643130643632" style="width:90%"></p>
+<h2 id="图片控制">图片控制</h2><ol>
+<li>尽量使用iconfont字体图标 （已完成）</li>
+<li>在iconfont使用量较少但又需要小图标的页面，使用图片base64（部分使用）</li>
+<li>大图使用webp图片（部分使用）</li>
+<li>利用七牛图片处理API，获取适合页面大小的图片（部分使用）</li>
+<li>透明图片切成png24或png8, 不透明的图片切成jpg或gif（部分使用）</li>
+<li>简单的图标使用css编写 如剪头 loading等</li>
+<li>尽量不使用Gif动画包括loading（降低CPU消耗，提升渲染性能）<br>代码需求：JS-H5特性检测 | JS-webp替换 | CSS-css形状组件</li>
+</ol>
+<h2 id="图片加载">图片加载</h2><ol>
+<li>精减iconfont引用资源，只使用ttf文件（已完成）</li>
+<li><p>非WIFI环境下，按需加载</p>
+<p> <strong>代码需求：JS-WIFI环境检测 | JS-懒加载组件</strong></p>
+</li>
+</ol>
+<h2 id="缓存控制">缓存控制</h2><ol>
+<li>CSS 与 JS 使用Localstroage缓存至本地，cookie中存储资源版本与名称</li>
+<li>异步请求数据缓存至Sessionstroage，设置缓存时间，减少请求次数，快速显示数据</li>
+<li><p>Native App将静态公用资源缓存至本地</p>
+<p> 代码需求：JS-使用LS缓存静态资源 | JS-使用SS缓存异步请求</p>
+<p> 参考：<a href="http://www.zhihu.com/question/28467444" target="_blank" rel="external">知乎</a><br> <a href="http://blog.csdn.net/a497785609/article/details/48321405" target="_blank" rel="external">移动端使用LocalStroage缓存JS与Css</a><br> <a href="http://www.open-open.com/lib/view/open1449498774019.html" target="_blank" rel="external">手机百度localstorage细粒度缓存介绍</a></p>
+</li>
+</ol>
+<h2 id="减少请求数">减少请求数</h2><ol>
+<li>部分页面内联CSS与JS，除图片以外的资源，一次请求到位</li>
+<li>请求合并，JS与CSS压缩合并</li>
+<li>JS组件化，按需加载合并，去除不被执行的JS代码块和css</li>
+</ol>
+<h2 id="接口优化">接口优化</h2><ol>
+<li>接口收敛到单一的接服务层</li>
+<li>精减JSON，去除不显示的字段，减少传输大小</li>
+</ol>
+<h2 id="服务器端的优化">服务器端的优化</h2><ol>
+<li>使用HttpDNS</li>
+<li>使用SSL+SPDY协议 多路复用请求优化 | 服务器推送技术 | SPDY压缩http头</li>
+</ol>
+<h2 id="首屏加载优化">首屏加载优化</h2><ul>
+<li>单张图片大小控制</li>
+<li>接口合并</li>
+<li>缓存请求的数据</li>
+<li>按需加载</li>
+<li>小图标base64化</li>
+<li>缓存JS与CSS</li>
+</ul>
+<h2 id="体验优化">体验优化</h2><ol>
+<li>使用手淘滚动组件</li>
+<li>下拉刷新，上拉加载插件化</li>
+<li>动画效率提升优化</li>
+<li>分享内容优化 <a href="http://www.ui.cn/detail/50140.html" target="_blank" rel="external">一般化分享</a></li>
+<li>横竖屏提示优化<a href="http://www.xuanfengge.com/move-pages-anyway-screen-tips.html#more-5463" target="_blank" rel="external">lanscape.js</a></li>
+<li>字体屏幕适应</li>
+<li>DNS预解析 <code>&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//host/&quot;&gt;</code></li>
+<li>预渲染页面 <code>&lt;link rel=&quot;prerender&quot; href=&quot;http://www.cmcm.com&quot;&gt; prerendercmcm &lt;/link&gt;</code> <a href="http://blog.csdn.net/typename/article/details/38536167" target="_blank" rel="external">prerender</a></li>
+</ol>
+<p>参考：</p>
+<ul>
+<li><a href="http://www.cnblogs.com/yexiaochai/p/4901341.html" target="_blank" rel="external">前端优化带来的思考，浅谈前端工程化</a></li>
+<li><a href="https://github.com/amfe/article/issues/1" target="_blank" rel="external">阿里无线前端性能优化指南</a></li>
+<li><a href="https://github.com/amfe/article/issues/21" target="_blank" rel="external">15年双11手淘前端技术巡演 - H5性能最佳实践</a></li>
+<li><a href="http://isux.tencent.com/h5-performance.html" target="_blank" rel="external">ISUX移动H5前端性能优化指南</a></li>
+</ul>
 </span>
       
     </div>
@@ -275,9 +324,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Blog/" rel="tag">#Blog</a>
-          
-            <a href="/tags/HEXO/" rel="tag">#HEXO</a>
+            <a href="/tags/性能优化/" rel="tag">#性能优化</a>
           
         </div>
       
@@ -286,13 +333,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/08/151008-express4-chat/" rel="prev">Express4 + Socket.io 实现聊天室</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/22/git-141210/" rel="next">Git 使用笔记</a>
+              <a href="/2015/10/27/HybridApp-Doc/" rel="next">Hybrid APP 交互文档 v1.0.0</a>
             
           </div>
         </div>
@@ -307,10 +352,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/09/24/hexo-to-coding-150924/"
-     data-title="部署Hexo博客到Coding"
+        <div class="ds-share flat" data-thread-key="2015/12/10/h5-performance/"
+     data-title="洽客前端性能优化指南V1.0.0"
      data-content=""
-     data-url="http://toggle.coding.io/2015/09/24/hexo-to-coding-150924/">
+     data-url="http://toggle.coding.io/2015/12/10/h5-performance/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -340,8 +385,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/09/24/hexo-to-coding-150924/"
-                   data-title="部署Hexo博客到Coding" data-url="http://toggle.coding.io/2015/09/24/hexo-to-coding-150924/">
+              <div class="ds-thread" data-thread-key="2015/12/10/h5-performance/"
+                   data-title="洽客前端性能优化指南V1.0.0" data-url="http://toggle.coding.io/2015/12/10/h5-performance/">
               </div>
             
           </div>
@@ -440,7 +485,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Coding准备"><span class="nav-number">1.</span> <span class="nav-text">Coding准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建项目"><span class="nav-number">1.1.</span> <span class="nav-text">新建项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加SSH_Key"><span class="nav-number">1.2.</span> <span class="nav-text">添加SSH Key</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo部署"><span class="nav-number">2.</span> <span class="nav-text">Hexo部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装插件"><span class="nav-number">2.1.</span> <span class="nav-text">安装插件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo发布"><span class="nav-number">3.</span> <span class="nav-text">Hexo发布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Coding_演示模式"><span class="nav-number">4.</span> <span class="nav-text">Coding 演示模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署后自动更新"><span class="nav-number">5.</span> <span class="nav-text">部署后自动更新</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#webhook_介绍"><span class="nav-number">5.1.</span> <span class="nav-text">webhook 介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webhook_配置"><span class="nav-number">5.2.</span> <span class="nav-text">webhook 配置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端项目"><span class="nav-number">2.</span> <span class="nav-text">前端项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#急需解决的问题"><span class="nav-number">3.</span> <span class="nav-text">急需解决的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将要解决的问题【需要添加人手共同构建】"><span class="nav-number">4.</span> <span class="nav-text">将要解决的问题【需要添加人手共同构建】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片控制"><span class="nav-number">5.</span> <span class="nav-text">图片控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片加载"><span class="nav-number">6.</span> <span class="nav-text">图片加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存控制"><span class="nav-number">7.</span> <span class="nav-text">缓存控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#减少请求数"><span class="nav-number">8.</span> <span class="nav-text">减少请求数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口优化"><span class="nav-number">9.</span> <span class="nav-text">接口优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器端的优化"><span class="nav-number">10.</span> <span class="nav-text">服务器端的优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#首屏加载优化"><span class="nav-number">11.</span> <span class="nav-text">首屏加载优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#体验优化"><span class="nav-number">12.</span> <span class="nav-text">体验优化</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
