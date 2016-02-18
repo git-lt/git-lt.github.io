@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="Blog,HEXO," />
+  <meta name="keywords" content="react-native," />
 
 
 
@@ -39,22 +39,18 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="记录一下在搭建博客中的经验和爬过的坑个人博客一般部署在Github、Coding或GitFace这样的代码托管平台中，这里使用国内正火的Coding.net平台，以确保博客的访问速度，避免被墙。在阅读本篇之前，假如你已经掌握了hexo的本地环境搭建、git版本管理工具、coding代码托管平台的基本使用。">
+<meta name="description" content="React Native 初探，了解React Native基本特点，优点和缺点以及适用场景。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="部署Hexo博客到Coding">
-<meta property="og:url" content="http://toggle.coding.io/2015/09/24/hexo-to-coding-150924/index.html">
+<meta property="og:title" content="React Native 初探">
+<meta property="og:url" content="http://toggle.coding.io/2015/12/09/react-native-ls1/index.html">
 <meta property="og:site_name" content="Aitter Blog">
-<meta property="og:description" content="记录一下在搭建博客中的经验和爬过的坑个人博客一般部署在Github、Coding或GitFace这样的代码托管平台中，这里使用国内正火的Coding.net平台，以确保博客的访问速度，避免被墙。在阅读本篇之前，假如你已经掌握了hexo的本地环境搭建、git版本管理工具、coding代码托管平台的基本使用。">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/001.jpg">
-<meta property="og:image" content="http://7oxisv.com1.z0.glb.clouddn.com/005.png">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/coding2.jpg">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/webhook01.png">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/webhook02.jpg">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/webhook031.jpg">
-<meta property="og:updated_time" content="2015-09-24T06:39:16.000Z">
+<meta property="og:description" content="React Native 初探，了解React Native基本特点，优点和缺点以及适用场景。">
+<meta property="og:image" content="https://camo.githubusercontent.com/597be6566ad102a79e4a3388194a540c33cb000f/687474703a2f2f67746d7330312e616c6963646e2e636f6d2f7470732f69312f5442314d4f45424870585858586357587058586a473976464658582d313133322d3634322e706e67">
+<meta property="og:image" content="http://blog.cnbang.net/wp-content/uploads/2015/03/ReactNative2.png">
+<meta property="og:updated_time" content="2016-02-18T16:21:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="部署Hexo博客到Coding">
-<meta name="twitter:description" content="记录一下在搭建博客中的经验和爬过的坑个人博客一般部署在Github、Coding或GitFace这样的代码托管平台中，这里使用国内正火的Coding.net平台，以确保博客的访问速度，避免被墙。在阅读本篇之前，假如你已经掌握了hexo的本地环境搭建、git版本管理工具、coding代码托管平台的基本使用。">
+<meta name="twitter:title" content="React Native 初探">
+<meta name="twitter:description" content="React Native 初探，了解React Native基本特点，优点和缺点以及适用场景。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -64,7 +60,7 @@
   };
 </script>
 
-  <title> 部署Hexo博客到Coding | Aitter Blog </title>
+  <title> React Native 初探 | Aitter Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -189,7 +185,7 @@
           
           
             
-              部署Hexo博客到Coding
+              React Native 初探
             
           
         </h1>
@@ -198,8 +194,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-09-24T12:42:22+08:00" content="2015-09-24">
-            2015-09-24
+          <time itemprop="dateCreated" datetime="2015-12-09T00:15:03+08:00" content="2015-12-09">
+            2015-12-09
           </time>
         </span>
 
@@ -208,8 +204,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/node/" itemprop="url" rel="index">
-                  <span itemprop="name">node</span>
+                <a href="/categories/APP开发/" itemprop="url" rel="index">
+                  <span itemprop="name">APP开发</span>
                 </a>
               </span>
 
@@ -224,8 +220,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/09/24/hexo-to-coding-150924/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/24/hexo-to-coding-150924/" itemprop="commentsCount"></span>
+              <a href="/2015/12/09/react-native-ls1/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/09/react-native-ls1/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -239,34 +235,48 @@
       
 
       
-        <span itemprop="articleBody"><p>记录一下在搭建博客中的经验和爬过的坑<br>个人博客一般部署在Github、Coding或GitFace这样的代码托管平台中，这里使用国内正火的Coding.net平台，以确保博客的访问速度，避免被墙。<br>在阅读本篇之前，假如你已经掌握了hexo的本地环境搭建、git版本管理工具、coding代码托管平台的基本使用。<br><a id="more"></a></p>
-<h2 id="Coding准备"><a href="#Coding准备" class="headerlink" title="Coding准备"></a>Coding准备</h2><h3 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h3><p>登陆 <a href="https://coding.net" target="_blank" rel="external">Coding</a> ，创建一个新的项目 <strong>blog</strong> ，获取 <strong>SSH</strong> 地址<br><img src="http://7xi480.com1.z0.glb.clouddn.com/001.jpg" alt=""></p>
-<blockquote>
-<p>SSH、HTTPS、GIT 三种地址的区别 详情参考<a href="http://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols" target="_blank" rel="external">官方DOC</a>：</p>
-<ul>
-<li>HTTPS：一般用于自己对他人的项目进行Clone，在进行fetch和push的时候都要输入登陆账号和密码。</li>
-<li>SSH：用于项目拥有者管理项目，需要在本地预先配置好SSH Key，在fetch和push时不需要输入账号和密码。</li>
-<li>GIT：用于clone项目，下载速度快，不能进行fetch和push操作。</li>
+        <span itemprop="articleBody"><p>React Native 初探，了解React Native基本特点，优点和缺点以及适用场景。<br><a id="more"></a></p>
+<h3 id="为什么需要React-Native"><a href="#为什么需要React-Native" class="headerlink" title="为什么需要React Native"></a>为什么需要React Native</h3><p>拥有Native的用户体验，又保留React的开发效率。</p>
+<h3 id="Native-的优势：更好的人机交互体验"><a href="#Native-的优势：更好的人机交互体验" class="headerlink" title="Native 的优势：更好的人机交互体验"></a>Native 的优势：更好的人机交互体验</h3><ul>
+<li>原生控件有更好的体验</li>
+<li>有更好的手势识别</li>
+<li>更合适的多线程模型</li>
+<li>更丰富细腻的动画效果</li>
 </ul>
-</blockquote>
-<h3 id="添加SSH-Key"><a href="#添加SSH-Key" class="headerlink" title="添加SSH Key"></a>添加SSH Key</h3><p>在第一次本地与Coding.net建立关系时，需要设置SHH公钥，生成方法参考 <a href="https://coding.net/help/about_coding/what_is_ssh_publickey?key=ssh" target="_blank" rel="external">Coding官网教程</a><br>生成成功后在Coding的设置里添加新公钥<br><img src="http://7oxisv.com1.z0.glb.clouddn.com/005.png" alt=""></p>
-<p>验证SSH Key 是否添加成功<br><code>ssh -T git@coding.net</code><br><strong>坑：</strong>这种方式不能验证成功，错误提示为：<br><code>ssh: connect to host coding.net port 22: Bad file number</code><br><strong>解决：</strong>很多教程上就是上面的写法，原因是coding最近更改了域名导致以前的方式验证失败，正确的验证命令是<br><code>ssh -T git@git.coding.net</code><br>成功提示：<code>Coding.net Tips : [Hello coderlt! You&#39;ve connected to Coding.net by SSH successfully! ]</code></p>
-<p>这样下来，本地的博客代码就可以正常推送到Coding中了，下面做一下hexo的相关配置</p>
-<h2 id="Hexo部署"><a href="#Hexo部署" class="headerlink" title="Hexo部署"></a>Hexo部署</h2><h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>使用git推送代码到管理平台，必须先安装hexo的git发布插件<br><code>hexo-deployer-git</code>:<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span></span><br></pre></td></tr></table></figure></p>
-<p>修改_config.yml的deploy配置<br><figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">    <span class="attribute">type</span>: git <span class="comment">//此处为git，不用修改</span></span><br><span class="line">    <span class="attribute">repository</span>: <span class="attribute">https</span>:<span class="comment">//git.coding.net/codert/blog.git  //填入从coding项目中获得的项目SSH地址</span></span><br><span class="line">    <span class="attribute">branch</span>: master  <span class="comment">//一般为master</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="Hexo发布"><a href="#Hexo发布" class="headerlink" title="Hexo发布"></a>Hexo发布</h2><p>配置好以上环境后，就可以使用Hexo一键部署了<br><figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="title">hexo</span> deploy -g <span class="comment">#生成加部署</span></span><br></pre></td></tr></table></figure></p>
-<p>编译项目文件到 <code>public</code> 文件夹中，并提交到Coding项目blog的mastrer分支中</p>
-<h2 id="Coding-演示模式"><a href="#Coding-演示模式" class="headerlink" title="Coding 演示模式"></a>Coding 演示模式</h2><p>开启演示<a href="https://coding.net/help/doc/paas/paas.html" target="_blank" rel="external">Coding演示平台手册</a>：<br>设置好访问域名、应用内存，点击 <code>一键部署</code>，稍等片刻就可以访问自己的博客了<br>部署成功后，界面如下：<br><img src="http://7xi480.com1.z0.glb.clouddn.com/coding2.jpg" alt=""></p>
-<p><strong>注意：</strong>我们部署到Coding上的博客文件，是Hexo编译生成的静态文件，而Coding上对静态文件的项目开启演示有必要条件，项目根目录下必需有StaticFile文件，我们在Hexo博客项目themes\next\source\目录下添加文件<code>StaticFile</code>与 <code>README.MDOWN</code></p>
-<h2 id="部署后自动更新"><a href="#部署后自动更新" class="headerlink" title="部署后自动更新"></a>部署后自动更新</h2><h3 id="webhook-介绍"><a href="#webhook-介绍" class="headerlink" title="webhook 介绍"></a>webhook 介绍</h3><p>Webhook 允许第三方应用监听 Coding.net 上的特定事件，在这些事件发生时通过 HTTP POST 方式通知( 超时5秒) 到第三方应用指定的 Web URL。 例如项目有新的内容 Push，或是 Merge Request 有更新等。 WebHook 可方便用户实现自动部署，自动测试，自动打包，监控项目变化等。</p>
-<h3 id="webhook-配置"><a href="#webhook-配置" class="headerlink" title="webhook 配置"></a>webhook 配置</h3><p>在项目中打开<strong>设置</strong>，菜单选择 <strong>webhook</strong>， 新建webhook<br><img src="http://7xi480.com1.z0.glb.clouddn.com/webhook01.png" alt=""></p>
-<p>地址填写blog的演示地址，最后以 <code>/_</code> 结尾，值可以随意设置一个值hexo<br><img src="http://7xi480.com1.z0.glb.clouddn.com/webhook02.jpg" alt=""></p>
-<p>在项目中打开<strong>演示</strong>，菜单选择 <strong>环境变量</strong>，添加环境变量， 将刚刚设置的webhook添加上去<br><img src="http://7xi480.com1.z0.glb.clouddn.com/webhook031.jpg" alt=""></p>
-<p>重启演示，就可以在本地编译 <code>hexo deploy -g</code> ，Coding中就能自动更新了</p>
-<blockquote>
-<p>我的博客项目演示: <a href="http://toggle.coding.io/">http://toggle.coding.io/</a></p>
-</blockquote>
-<p>Over</p>
+<h3 id="Learn-once-write-anywher"><a href="#Learn-once-write-anywher" class="headerlink" title="Learn once, write anywher"></a>Learn once, write anywher</h3><p><img src="https://camo.githubusercontent.com/597be6566ad102a79e4a3388194a540c33cb000f/687474703a2f2f67746d7330312e616c6963646e2e636f6d2f7470732f69312f5442314d4f45424870585858586357587058586a473976464658582d313133322d3634322e706e67" style="width:70%"></p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>React: 在不同平台上使用相同的技术开发 </li>
+<li>Virtual DOM: 是DOM在内存中的一种轻量级表达方式，可以通过不同的渲染引擎生成不同平台下的UI。</li>
+<li>无需编译：第一次编译安装后，只需更新服务器端的JS代码，reload一下，整个界面就会同步是更新。</li>
+<li>JSX: 标签化的XML，学习成本低，降低代码量</li>
+<li>css-layout: 可使用css编写布局</li>
+<li>OC-JS: 通过事件机制OC单向调用JS，JS可以直接调用原生的UI，可以运行在Chrome中，通过websocket连接Native code方便调试。</li>
+<li>点按操作抽象成组件：方便控制整个点按操作过程</li>
+<li>实时预览，调试方便：Chrome 中断点调试</li>
+<li>不用webview,彻底摆脱webview的交互和性能问题</li>
+<li>扩展性强，js可以自由组合使用Native端提供的基本控件</li>
+<li>可使用原生的动画</li>
+<li>可通过远端更新JS，直接升级APP</li>
+</ul>
+<h3 id="劣势"><a href="#劣势" class="headerlink" title="劣势"></a>劣势</h3><ul>
+<li>扩展性远不如Web</li>
+<li>依赖原生组件暴露出来的方法，IOS和Andorid必须写两套不同的UI组件，强烈依赖react native提供的接口；</li>
+<li>还没有发布1.0版本</li>
+</ul>
+<h3 id="重要概念"><a href="#重要概念" class="headerlink" title="重要概念"></a>重要概念</h3><p>React Native 中没有Webview， 不是Hybrid App</p>
+<p>核心：IOS Native Code 提供十来个最核心的类或组件，然后由React Native的JS部分组成二十来个基本组件，交由上层的业务方来使用。</p>
+<h3 id="JS工程师与Native-Code工程师的配合"><a href="#JS工程师与Native-Code工程师的配合" class="headerlink" title="JS工程师与Native Code工程师的配合"></a>JS工程师与Native Code工程师的配合</h3><ul>
+<li>JS工程师：将基于的组件拼装成可用的React组件</li>
+<li>Native Code工程师：提供核心组件，提供足够的扩展性、灵活性和性能。</li>
+</ul>
+<h2 id="React-Native通信机制"><a href="#React-Native通信机制" class="headerlink" title="React Native通信机制"></a>React Native通信机制</h2><p><img src="http://blog.cnbang.net/wp-content/uploads/2015/03/ReactNative2.png" style="width:70%"></p>
+<p>大致流程如此：JS函数调用传ModuleID,MethodID -&gt; callback传CallbackID -&gt; OC根据ID拿到对应的方法 -&gt; 处理参数类型 -&gt; 执行OC方法 -&gt; 回调CallbackID -&gt; JS通过CallbackID拿到Callback执行</p>
+<h3 id="React-Native框架和传统的Hybird的主要区别"><a href="#React-Native框架和传统的Hybird的主要区别" class="headerlink" title="React Native框架和传统的Hybird的主要区别"></a>React Native框架和传统的Hybird的主要区别</h3><p>JS不能直接调用OS，只有在Native界面事件响应中去调用JS</p>
+<p>过程：事件发生时，OC调用JS，执行JS相应的模块处理，JS将对OC的调用信息加入到消息队列，OC收到消息调用列表中的消息，获取对应的模块方法运行。<br>在这个过程中，JS充当了数据源的角色，OC是控制器，调用JS数据源并进行解析，然后映射到对应的OC模块进行处理。<br><a href="http://www.ccw.com.cn/article/view/97226" target="_blank" rel="external">解析React Native内部通讯机制</a></p>
+<p><a href="http://blog.cnbang.net/tech/2698/?from=groupmessage&amp;isappinstalled=1" target="_blank" rel="external">React Native通信机制详解</a></p>
+<p><a href="http://www.linuxidc.com/Linux/2015-09/123239.htm" target="_blank" rel="external">一个资深iOS开发者对于React Native的看法</a><br>走出温室，世界才刚刚开始。</p>
+<h3 id="React-技术方案"><a href="#React-技术方案" class="headerlink" title="React 技术方案"></a>React 技术方案</h3><h4 id="React支持服务端渲染"><a href="#React支持服务端渲染" class="headerlink" title="React支持服务端渲染"></a>React支持服务端渲染</h4><p>首屏服务端渲染，翻页客户端渲染</p>
+<h4 id="可以集成到现有的APP"><a href="#可以集成到现有的APP" class="headerlink" title="可以集成到现有的APP"></a>可以集成到现有的APP</h4><p>缓存用于解决资源二次访问时的加载性能、打包解决资源首页访问时的加载性能</p>
 </span>
       
     </div>
@@ -275,9 +285,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Blog/" rel="tag">#Blog</a>
-          
-            <a href="/tags/HEXO/" rel="tag">#HEXO</a>
+            <a href="/tags/react-native/" rel="tag">#react-native</a>
           
         </div>
       
@@ -286,13 +294,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/08/151008-express4-chat/" rel="prev">Express4 + Socket.io 实现聊天室</a>
+              <a href="/2015/12/10/h5-performance/" rel="prev">洽客前端性能优化指南V1.0.0</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/22/git-141210/" rel="next">Git 使用笔记</a>
+              <a href="/2015/10/27/HybridApp-Doc/" rel="next">Hybrid APP 交互文档 v1.0.0</a>
             
           </div>
         </div>
@@ -307,10 +315,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/09/24/hexo-to-coding-150924/"
-     data-title="部署Hexo博客到Coding"
+        <div class="ds-share flat" data-thread-key="2015/12/09/react-native-ls1/"
+     data-title="React Native 初探"
      data-content=""
-     data-url="http://toggle.coding.io/2015/09/24/hexo-to-coding-150924/">
+     data-url="http://toggle.coding.io/2015/12/09/react-native-ls1/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -340,8 +348,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/09/24/hexo-to-coding-150924/"
-                   data-title="部署Hexo博客到Coding" data-url="http://toggle.coding.io/2015/09/24/hexo-to-coding-150924/">
+              <div class="ds-thread" data-thread-key="2015/12/09/react-native-ls1/"
+                   data-title="React Native 初探" data-url="http://toggle.coding.io/2015/12/09/react-native-ls1/">
               </div>
             
           </div>
@@ -440,7 +448,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Coding准备"><span class="nav-number">1.</span> <span class="nav-text">Coding准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建项目"><span class="nav-number">1.1.</span> <span class="nav-text">新建项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加SSH-Key"><span class="nav-number">1.2.</span> <span class="nav-text">添加SSH Key</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo部署"><span class="nav-number">2.</span> <span class="nav-text">Hexo部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装插件"><span class="nav-number">2.1.</span> <span class="nav-text">安装插件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo发布"><span class="nav-number">3.</span> <span class="nav-text">Hexo发布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Coding-演示模式"><span class="nav-number">4.</span> <span class="nav-text">Coding 演示模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署后自动更新"><span class="nav-number">5.</span> <span class="nav-text">部署后自动更新</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#webhook-介绍"><span class="nav-number">5.1.</span> <span class="nav-text">webhook 介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webhook-配置"><span class="nav-number">5.2.</span> <span class="nav-text">webhook 配置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么需要React-Native"><span class="nav-number">1.</span> <span class="nav-text">为什么需要React Native</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Native-的优势：更好的人机交互体验"><span class="nav-number">2.</span> <span class="nav-text">Native 的优势：更好的人机交互体验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Learn-once-write-anywher"><span class="nav-number">3.</span> <span class="nav-text">Learn once, write anywher</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">4.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#劣势"><span class="nav-number">5.</span> <span class="nav-text">劣势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重要概念"><span class="nav-number">6.</span> <span class="nav-text">重要概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS工程师与Native-Code工程师的配合"><span class="nav-number">7.</span> <span class="nav-text">JS工程师与Native Code工程师的配合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-Native通信机制"><span class="nav-number"></span> <span class="nav-text">React Native通信机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#React-Native框架和传统的Hybird的主要区别"><span class="nav-number">1.</span> <span class="nav-text">React Native框架和传统的Hybird的主要区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React-技术方案"><span class="nav-number">2.</span> <span class="nav-text">React 技术方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#React支持服务端渲染"><span class="nav-number">2.1.</span> <span class="nav-text">React支持服务端渲染</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可以集成到现有的APP"><span class="nav-number">2.2.</span> <span class="nav-text">可以集成到现有的APP</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
