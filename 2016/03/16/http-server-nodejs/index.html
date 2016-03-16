@@ -1,0 +1,766 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="javascript | HTML5 | CSS3 | Node | React" />
+
+
+
+  <meta name="keywords" content="http," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="当我们在编写DEMO的时候，如何即时预览，提升编程体验和工作效率是一个重要技能。我可以使用nginx或apache等HTTP服务器，但是通常需要安装下载，配置复杂。虽然功能强大，但是做为前端，我们通常只需要一个简易的静态http服务器即可，那么nodeJS将是我们的首先！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Node.js搭建简易Http服务器">
+<meta property="og:url" content="http://toggle.coding.io/2016/03/16/http-server-nodejs/index.html">
+<meta property="og:site_name" content="Aitter Blog">
+<meta property="og:description" content="当我们在编写DEMO的时候，如何即时预览，提升编程体验和工作效率是一个重要技能。我可以使用nginx或apache等HTTP服务器，但是通常需要安装下载，配置复杂。虽然功能强大，但是做为前端，我们通常只需要一个简易的静态http服务器即可，那么nodeJS将是我们的首先！">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QB20160315-1.jpg">
+<meta property="og:updated_time" content="2016-03-16T15:37:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Node.js搭建简易Http服务器">
+<meta name="twitter:description" content="当我们在编写DEMO的时候，如何即时预览，提升编程体验和工作效率是一个重要技能。我可以使用nginx或apache等HTTP服务器，但是通常需要安装下载，配置复杂。虽然功能强大，但是做为前端，我们通常只需要一个简易的静态http服务器即可，那么nodeJS将是我们的首先！">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 使用Node.js搭建简易Http服务器 | Aitter Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Aitter Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              使用Node.js搭建简易Http服务器
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-03-16T23:00:21+08:00" content="2016-03-16">
+            2016-03-16
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/node/" itemprop="url" rel="index">
+                  <span itemprop="name">node</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/03/16/http-server-nodejs/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/16/http-server-nodejs/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>当我们在编写DEMO的时候，如何即时预览，提升编程体验和工作效率是一个重要技能。<br>我可以使用nginx或apache等HTTP服务器，但是通常需要安装下载，配置复杂。<br>虽然功能强大，但是做为前端，我们通常只需要一个简易的静态http服务器即可，那么nodeJS将是我们的首先！<br><a id="more"></a></p>
+<h2 id="在线实时预览编辑器"><a href="#在线实时预览编辑器" class="headerlink" title="在线实时预览编辑器"></a>在线实时预览编辑器</h2><p>首先我们可以利用在线编辑器，其中有很多优秀的前端DEMO展示，这里有以下几个优秀平台推荐<br><a href="http://codepen.io/" target="_blank" rel="external">CodePen</a> 首页有很多优秀的前端示例，支持各种JS库、CSS预编译库、HTML预编译库等等<br><a href="http://jsbin.com/?html,css,js,output" target="_blank" rel="external">JS Bin</a><br><a href="http://runjs.cn/" target="_blank" rel="external">RunJS</a></p>
+<h2 id="HTTP简易静态服务器的基本功能点"><a href="#HTTP简易静态服务器的基本功能点" class="headerlink" title="HTTP简易静态服务器的基本功能点"></a>HTTP简易静态服务器的基本功能点</h2><h3 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h3><p>浏览器发送URL，服务端解析URL，对应到硬盘上的文件。<br>如果文件存在，返回200状态码，并发送文件到浏览器端；<br>如果文件不存在，返回404状态码，发送一个404的文件到浏览器端。<br>如果文件读取发生错误，返回500状态码，发送错误信息到浏览器端。</p>
+<h3 id="基本功能"><a href="#基本功能" class="headerlink" title="基本功能"></a>基本功能</h3><ol>
+<li>能开启web服务，加载各种web资源</li>
+<li>能自动分配可用端口，也可以配置端口</li>
+<li>能加载json文件并模拟网速</li>
+<li>启动时能自动打开默认浏览器浏览，方便调试</li>
+<li>支持常用文件的MIME类型</li>
+<li>可配置主页</li>
+<li>允许跨域请求，方便其它项目测试时调用模拟接口的JSON数据</li>
+<li>host默认为本地IP(方便生成二维码手机扫描预览)</li>
+</ol>
+<h3 id="扩展功能"><a href="#扩展功能" class="headerlink" title="扩展功能"></a>扩展功能</h3><ol>
+<li>支持304缓存响应</li>
+<li>启用GZip功能对指定文件进行压缩</li>
+<li>使用快捷命令</li>
+<li>支持断点续传</li>
+</ol>
+<h2 id="要解决的问题"><a href="#要解决的问题" class="headerlink" title="要解决的问题"></a>要解决的问题</h2><p><strong> 如何获取本地的IP地址？<a href="http://nodejs.cn/api/os.html" target="_blank" rel="external">os.networkInterfaces</a> </strong><br>通过内置的OS模块中的<code>networkInterfaces()</code>方法获取本机的网络接口信息集合，从中可以得到IPv4的地址<br><figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> ifaces = os.networkInterfaces();</span><br><span class="line"><span class="keyword">var</span> ip = <span class="string">''</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> dev <span class="keyword">in</span> ifaces) &#123;</span><br><span class="line">  ifaces[dev].forEach(<span class="function"><span class="keyword">function</span> <span class="params">(details)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (ip === <span class="string">''</span> &amp;&amp; details.family === <span class="string">'IPv4'</span> &amp;&amp; !details.<span class="keyword">internal</span>) &#123;</span><br><span class="line">      ip = details.address;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>如何打开默认浏览器？</strong><br>通过判断当前系统的类型，获取相应的cli命令，调用内置的进程管理模块中的exec方法打开url。<br><figure class="highlight mel"><table><tr><td class="code"><pre><span class="line">var <span class="keyword">exec</span> = require(<span class="string">'child_process'</span>).<span class="keyword">exec</span>;</span><br><span class="line">var url= <span class="string">"http://127.0.0.1:8080/"</span></span><br><span class="line"><span class="keyword">switch</span> (process.platform) &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">"darwin"</span>:</span><br><span class="line">    <span class="keyword">exec</span>(<span class="string">'open '</span> + url);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">"win32"</span>:</span><br><span class="line">    <span class="keyword">exec</span>(<span class="string">'start '</span> + url);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    <span class="keyword">exec</span>(<span class="string">'xdg-open'</span>, [url]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>如何自动分配一个可用的端口号？</strong><br>我只想启动一个可用的服务，端口号我不关注，只要不报错，不被占用就ok，当然启动完，我要知道我在哪个端口启动了。<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> server = http.createServer();</span><br><span class="line">server.listen(<span class="number">0</span>);</span><br><span class="line">server.on(<span class="string">'listening'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">	<span class="keyword">var</span> port = server.address().port;</span><br><span class="line">	<span class="built_in">console</span>.log(port);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>监听0.0.0.0，nodejs会自动分配给你一个可用端口，listening中获取port就ok了</p>
+<h2 id="基本版代码结构"><a href="#基本版代码结构" class="headerlink" title="基本版代码结构"></a>基本版代码结构</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);        <span class="comment">// Http服务器API</span></span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);            <span class="comment">// 用于处理本地文件</span></span><br><span class="line"><span class="keyword">var</span> os = <span class="built_in">require</span>(<span class="string">'os'</span>);            <span class="comment">//用于获取本地IP地址</span></span><br><span class="line"><span class="keyword">var</span> exec = <span class="built_in">require</span>(<span class="string">'child_process'</span>).exec; <span class="comment">//用于打开默认浏览器</span></span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);     <span class="comment">//用于处理路径和后缀</span></span><br><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);       <span class="comment">//用于解析get请求所带的参数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> CONFIG, <span class="comment">//默认配置</span></span><br><span class="line">    HTTP,   <span class="comment">//HTTP静态类</span></span><br><span class="line">    log;    <span class="comment">//日志打印</span></span><br><span class="line"></span><br><span class="line">CONFIG = &#123;</span><br><span class="line">  homedir:<span class="string">''</span>,</span><br><span class="line">  home: <span class="string">'index.html'</span>,</span><br><span class="line">  port: <span class="number">8089</span>,</span><br><span class="line">  browser: <span class="literal">true</span>,</span><br><span class="line">&#125;;</span><br><span class="line">log = <span class="function"><span class="keyword">function</span>(<span class="params">txt</span>)</span>&#123; <span class="built_in">console</span>.log(txt); &#125;;</span><br><span class="line"></span><br><span class="line">HTTP = &#123;</span><br><span class="line">  init:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">  _getIPAddress:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">/* 获取本地IPv4的IP地址 */</span>&#125;,</span><br><span class="line">  _openURL:<span class="function"><span class="keyword">function</span>(<span class="params">path</span>)</span>&#123;<span class="comment">/* 使用默认浏览器打开URL */</span>&#125;,</span><br><span class="line">  _getMIME:<span class="function"><span class="keyword">function</span>(<span class="params">ext</span>)</span>&#123;<span class="comment">/* 获取文件的MIME类型 */</span>&#125;,</span><br><span class="line">  responseFile:<span class="function"><span class="keyword">function</span>(<span class="params">pathName, res, ext, params</span>)</span>&#123; <span class="comment">/* 读取文件流并输出 */</span> &#125;</span><br><span class="line">  route:<span class="function"><span class="keyword">function</span>(<span class="params"> pathName, req, res </span>)</span>&#123;<span class="comment">/* 路由到指定的文件并响应输出 */</span>&#125;,</span><br><span class="line">  createServer:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">/* 创建一个http服务 */</span>&#125;,</span><br><span class="line">  _bindEvents:<span class="function"><span class="keyword">function</span>(<span class="params">server</span>)</span>&#123; <span class="comment">/* 注册响应事件 */</span>&#125;;</span><br><span class="line"></span><br><span class="line">HTTP.init();</span><br></pre></td></tr></table></figure>
+<h2 id="编写逻辑"><a href="#编写逻辑" class="headerlink" title="编写逻辑"></a>编写逻辑</h2><h3 id="新建一个http服务"><a href="#新建一个http服务" class="headerlink" title="新建一个http服务"></a>新建一个http服务</h3><figure class="highlight elm"><table><tr><td class="code"><pre><span class="line"><span class="title">var</span> server = http.createServer();</span><br><span class="line"><span class="title">server</span>.listen(<span class="type">CONFIG</span>.<span class="foreign"><span class="keyword">port</span>!==0 ? CONFIG.<span class="keyword">port</span> : 0);</span></span><br></pre></td></tr></table></figure>
+<h3 id="注册-监听端口-和-请求响应-的事件"><a href="#注册-监听端口-和-请求响应-的事件" class="headerlink" title="注册 监听端口 和 请求响应 的事件"></a>注册 监听端口 和 请求响应 的事件</h3><p>在成功连接到端口后，获取端口号 和 本地IP，并打开默认浏览器浏览<br><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="keyword">self</span> = this, defaultUrl = CONFIG.homedir ? CONFIG.homedir+<span class="string">'/'</span>+CONFIG.home : CONFIG.home;</span><br><span class="line"><span class="comment">// 注册监听端口启用事件</span></span><br><span class="line">server.on(<span class="string">'listening'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123; </span><br><span class="line">  <span class="keyword">var</span> port = server.address().port;</span><br><span class="line">  log(<span class="string">'Server running at '</span>+ port);</span><br><span class="line">  CONFIG.browser &amp;&amp; <span class="keyword">self</span>._openURL(<span class="string">'http://'</span>+<span class="keyword">self</span>._getIPAddress()+<span class="string">':'</span>+port+<span class="string">'/'</span>+defaultUrl);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="注册请求处理事件"><a href="#注册请求处理事件" class="headerlink" title="注册请求处理事件"></a>注册请求处理事件</h3><p>在收到请求的url后，解析并路由到指定文件并输出<br><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">server.on(<span class="string">'request'</span>, <span class="function"><span class="keyword">function</span><span class="params">(request, response)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 解析请求的URL</span></span><br><span class="line">    <span class="keyword">var</span> oURL = url.parse(request.url);</span><br><span class="line">    <span class="keyword">var</span> pathName = oURL.pathname.slice(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span>(!pathName) pathName = defaultUrl;</span><br><span class="line">    <span class="keyword">self</span>.route.bind(<span class="keyword">self</span>)(pathName, request, response);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="路由处理"><a href="#路由处理" class="headerlink" title="路由处理"></a>路由处理</h3><p>判断文件是否存大，如果不存在，则返回404状态码，并提示未找到<br>如果存在，则判断是否为文件夹，如果是文件夹，则返回文件夹下的默认home页<br>如果是文件，则获取扩展名和请求的参数<br>根据扩展名获取文件的MIME类型<br>响应流中添加Access-Control-Allow-Origin＝*,允许跨域请求<br>如果文件是json格式，则判断是否有delay延迟参数，如果有，则延迟响应时间<br><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">responseFile:<span class="function"><span class="keyword">function</span><span class="params">(pathName, res, ext, params)</span></span>&#123; <span class="comment">/* 读取文件流并输出 */</span></span><br><span class="line">  <span class="keyword">var</span> <span class="keyword">self</span> = this;</span><br><span class="line">  <span class="keyword">var</span> raw = fs.createReadStream(pathName);</span><br><span class="line">  <span class="comment">// 允许跨域调用</span></span><br><span class="line">  res.setHeader(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"*"</span>);</span><br><span class="line">  res.setHeader(<span class="string">"Content-Type"</span>, <span class="keyword">self</span>._getMIME(ext));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(ext == <span class="string">'json'</span> &amp;&amp; params.delay)&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">      res.writeHead(<span class="number">200</span>, <span class="string">"Ok"</span>);</span><br><span class="line">      raw.pipe(res);</span><br><span class="line">    &#125;,params.delay);</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    res.writeHead(<span class="number">200</span>, <span class="string">"Ok"</span>);</span><br><span class="line">    raw.pipe(res);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">route:<span class="function"><span class="keyword">function</span><span class="params">( pathName, req, res )</span></span>&#123;<span class="comment">/* 路由到指定的文件并响应输出 */</span></span><br><span class="line">  <span class="keyword">var</span> <span class="keyword">self</span> = this;</span><br><span class="line">  fs.stat(pathName, <span class="function"><span class="keyword">function</span><span class="params">(err, stats)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">      res.writeHead(<span class="number">404</span>, <span class="string">"Not Found"</span>, &#123;<span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span>&#125;);</span><br><span class="line">      res.write(<span class="string">"This request URL "</span> + pathName + <span class="string">" was not found on this server."</span>);</span><br><span class="line">      res.end();</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(stats.isDirectory())&#123;</span><br><span class="line">        pathName = path.join(pathName, <span class="string">'/'</span>, CONFIG.home);</span><br><span class="line">        <span class="keyword">self</span>.route(pathName, req, res);</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> method = req.method,</span><br><span class="line">            ext = path.extname(pathName), </span><br><span class="line">            params=<span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">        log(method+<span class="string">': '</span>+pathName);<span class="comment">// 打印请求日志</span></span><br><span class="line"></span><br><span class="line">        ext = ext ? ext.slice(<span class="number">1</span>) : <span class="string">'unknown'</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果是get请求，且url结尾为'/'，那么就返回 home 页</span></span><br><span class="line">        <span class="keyword">if</span>(method==<span class="string">'GET'</span>)&#123;</span><br><span class="line">          pathName.slice(-<span class="number">1</span>) === <span class="string">'/'</span> &amp;&amp;  (pathName = path.normalize(pathName + <span class="string">'/'</span> +CONFIG.home));</span><br><span class="line">          params = url.parse(req.url, <span class="keyword">true</span>).query;</span><br><span class="line">          <span class="keyword">self</span>.responseFile.bind(<span class="keyword">self</span>)(pathName, res, ext, params);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(method == <span class="string">'POST'</span>)&#123;</span><br><span class="line">          <span class="keyword">var</span> _postData = <span class="string">""</span>, _postMap = <span class="string">""</span>;</span><br><span class="line">          req.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(chunk)</span></span>&#123;</span><br><span class="line">              _postData += chunk;</span><br><span class="line">          &#125;).on(<span class="string">"end"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span></span>&#123;</span><br><span class="line">            params = <span class="keyword">require</span>(<span class="string">'querystring'</span>).parse(_postData);</span><br><span class="line">            responseFile.bind(<span class="keyword">self</span>)(pathName, res, ext, params);</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">          <span class="keyword">self</span>.responseFile.bind(<span class="keyword">self</span>)(pathName, res, ext, params);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="扩展功能-1"><a href="#扩展功能-1" class="headerlink" title="扩展功能"></a>扩展功能</h2><p>上面的版本基本上可以满足我们常用的http功能了，但是如果要测试文件缓存，加载时间，多媒体大文件加载，gzip压缩优化响应时间，使用快捷命令启动，那么还需要对基础版本增加一些功能。</p>
+<h3 id="支持304缓存响应"><a href="#支持304缓存响应" class="headerlink" title="支持304缓存响应"></a>支持304缓存响应</h3><p>上面的版本，用户每次请求都会从服务器硬盘中读取文件，如果并发量大，那么磁盘IO会吃不消。所以可以利用浏览器的缓存机制，减少不必要的请求，节省资源消耗。<br>在响应流输出之前，给响应头添加过期时间和最后修改时间<br>浏览器在发送请求之前由于检测到Cache-Control和Expires（Cache-Control的优先级高于Expires，但有的浏览器不支持Cache-Control，这时采用Expires）<br>如果没有过期，则不会发送请求，而直接从缓存中读取文件。<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 添加过期时间</span></span><br><span class="line"><span class="keyword">if</span>(ext.match(CONFIG.fileMatch))&#123;</span><br><span class="line">  <span class="keyword">var</span> expires = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">  expires.setTime(expires.getTime()+CONFIG.maxAge*<span class="number">1000</span>);</span><br><span class="line">  res.setHeader(<span class="string">'Expires'</span>, expires.toUTCString());</span><br><span class="line">  res.setHeader(<span class="string">'Cache-Control'</span>,<span class="string">'max-age='</span>+CONFIG.maxAge);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加Last-Modified头</span></span><br><span class="line"><span class="keyword">var</span> lastModified = stat.mtime.toUTCString();</span><br><span class="line">res.setHeader(<span class="string">'Last-Modified'</span>, lastModified);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 检测请求头是否携带 If-Modified-Since 信息，如果请求的文件的If-Modified-Since时间与最后修改时间相同，则返回304</span></span><br><span class="line"><span class="keyword">var</span> ifModifiedSince = <span class="string">"if-modified-since"</span>;</span><br><span class="line"><span class="keyword">if</span>(req.header[ifModifiedSince] &amp;&amp; lastModified == req.header[ifModifiedSince])&#123;</span><br><span class="line">  res.setHeader(<span class="number">304</span>, <span class="string">'Not Modified'</span>);</span><br><span class="line">  res.end();</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="支持断点续传"><a href="#支持断点续传" class="headerlink" title="支持断点续传"></a>支持断点续传</h3><p>大请求大文件时，如果网络中断，我们希望可以在网速恢复以后，可以继续下载<br>这时就必须在响应头和请求头里做相应的处理，服务端告知浏览器端支持断点续传，并响应字节长度信息，服务端在收到字节长度信息后去按字节读取文件并响应。<br><figure class="highlight scilab"><table><tr><td class="code"><pre><span class="line">_getRange:<span class="function"><span class="keyword">function</span><span class="params">(str, size)</span>&#123;</span></span><br><span class="line">	<span class="keyword">if</span> (<span class="transposed_variable">str.</span>indexOf(<span class="string">","</span>) != -<span class="number">1</span>) &#123;</span><br><span class="line">	    <span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	var range = <span class="transposed_variable">str.</span>split(<span class="string">"-"</span>),</span><br><span class="line">	    start = parseInt(range<span class="matrix">[<span class="number">0</span>]</span>, <span class="number">10</span>),</span><br><span class="line">	    <span class="keyword">end</span> = parseInt(range<span class="matrix">[<span class="number">1</span>]</span>, <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Case: -100 返回最后的end个字节</span></span><br><span class="line">	<span class="keyword">if</span> (isNaN(start)) &#123;</span><br><span class="line">	    start = <span class="built_in">size</span> - <span class="keyword">end</span>;</span><br><span class="line">	    <span class="keyword">end</span> = <span class="built_in">size</span> - <span class="number">1</span>;</span><br><span class="line">	<span class="comment">// Case: 100- 返回从start往后到end之间的字节</span></span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (isNaN(<span class="keyword">end</span>)) &#123;</span><br><span class="line">	    <span class="keyword">end</span> = <span class="built_in">size</span> - <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Invalid</span></span><br><span class="line">	<span class="keyword">if</span> (isNaN(start) || isNaN(<span class="keyword">end</span>) || start &gt; <span class="keyword">end</span> || <span class="keyword">end</span> &gt; <span class="built_in">size</span>) &#123;</span><br><span class="line">	    <span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> &#123;start: start, <span class="keyword">end</span>: <span class="keyword">end</span>&#125;;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">// 告知浏览器支持断点续传</span></span><br><span class="line"><span class="transposed_variable">res.</span>setHeader(<span class="string">'Accept-Ranges'</span>, <span class="string">'bytes'</span>);</span><br><span class="line"><span class="keyword">if</span>(<span class="transposed_variable">req.</span>headers<span class="matrix">[<span class="string">'range'</span>]</span>)&#123;</span><br><span class="line">	var range = <span class="transposed_variable">self.</span>_getRange(<span class="transposed_variable">req.</span>headers<span class="matrix">[<span class="string">'range'</span>]</span>, <span class="transposed_variable">stat.</span><span class="built_in">size</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(range)&#123;</span><br><span class="line">	  <span class="transposed_variable">res.</span>setHeader(<span class="string">'Content-Range'</span>, <span class="string">'bytes '</span> + <span class="transposed_variable">range.</span>start + <span class="string">'-'</span> +<span class="transposed_variable">range.</span><span class="keyword">end</span> +<span class="string">'/'</span>+<span class="transposed_variable">stat.</span><span class="built_in">size</span>);</span><br><span class="line">	  <span class="transposed_variable">res.</span>setHeader(<span class="string">'Content-Length'</span>, <span class="transposed_variable">range.</span><span class="keyword">end</span> - <span class="transposed_variable">range.</span>start+<span class="number">1</span>);</span><br><span class="line">	  <span class="transposed_variable">res.</span>writeHeader(<span class="number">206</span>, <span class="string">'Partial Content'</span>);</span><br><span class="line">	  raw = <span class="transposed_variable">fs.</span>createReadStream(pathName, &#123;<span class="string">"start"</span>: <span class="transposed_variable">range.</span>start, <span class="string">"end"</span>: <span class="transposed_variable">range.</span><span class="keyword">end</span>&#125;);</span><br><span class="line">	  <span class="transposed_variable">raw.</span>pipe(res);</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	  <span class="transposed_variable">res.</span>removeHeader(<span class="string">'Content-Length'</span>);</span><br><span class="line">	  <span class="transposed_variable">res.</span>writeHeader(<span class="number">416</span>, <span class="string">'Request Range Not Satisfiable'</span>);</span><br><span class="line">	  <span class="transposed_variable">res.</span><span class="keyword">end</span>();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用curl 命令测试<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">curl --header <span class="string">"Range:0-50"</span> -i http:<span class="comment">//192.168.0.101:8089/index.html</span></span><br><span class="line"></span><br><span class="line">HTTP/<span class="number">1.1</span> <span class="number">206</span> Partial Content</span><br><span class="line">Server: Node/V5</span><br><span class="line">Accept-Ranges: bytes</span><br><span class="line">Access-Control-Allow-Origin: *</span><br><span class="line">Content-Type: text/html</span><br><span class="line">Last-Modified: Sat, <span class="number">20</span> Feb <span class="number">2016</span> <span class="number">06</span>:<span class="number">45</span>:<span class="number">26</span> GMT</span><br><span class="line">Content-Range: bytes <span class="number">0</span>-<span class="number">50</span>/<span class="number">7672</span></span><br><span class="line">Content-Length: <span class="number">51</span></span><br><span class="line">Date: Tue, <span class="number">15</span> Mar <span class="number">2016</span> <span class="number">14</span>:<span class="number">57</span>:<span class="number">13</span> GMT</span><br><span class="line">Connection: keep-alive</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"zh-CN"</span>&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;m%                                                                                             ➜  ~</span><br></pre></td></tr></table></figure></p>
+<h3 id="启用GZip功能对指定文件进行压缩"><a href="#启用GZip功能对指定文件进行压缩" class="headerlink" title="启用GZip功能对指定文件进行压缩"></a>启用GZip功能对指定文件进行压缩</h3><p>请求的资源经过GZip压缩后，文件体积变小，一方面可以加快响应速度，另一方面可以节省很多资源<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> zlib = <span class="built_in">require</span>(<span class="string">'zlib'</span>);     <span class="comment">//引入内置的zlib模块，用于文件GZip压缩</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> compressHandle = <span class="function"><span class="keyword">function</span>(<span class="params">raw, statusCode, msg</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> stream = raw;</span><br><span class="line">  <span class="keyword">var</span> acceptEncoding = req.headers[<span class="string">'accept-encoding'</span>] || <span class="string">""</span>;</span><br><span class="line">  <span class="keyword">var</span> zipMatch = ext.match(CONFIG.zipMatch);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 判断浏览器是否支持Gzip压缩</span></span><br><span class="line">  <span class="keyword">if</span> (zipMatch &amp;&amp; acceptEncoding.match(<span class="regexp">/\bgzip\b/</span>)) &#123;</span><br><span class="line">      res.setHeader(<span class="string">"Content-Encoding"</span>, <span class="string">"gzip"</span>);</span><br><span class="line">      stream = raw.pipe(zlib.createGzip());</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (zipMatch &amp;&amp; acceptEncoding.match(<span class="regexp">/\bdeflate\b/</span>)) &#123;</span><br><span class="line">      res.setHeader(<span class="string">"Content-Encoding"</span>, <span class="string">"deflate"</span>);</span><br><span class="line">      stream = raw.pipe(zlib.createDeflate());</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  res.writeHead(statusCode, msg);</span><br><span class="line"></span><br><span class="line">  stream.pipe(res);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/QB20160315-1.jpg" width="320"></p>
+<h3 id="使用快捷命令"><a href="#使用快捷命令" class="headerlink" title="使用快捷命令"></a>使用快捷命令</h3><p>经过以上的配置编写，一个基本完善的http服务器搭建完成了，我们把这段JS保存到任意文件夹下，使用node运行，就能在当前目录下建立一个http服务了。<br>但是当我们需要修改端口号，或者要修改主页名称时，我们就必须修改这个文件中的配置对象CONFIG。<br>而我们在使用其它很多nodeJS模块时，都有一些快捷命令可以使用。如何让我们的这个http.js也能像命令一样使用，并可配置参数，现在让我们也一起来实现一下</p>
+<p><strong> 1. 安装 <code>minimist</code> 模块 </strong><br>用于解析命令参数 NPM仓库 <a href="https://www.npmjs.com/package/minimist" target="_blank" rel="external">minimist</a><br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> minimist <span class="comment">--save</span></span></span><br></pre></td></tr></table></figure></p>
+<p><strong> 2. 引用 <code>minimist</code> 处理命令参数 </strong><br><figure class="highlight mel"><table><tr><td class="code"><pre><span class="line">var argv = require(<span class="string">"minimist"</span>)(process.argv.slice(<span class="number">2</span>), &#123;</span><br><span class="line">  <span class="keyword">alias</span>: &#123;</span><br><span class="line">    <span class="string">'port'</span>: <span class="string">'p'</span>,</span><br><span class="line">    <span class="string">'home'</span>: <span class="string">'h'</span>,</span><br><span class="line">    <span class="string">'homedir'</span>: <span class="string">'d'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">string</span>: [<span class="string">'port'</span>, <span class="string">'home'</span>, <span class="string">'homedir'</span>]</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (argv.<span class="keyword">help</span>) &#123;</span><br><span class="line">  <span class="keyword">log</span>(<span class="string">"Usage:"</span>);</span><br><span class="line">  <span class="keyword">log</span>(<span class="string">"  iter-http --help // print help information"</span>);</span><br><span class="line">  <span class="keyword">log</span>(<span class="string">"  iter-http // random a port, current folder as root"</span>);</span><br><span class="line">  <span class="keyword">log</span>(<span class="string">"  iter-http 8888 // 8888 as port"</span>);</span><br><span class="line">  <span class="keyword">log</span>(<span class="string">"  iter-http -p 8989 // 8989 as port"</span>);</span><br><span class="line">  <span class="keyword">log</span>(<span class="string">"  iter-http -h index.htm // index.htm as home page"</span>);</span><br><span class="line">  <span class="keyword">log</span>(<span class="string">"  iter-http -d dist // dist as root"</span>);</span><br><span class="line">  process.exit(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用时, 解析出来的argv的值示例如下</span></span><br><span class="line">iter-http</span><br><span class="line">&#123; _: []&#125;</span><br><span class="line"></span><br><span class="line">iter-http <span class="number">8888</span></span><br><span class="line">&#123; _: [<span class="number">8888</span>]&#125;</span><br><span class="line"></span><br><span class="line">iter-http -p <span class="number">8888</span></span><br><span class="line">&#123; _: [], port: <span class="number">8888</span>&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="npm-模块发布"><a href="#npm-模块发布" class="headerlink" title="npm 模块发布"></a>npm 模块发布</h3><h4 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h4><p>新建一个文件夹 iterhttp ,其中的目录结构如下，并将其发布到GitHub的仓库中去<br><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── LICENSE</span><br><span class="line">├── README<span class="class">.md</span></span><br><span class="line">├── bin</span><br><span class="line">│   └── iter-http</span><br><span class="line">├── http<span class="class">.js</span></span><br><span class="line">├── node_modules</span><br><span class="line">│   └── minimist</span><br><span class="line">└── package.json</span><br></pre></td></tr></table></figure></p>
+<h4 id="配置pagekage-json"><a href="#配置pagekage-json" class="headerlink" title="配置pagekage.json"></a>配置pagekage.json</h4><p>其中的package.json配置如下, 可以使用npm init初始化后，进行修改<br><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "<span class="attribute">name</span>": <span class="value"><span class="string">"iter-http"</span></span>,</span><br><span class="line">  "<span class="attribute">version</span>": <span class="value"><span class="string">"1.0.10"</span></span>,</span><br><span class="line">  "<span class="attribute">description</span>": <span class="value"><span class="string">"Run static file server"</span></span>,</span><br><span class="line">  "<span class="attribute">main</span>": <span class="value"><span class="string">"./http.js"</span></span>,</span><br><span class="line">  "<span class="attribute">scripts</span>": <span class="value">&#123;</span><br><span class="line">    "<span class="attribute">test</span>": <span class="value"><span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></span><br><span class="line">  </span>&#125;</span>,</span><br><span class="line">  "<span class="attribute">bin</span>": <span class="value">&#123;</span><br><span class="line">    "<span class="attribute">iter-http</span>": <span class="value"><span class="string">"./bin/iter-http"</span></span><br><span class="line">  </span>&#125;</span>,</span><br><span class="line">  "<span class="attribute">repository</span>": <span class="value">&#123;</span><br><span class="line">    "<span class="attribute">type</span>": <span class="value"><span class="string">"git"</span></span>,</span><br><span class="line">    "<span class="attribute">url</span>": <span class="value"><span class="string">"git@github.com:git-lt/iterhttp.git"</span></span><br><span class="line">  </span>&#125;</span>,</span><br><span class="line">  "<span class="attribute">keywords</span>": <span class="value">[</span><br><span class="line">    <span class="string">"Static"</span>,</span><br><span class="line">    <span class="string">"file"</span>,</span><br><span class="line">    <span class="string">"server"</span>,</span><br><span class="line">    <span class="string">"Assets"</span></span><br><span class="line">  ]</span>,</span><br><span class="line">  "<span class="attribute">author</span>": <span class="value"><span class="string">"ITER"</span></span>,</span><br><span class="line">  "<span class="attribute">license</span>": <span class="value"><span class="string">"ISC"</span></span>,</span><br><span class="line">  "<span class="attribute">homepage</span>": <span class="value"><span class="string">"http://coderlt.coding.me/coderlt"</span></span>,</span><br><span class="line">  "<span class="attribute">dependencies</span>": <span class="value">&#123;</span><br><span class="line">    "<span class="attribute">minimist</span>": <span class="value"><span class="string">"^1.2.0"</span></span><br><span class="line">  </span>&#125;</span>,</span><br><span class="line">  "<span class="attribute">bugs</span>": <span class="value">&#123;</span><br><span class="line">    "<span class="attribute">url</span>": <span class="value"><span class="string">"https://github.com/git-lt/iterhttp/issues"</span></span><br><span class="line">  </span>&#125;</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意</strong></p>
+<ul>
+<li><code>name</code>为我们包的名称</li>
+<li><code>version</code>为包的版本号，在每次发布包时，一定要更新版本号，否则不能发布</li>
+<li><code>bin</code>配置安装到全局时的路径和命令名称，这里我们将包安装到全局后，就可以在任意目录执行 iter-http 命令开启一个http服务了</li>
+<li><code>dependencies</code> 中是我们包的依赖，在安装依赖的时候附带 –save 参数，会将依赖写入到这个配置中</li>
+<li>bin 目录中的iter-http文件的头部必须添加 <code>#!/usr/bin/env node</code>, 以告知系统使用node运行</li>
+</ul>
+<h4 id="添加npm账号"><a href="#添加npm账号" class="headerlink" title="添加npm账号"></a>添加npm账号</h4><p>在npm官网注册一个账号<br>在本机 包的目录下 执行 <code>npm adduser</code> 添加账号</p>
+<h4 id="发布到npm"><a href="#发布到npm" class="headerlink" title="发布到npm"></a>发布到npm</h4><p>执行 <code>npm publish</code><br>如果发布失败，很可能是使用了淘宝的镜像，执行 <code>npm config set registry http://registry.npmjs.org</code> 还原仓库地址，再次发布就可以了</p>
+<p><strong>注意</strong></p>
+<ul>
+<li>包名和文件夹的名称不能相同</li>
+<li>npm包package.json中registory属性一定要填写，每次<code>npm publish</code>时package.json中<code>version</code>版本一定要大于上一次</li>
+<li><code>npm publish failed put 500  unexpected status code 401</code>这样的报错信息，往往是没有登录成功，操作<code>npm login</code></li>
+</ul>
+<p>发布成功后，信息如下<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">➜  iterhttp git:(master) ✗ npm publish</span><br><span class="line">+ iter-http@<span class="number">1.0</span><span class="number">.9</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="安装使用"><a href="#安装使用" class="headerlink" title="安装使用"></a>安装使用</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> iter-<span class="keyword">http</span> -<span class="keyword">g</span></span></span><br></pre></td></tr></table></figure>
+<p>这里一定要安装到全局，才可以在任意目录下开启http服务<br>安装时也会自动安装依赖包 <code>minimist</code> 用于解析命令参数</p>
+<h4 id="显示帮助"><a href="#显示帮助" class="headerlink" title="显示帮助"></a>显示帮助</h4><figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">iter-<span class="keyword">http</span> <span class="comment">--help</span></span><br><span class="line">Usage:</span><br><span class="line">  iter-<span class="keyword">http</span> <span class="comment">--help // print help information</span></span><br><span class="line">  iter-<span class="keyword">http</span><span class="comment"> // random a port, current folder as root 随机一个可用端口，以当前目录为根目录</span></span><br><span class="line">  iter-<span class="keyword">http</span> <span class="number">8888</span><span class="comment"> // 8888 as port 指定一个端口</span></span><br><span class="line">  iter-<span class="keyword">http</span> -p <span class="number">8989</span><span class="comment"> // 8989 as port 指定一个端口</span></span><br><span class="line">  iter-<span class="keyword">http</span> -h index.htm<span class="comment"> // index.htm as home page 指定一个home页名称</span></span><br><span class="line">  iter-<span class="keyword">http</span> -d dist<span class="comment"> // dist as root 指定root根目录的名称</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/git-lt/iterhttp" target="_blank" rel="external">GitHub项目地址</a><br><a href="https://www.npmjs.com/package/iter-http" target="_blank" rel="external">NPM仓库地址</a></p>
+<blockquote>
+<p>至次一个基本完善的，基于NodeJS的http服务器脚本终于搭建好了，我们发布到了npm中，可以在任意一台设备中安装该模块，可以在任意目录下启用http静态服务器。<br>神器在手，如鱼得水，妈妈再也不用担心我写Demo了:)</p>
+</blockquote>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/http/" rel="tag">#http</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/16/mac-osx-tree/" rel="prev">MAC终端中安装命令行工具TREE</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/08/retina-screen-adapter/" rel="next">移动端高清屏适配方案</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/03/16/http-server-nodejs/"
+     data-title="使用Node.js搭建简易Http服务器"
+     data-content=""
+     data-url="http://toggle.coding.io/2016/03/16/http-server-nodejs/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+            <!-- 多说热评文章-->
+            <p>热评文章</p>
+            <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2016/03/16/http-server-nodejs/"
+                   data-title="使用Node.js搭建简易Http服务器" data-url="http://toggle.coding.io/2016/03/16/http-server-nodejs/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar100.jpg" alt="Aitter" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Aitter</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/git-lt" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank">Zhihu</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">友情链接</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://hexo.io/" target="_blank">Hexo</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#在线实时预览编辑器"><span class="nav-number">1.</span> <span class="nav-text">在线实时预览编辑器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP简易静态服务器的基本功能点"><span class="nav-number">2.</span> <span class="nav-text">HTTP简易静态服务器的基本功能点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本流程"><span class="nav-number">2.1.</span> <span class="nav-text">基本流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本功能"><span class="nav-number">2.2.</span> <span class="nav-text">基本功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展功能"><span class="nav-number">2.3.</span> <span class="nav-text">扩展功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#要解决的问题"><span class="nav-number">3.</span> <span class="nav-text">要解决的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本版代码结构"><span class="nav-number">4.</span> <span class="nav-text">基本版代码结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写逻辑"><span class="nav-number">5.</span> <span class="nav-text">编写逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建一个http服务"><span class="nav-number">5.1.</span> <span class="nav-text">新建一个http服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注册-监听端口-和-请求响应-的事件"><span class="nav-number">5.2.</span> <span class="nav-text">注册 监听端口 和 请求响应 的事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注册请求处理事件"><span class="nav-number">5.3.</span> <span class="nav-text">注册请求处理事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由处理"><span class="nav-number">5.4.</span> <span class="nav-text">路由处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展功能-1"><span class="nav-number">6.</span> <span class="nav-text">扩展功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#支持304缓存响应"><span class="nav-number">6.1.</span> <span class="nav-text">支持304缓存响应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支持断点续传"><span class="nav-number">6.2.</span> <span class="nav-text">支持断点续传</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启用GZip功能对指定文件进行压缩"><span class="nav-number">6.3.</span> <span class="nav-text">启用GZip功能对指定文件进行压缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用快捷命令"><span class="nav-number">6.4.</span> <span class="nav-text">使用快捷命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#npm-模块发布"><span class="nav-number">6.5.</span> <span class="nav-text">npm 模块发布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#目录结构"><span class="nav-number">6.5.1.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置pagekage-json"><span class="nav-number">6.5.2.</span> <span class="nav-text">配置pagekage.json</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加npm账号"><span class="nav-number">6.5.3.</span> <span class="nav-text">添加npm账号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发布到npm"><span class="nav-number">6.5.4.</span> <span class="nav-text">发布到npm</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装使用"><span class="nav-number">6.6.</span> <span class="nav-text">安装使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">6.6.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#显示帮助"><span class="nav-number">6.6.2.</span> <span class="nav-text">显示帮助</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright" >
+  
+  &copy; &nbsp;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aitter</span>
+</div>
+
+<div>
+  <span id="showDays"></span>
+  <span id="busuanzi_container_site_pv">
+    总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+  <span id="busuanzi_container_site_uv">
+    访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+<script>
+var birthDay = new Date("11/20/2014");
+var now = new Date();
+var duration = now.getTime() - birthDay.getTime(); 
+var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+</script>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"togglelt"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

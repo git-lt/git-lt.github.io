@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="react-native," />
+  <meta name="keywords" content="MacOS," />
 
 
 
@@ -39,18 +39,17 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="React Native 初探，了解React Native基本特点，优点和缺点以及适用场景。">
+<meta name="description" content="通常我们在使用命令行工具时，习惯性的会查看当前文件下的目录结构和文件，tree命令很好的帮我们解决了这个问题，但是在liunx和mac系统下没有这个命令，在Windows中，系统有自带的tree命令。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React Native 初探">
-<meta property="og:url" content="http://toggle.coding.io/2015/12/09/react-native-ls1/index.html">
+<meta property="og:title" content="MAC终端中安装命令行工具TREE">
+<meta property="og:url" content="http://toggle.coding.io/2016/03/16/mac-osx-tree/index.html">
 <meta property="og:site_name" content="Aitter Blog">
-<meta property="og:description" content="React Native 初探，了解React Native基本特点，优点和缺点以及适用场景。">
-<meta property="og:image" content="https://camo.githubusercontent.com/597be6566ad102a79e4a3388194a540c33cb000f/687474703a2f2f67746d7330312e616c6963646e2e636f6d2f7470732f69312f5442314d4f45424870585858586357587058586a473976464658582d313133322d3634322e706e67">
-<meta property="og:image" content="http://blog.cnbang.net/wp-content/uploads/2015/03/ReactNative2.png">
-<meta property="og:updated_time" content="2016-02-18T16:21:14.000Z">
+<meta property="og:description" content="通常我们在使用命令行工具时，习惯性的会查看当前文件下的目录结构和文件，tree命令很好的帮我们解决了这个问题，但是在liunx和mac系统下没有这个命令，在Windows中，系统有自带的tree命令。">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20160316-1%402x.png">
+<meta property="og:updated_time" content="2016-03-16T15:41:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React Native 初探">
-<meta name="twitter:description" content="React Native 初探，了解React Native基本特点，优点和缺点以及适用场景。">
+<meta name="twitter:title" content="MAC终端中安装命令行工具TREE">
+<meta name="twitter:description" content="通常我们在使用命令行工具时，习惯性的会查看当前文件下的目录结构和文件，tree命令很好的帮我们解决了这个问题，但是在liunx和mac系统下没有这个命令，在Windows中，系统有自带的tree命令。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +59,7 @@
   };
 </script>
 
-  <title> React Native 初探 | Aitter Blog </title>
+  <title> MAC终端中安装命令行工具TREE | Aitter Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -185,7 +184,7 @@
           
           
             
-              React Native 初探
+              MAC终端中安装命令行工具TREE
             
           
         </h1>
@@ -194,8 +193,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-12-09T00:15:03+08:00" content="2015-12-09">
-            2015-12-09
+          <time itemprop="dateCreated" datetime="2016-03-16T23:07:16+08:00" content="2016-03-16">
+            2016-03-16
           </time>
         </span>
 
@@ -204,8 +203,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/APP开发/" itemprop="url" rel="index">
-                  <span itemprop="name">APP开发</span>
+                <a href="/categories/工具/" itemprop="url" rel="index">
+                  <span itemprop="name">工具</span>
                 </a>
               </span>
 
@@ -220,8 +219,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/12/09/react-native-ls1/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/09/react-native-ls1/" itemprop="commentsCount"></span>
+              <a href="/2016/03/16/mac-osx-tree/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/16/mac-osx-tree/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -235,48 +234,18 @@
       
 
       
-        <span itemprop="articleBody"><p>React Native 初探，了解React Native基本特点，优点和缺点以及适用场景。<br><a id="more"></a></p>
-<h3 id="为什么需要React-Native"><a href="#为什么需要React-Native" class="headerlink" title="为什么需要React Native"></a>为什么需要React Native</h3><p>拥有Native的用户体验，又保留React的开发效率。</p>
-<h3 id="Native-的优势：更好的人机交互体验"><a href="#Native-的优势：更好的人机交互体验" class="headerlink" title="Native 的优势：更好的人机交互体验"></a>Native 的优势：更好的人机交互体验</h3><ul>
-<li>原生控件有更好的体验</li>
-<li>有更好的手势识别</li>
-<li>更合适的多线程模型</li>
-<li>更丰富细腻的动画效果</li>
-</ul>
-<h3 id="Learn-once-write-anywher"><a href="#Learn-once-write-anywher" class="headerlink" title="Learn once, write anywher"></a>Learn once, write anywher</h3><p><img src="https://camo.githubusercontent.com/597be6566ad102a79e4a3388194a540c33cb000f/687474703a2f2f67746d7330312e616c6963646e2e636f6d2f7470732f69312f5442314d4f45424870585858586357587058586a473976464658582d313133322d3634322e706e67" style="width:70%"></p>
-<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
-<li>React: 在不同平台上使用相同的技术开发 </li>
-<li>Virtual DOM: 是DOM在内存中的一种轻量级表达方式，可以通过不同的渲染引擎生成不同平台下的UI。</li>
-<li>无需编译：第一次编译安装后，只需更新服务器端的JS代码，reload一下，整个界面就会同步是更新。</li>
-<li>JSX: 标签化的XML，学习成本低，降低代码量</li>
-<li>css-layout: 可使用css编写布局</li>
-<li>OC-JS: 通过事件机制OC单向调用JS，JS可以直接调用原生的UI，可以运行在Chrome中，通过websocket连接Native code方便调试。</li>
-<li>点按操作抽象成组件：方便控制整个点按操作过程</li>
-<li>实时预览，调试方便：Chrome 中断点调试</li>
-<li>不用webview,彻底摆脱webview的交互和性能问题</li>
-<li>扩展性强，js可以自由组合使用Native端提供的基本控件</li>
-<li>可使用原生的动画</li>
-<li>可通过远端更新JS，直接升级APP</li>
-</ul>
-<h3 id="劣势"><a href="#劣势" class="headerlink" title="劣势"></a>劣势</h3><ul>
-<li>扩展性远不如Web</li>
-<li>依赖原生组件暴露出来的方法，IOS和Andorid必须写两套不同的UI组件，强烈依赖react native提供的接口；</li>
-<li>还没有发布1.0版本</li>
-</ul>
-<h3 id="重要概念"><a href="#重要概念" class="headerlink" title="重要概念"></a>重要概念</h3><p>React Native 中没有Webview， 不是Hybrid App</p>
-<p>核心：IOS Native Code 提供十来个最核心的类或组件，然后由React Native的JS部分组成二十来个基本组件，交由上层的业务方来使用。</p>
-<h3 id="JS工程师与Native-Code工程师的配合"><a href="#JS工程师与Native-Code工程师的配合" class="headerlink" title="JS工程师与Native Code工程师的配合"></a>JS工程师与Native Code工程师的配合</h3><ul>
-<li>JS工程师：将基于的组件拼装成可用的React组件</li>
-<li>Native Code工程师：提供核心组件，提供足够的扩展性、灵活性和性能。</li>
-</ul>
-<h2 id="React-Native通信机制"><a href="#React-Native通信机制" class="headerlink" title="React Native通信机制"></a>React Native通信机制</h2><p><img src="http://blog.cnbang.net/wp-content/uploads/2015/03/ReactNative2.png" style="width:70%"></p>
-<p>大致流程如此：JS函数调用传ModuleID,MethodID -&gt; callback传CallbackID -&gt; OC根据ID拿到对应的方法 -&gt; 处理参数类型 -&gt; 执行OC方法 -&gt; 回调CallbackID -&gt; JS通过CallbackID拿到Callback执行</p>
-<h3 id="React-Native框架和传统的Hybird的主要区别"><a href="#React-Native框架和传统的Hybird的主要区别" class="headerlink" title="React Native框架和传统的Hybird的主要区别"></a>React Native框架和传统的Hybird的主要区别</h3><p>JS不能直接调用OS，只有在Native界面事件响应中去调用JS</p>
-<p>过程：事件发生时，OC调用JS，执行JS相应的模块处理，JS将对OC的调用信息加入到消息队列，OC收到消息调用列表中的消息，获取对应的模块方法运行。<br>在这个过程中，JS充当了数据源的角色，OC是控制器，调用JS数据源并进行解析，然后映射到对应的OC模块进行处理。<br><a href="http://www.ccw.com.cn/article/view/97226" target="_blank" rel="external">解析React Native内部通讯机制</a></p>
-<p><a href="http://blog.cnbang.net/tech/2698/?from=groupmessage&amp;isappinstalled=1" target="_blank" rel="external">React Native通信机制详解</a></p>
-<p><a href="http://www.linuxidc.com/Linux/2015-09/123239.htm" target="_blank" rel="external">一个资深iOS开发者对于React Native的看法</a><br>走出温室，世界才刚刚开始。</p>
-<h3 id="React-技术方案"><a href="#React-技术方案" class="headerlink" title="React 技术方案"></a>React 技术方案</h3><h4 id="React支持服务端渲染"><a href="#React支持服务端渲染" class="headerlink" title="React支持服务端渲染"></a>React支持服务端渲染</h4><p>首屏服务端渲染，翻页客户端渲染</p>
-<h4 id="可以集成到现有的APP"><a href="#可以集成到现有的APP" class="headerlink" title="可以集成到现有的APP"></a>可以集成到现有的APP</h4><p>缓存用于解决资源二次访问时的加载性能、打包解决资源首页访问时的加载性能</p>
+        <span itemprop="articleBody"><p>通常我们在使用命令行工具时，习惯性的会查看当前文件下的目录结构和文件，tree命令很好的帮我们解决了这个问题，但是在liunx和mac系统下没有这个命令，在Windows中，系统有自带的tree命令。<br><a id="more"></a></p>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20160316-1%402x.png" width="400"></p>
+<h2 id="两种方式"><a href="#两种方式" class="headerlink" title="两种方式"></a>两种方式</h2><p>下面我们在Mac OSX中安装 tree 命令</p>
+<p>方法一：我们可以写一个alias 到~/.zshrc下<br><figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">alias <span class="built_in">tree</span>="<span class="built_in">find</span> . -<span class="built_in">print</span> | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"</span><br></pre></td></tr></table></figure></p>
+<p>使用 <code>source .zshrc</code> 更新配置<br>缺点是<strong>没有层级参数配置，会递归显示所有文件，包括隐藏文件</strong></p>
+<p>方法二：安装第三方的 <a href="http://mama.indstate.edu/users/ice/tree/" target="_blank" rel="external">tree</a> 命令</p>
+<h2 id="修改编译配置"><a href="#修改编译配置" class="headerlink" title="修改编译配置"></a>修改编译配置</h2><p>下载解压后，打开目录下的Makefile文件，修改第 55 行，将mac OS X的配置注释打开<br><figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Uncomment for OS X:</span></span><br><span class="line"><span class="constant">CC</span>=cc</span><br><span class="line"><span class="constant">CFLAGS</span>=-O2 -Wall -fomit-frame-pointer -no-cpp-precomp</span><br><span class="line"><span class="constant">LDFLAGS</span>=</span><br><span class="line"><span class="constant">MANDIR</span>=/usr/share/man/man1</span><br><span class="line"><span class="constant">OBJS</span>+=strverscmp.o</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置快捷命令"><a href="#配置快捷命令" class="headerlink" title="配置快捷命令"></a>配置快捷命令</h2><p>使用<code>make</code>命令编译（前提是你已经安装了Xcode命令行工具，如果没有，请在终端中执行”xcode-select –install”来安装。）<br>编译完成后会在目录下生成tree命令的二进制文件，拷贝到<code>/usr/local/bin/</code>目录下<br><figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line">sudo cp tree <span class="regexp">/usr/</span>local<span class="regexp">/bin/</span></span><br></pre></td></tr></table></figure></p>
+<p>打开 <code>~/.zshrc</code> 文件，在最后添加别名，保存关闭<br><figure class="highlight monkey"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alias</span> <span class="title">tree</span>=<span class="string">"/usr/local/bin/tree"</span></span><br></pre></td></tr></table></figure></p>
+<p>使用命令<code>source .zshrc</code>更新配置<br>然后就可以畅快的使用tree了</p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>tree -L 1 显示当前目录下的1级目录<br>tree -L 2 显示当前目录下的2级目录结构<br>tree -a 显示当前目录所有的目录结构</p>
+<h2 id="帮助说明"><a href="#帮助说明" class="headerlink" title="帮助说明"></a>帮助说明</h2><figure class="highlight haml"><table><tr><td class="code"><pre><span class="line"><span class="bullet">  ~  </span>tree --help</span><br><span class="line">usage: tree [-acdfghilnpqrstuvxACDFJQNSUX] [-H baseHREF] [-T title ]</span><br><span class="line">	[-L level [-R]] [-P pattern] [-I pattern] [-o filename] [--version]</span><br><span class="line">	[--help] [--inodes] [--device] [--noreport] [--nolinks] [--dirsfirst]</span><br><span class="line">	[--charset charset] [--filelimit[=]#] [--si] [--timefmt[=]&lt;f&gt;]</span><br><span class="line">	[--sort[=]&lt;name&gt;] [--matchdirs] [--ignore-case] [--] [&lt;directory list&gt;]</span><br><span class="line">  -<span class="ruby">------ <span class="constant">Listing</span> options -------</span><br><span class="line"></span>  -<span class="ruby">a            <span class="constant">All</span> files are listed.</span><br><span class="line"></span>  -<span class="ruby">d            <span class="constant">List</span> directories only.</span><br><span class="line"></span>  -<span class="ruby">l            <span class="constant">Follow</span> symbolic links like directories.</span><br><span class="line"></span>  -<span class="ruby">f            <span class="constant">Print</span> the full path prefix <span class="keyword">for</span> each file.</span><br><span class="line"></span>  -<span class="ruby">x            <span class="constant">Stay</span> on current filesystem only.</span><br><span class="line"></span>  -<span class="ruby"><span class="constant">L</span> level      <span class="constant">Descend</span> only level directories deep.</span><br><span class="line"></span>  -<span class="ruby"><span class="constant">R</span>            <span class="constant">Rerun</span> tree <span class="keyword">when</span> max dir level reached.</span><br><span class="line"></span>  -<span class="ruby"><span class="constant">P</span> pattern    <span class="constant">List</span> only those files that match the pattern given.</span><br><span class="line"></span>  -<span class="ruby"><span class="constant">I</span> pattern    <span class="constant">Do</span> <span class="keyword">not</span> list files that match the given pattern.</span><br><span class="line"></span>  -<span class="ruby">-ignore-<span class="keyword">case</span> <span class="constant">Ignore</span> <span class="keyword">case</span> <span class="keyword">when</span> pattern matching.</span><br><span class="line"></span>  -<span class="ruby">-matchdirs   <span class="constant">Include</span> directory names <span class="keyword">in</span> -<span class="constant">P</span> pattern matching.</span><br><span class="line"></span>  -<span class="ruby">-noreport    <span class="constant">Turn</span> off file/directory count at <span class="keyword">end</span> of tree listing.</span><br><span class="line"></span>  -<span class="ruby">-charset <span class="constant">X</span>   <span class="constant">Use</span> charset <span class="constant">X</span> <span class="keyword">for</span> terminal/<span class="constant">HTML</span> <span class="keyword">and</span> indentation line output.</span><br><span class="line"></span>  -<span class="ruby">-filelimit <span class="comment"># Do not descend dirs with more than # files in them.</span></span><br><span class="line"></span>  -<span class="ruby">-timefmt &lt;f&gt; <span class="constant">Print</span> <span class="keyword">and</span> format time according to the format &lt;f&gt;.</span><br><span class="line"></span>  -<span class="ruby">o filename   <span class="constant">Output</span> to file instead of stdout.</span><br><span class="line"></span>  -<span class="ruby">------- <span class="constant">File</span> options ---------</span><br><span class="line"></span>  -<span class="ruby">q            <span class="constant">Print</span> non-printable characters as <span class="string">'?'</span>.</span><br><span class="line"></span>  -<span class="ruby"><span class="constant">N</span>            <span class="constant">Print</span> non-printable characters as is.</span><br><span class="line"></span>  -<span class="ruby"><span class="constant">Q</span>            <span class="constant">Quote</span> filenames with double quotes.</span><br><span class="line"></span>  -<span class="ruby">p            <span class="constant">Print</span> the protections <span class="keyword">for</span> each file.</span><br><span class="line"></span>  -<span class="ruby">u            <span class="constant">Displays</span> file owner <span class="keyword">or</span> <span class="constant">UID</span> number.</span><br><span class="line"></span>  -<span class="ruby">g            <span class="constant">Displays</span> file group owner <span class="keyword">or</span> <span class="constant">GID</span> number.</span><br><span class="line"></span>  -<span class="ruby">s            <span class="constant">Print</span> the size <span class="keyword">in</span> bytes of each file.</span><br><span class="line"></span>  -<span class="ruby">h            <span class="constant">Print</span> the size <span class="keyword">in</span> a more human readable way.</span><br><span class="line"></span>  -<span class="ruby">-si          <span class="constant">Like</span> -h, but use <span class="keyword">in</span> <span class="constant">SI</span> units (powers of <span class="number">1000</span>).</span><br><span class="line"></span>  -<span class="ruby"><span class="constant">D</span>            <span class="constant">Print</span> the date of last modification <span class="keyword">or</span> (-c) status change.</span><br><span class="line"></span>  -<span class="ruby"><span class="constant">F</span>            <span class="constant">Appends</span> <span class="string">'/'</span>, <span class="string">'='</span>, <span class="string">'*'</span>, <span class="string">'@'</span>, <span class="string">'|'</span> <span class="keyword">or</span> <span class="string">'&gt;'</span> as per ls -<span class="constant">F</span>.</span><br><span class="line"></span>  -<span class="ruby">-inodes      <span class="constant">Print</span> inode number of each file.</span><br><span class="line"></span>  -<span class="ruby">-device      <span class="constant">Print</span> device <span class="constant">ID</span> number to which each file belongs.</span><br><span class="line"></span>  -<span class="ruby">------ <span class="constant">Sorting</span> options -------</span><br><span class="line"></span>  -<span class="ruby">v            <span class="constant">Sort</span> files alphanumerically by version.</span><br><span class="line"></span>  -<span class="ruby">t            <span class="constant">Sort</span> files by last modification time.</span><br><span class="line"></span>  -<span class="ruby">c            <span class="constant">Sort</span> files by last status change time.</span><br><span class="line"></span>  -<span class="ruby"><span class="constant">U</span>            <span class="constant">Leave</span> files unsorted.</span><br><span class="line"></span>  -<span class="ruby">r            <span class="constant">Reverse</span> the order of the sort.</span><br><span class="line"></span>  -<span class="ruby">-dirsfirst   <span class="constant">List</span> directories before files (-<span class="constant">U</span> disables).</span><br><span class="line"></span>  -<span class="ruby">-sort <span class="constant">X</span>      <span class="constant">Select</span> <span class="symbol">sort:</span> name,version,size,mtime,ctime.</span><br><span class="line"></span>  -<span class="ruby">------ <span class="constant">Graphics</span> options ------</span><br><span class="line"></span>  -<span class="ruby">i            <span class="constant">Don</span><span class="string">'t print indentation lines.</span><br><span class="line"></span></span>  -<span class="ruby"><span class="string">A            Print ANSI lines graphic indentation lines.</span><br><span class="line"></span></span>  -<span class="ruby"><span class="string">S            Print with CP437 (console) graphics indentation lines.</span><br><span class="line"></span></span>  -<span class="ruby"><span class="string">n            Turn colorization off always (-C overrides).</span><br><span class="line"></span></span>  -<span class="ruby"><span class="string">C            Turn colorization on always.</span><br><span class="line"></span></span>  -<span class="ruby"><span class="string">------ XML/HTML/JSON options -------</span><br><span class="line"></span></span>  -<span class="ruby"><span class="string">X            Prints out an XML representation of the tree.</span><br><span class="line"></span></span>  -<span class="ruby"><span class="string">J            Prints out an JSON representation of the tree.</span><br><span class="line"></span></span>  -<span class="ruby"><span class="string">H baseHREF   Prints out HTML format with baseHREF as top directory.</span><br><span class="line"></span></span>  -<span class="ruby"><span class="string">T string     Replace the default HTML title and H1 header with string.</span><br><span class="line"></span></span>  -<span class="ruby"><span class="string">-nolinks     Turn off hyperlinks in HTML output.</span><br><span class="line"></span></span>  -<span class="ruby"><span class="string">--- Miscellaneous options ----</span><br><span class="line"></span></span>  -<span class="ruby"><span class="string">-version     Print version and exit.</span><br><span class="line"></span></span>  -<span class="ruby"><span class="string">-help        Print usage and this help message and exit.</span><br><span class="line"></span></span>  -<span class="ruby"><span class="string">-            Options processing terminator.</span><br><span class="line"></span></span>➜  ~</span><br></pre></td></tr></table></figure>
 </span>
       
     </div>
@@ -285,7 +254,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/react-native/" rel="tag">#react-native</a>
+            <a href="/tags/MacOS/" rel="tag">#MacOS</a>
           
         </div>
       
@@ -294,13 +263,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/12/10/h5-performance/" rel="prev">洽客前端性能优化指南V1.0.0</a>
+              <a href="/2016/03/16/debug-nodejs/" rel="prev">畅快的调试NodeJS</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/27/HybridApp-Doc/" rel="next">Hybrid APP 交互文档 v1.0.0</a>
+              <a href="/2016/03/16/http-server-nodejs/" rel="next">使用Node.js搭建简易Http服务器</a>
             
           </div>
         </div>
@@ -315,10 +284,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/12/09/react-native-ls1/"
-     data-title="React Native 初探"
+        <div class="ds-share flat" data-thread-key="2016/03/16/mac-osx-tree/"
+     data-title="MAC终端中安装命令行工具TREE"
      data-content=""
-     data-url="http://toggle.coding.io/2015/12/09/react-native-ls1/">
+     data-url="http://toggle.coding.io/2016/03/16/mac-osx-tree/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -348,8 +317,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/12/09/react-native-ls1/"
-                   data-title="React Native 初探" data-url="http://toggle.coding.io/2015/12/09/react-native-ls1/">
+              <div class="ds-thread" data-thread-key="2016/03/16/mac-osx-tree/"
+                   data-title="MAC终端中安装命令行工具TREE" data-url="http://toggle.coding.io/2016/03/16/mac-osx-tree/">
               </div>
             
           </div>
@@ -448,7 +417,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么需要React-Native"><span class="nav-number">1.</span> <span class="nav-text">为什么需要React Native</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Native-的优势：更好的人机交互体验"><span class="nav-number">2.</span> <span class="nav-text">Native 的优势：更好的人机交互体验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Learn-once-write-anywher"><span class="nav-number">3.</span> <span class="nav-text">Learn once, write anywher</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">4.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#劣势"><span class="nav-number">5.</span> <span class="nav-text">劣势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重要概念"><span class="nav-number">6.</span> <span class="nav-text">重要概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS工程师与Native-Code工程师的配合"><span class="nav-number">7.</span> <span class="nav-text">JS工程师与Native Code工程师的配合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-Native通信机制"><span class="nav-number"></span> <span class="nav-text">React Native通信机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#React-Native框架和传统的Hybird的主要区别"><span class="nav-number">1.</span> <span class="nav-text">React Native框架和传统的Hybird的主要区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React-技术方案"><span class="nav-number">2.</span> <span class="nav-text">React 技术方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#React支持服务端渲染"><span class="nav-number">2.1.</span> <span class="nav-text">React支持服务端渲染</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可以集成到现有的APP"><span class="nav-number">2.2.</span> <span class="nav-text">可以集成到现有的APP</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#两种方式"><span class="nav-number">1.</span> <span class="nav-text">两种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改编译配置"><span class="nav-number">2.</span> <span class="nav-text">修改编译配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置快捷命令"><span class="nav-number">3.</span> <span class="nav-text">配置快捷命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-number">4.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#帮助说明"><span class="nav-number">5.</span> <span class="nav-text">帮助说明</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
