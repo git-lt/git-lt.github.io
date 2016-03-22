@@ -42,7 +42,7 @@
 <meta name="description" content="javascript | HTML5 | CSS3 | Node | React">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Aitter Blog">
-<meta property="og:url" content="http://toggle.coding.io/tags/NexT/index.html">
+<meta property="og:url" content="http://toggle.coding.io/archives/2016/page/2/index.html">
 <meta property="og:site_name" content="Aitter Blog">
 <meta property="og:description" content="javascript | HTML5 | CSS3 | Node | React">
 <meta name="twitter:card" content="summary">
@@ -57,7 +57,7 @@
   };
 </script>
 
-  <title> 标签: NexT | Aitter Blog </title>
+  <title> 归档 | Aitter Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -85,7 +85,7 @@
 
 
 
-  <div class="container one-column ">
+  <div class="container one-column  page-archive ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -170,15 +170,32 @@
       <div class="main-inner">
         <div id="content" class="content"> 
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        NexT
-        <small>标签</small>
-      </h2>
-    </div>
+  <section id="posts" class="posts-collapse">
+    <span class="archive-move-on"></span>
+
+    <span class="archive-page-counter">
+      
+      
+      
+        
+      
+      嗯..! 目前共计 19 篇日志。 继续努力。
+    </span>
 
     
+
+      
+      
+      
+
+      
+        
+        <div class="collection-title">
+          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
+        </div>
+      
+      
+
       
 
   <article class="post post-type-normal"itemscope itemtype="http://schema.org/Article">
@@ -186,24 +203,31 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2015/09/21/blog-with-hexo/" itemprop="url">
-              <span itemprop="name">使用HEXO搭建博客</span>
+            <a class="post-title-link" href="/2016/02/18/QKPlatform-readme/" itemprop="url">
+              <span itemprop="name">新版管理后台框架调整说明文档</span>
             </a>
         
       </h1>
 
       <div class="post-meta">
-        <time class="post-time" datetime="2015-09-21T13:35:48.000Z" itemprop="dateCreated" content="2015-09-21"> 09-21 </time>
+        <time class="post-time" datetime="2016-02-18T15:06:22.000Z" itemprop="dateCreated" content="2016-02-18"> 02-18 </time>
       </div>
 
     </header>
   </article>
 
 
+
     
-  </div>
+
+  </section>
 
   
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/archives/2016/">&laquo;</a><a class="page-number" href="/archives/2016/">1</a><span class="page-number current">2</span>
+  </nav>
+
+
  </div>
 
         
@@ -397,6 +421,12 @@ document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
+  
+    <script type="text/javascript" id="motion.page.archive">
+      $('.archive-year').velocity('transition.slideLeftIn');
+    </script>
+  
+
 
   <script type="text/javascript">
     $(document).ready(function () {
