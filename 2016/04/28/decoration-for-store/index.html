@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="性能优化," />
+  <meta name="keywords" content="CSS3,HEXO,HTML5," />
 
 
 
@@ -39,18 +39,24 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="前言在用户量日益增长和客户对体验要求越来越高的情况下，前端方面需进行性能优化，框架升级，优化开发流程，提高开发效率，改善用户体验，减少带宽消耗。以下参考 腾讯ISUX 及 阿里无线前端性能优化指南 理出以下前端性能优化升级项">
+<meta name="description" content="前言微商城装修是一个纯前端的交互逻辑，具有一定的复杂度，需要合理的数据结构、逻辑设计与友好的交互体验，对于设计者一个很大的考验。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="洽客前端性能优化指南V1.0.0">
-<meta property="og:url" content="http://toggle.coding.io/2015/12/10/h5-performance/index.html">
+<meta property="og:title" content="微商城装修的设计实现">
+<meta property="og:url" content="http://toggle.coding.io/2016/04/28/decoration-for-store/index.html">
 <meta property="og:site_name" content="Aitter Blog">
-<meta property="og:description" content="前言在用户量日益增长和客户对体验要求越来越高的情况下，前端方面需进行性能优化，框架升级，优化开发流程，提高开发效率，改善用户体验，减少带宽消耗。以下参考 腾讯ISUX 及 阿里无线前端性能优化指南 理出以下前端性能优化升级项">
-<meta property="og:image" content="http://isux.tencent.com/wp-content/uploads/2015/01/20150108170945527.png">
-<meta property="og:image" content="https://camo.githubusercontent.com/3f9c3d51b6afe0784ca3b664ca346f78196d77ad/687474703a2f2f696d67322e746263646e2e636e2f4c312f3436312f312f37636164373432316231363761613436323462356666626233386230613435656535643130643632">
-<meta property="og:updated_time" content="2015-12-10T12:31:46.000Z">
+<meta property="og:description" content="前言微商城装修是一个纯前端的交互逻辑，具有一定的复杂度，需要合理的数据结构、逻辑设计与友好的交互体验，对于设计者一个很大的考验。">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20160502-3%402x.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20160502-2%402x.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20160502-1%402x.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/IMG_2068.PNG">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/IMG_2069.PNG">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/IMG_2070.PNG">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20160502-0@2x.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/IMG_2068.PNG">
+<meta property="og:updated_time" content="2016-05-02T16:41:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="洽客前端性能优化指南V1.0.0">
-<meta name="twitter:description" content="前言在用户量日益增长和客户对体验要求越来越高的情况下，前端方面需进行性能优化，框架升级，优化开发流程，提高开发效率，改善用户体验，减少带宽消耗。以下参考 腾讯ISUX 及 阿里无线前端性能优化指南 理出以下前端性能优化升级项">
+<meta name="twitter:title" content="微商城装修的设计实现">
+<meta name="twitter:description" content="前言微商城装修是一个纯前端的交互逻辑，具有一定的复杂度，需要合理的数据结构、逻辑设计与友好的交互体验，对于设计者一个很大的考验。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +66,7 @@
   };
 </script>
 
-  <title> 洽客前端性能优化指南V1.0.0 | Aitter Blog </title>
+  <title> 微商城装修的设计实现 | Aitter Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -185,7 +191,7 @@
           
           
             
-              洽客前端性能优化指南V1.0.0
+              微商城装修的设计实现
             
           
         </h1>
@@ -194,8 +200,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-12-10T20:29:00+08:00" content="2015-12-10">
-            2015-12-10
+          <time itemprop="dateCreated" datetime="2016-04-28T01:39:57+08:00" content="2016-04-28">
+            2016-04-28
           </time>
         </span>
 
@@ -204,8 +210,44 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/移动前端/" itemprop="url" rel="index">
+                <a href="/categories/node/" itemprop="url" rel="index">
+                  <span itemprop="name">node</span>
+                </a>
+              </span>
+
+              
+              
+                ， 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/node/移动前端/" itemprop="url" rel="index">
                   <span itemprop="name">移动前端</span>
+                </a>
+              </span>
+
+              
+              
+                ， 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/node/移动前端/Web前端/" itemprop="url" rel="index">
+                  <span itemprop="name">Web前端</span>
+                </a>
+              </span>
+
+              
+              
+                ， 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/node/移动前端/Web前端/工具/" itemprop="url" rel="index">
+                  <span itemprop="name">工具</span>
                 </a>
               </span>
 
@@ -220,8 +262,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/12/10/h5-performance/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/10/h5-performance/" itemprop="commentsCount"></span>
+              <a href="/2016/04/28/decoration-for-store/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/28/decoration-for-store/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -235,87 +277,81 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在用户量日益增长和客户对体验要求越来越高的情况下，前端方面需进行性能优化，框架升级，优化开发流程，提高开发效率，改善用户体验，减少带宽消耗。以下参考 腾讯ISUX 及 阿里无线前端性能优化指南 理出以下前端性能优化升级项<br><a id="more"></a></p>
-<h2 id="前端项目"><a href="#前端项目" class="headerlink" title="前端项目"></a>前端项目</h2><ul>
-<li>Admin 商家管理平台</li>
-<li>Mall 洽客身边店</li>
-<li>User 导购端H5页面</li>
-<li>Qiakr 洽客内部管理平台 (单页化-组件化-分离 先从这个项目开始尝试)</li>
-<li>Data 数据平台 （已完成 单页 模块）</li>
-<li>Home 洽管官网 （已完成 单页）</li>
-</ul>
-<h2 id="急需解决的问题"><a href="#急需解决的问题" class="headerlink" title="急需解决的问题"></a>急需解决的问题</h2><ol>
-<li>活动页 加载及体验上的优化</li>
-<li>身边店首页 加载优化（目标：1s首屏加载）</li>
-<li>异步请求及静态资源缓存(提升加载速度，节省带宽)</li>
-<li>后台数据查询时间优化</li>
-</ol>
-<h2 id="将要解决的问题【需要添加人手共同构建】"><a href="#将要解决的问题【需要添加人手共同构建】" class="headerlink" title="将要解决的问题【需要添加人手共同构建】"></a>将要解决的问题【需要添加人手共同构建】</h2><ul>
-<li>前后端分离 -&gt; 自动化: 编译 打包 发布 部署 -&gt; 前端工程化</li>
-<li>CSS 与 JS 基础组件库的建立 -&gt; 组件化 -&gt; 模块化<br>【需要添加人手共同构建】</li>
-</ul>
-<p><img src="http://isux.tencent.com/wp-content/uploads/2015/01/20150108170945527.png" style="width:90%"><br><img src="https://camo.githubusercontent.com/3f9c3d51b6afe0784ca3b664ca346f78196d77ad/687474703a2f2f696d67322e746263646e2e636e2f4c312f3436312f312f37636164373432316231363761613436323462356666626233386230613435656535643130643632" style="width:90%"></p>
-<h2 id="图片控制"><a href="#图片控制" class="headerlink" title="图片控制"></a>图片控制</h2><ol>
-<li>尽量使用iconfont字体图标 （已完成）</li>
-<li>在iconfont使用量较少但又需要小图标的页面，使用图片base64（部分使用）</li>
-<li>大图使用webp图片（部分使用）</li>
-<li>利用七牛图片处理API，获取适合页面大小的图片（部分使用）</li>
-<li>透明图片切成png24或png8, 不透明的图片切成jpg或gif（部分使用）</li>
-<li>简单的图标使用css编写 如剪头 loading等</li>
-<li>尽量不使用Gif动画包括loading（降低CPU消耗，提升渲染性能）<br>代码需求：JS-H5特性检测 | JS-webp替换 | CSS-css形状组件</li>
-</ol>
-<h2 id="图片加载"><a href="#图片加载" class="headerlink" title="图片加载"></a>图片加载</h2><ol>
-<li>精减iconfont引用资源，只使用ttf文件（已完成）</li>
-<li><p>非WIFI环境下，按需加载</p>
-<p> <strong>代码需求：JS-WIFI环境检测 | JS-懒加载组件</strong></p>
+        <span itemprop="articleBody"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>微商城装修是一个纯前端的交互逻辑，具有一定的复杂度，需要合理的数据结构、逻辑设计与友好的交互体验，对于设计者一个很大的考验。<br><a id="more"></a></p>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20160502-3%402x.png" width="500"></p>
+<div style="display:none"><br><strong> 编辑 </strong><br><strong> 工作间 </strong><br><br><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20160502-2%402x.png" width="500"><br><br><br><strong> 选择模板 </strong><br><br><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20160502-1%402x.png" width="500"><br><br><strong> 门店装修效果 </strong><br><br><img src="http://7xi480.com1.z0.glb.clouddn.com/IMG_2068.PNG" style="width:200px; display:inline-block;"><br><img src="http://7xi480.com1.z0.glb.clouddn.com/IMG_2069.PNG" style="width:200px; display:none;"><br><img src="http://7xi480.com1.z0.glb.clouddn.com/IMG_2070.PNG" style="width:200px; display:none;"><br></div>
+
+<h2 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h2><h3 id="数据结构设计"><a href="#数据结构设计" class="headerlink" title="数据结构设计"></a>数据结构设计</h3><p>数据结构的设计必须考虑到业务需求的多样性，要易于扩展，方便修改，便于存储与解析。<br>这里我采用JSON对象的形式，每个模块为一个JSON对象，键名为模块的ID，键值为模块的配置，易于解析。<br>每个模块携带一个排序值方便调整模块的显示顺序。<br>整个配置携带一个version字段，以记录用户的编辑次数，和该配置的版本。</p>
+<figure class="highlight xquery"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">'m1000'</span>:&#123;&#125;,</span><br><span class="line">	<span class="string">'m1011'</span>:&#123;&#125;,</span><br><span class="line">	<span class="string">'m1012'</span>:&#123;&#125;,</span><br><span class="line">	<span class="string">'m1004'</span>:&#123;&#125;,</span><br><span class="line">	<span class="string">'version'</span>:<span class="number">10</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="交互设计"><a href="#交互设计" class="headerlink" title="交互设计"></a>交互设计</h3><p>通过拖动生成预览的交互，可以让用户方便的添加模块，调整模块的位置。<br>始终保持一个唯一激活的界面展现给用户操作，以提升操作流程的专注性，潜移默化的引导用户进行下一步操作。</p>
+<h2 id="业务逻辑"><a href="#业务逻辑" class="headerlink" title="业务逻辑"></a>业务逻辑</h2><p><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20160502-0@2x.png" style="width:400px;"></p>
+<h3 id="模板类型"><a href="#模板类型" class="headerlink" title="模板类型"></a>模板类型</h3><pre><code>默认模板
+    所有门店在没有设置模板的情况下使用默认模板
+自定义装修
+    门店自己的装修模板，编辑门店自定义的装修模板，不会影响到其它门店，属于门店唯一
+标准模板
+    商户可以新建模板，保存时都将保存为标准模板，标准模板可以供商户下所有门店或部分门店使用
+</code></pre><p>每个商户有自己的模板仓库，可以添加/编辑/删除模板</p>
+<h3 id="模板编辑"><a href="#模板编辑" class="headerlink" title="模板编辑"></a>模板编辑</h3><p>商户可以编辑模板库里的模板和默认模板，将影响所有使用该模板的店铺<br>门店只能编辑自已的自定义装修模板</p>
+<h3 id="模板预览"><a href="#模板预览" class="headerlink" title="模板预览"></a>模板预览</h3><p>获取模板列表后，根据模板配置分页生预览界面。<br>对于指定门店，预览内容中的店铺信息由店铺ID取得，并获取该店铺下的商品列表<br>商户编辑模板(没有指定门店)，预览时使用默认门店信息进行预览</p>
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>所有模块</p>
+<figure class="highlight gcode"><table><tr><td class="code"><pre><span class="line"><span class="title">m1000</span>：搜索 | <span class="title">m1001</span>：轮播广告 | <span class="title">m1002</span>：通栏广告 | <span class="title">m1003</span>：两栏广告		| <span class="title">m1004</span>：商品推荐</span><br><span class="line"><span class="title">m1005</span>：文本 | <span class="title">m1006</span>：活动导航 | <span class="title">m1007</span>：品牌导航 | <span class="title">m1008</span>：自定义区域	| <span class="title">m1009</span>：品类导航</span><br><span class="line"><span class="title">m1010</span>：自定义分类导航 | <span class="title">m1011</span>：店招 | <span class="title">m1012</span>：店铺信息</span><br></pre></td></tr></table></figure>
+<p>默认配置</p>
+<figure class="highlight gherkin"><table><tr><td class="code"><pre><span class="line">/<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line"> <span class="keyword">*</span> [DEF_CONF 默认配置]</span><br><span class="line"> <span class="keyword">*</span> m1000 搜索</span><br><span class="line"> <span class="keyword">*</span> m1011 店招</span><br><span class="line"> <span class="keyword">*</span> m1012 店铺信息</span><br><span class="line"> <span class="keyword">*</span> m1004 商品推荐 自动</span><br><span class="line"> <span class="keyword">*</span>/</span><br><span class="line">DEF_CONF=&#123;</span><br><span class="line">	'm1000':&#123;&#125;,</span><br><span class="line">	'm1011':&#123;&#125;,</span><br><span class="line">	'm1012':&#123;&#125;,</span><br><span class="line">	'm1004':&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line"> <span class="keyword">*</span> [RES_CONF 最终保存的配置]</span><br><span class="line"> <span class="keyword">*</span>/</span><br><span class="line">RES_CONF=&#123;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="交互逻辑"><a href="#交互逻辑" class="headerlink" title="交互逻辑"></a>交互逻辑</h2><p>拖拽模块至预览区，释放生成新的模块，并显示编辑项<br>保存编辑项，更新内容至预览区域</p>
+<h3 id="创建新模块"><a href="#创建新模块" class="headerlink" title="创建新模块"></a>创建新模块</h3><ol>
+<li><p>拖拽停止时设置拖拽标识为true</p>
+</li>
+<li><p>刷新模块排序值，更新装修配置信息</p>
+</li>
+<li><p>判断是否为拖动创建模块触发（可能是内部拖动排序触发）<br> 是：</p>
+<pre><code>获取模块原始id
+找到拖动到手机区域的模块
+生成新的模块id 随机
+根据原始id找到渲染模板和模板默认数据 渲染到预览区，替换刚刚拖动过来的模块图片
+隐藏模块遮罩 显示整体遮罩 当前模块隐藏收起和编辑按钮
+</code></pre><p> 不是：</p>
+<pre><code>提示模块顺序发生了变化，请注意保存！
+</code></pre></li>
+<li><p>如果是商品推荐模块<br> 是：</p>
+<pre><code>将品牌信息 和 分类信息添加到商品推荐模块的配置数据中
+</code></pre></li>
+<li><p>显示编辑模块，传递id，配置，编辑模板的名称<br> 获取编辑界面id<br> 获取编辑界面的DOM，检查是否存在</p>
+<pre><code>是：
+    使用新的DOM替换以前的DOM
+
+不是：
+    根据 模板名称 和 数据 渲染至编辑窗口中
+
+初始化编辑界面的组件
+    根据模块原始id初始化相应界面的组件
+</code></pre></li>
+<li><p>将是否为拖拽标识设置为false</p>
 </li>
 </ol>
-<h2 id="缓存控制"><a href="#缓存控制" class="headerlink" title="缓存控制"></a>缓存控制</h2><ol>
-<li>CSS 与 JS 使用Localstroage缓存至本地，cookie中存储资源版本与名称</li>
-<li>异步请求数据缓存至Sessionstroage，设置缓存时间，减少请求次数，快速显示数据</li>
-<li><p>Native App将静态公用资源缓存至本地</p>
-<p> 代码需求：JS-使用LS缓存静态资源 | JS-使用SS缓存异步请求</p>
-<p> 参考：<a href="http://www.zhihu.com/question/28467444" target="_blank" rel="external">知乎</a><br> <a href="http://blog.csdn.net/a497785609/article/details/48321405" target="_blank" rel="external">移动端使用LocalStroage缓存JS与Css</a><br> <a href="http://www.open-open.com/lib/view/open1449498774019.html" target="_blank" rel="external">手机百度localstorage细粒度缓存介绍</a></p>
-</li>
-</ol>
-<h2 id="减少请求数"><a href="#减少请求数" class="headerlink" title="减少请求数"></a>减少请求数</h2><ol>
-<li>部分页面内联CSS与JS，除图片以外的资源，一次请求到位</li>
-<li>请求合并，JS与CSS压缩合并</li>
-<li>JS组件化，按需加载合并，去除不被执行的JS代码块和css</li>
-</ol>
-<h2 id="接口优化"><a href="#接口优化" class="headerlink" title="接口优化"></a>接口优化</h2><ol>
-<li>接口收敛到单一的接服务层</li>
-<li>精减JSON，去除不显示的字段，减少传输大小</li>
-</ol>
-<h2 id="服务器端的优化"><a href="#服务器端的优化" class="headerlink" title="服务器端的优化"></a>服务器端的优化</h2><ol>
-<li>使用HttpDNS</li>
-<li>使用SSL+SPDY协议 多路复用请求优化 | 服务器推送技术 | SPDY压缩http头</li>
-</ol>
-<h2 id="首屏加载优化"><a href="#首屏加载优化" class="headerlink" title="首屏加载优化"></a>首屏加载优化</h2><ul>
-<li>单张图片大小控制</li>
-<li>接口合并</li>
-<li>缓存请求的数据</li>
-<li>按需加载</li>
-<li>小图标base64化</li>
-<li>缓存JS与CSS</li>
-</ul>
-<h2 id="体验优化"><a href="#体验优化" class="headerlink" title="体验优化"></a>体验优化</h2><ol>
-<li>使用手淘滚动组件</li>
-<li>下拉刷新，上拉加载插件化</li>
-<li>动画效率提升优化</li>
-<li>分享内容优化 <a href="http://www.ui.cn/detail/50140.html" target="_blank" rel="external">一般化分享</a></li>
-<li>横竖屏提示优化<a href="http://www.xuanfengge.com/move-pages-anyway-screen-tips.html#more-5463" target="_blank" rel="external">lanscape.js</a></li>
-<li>字体屏幕适应</li>
-<li>DNS预解析 <code>&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//host/&quot;&gt;</code></li>
-<li>预渲染页面 <code>&lt;link rel=&quot;prerender&quot; href=&quot;http://www.cmcm.com&quot;&gt; prerendercmcm &lt;/link&gt;</code> <a href="http://blog.csdn.net/typename/article/details/38536167" target="_blank" rel="external">prerender</a></li>
-</ol>
-<p>参考：</p>
-<ul>
-<li><a href="http://www.cnblogs.com/yexiaochai/p/4901341.html" target="_blank" rel="external">前端优化带来的思考，浅谈前端工程化</a></li>
-<li><a href="https://github.com/amfe/article/issues/1" target="_blank" rel="external">阿里无线前端性能优化指南</a></li>
-<li><a href="https://github.com/amfe/article/issues/21" target="_blank" rel="external">15年双11手淘前端技术巡演 - H5性能最佳实践</a></li>
-<li><a href="http://isux.tencent.com/h5-performance.html" target="_blank" rel="external">ISUX移动H5前端性能优化指南</a></li>
-</ul>
+<h3 id="取消编辑"><a href="#取消编辑" class="headerlink" title="取消编辑"></a>取消编辑</h3><pre><code>获取编辑界面id
+判断是否保存过，如果没有则移除，如果有，则隐藏
+    没有：
+        隐藏整体遮罩 显示模块遮罩 当前模块显示收起和编辑按钮
+        移除相关的编辑界面和预览中的模块
+    有：
+        隐藏整体遮罩 显示模块遮罩 当前模块显示收起和编辑按钮
+    隐藏编辑界面
+</code></pre><h3 id="点击编辑"><a href="#点击编辑" class="headerlink" title="点击编辑"></a>点击编辑</h3><pre><code>获取模块ID、编辑模板、数据
+显示编辑界面
+隐藏模块遮罩 显示整体遮罩 当前模块隐藏收起和编辑按钮
+</code></pre><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><pre><code>获取模块ID、编辑模板、数据
+提示 是否确定删除
+删了装修配置中的数据
+异步更新到后端
+    成功：
+        删除预览中的模块
+        隐藏整体遮罩 显示模块遮罩
+        判断是否没有模块了，没有则显示 提示模块
+    失败：
+        显示报错信息
+</code></pre><p><strong> 门店装修效果 </strong></p>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/IMG_2068.PNG" style="width:200px; display:inline-block;"></p>
 </span>
       
     </div>
@@ -324,7 +360,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/性能优化/" rel="tag">#性能优化</a>
+            <a href="/tags/CSS3/" rel="tag">#CSS3</a>
+          
+            <a href="/tags/HEXO/" rel="tag">#HEXO</a>
+          
+            <a href="/tags/HTML5/" rel="tag">#HTML5</a>
           
         </div>
       
@@ -333,13 +373,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/02/18/QKPlatform-readme/" rel="prev">新版管理后台框架调整说明文档</a>
+              <a href="/2016/05/01/build-github-wiki/" rel="prev">在Github上建立自己的Wiki</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/09/react-native-ls1/" rel="next">React Native 初探</a>
+              <a href="/2016/04/12/JS-template-20/" rel="next">20行实现JS模板引擎</a>
             
           </div>
         </div>
@@ -354,10 +394,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/12/10/h5-performance/"
-     data-title="洽客前端性能优化指南V1.0.0"
+        <div class="ds-share flat" data-thread-key="2016/04/28/decoration-for-store/"
+     data-title="微商城装修的设计实现"
      data-content=""
-     data-url="http://toggle.coding.io/2015/12/10/h5-performance/">
+     data-url="http://toggle.coding.io/2016/04/28/decoration-for-store/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -387,8 +427,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/12/10/h5-performance/"
-                   data-title="洽客前端性能优化指南V1.0.0" data-url="http://toggle.coding.io/2015/12/10/h5-performance/">
+              <div class="ds-thread" data-thread-key="2016/04/28/decoration-for-store/"
+                   data-title="微商城装修的设计实现" data-url="http://toggle.coding.io/2016/04/28/decoration-for-store/">
               </div>
             
           </div>
@@ -487,7 +527,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端项目"><span class="nav-number">2.</span> <span class="nav-text">前端项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#急需解决的问题"><span class="nav-number">3.</span> <span class="nav-text">急需解决的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将要解决的问题【需要添加人手共同构建】"><span class="nav-number">4.</span> <span class="nav-text">将要解决的问题【需要添加人手共同构建】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片控制"><span class="nav-number">5.</span> <span class="nav-text">图片控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片加载"><span class="nav-number">6.</span> <span class="nav-text">图片加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存控制"><span class="nav-number">7.</span> <span class="nav-text">缓存控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#减少请求数"><span class="nav-number">8.</span> <span class="nav-text">减少请求数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口优化"><span class="nav-number">9.</span> <span class="nav-text">接口优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器端的优化"><span class="nav-number">10.</span> <span class="nav-text">服务器端的优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#首屏加载优化"><span class="nav-number">11.</span> <span class="nav-text">首屏加载优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#体验优化"><span class="nav-number">12.</span> <span class="nav-text">体验优化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计"><span class="nav-number">2.</span> <span class="nav-text">设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据结构设计"><span class="nav-number">2.1.</span> <span class="nav-text">数据结构设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交互设计"><span class="nav-number">2.2.</span> <span class="nav-text">交互设计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#业务逻辑"><span class="nav-number">3.</span> <span class="nav-text">业务逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模板类型"><span class="nav-number">3.1.</span> <span class="nav-text">模板类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板编辑"><span class="nav-number">3.2.</span> <span class="nav-text">模板编辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板预览"><span class="nav-number">3.3.</span> <span class="nav-text">模板预览</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块"><span class="nav-number">4.</span> <span class="nav-text">模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交互逻辑"><span class="nav-number">5.</span> <span class="nav-text">交互逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建新模块"><span class="nav-number">5.1.</span> <span class="nav-text">创建新模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#取消编辑"><span class="nav-number">5.2.</span> <span class="nav-text">取消编辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#点击编辑"><span class="nav-number">5.3.</span> <span class="nav-text">点击编辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-number">5.4.</span> <span class="nav-text">删除</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
