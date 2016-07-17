@@ -39,16 +39,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="React或Vue给我来带来的不是仅仅是View层的改变和便捷的组件化开发，更多的是围绕这套开发体系，整个技术栈的应用和实践。但是往往在大多公司还没有切换到新的技术栈上，很多管理系统还是基于传统的AMD或CMD开发，配合Jquery插件使用，所以日常的组件和模块编写应该有一定的规范，以减少多人配合开发的沟通成本，统一编码风格，便于维护管理，也便于后期重构切换到新的技术栈。&amp;lt;!-- mroe --&amp;gt;">
+<meta name="description" content="React或Vue给我来带来的不是仅仅是View层的改变和便捷的组件化开发，更多的是围绕这套开发体系，整个技术栈的应用和实践。但是往往在大多公司还没有切换到新的技术栈上，很多管理系统还是基于传统的AMD或CMD开发，配合Jquery插件使用，所以日常的组件和模块编写应该有一定的规范，以减少多人配合开发的沟通成本，统一编码风格，便于维护管理，也便于后期重构切换到新的技术栈。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AMD模块的编写规范">
 <meta property="og:url" content="http://toggle.coding.io/2016/05/11/AMD-Module-guid/index.html">
 <meta property="og:site_name" content="Aitter Blog">
-<meta property="og:description" content="React或Vue给我来带来的不是仅仅是View层的改变和便捷的组件化开发，更多的是围绕这套开发体系，整个技术栈的应用和实践。但是往往在大多公司还没有切换到新的技术栈上，很多管理系统还是基于传统的AMD或CMD开发，配合Jquery插件使用，所以日常的组件和模块编写应该有一定的规范，以减少多人配合开发的沟通成本，统一编码风格，便于维护管理，也便于后期重构切换到新的技术栈。&amp;lt;!-- mroe --&amp;gt;">
-<meta property="og:updated_time" content="2016-07-17T07:25:42.000Z">
+<meta property="og:description" content="React或Vue给我来带来的不是仅仅是View层的改变和便捷的组件化开发，更多的是围绕这套开发体系，整个技术栈的应用和实践。但是往往在大多公司还没有切换到新的技术栈上，很多管理系统还是基于传统的AMD或CMD开发，配合Jquery插件使用，所以日常的组件和模块编写应该有一定的规范，以减少多人配合开发的沟通成本，统一编码风格，便于维护管理，也便于后期重构切换到新的技术栈。">
+<meta property="og:updated_time" content="2016-07-17T07:27:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AMD模块的编写规范">
-<meta name="twitter:description" content="React或Vue给我来带来的不是仅仅是View层的改变和便捷的组件化开发，更多的是围绕这套开发体系，整个技术栈的应用和实践。但是往往在大多公司还没有切换到新的技术栈上，很多管理系统还是基于传统的AMD或CMD开发，配合Jquery插件使用，所以日常的组件和模块编写应该有一定的规范，以减少多人配合开发的沟通成本，统一编码风格，便于维护管理，也便于后期重构切换到新的技术栈。&amp;lt;!-- mroe --&amp;gt;">
+<meta name="twitter:description" content="React或Vue给我来带来的不是仅仅是View层的改变和便捷的组件化开发，更多的是围绕这套开发体系，整个技术栈的应用和实践。但是往往在大多公司还没有切换到新的技术栈上，很多管理系统还是基于传统的AMD或CMD开发，配合Jquery插件使用，所以日常的组件和模块编写应该有一定的规范，以减少多人配合开发的沟通成本，统一编码风格，便于维护管理，也便于后期重构切换到新的技术栈。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -233,7 +233,7 @@
       
 
       
-        <span itemprop="articleBody"><p>React或Vue给我来带来的不是仅仅是View层的改变和便捷的组件化开发，更多的是围绕这套开发体系，整个技术栈的应用和实践。<br>但是往往在大多公司还没有切换到新的技术栈上，很多管理系统还是基于传统的AMD或CMD开发，配合Jquery插件使用，所以日常的组件和模块编写应该有一定的规范，以减少多人配合开发的沟通成本，统一编码风格，便于维护管理，也便于后期重构切换到新的技术栈。<br><!-- mroe --></p>
+        <span itemprop="articleBody"><p>React或Vue给我来带来的不是仅仅是View层的改变和便捷的组件化开发，更多的是围绕这套开发体系，整个技术栈的应用和实践。<br>但是往往在大多公司还没有切换到新的技术栈上，很多管理系统还是基于传统的AMD或CMD开发，配合Jquery插件使用，所以日常的组件和模块编写应该有一定的规范，以减少多人配合开发的沟通成本，统一编码风格，便于维护管理，也便于后期重构切换到新的技术栈。<br><a id="more"></a></p>
 <h2 id="是编写模块还是编写组件？"><a href="#是编写模块还是编写组件？" class="headerlink" title="是编写模块还是编写组件？"></a>是编写模块还是编写组件？</h2><h3 id="模块与组件的区别"><a href="#模块与组件的区别" class="headerlink" title="模块与组件的区别"></a>模块与组件的区别</h3><ul>
 <li>组件：可重用，对独立功能生命周期的封装。对外提供统一的配置和调用接口。遵循开闭原则：对外扩展开放，对内修改关闭。</li>
 <li>模块：不可重用，对一个业务处理的封装，有独有的业务处理代码，可调用各种组件。</li>
