@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="调试," />
+  <meta name="keywords" content="Hexo,next" />
 
 
 
@@ -39,18 +39,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="在使用NodeJS中，我们最初会发现，如果一直是使用console.log()的方式去定位错误，去调试node，是一件很痛苦的事情，不仅效率低，而且不容易查错定位。这里使用 node-inspector 配合 supervisor 来调试node，将命nodejs调试变得更简单有效！当然我们也可以使用webstrom自带的调试器进行调试">
+<meta name="description" content="组件的封装有利用于代码的复用，封装统一的数据处理逻辑，对外提供接口，灵活配置与扩展，调用方便，利于维护。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="畅快的调试NodeJS">
-<meta property="og:url" content="http://toggle.coding.io/2016/03/16/debug-nodejs/index.html">
+<meta property="og:title" content="组件编写规范">
+<meta property="og:url" content="http://toggle.coding.io/2016/05/10/Define-Component-guid/index.html">
 <meta property="og:site_name" content="Aitter Blog">
-<meta property="og:description" content="在使用NodeJS中，我们最初会发现，如果一直是使用console.log()的方式去定位错误，去调试node，是一件很痛苦的事情，不仅效率低，而且不容易查错定位。这里使用 node-inspector 配合 supervisor 来调试node，将命nodejs调试变得更简单有效！当然我们也可以使用webstrom自带的调试器进行调试">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QB20160316-1.jpg">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QB20160316-2.jpg">
-<meta property="og:updated_time" content="2016-07-17T02:52:12.000Z">
+<meta property="og:description" content="组件的封装有利用于代码的复用，封装统一的数据处理逻辑，对外提供接口，灵活配置与扩展，调用方便，利于维护。">
+<meta property="og:updated_time" content="2016-07-17T07:25:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="畅快的调试NodeJS">
-<meta name="twitter:description" content="在使用NodeJS中，我们最初会发现，如果一直是使用console.log()的方式去定位错误，去调试node，是一件很痛苦的事情，不仅效率低，而且不容易查错定位。这里使用 node-inspector 配合 supervisor 来调试node，将命nodejs调试变得更简单有效！当然我们也可以使用webstrom自带的调试器进行调试">
+<meta name="twitter:title" content="组件编写规范">
+<meta name="twitter:description" content="组件的封装有利用于代码的复用，封装统一的数据处理逻辑，对外提供接口，灵活配置与扩展，调用方便，利于维护。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +58,7 @@
   };
 </script>
 
-  <title> 畅快的调试NodeJS | Aitter Blog </title>
+  <title> 组件编写规范 | Aitter Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -185,7 +183,7 @@
           
           
             
-              畅快的调试NodeJS
+              组件编写规范
             
           
         </h1>
@@ -194,8 +192,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-03-16T23:22:02+08:00" content="2016-03-16">
-            2016-03-16
+          <time itemprop="dateCreated" datetime="2016-05-10T15:24:25+08:00" content="2016-05-10">
+            2016-05-10
           </time>
         </span>
 
@@ -204,8 +202,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/工具/" itemprop="url" rel="index">
-                  <span itemprop="name">工具</span>
+                <a href="/categories/Web前端/" itemprop="url" rel="index">
+                  <span itemprop="name">Web前端</span>
                 </a>
               </span>
 
@@ -220,8 +218,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/03/16/debug-nodejs/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/16/debug-nodejs/" itemprop="commentsCount"></span>
+              <a href="/2016/05/10/Define-Component-guid/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/10/Define-Component-guid/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -235,37 +233,62 @@
       
 
       
-        <span itemprop="articleBody"><p>在使用NodeJS中，我们最初会发现，如果一直是使用console.log()的方式去定位错误，去调试node，是一件很痛苦的事情，不仅效率低，而且不容易查错定位。<br>这里使用 <a href="https://www.npmjs.com/package/node-inspector" target="_blank" rel="external">node-inspector</a> 配合 <a href="https://www.npmjs.com/package/supervisor" target="_blank" rel="external">supervisor</a> 来调试node，将命nodejs调试变得更简单有效！<br>当然我们也可以使用webstrom自带的调试器进行调试<br><a id="more"></a></p>
-<h2 id="安装全局模块"><a href="#安装全局模块" class="headerlink" title="安装全局模块"></a>安装全局模块</h2> <figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line">npm install <span class="keyword">node</span><span class="identifier"></span><span class="title">-inspector</span> supervisor -g</span><br></pre></td></tr></table></figure>
-<h2 id="开启调试监听服务"><a href="#开启调试监听服务" class="headerlink" title="开启调试监听服务"></a>开启调试监听服务</h2><figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line"><span class="keyword">node</span><span class="identifier"></span><span class="title">-inspector</span></span><br></pre></td></tr></table></figure>
-<p>如果报错，一般是我们端口被占用了，使用 –web-port=8988 来指定端口<br>成功后会返回一个url地址，我们在chrome中打开返回的地址<br><figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line"><span class="keyword">node</span><span class="identifier"></span><span class="title">-inspector</span> --<span class="variable">web-port=</span><span class="number">8891</span></span><br><span class="line"><span class="keyword">Node</span><span class="identifier"> </span><span class="title">Inspector</span> v0.<span class="number">12.7</span></span><br><span class="line">Visit http://<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">8891</span>/?<span class="variable">port=</span><span class="number">5858</span> to <span class="literal">start</span> debugging.</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://7xi480.com1.z0.glb.clouddn.com/QB20160316-1.jpg" width="500"></p>
-<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="title">supervisor</span> --<span class="built_in">debug</span>-brk debugme.js</span><br></pre></td></tr></table></figure>
-<p>这时，如果<a href="http://127.0.0.1:8891/?port=5858页面没有加载js，可以刷新一下就有了，打上断点，畅快的调试吧" target="_blank" rel="external">http://127.0.0.1:8891/?port=5858页面没有加载js，可以刷新一下就有了，打上断点，畅快的调试吧</a><br><img src="http://7xi480.com1.z0.glb.clouddn.com/QB20160316-2.jpg" width="500"></p>
+        <span itemprop="articleBody"><p>组件的封装有利用于代码的复用，封装统一的数据处理逻辑，对外提供接口，灵活配置与扩展，调用方便，利于维护。<br><a id="more"></a></p>
+<h2 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h2><ul>
+<li>开闭原则：对内修改关闭，对外扩展开放</li>
+<li>单例模式：同一个组件，在多次调用时，只使用一个单例</li>
+</ul>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>使用闭包：减少全局变量的污染，避免与其它插件冲突</p>
+<h3 id="严格模式-strict-mode"><a href="#严格模式-strict-mode" class="headerlink" title="严格模式 (strict mode)"></a>严格模式 (strict mode)</h3><p>使用严格模式：添加 <code>use strict</code> 标识</p>
+<ul>
+<li>消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为;</li>
+<li>消除代码运行的一些不安全之处，保证代码运行的安全；</li>
+<li>提高编译器效率，增加运行速度；</li>
+<li>为未来新版本的Javascript做好铺垫。</li>
+</ul>
+<h3 id="组件说明"><a href="#组件说明" class="headerlink" title="组件说明"></a>组件说明</h3><p>组件应添加组件说明，包含：组件名称、作者、版本、依赖项、使用方式、源码地址</p>
+<figure class="highlight gherkin"><table><tr><td class="code"><pre><span class="line">/<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line"><span class="keyword">*</span> module: Button</span><br><span class="line"><span class="keyword">*</span> author: XXX</span><br><span class="line"><span class="keyword">*</span> version: v0.0.1</span><br><span class="line"><span class="keyword">*</span> use age: ....</span><br><span class="line"><span class="keyword">*</span> deps: [...]</span><br><span class="line"><span class="keyword">*</span> github: ...</span><br><span class="line"><span class="keyword">*</span><span class="keyword">*</span>/</span><br></pre></td></tr></table></figure>
+<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>组件的状态和属性都应该在构造函数中进行初始化</p>
+<h3 id="插件定义"><a href="#插件定义" class="headerlink" title="插件定义"></a>插件定义</h3><p>通用插件定义</p>
+<ul>
+<li>在内部返回每一个jQuery对象，插件的实例缓存到jQ对象的<code>data</code>中</li>
+<li>要的参数的类型调用组件不同的方法</li>
+</ul>
+<figure class="highlight xquery"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> Plugin(<span class="keyword">option</span>) &#123;</span><br><span class="line">    return this.each(function () &#123;</span><br><span class="line">      var <span class="variable">$this</span> = $(this)</span><br><span class="line">      var data  = <span class="variable">$this</span>.data(<span class="string">'qk.button'</span>)</span><br><span class="line"></span><br><span class="line">      if (!data) <span class="variable">$this</span>.data(<span class="string">'qk.button'</span>, (data = new Button(this)))</span><br><span class="line">      if (typeof option == <span class="string">'string'</span>) data[option].call(<span class="variable">$this</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="事件的命名空间"><a href="#事件的命名空间" class="headerlink" title="事件的命名空间"></a>事件的命名空间</h3><p>在开发较复杂的组件时，应添加事件命名空间，方便事件的管理，参见<a href="https://github.com/twbs/bootstrap/blob/master/js%2Fmodal.js" target="_blank" rel="external">bootstrap modal组件</a></p>
+<h3 id="对外开放配置"><a href="#对外开放配置" class="headerlink" title="对外开放配置"></a>对外开放配置</h3><p>组件通常有很多的配置，将配置接口对外开放，可方便用户对组件进行详情的配置与自定义</p>
+<figure class="highlight mel"><table><tr><td class="code"><pre><span class="line"><span class="variable">$.</span>bn.<span class="keyword">button</span>.defaults=&#123; ... &#125;</span><br></pre></td></tr></table></figure>
+<p><strong> 注意： 组件内部使用到的模板、class、id等都应该放到配置中，以便使用者自定义 </strong></p>
+<h3 id="对外开放构造器"><a href="#对外开放构造器" class="headerlink" title="对外开放构造器"></a>对外开放构造器</h3><p>将构造器对外开放，可方便外部对插件进行扩展升级</p>
+<figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line"><span class="variable">$.</span><span class="keyword">fn</span>.button.<span class="constant">Constructor </span>= <span class="constant">Button;</span></span><br></pre></td></tr></table></figure>
+<h3 id="解决与其它重名插件的冲突"><a href="#解决与其它重名插件的冲突" class="headerlink" title="解决与其它重名插件的冲突"></a>解决与其它重名插件的冲突</h3><p>为防止组件名称与其它组件重名，应对外提供onConflict接口进行重命名。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> old = $.fn.button;</span><br><span class="line">$.fn.button.noConflict = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;$.fn.button = old;<span class="keyword">return</span> <span class="keyword">this</span>;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>组件的生命周期包含：组件状态初始化、数据初始化、事件绑定、更新、销毁</p>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><ul>
+<li>PUBLIC CLASS DEFINITION：类定义，定义了插件构造方法类及方法。</li>
+<li>PLUGIN DEFINITION：插件定义，上面只是定义了插件的类，这里才是实现插件的地方。</li>
+<li>PLUGIN NOCONFLICT:插件命名冲突解决</li>
+<li>DATA-API：DATA-属性接口</li>
+</ul>
+<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line">* module: Button</span><br><span class="line">* author: XXX</span><br><span class="line">* version: v0.0.1</span><br><span class="line">* use age: ....</span><br><span class="line">* deps: [...]</span><br><span class="line">* github: ...</span><br><span class="line">**/</span></span><br><span class="line"></span><br><span class="line">!<span class="function"><span class="keyword">function</span> <span class="params">($)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="string">"use strict"</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// CLASS DEFINITION</span></span><br><span class="line">  <span class="comment">// ================ </span></span><br><span class="line">  <span class="keyword">var</span> Button = <span class="function"><span class="keyword">function</span> <span class="params">(element, options)</span> </span>&#123;<span class="comment">/*some code*&#125;</span><br><span class="line">  </span><br><span class="line">  Button.VERSION='v1.0.1';</span><br><span class="line">  </span><br><span class="line">  Button.prototype.setState = function (state) &#123;/*some code*/</span>&#125;</span><br><span class="line">  Button.prototype.toggle = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;<span class="comment">/*some code*/</span>&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">// PLUGIN DEFINITION</span></span><br><span class="line">  <span class="comment">// =================</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">Plugin</span><span class="params">(option)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> this.each(<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> <span class="variable">$this</span> = $(this)</span><br><span class="line">      <span class="keyword">var</span> data  = <span class="variable">$this</span>.data(<span class="string">'qk.button'</span>)</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (!data) <span class="variable">$this</span>.data(<span class="string">'qk.button'</span>, (data = <span class="keyword">new</span> Button(this)))</span><br><span class="line">      <span class="keyword">if</span> (typeof option == <span class="string">'string'</span>) data[option].call(<span class="variable">$this</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> old = $.fn.button;</span><br><span class="line"></span><br><span class="line">  $.fn.button             = Plugin;</span><br><span class="line">  $.fn.button.Constructor = Button;</span><br><span class="line">  $.fn.button.defaults = &#123;loadingText: <span class="string">'loading...'</span>&#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// NO CONFLICT</span></span><br><span class="line">  <span class="comment">// ===========</span></span><br><span class="line">  $.fn.button.noConflict = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">      $.fn.button = old;</span><br><span class="line">      <span class="keyword">return</span> this;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// DATA-API</span></span><br><span class="line">  <span class="comment">// ========</span></span><br><span class="line">  $(document).on(<span class="string">'click.button.data-api'</span>, <span class="string">'[data-toggle^=button]'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> </span>&#123;<span class="comment">/*some code*/</span>&#125;)</span><br><span class="line"></span><br><span class="line">&#125;(jQuery, window, undefined);</span><br></pre></td></tr></table></figure>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/调试/" rel="tag">#调试</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/22/mac-command-curl/" rel="prev">MAC之http命令行工具curl</a>
+              <a href="/2016/05/11/AMD-Module-guid/" rel="prev">AMD模块的编写规范</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/16/mac-osx-tree/" rel="next">MAC终端中安装命令行工具TREE</a>
+              <a href="/2016/05/01/build-github-wiki/" rel="next">在Github上建立自己的Wiki</a>
             
           </div>
         </div>
@@ -280,10 +303,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/03/16/debug-nodejs/"
-     data-title="畅快的调试NodeJS"
+        <div class="ds-share flat" data-thread-key="2016/05/10/Define-Component-guid/"
+     data-title="组件编写规范"
      data-content=""
-     data-url="http://toggle.coding.io/2016/03/16/debug-nodejs/">
+     data-url="http://toggle.coding.io/2016/05/10/Define-Component-guid/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -313,8 +336,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/03/16/debug-nodejs/"
-                   data-title="畅快的调试NodeJS" data-url="http://toggle.coding.io/2016/03/16/debug-nodejs/">
+              <div class="ds-thread" data-thread-key="2016/05/10/Define-Component-guid/"
+                   data-title="组件编写规范" data-url="http://toggle.coding.io/2016/05/10/Define-Component-guid/">
               </div>
             
           </div>
@@ -413,7 +436,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装全局模块"><span class="nav-number">1.</span> <span class="nav-text">安装全局模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启调试监听服务"><span class="nav-number">2.</span> <span class="nav-text">开启调试监听服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调试"><span class="nav-number">3.</span> <span class="nav-text">调试</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原则"><span class="nav-number">1.</span> <span class="nav-text">原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包"><span class="nav-number">1.1.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#严格模式-strict-mode"><span class="nav-number">1.2.</span> <span class="nav-text">严格模式 (strict mode)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件说明"><span class="nav-number">1.3.</span> <span class="nav-text">组件说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数"><span class="nav-number">1.4.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件定义"><span class="nav-number">1.5.</span> <span class="nav-text">插件定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件的命名空间"><span class="nav-number">1.6.</span> <span class="nav-text">事件的命名空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对外开放配置"><span class="nav-number">1.7.</span> <span class="nav-text">对外开放配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对外开放构造器"><span class="nav-number">1.8.</span> <span class="nav-text">对外开放构造器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决与其它重名插件的冲突"><span class="nav-number">1.9.</span> <span class="nav-text">解决与其它重名插件的冲突</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生命周期"><span class="nav-number">2.</span> <span class="nav-text">生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构"><span class="nav-number">3.</span> <span class="nav-text">结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板"><span class="nav-number">4.</span> <span class="nav-text">模板</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
