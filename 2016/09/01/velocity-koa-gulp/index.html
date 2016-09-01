@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="gulp," />
 
 
 
@@ -39,19 +39,20 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="前言
-&amp;emsp;&amp;emsp;欢迎加入洽客前端开发团队。此文档主要从前端的开发环境、开发框架和开发流程三个方面描述了公司产品的前端开发。&amp;emsp;&amp;emsp;不同的公司都有着不同的开发环境，项目架构，目录规范，编码规范等等相关约定，在项目复杂的情况下，如何在最短的时间内融入团队，熟悉项目，接手任务进行开发，是每一个前端新人应必知必会的事情。">
+<meta name="description" content="前言因公司前端项目在很长的一段时间内都没有一个比较合适的项目打包优化工具，以致页面打开速度慢，很多页面的代码很容易被其它公司抄袭，设计稿还原度不高，来回修改，影响工作效率，所以痛定思痛，决心开发一款基于gulp的，适合自己项目结构的前端构建工具，改善目前的开发流程和质量。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端入职指引">
-<meta property="og:url" content="http://toggle.coding.io/2016/02/28/FED-entry-guide/index.html">
+<meta property="og:title" content="基于 koa + gulp 的前端工程构建工具">
+<meta property="og:url" content="http://toggle.coding.io/2016/09/01/velocity-koa-gulp/index.html">
 <meta property="og:site_name" content="Aitter Blog">
-<meta property="og:description" content="前言
-&amp;emsp;&amp;emsp;欢迎加入洽客前端开发团队。此文档主要从前端的开发环境、开发框架和开发流程三个方面描述了公司产品的前端开发。&amp;emsp;&amp;emsp;不同的公司都有着不同的开发环境，项目架构，目录规范，编码规范等等相关约定，在项目复杂的情况下，如何在最短的时间内融入团队，熟悉项目，接手任务进行开发，是每一个前端新人应必知必会的事情。">
-<meta property="og:updated_time" content="2016-07-17T03:11:13.000Z">
+<meta property="og:description" content="前言因公司前端项目在很长的一段时间内都没有一个比较合适的项目打包优化工具，以致页面打开速度慢，很多页面的代码很容易被其它公司抄袭，设计稿还原度不高，来回修改，影响工作效率，所以痛定思痛，决心开发一款基于gulp的，适合自己项目结构的前端构建工具，改善目前的开发流程和质量。">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E6%88%AA%E5%9B%BE%202016-09-01%2008%E6%97%B628%E5%88%8634%E7%A7%92.jpg">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E6%88%AA%E5%9B%BE%202016-09-01%2008%E6%97%B629%E5%88%8623%E7%A7%92.jpg">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E6%88%AA%E5%9B%BE%202016-09-01%2008%E6%97%B629%E5%88%8639%E7%A7%92.jpg">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E6%88%AA%E5%9B%BE%202016-09-01%2008%E6%97%B630%E5%88%8604%E7%A7%92.jpg">
+<meta property="og:updated_time" content="2016-09-01T02:52:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端入职指引">
-<meta name="twitter:description" content="前言
-&amp;emsp;&amp;emsp;欢迎加入洽客前端开发团队。此文档主要从前端的开发环境、开发框架和开发流程三个方面描述了公司产品的前端开发。&amp;emsp;&amp;emsp;不同的公司都有着不同的开发环境，项目架构，目录规范，编码规范等等相关约定，在项目复杂的情况下，如何在最短的时间内融入团队，熟悉项目，接手任务进行开发，是每一个前端新人应必知必会的事情。">
+<meta name="twitter:title" content="基于 koa + gulp 的前端工程构建工具">
+<meta name="twitter:description" content="前言因公司前端项目在很长的一段时间内都没有一个比较合适的项目打包优化工具，以致页面打开速度慢，很多页面的代码很容易被其它公司抄袭，设计稿还原度不高，来回修改，影响工作效率，所以痛定思痛，决心开发一款基于gulp的，适合自己项目结构的前端构建工具，改善目前的开发流程和质量。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -61,7 +62,7 @@
   };
 </script>
 
-  <title> 前端入职指引 | Aitter Blog </title>
+  <title> 基于 koa + gulp 的前端工程构建工具 | Aitter Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -186,7 +187,7 @@
           
           
             
-              前端入职指引
+              基于 koa + gulp 的前端工程构建工具
             
           
         </h1>
@@ -195,8 +196,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-02-28T23:45:00+08:00" content="2016-02-28">
-            2016-02-28
+          <time itemprop="dateCreated" datetime="2016-09-01T10:51:18+08:00" content="2016-09-01">
+            2016-09-01
           </time>
         </span>
 
@@ -205,8 +206,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/其它/" itemprop="url" rel="index">
-                  <span itemprop="name">其它</span>
+                <a href="/categories/工具/" itemprop="url" rel="index">
+                  <span itemprop="name">工具</span>
                 </a>
               </span>
 
@@ -221,8 +222,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/02/28/FED-entry-guide/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/28/FED-entry-guide/" itemprop="commentsCount"></span>
+              <a href="/2016/09/01/velocity-koa-gulp/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/01/velocity-koa-gulp/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -236,85 +237,70 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>&emsp;&emsp;欢迎加入洽客前端开发团队。此文档主要从前端的开发环境、开发框架和开发流程三个方面描述了公司产品的前端开发。<br>&emsp;&emsp;不同的公司都有着不同的开发环境，项目架构，目录规范，编码规范等等相关约定，在项目复杂的情况下，如何在最短的时间内融入团队，熟悉项目，接手任务进行开发，是每一个前端新人应必知必会的事情。<br><a id="more"></a></p>
-</blockquote>
-<h2 id="文档主要内容"><a href="#文档主要内容" class="headerlink" title="文档主要内容"></a>文档主要内容</h2><h3 id="搭建前端开发环境"><a href="#搭建前端开发环境" class="headerlink" title="搭建前端开发环境"></a>搭建前端开发环境</h3><ul>
-<li>后端开发环境相关应用安装</li>
-<li>前端相关的工具应用安装</li>
+        <span itemprop="articleBody"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因公司前端项目在很长的一段时间内都没有一个比较合适的项目打包优化工具，以致页面打开速度慢，很多页面的代码很容易被其它公司抄袭，设计稿还原度不高，来回修改，影响工作效率，所以痛定思痛，决心开发一款基于gulp的，适合自己项目结构的前端构建工具，改善目前的开发流程和质量。<br><a id="more"></a></p>
+<h2 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h2><ul>
+<li>使用velocity模板的H5多页项目</li>
+<li>还没有实现组件化，css与js是嵌入在页面中的活动页面或简单页面</li>
 </ul>
-<h3 id="前端架构说明"><a href="#前端架构说明" class="headerlink" title="前端架构说明"></a>前端架构说明</h3><ul>
-<li>前端各项目业务说明</li>
-<li>前端框架组成</li>
-<li>前端常用JS插件和脚本库说明</li>
-<li>前端层次结构和调用关系</li>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
+<li>对于现有的Java项目目录结构没有侵入性</li>
+<li>通过node版的velocity模板引擎生成独立的前端web服务</li>
+<li>对多页面中内嵌的css与js进行优化</li>
+<li>自动生成对应的css雪碧图</li>
+<li>使用mock服务模拟数据请求</li>
+<li>基于livereload的实时刷新预览</li>
+<li>监听文件变动，自动构建新的版</li>
 </ul>
-<h3 id="开发流程规范"><a href="#开发流程规范" class="headerlink" title="开发流程规范"></a>开发流程规范</h3><ul>
-<li>CSS编码基本规范和JS编码基本规范</li>
-<li>SVN版本管理说明</li>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>此项目主要针对移动端多页面的优化，项目中的H5页面，特点是引用一个公共的css，js引用cdn上的公共js，而与页面相关的css与js直接嵌入在页面中（减少请求数量）</p>
+<p>在没有打包构建工具的情况下</p>
+<ul>
+<li>css3相关新特性需要手动添加各版本和浏览器前缀</li>
+<li>雪碧图、base64图片需要手动生成，然后再应用到css</li>
+<li>css并没有做相关优化压缩处理</li>
+<li>js没有做语法检查和优化压缩</li>
+<li>使用velocity模板强依赖后端java环境</li>
+<li>不能实时编辑 实时预览</li>
 </ul>
-<hr>
-<h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>服务器开发环境搭建由服务器端同事协助完成(略)<br>前端开发环境由新人直属带教负责人协助完成</p>
-<h3 id="前端框架说明"><a href="#前端框架说明" class="headerlink" title="前端框架说明"></a>前端框架说明</h3><h4 id="项目组成"><a href="#项目组成" class="headerlink" title="项目组成"></a>项目组成</h4><ul>
-<li>商户管理平台</li>
-<li>商户数据平台</li>
-<li>商户财务系统</li>
-<li>洽客管理平台</li>
-<li>洽客数据平台</li>
-<li>洽客财务系统</li>
-<li>洽客官网及洽客大学</li>
-<li>洽客APP相关H5页面</li>
-<li>洽客身边店</li>
+<h2 id="构建流程"><a href="#构建流程" class="headerlink" title="构建流程"></a>构建流程</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><ul>
+<li>读取xx.vm页面</li>
+<li>提取内嵌的CSS、JS</li>
+<li>合并css、js，去掉多余的标签，只保留最后一个</li>
+<li>根据css提取雪碧图，压缩雪碧图，生成base64图片，生成新的css，重新嵌入到xx.vm中</li>
 </ul>
-<h4 id="前端技术框架组成"><a href="#前端技术框架组成" class="headerlink" title="前端技术框架组成"></a>前端技术框架组成</h4><h5 id="PC端"><a href="#PC端" class="headerlink" title="PC端"></a>PC端</h5><p>主要框架： <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/11/13/bd8e8c6b10cca97713963f286eabd735/form-elements.html" target="_blank" rel="external">Bootstrap UI框架</a>、<a href="http://avalonjs.github.io/" target="_blank" rel="external">Avalon.JS MVVM框架</a><br>主要JS插件：</p>
-<ol>
-<li><a href="http://aui.github.io/artDialog/doc/index.html#quickref-basic" target="_blank" rel="external">dialog 对话框</a></li>
-<li><a href="http://www.jqcool.net/demo/201406/jquery-toastr/demo.html" target="_blank" rel="external">toastr 消息提示</a></li>
-<li><a href="http://codepen.io/togglelt/pen/qZEXBz?editors=1010" target="_blank" rel="external">uiLoading 加载提示</a></li>
-<li><a href="http://aui.github.io/artTemplate/" target="_blank" rel="external">artTemplate 模板</a></li>
-<li><a href="http://v3.bootcss.com/javascript/" target="_blank" rel="external">bootstrap 框架基础组件</a></li>
-<li><a href="http://coderlt.coding.me/2016/02/24/bs-pagination/" target="_blank" rel="external">pagination 分页组件</a></li>
-<li><a href="http://select2.github.io/examples.html" target="_blank" rel="external">select2 下拉组件</a></li>
-<li>core.js 框架初始化相关</li>
-</ol>
-<p>注意：后台主频道以单页形式开发，模块化JS管理，必须熟练使用Bootstrap框架。<br>详细内容请参见<a href="http://coderlt.coding.me/2016/02/18/QKPlatform-readme/" target="_blank" rel="external">新版管理后台框架调整说明文档</a></p>
-<h5 id="H5端"><a href="#H5端" class="headerlink" title="H5端"></a>H5端</h5><p>主要资源：<a href="http://zeptojs.com/" target="_blank" rel="external">Zepto.js</a>, artTemplate.js，base.css<br>移动端布局使用rem做屏幕适配</p>
-<p>详细内容请参见<a href="http://coderlt.coding.me/2016/02/24/Front-end-sharing/" target="_blank" rel="external">移动端开发技巧汇总</a></p>
-<h2 id="工作时间安排"><a href="#工作时间安排" class="headerlink" title="工作时间安排"></a>工作时间安排</h2><h3 id="D1"><a href="#D1" class="headerlink" title="D1"></a>D1</h3><ul>
-<li>配置到本地环境，并能正常启动项目运行</li>
-<li>熟悉公司前端项目组成和目录结构</li>
-<li>熟悉SVN版本管理</li>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/%E6%88%AA%E5%9B%BE%202016-09-01%2008%E6%97%B628%E5%88%8634%E7%A7%92.jpg" alt=""></p>
+<h3 id="处理css、js"><a href="#处理css、js" class="headerlink" title="处理css、js"></a>处理css、js</h3><p><img src="http://7xi480.com1.z0.glb.clouddn.com/%E6%88%AA%E5%9B%BE%202016-09-01%2008%E6%97%B629%E5%88%8623%E7%A7%92.jpg" width="400px"></p>
+<h3 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h3><ul>
+<li>替换xx.vm中的css、js</li>
+<li>压缩xx.vm</li>
+<li>发布到相关目录</li>
+<li>启动livereload监听服务</li>
 </ul>
-<h3 id="D2"><a href="#D2" class="headerlink" title="D2"></a>D2</h3><ul>
-<li>了解前端项目所使用到的框架和插件</li>
-<li>了解前端CSS与JS开发规范</li>
-<li>了解Bug修改流程，及QA相关</li>
-</ul>
-<h3 id="D3"><a href="#D3" class="headerlink" title="D3"></a>D3</h3><ul>
-<li>根据小的需求完成前端开发</li>
-<li>熟悉开发流程</li>
-</ul>
-<p>注：<br>在练习过程中出现什么错误或不解之处，请及时反馈。<br>如果在阅读过程中发现文档中提到的内容有误或信息已经过时，请及时反馈给相关负责人，以便我们能及时更新完善此文档，帮助其他新同事少走弯路。</p>
-<p>前端编码规范参考 <a href="https://github.com/ecomfe/spec" target="_blank" rel="external">百度前端编码规范</a></p>
-<p>最后，希望我们在工作中合作愉快，是同事更是朋友，更希望你能在此有所收获，有所成就！<br>大家一起加油，共勉！！！</p>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/%E6%88%AA%E5%9B%BE%202016-09-01%2008%E6%97%B629%E5%88%8639%E7%A7%92.jpg" width="400px"></p>
+<h3 id="gulp-任务列表"><a href="#gulp-任务列表" class="headerlink" title="gulp 任务列表"></a>gulp 任务列表</h3><p><img src="http://7xi480.com1.z0.glb.clouddn.com/%E6%88%AA%E5%9B%BE%202016-09-01%2008%E6%97%B630%E5%88%8604%E7%A7%92.jpg" width="400px"></p>
+<h2 id="需要注意的问题"><a href="#需要注意的问题" class="headerlink" title="需要注意的问题"></a>需要注意的问题</h2><p>在build:init之后，调用生成雪碧图的插件生成的css不一定适用，通常背景图片在使用REM做定位时，不同的屏幕宽度下，图片会错位，所以应将背景图定位改成父类相对定位，添加伪类绝对定位，并放大10倍或100倍，然后再使用css3缩放属性缩小相应的倍数，以提高背景图定位的精确度。<br>具体参考：<a href="http://www.html-js.com/article/JavaScript-learning-notes%203234" target="_blank" rel="external">移动端web app自适应布局探索与总结</a></p>
+<p><a href="https://github.com/git-lt/velocity-koa-gulp" target="_blank" rel="external">GitHub</a></p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/gulp/" rel="tag">#gulp</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/01/uiLoading-readme/" rel="prev">Loading 组件使用说明</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/02/26/videojs-readme/" rel="next">HTML5视频播放器Video.Js的使用</a>
+              <a href="/2016/07/17/ES6-promise/" rel="next">ES6之Promise模式</a>
             
           </div>
         </div>
@@ -329,10 +315,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/02/28/FED-entry-guide/"
-     data-title="前端入职指引"
+        <div class="ds-share flat" data-thread-key="2016/09/01/velocity-koa-gulp/"
+     data-title="基于 koa + gulp 的前端工程构建工具"
      data-content=""
-     data-url="http://toggle.coding.io/2016/02/28/FED-entry-guide/">
+     data-url="http://toggle.coding.io/2016/09/01/velocity-koa-gulp/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -362,8 +348,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/02/28/FED-entry-guide/"
-                   data-title="前端入职指引" data-url="http://toggle.coding.io/2016/02/28/FED-entry-guide/">
+              <div class="ds-thread" data-thread-key="2016/09/01/velocity-koa-gulp/"
+                   data-title="基于 koa + gulp 的前端工程构建工具" data-url="http://toggle.coding.io/2016/09/01/velocity-koa-gulp/">
               </div>
             
           </div>
@@ -462,7 +448,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文档主要内容"><span class="nav-number">2.</span> <span class="nav-text">文档主要内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建前端开发环境"><span class="nav-number">2.1.</span> <span class="nav-text">搭建前端开发环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端架构说明"><span class="nav-number">2.2.</span> <span class="nav-text">前端架构说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发流程规范"><span class="nav-number">2.3.</span> <span class="nav-text">开发流程规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境搭建"><span class="nav-number">2.4.</span> <span class="nav-text">环境搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端框架说明"><span class="nav-number">2.5.</span> <span class="nav-text">前端框架说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目组成"><span class="nav-number">2.5.1.</span> <span class="nav-text">项目组成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前端技术框架组成"><span class="nav-number">2.5.2.</span> <span class="nav-text">前端技术框架组成</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#PC端"><span class="nav-number">2.5.2.1.</span> <span class="nav-text">PC端</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#H5端"><span class="nav-number">2.5.2.2.</span> <span class="nav-text">H5端</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作时间安排"><span class="nav-number">3.</span> <span class="nav-text">工作时间安排</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#D1"><span class="nav-number">3.1.</span> <span class="nav-text">D1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D2"><span class="nav-number">3.2.</span> <span class="nav-text">D2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D3"><span class="nav-number">3.3.</span> <span class="nav-text">D3</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#适用场景"><span class="nav-number">2.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">3.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-number">4.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构建流程"><span class="nav-number">5.</span> <span class="nav-text">构建流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">5.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理css、js"><span class="nav-number">5.2.</span> <span class="nav-text">处理css、js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#替换"><span class="nav-number">5.3.</span> <span class="nav-text">替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gulp-任务列表"><span class="nav-number">5.4.</span> <span class="nav-text">gulp 任务列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需要注意的问题"><span class="nav-number">6.</span> <span class="nav-text">需要注意的问题</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
