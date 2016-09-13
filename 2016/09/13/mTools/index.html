@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="性能优化," />
+  <meta name="keywords" content="Hexo,next" />
 
 
 
@@ -39,18 +39,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="前言在用户量日益增长和客户对体验要求越来越高的情况下，前端方面需进行性能优化，框架升级，优化开发流程，提高开发效率，改善用户体验，减少带宽消耗。以下参考 腾讯ISUX 及 阿里无线前端性能优化指南 理出以下前端性能优化升级项">
+<meta name="description" content="用于H5页面的工具类，初始化页面状态，检测平台浏览器信息等等">
 <meta property="og:type" content="article">
-<meta property="og:title" content="洽客前端性能优化指南V1.0.0">
-<meta property="og:url" content="http://toggle.coding.io/2015/12/10/h5-performance/index.html">
+<meta property="og:title" content="移动端页面工具类mTools">
+<meta property="og:url" content="http://toggle.coding.io/2016/09/13/mTools/index.html">
 <meta property="og:site_name" content="Aitter Blog">
-<meta property="og:description" content="前言在用户量日益增长和客户对体验要求越来越高的情况下，前端方面需进行性能优化，框架升级，优化开发流程，提高开发效率，改善用户体验，减少带宽消耗。以下参考 腾讯ISUX 及 阿里无线前端性能优化指南 理出以下前端性能优化升级项">
-<meta property="og:image" content="http://isux.tencent.com/wp-content/uploads/2015/01/20150108170945527.png">
-<meta property="og:image" content="https://camo.githubusercontent.com/3f9c3d51b6afe0784ca3b664ca346f78196d77ad/687474703a2f2f696d67322e746263646e2e636e2f4c312f3436312f312f37636164373432316231363761613436323462356666626233386230613435656535643130643632">
-<meta property="og:updated_time" content="2015-12-10T12:31:46.000Z">
+<meta property="og:description" content="用于H5页面的工具类，初始化页面状态，检测平台浏览器信息等等">
+<meta property="og:updated_time" content="2016-09-13T01:14:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="洽客前端性能优化指南V1.0.0">
-<meta name="twitter:description" content="前言在用户量日益增长和客户对体验要求越来越高的情况下，前端方面需进行性能优化，框架升级，优化开发流程，提高开发效率，改善用户体验，减少带宽消耗。以下参考 腾讯ISUX 及 阿里无线前端性能优化指南 理出以下前端性能优化升级项">
+<meta name="twitter:title" content="移动端页面工具类mTools">
+<meta name="twitter:description" content="用于H5页面的工具类，初始化页面状态，检测平台浏览器信息等等">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +58,7 @@
   };
 </script>
 
-  <title> 洽客前端性能优化指南V1.0.0 | Aitter Blog </title>
+  <title> 移动端页面工具类mTools | Aitter Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -185,7 +183,7 @@
           
           
             
-              洽客前端性能优化指南V1.0.0
+              移动端页面工具类mTools
             
           
         </h1>
@@ -194,8 +192,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-12-10T20:29:00+08:00" content="2015-12-10">
-            2015-12-10
+          <time itemprop="dateCreated" datetime="2016-09-13T09:06:08+08:00" content="2016-09-13">
+            2016-09-13
           </time>
         </span>
 
@@ -204,8 +202,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/移动前端/" itemprop="url" rel="index">
-                  <span itemprop="name">移动前端</span>
+                <a href="/categories/JS/" itemprop="url" rel="index">
+                  <span itemprop="name">JS</span>
                 </a>
               </span>
 
@@ -220,8 +218,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/12/10/h5-performance/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/10/h5-performance/" itemprop="commentsCount"></span>
+              <a href="/2016/09/13/mTools/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/13/mTools/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -235,111 +233,45 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在用户量日益增长和客户对体验要求越来越高的情况下，前端方面需进行性能优化，框架升级，优化开发流程，提高开发效率，改善用户体验，减少带宽消耗。以下参考 腾讯ISUX 及 阿里无线前端性能优化指南 理出以下前端性能优化升级项<br><a id="more"></a></p>
-<h2 id="前端项目"><a href="#前端项目" class="headerlink" title="前端项目"></a>前端项目</h2><ul>
-<li>Admin 商家管理平台</li>
-<li>Mall 洽客身边店</li>
-<li>User 导购端H5页面</li>
-<li>Qiakr 洽客内部管理平台 (单页化-组件化-分离 先从这个项目开始尝试)</li>
-<li>Data 数据平台 （已完成 单页 模块）</li>
-<li>Home 洽管官网 （已完成 单页）</li>
-</ul>
-<h2 id="急需解决的问题"><a href="#急需解决的问题" class="headerlink" title="急需解决的问题"></a>急需解决的问题</h2><ol>
-<li>活动页 加载及体验上的优化</li>
-<li>身边店首页 加载优化（目标：1s首屏加载）</li>
-<li>异步请求及静态资源缓存(提升加载速度，节省带宽)</li>
-<li>后台数据查询时间优化</li>
+        <span itemprop="articleBody"><p>用于H5页面的工具类，初始化页面状态，检测平台浏览器信息等等<br><a id="more"></a></p>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><ol>
+<li>设置根字体大小rem px2rem rem2px docW docH dpr</li>
+<li>检测内核、平台、版本 OS &amp; browser</li>
+<li>检测是否支持webp</li>
+<li>requestAnimationFrame</li>
+<li>日志记录</li>
+<li>离线检测</li>
+<li>页面可见性</li>
 </ol>
-<h2 id="将要解决的问题【需要添加人手共同构建】"><a href="#将要解决的问题【需要添加人手共同构建】" class="headerlink" title="将要解决的问题【需要添加人手共同构建】"></a>将要解决的问题【需要添加人手共同构建】</h2><ul>
-<li>前后端分离 -&gt; 自动化: 编译 打包 发布 部署 -&gt; 前端工程化</li>
-<li>CSS 与 JS 基础组件库的建立 -&gt; 组件化 -&gt; 模块化<br>【需要添加人手共同构建】</li>
-</ul>
-<p><img src="http://isux.tencent.com/wp-content/uploads/2015/01/20150108170945527.png" style="width:90%"><br><img src="https://camo.githubusercontent.com/3f9c3d51b6afe0784ca3b664ca346f78196d77ad/687474703a2f2f696d67322e746263646e2e636e2f4c312f3436312f312f37636164373432316231363761613436323462356666626233386230613435656535643130643632" style="width:90%"></p>
-<h2 id="图片控制"><a href="#图片控制" class="headerlink" title="图片控制"></a>图片控制</h2><ol>
-<li>尽量使用iconfont字体图标 （已完成）</li>
-<li>在iconfont使用量较少但又需要小图标的页面，使用图片base64（部分使用）</li>
-<li>大图使用webp图片（部分使用）</li>
-<li>利用七牛图片处理API，获取适合页面大小的图片（部分使用）</li>
-<li>透明图片切成png24或png8, 不透明的图片切成jpg或gif（部分使用）</li>
-<li>简单的图标使用css编写 如剪头 loading等</li>
-<li>尽量不使用Gif动画包括loading（降低CPU消耗，提升渲染性能）<br>代码需求：JS-H5特性检测 | JS-webp替换 | CSS-css形状组件</li>
-</ol>
-<h2 id="图片加载"><a href="#图片加载" class="headerlink" title="图片加载"></a>图片加载</h2><ol>
-<li>精减iconfont引用资源，只使用ttf文件（已完成）</li>
-<li><p>非WIFI环境下，按需加载</p>
-<p> <strong>代码需求：JS-WIFI环境检测 | JS-懒加载组件</strong></p>
-</li>
-</ol>
-<h2 id="缓存控制"><a href="#缓存控制" class="headerlink" title="缓存控制"></a>缓存控制</h2><ol>
-<li>CSS 与 JS 使用Localstroage缓存至本地，cookie中存储资源版本与名称</li>
-<li>异步请求数据缓存至Sessionstroage，设置缓存时间，减少请求次数，快速显示数据</li>
-<li><p>Native App将静态公用资源缓存至本地</p>
-<p> 代码需求：JS-使用LS缓存静态资源 | JS-使用SS缓存异步请求</p>
-<p> 参考：<a href="http://www.zhihu.com/question/28467444" target="_blank" rel="external">知乎</a><br> <a href="http://blog.csdn.net/a497785609/article/details/48321405" target="_blank" rel="external">移动端使用LocalStroage缓存JS与Css</a><br> <a href="http://www.open-open.com/lib/view/open1449498774019.html" target="_blank" rel="external">手机百度localstorage细粒度缓存介绍</a></p>
-</li>
-</ol>
-<h2 id="减少请求数"><a href="#减少请求数" class="headerlink" title="减少请求数"></a>减少请求数</h2><ol>
-<li>部分页面内联CSS与JS，除图片以外的资源，一次请求到位</li>
-<li>请求合并，JS与CSS压缩合并</li>
-<li>JS组件化，按需加载合并，去除不被执行的JS代码块和css</li>
-</ol>
-<h2 id="接口优化"><a href="#接口优化" class="headerlink" title="接口优化"></a>接口优化</h2><ol>
-<li>接口收敛到单一的接服务层</li>
-<li>精减JSON，去除不显示的字段，减少传输大小</li>
-</ol>
-<h2 id="服务器端的优化"><a href="#服务器端的优化" class="headerlink" title="服务器端的优化"></a>服务器端的优化</h2><ol>
-<li>使用HttpDNS</li>
-<li>使用SSL+SPDY协议 多路复用请求优化 | 服务器推送技术 | SPDY压缩http头</li>
-</ol>
-<h2 id="首屏加载优化"><a href="#首屏加载优化" class="headerlink" title="首屏加载优化"></a>首屏加载优化</h2><ul>
-<li>单张图片大小控制</li>
-<li>接口合并</li>
-<li>缓存请求的数据</li>
-<li>按需加载</li>
-<li>小图标base64化</li>
-<li>缓存JS与CSS</li>
-</ul>
-<h2 id="体验优化"><a href="#体验优化" class="headerlink" title="体验优化"></a>体验优化</h2><ol>
-<li>使用手淘滚动组件</li>
-<li>下拉刷新，上拉加载插件化</li>
-<li>动画效率提升优化</li>
-<li>分享内容优化 <a href="http://www.ui.cn/detail/50140.html" target="_blank" rel="external">一般化分享</a></li>
-<li>横竖屏提示优化<a href="http://www.xuanfengge.com/move-pages-anyway-screen-tips.html#more-5463" target="_blank" rel="external">lanscape.js</a></li>
-<li>字体屏幕适应</li>
-<li>DNS预解析 <code>&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//host/&quot;&gt;</code></li>
-<li>预渲染页面 <code>&lt;link rel=&quot;prerender&quot; href=&quot;http://www.cmcm.com&quot;&gt; prerendercmcm &lt;/link&gt;</code> <a href="http://blog.csdn.net/typename/article/details/38536167" target="_blank" rel="external">prerender</a></li>
-</ol>
-<p>参考：</p>
-<ul>
-<li><a href="http://www.cnblogs.com/yexiaochai/p/4901341.html" target="_blank" rel="external">前端优化带来的思考，浅谈前端工程化</a></li>
-<li><a href="https://github.com/amfe/article/issues/1" target="_blank" rel="external">阿里无线前端性能优化指南</a></li>
-<li><a href="https://github.com/amfe/article/issues/21" target="_blank" rel="external">15年双11手淘前端技术巡演 - H5性能最佳实践</a></li>
-<li><a href="http://isux.tencent.com/h5-performance.html" target="_blank" rel="external">ISUX移动H5前端性能优化指南</a></li>
-</ul>
+<h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><h3 id="初始化REM"><a href="#初始化REM" class="headerlink" title="初始化REM"></a>初始化REM</h3><p>根据设计稿的宽度生成REM的大小，如设计稿是750大小，那么页面上的尺寸就可以完成按照设计稿中的尺寸来写成px了，然后借助px2rem 的postcss插件将px转成rem单位就可自适用各种移动端屏幕了</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">mTools.initREM(size); <span class="comment">//size: 设计稿的宽度（默认为750）</span></span><br><span class="line"><span class="built_in">window</span>.px2rem(<span class="number">75</span>) = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">window</span>.rem2px(<span class="number">1</span>) = <span class="number">75</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="检测浏览器信息"><a href="#检测浏览器信息" class="headerlink" title="检测浏览器信息"></a>检测浏览器信息</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">mTools.browser;</span><br><span class="line"><span class="comment">//&#123;name: "Chrome", isChrome: true, version: "50.0.2661.75"&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="检测系统平台"><a href="#检测系统平台" class="headerlink" title="检测系统平台"></a>检测系统平台</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">mTools.os;</span><br><span class="line"><span class="comment">//&#123;name: "iPhone", isIPhone: true, isIPad: false, isIOS: true, version: "9.1"&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="是否支持Webp图片"><a href="#是否支持Webp图片" class="headerlink" title="是否支持Webp图片"></a>是否支持Webp图片</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">mTools.supportWebp(<span class="function"><span class="keyword">function</span>(<span class="params">isSupport</span>)</span>&#123;</span><br><span class="line">  isSupport ? renderWebpImgs() : renderNormalImgs();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="是否在线"><a href="#是否在线" class="headerlink" title="是否在线"></a>是否在线</h3><p>页面在第一次加载时，网络正常，是不会触发 <code>online</code> 事件的，只有当网络断开又连接时，才会同时触发 <code>online</code> 和 <code>offline</code> 事件</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//new mTools.Network(onlineFn, offlineFn)</span></span><br><span class="line"><span class="keyword">new</span> mTools.Network(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'networkTip'</span>).style.display=<span class="string">'block'</span>;</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'networkTip'</span>).style.display=<span class="string">'none'</span>;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="页面是否可见"><a href="#页面是否可见" class="headerlink" title="页面是否可见"></a>页面是否可见</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//mTools.pageVisiblity(visibleFn, hideFn)</span></span><br><span class="line"></span><br><span class="line">mTools.pageVisiblity(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'页面可见'</span>, <span class="built_in">Date</span>())</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'页面不可见'</span>, <span class="built_in">Date</span>())</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="打印错误日志"><a href="#打印错误日志" class="headerlink" title="打印错误日志"></a>打印错误日志</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.onerror = <span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123; mTools.log(err) &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="获取-requestAnimationFrame-对象"><a href="#获取-requestAnimationFrame-对象" class="headerlink" title="获取 requestAnimationFrame 对象"></a>获取 requestAnimationFrame 对象</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">mTools.rAF(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="comment">//实时更新DOM</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><a href="">GitHub地址</a></p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/性能优化/" rel="tag">#性能优化</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/02/18/QKPlatform-readme/" rel="prev">新版管理后台框架调整说明文档</a>
+              <a href="/2016/09/13/JS-extends/" rel="prev">也来谈谈继承</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/09/react-native-ls1/" rel="next">React Native 初探</a>
+              <a href="/2016/09/09/ES6-base/" rel="next">ES6笔记 - 字符串的扩展</a>
             
           </div>
         </div>
@@ -354,10 +286,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/12/10/h5-performance/"
-     data-title="洽客前端性能优化指南V1.0.0"
+        <div class="ds-share flat" data-thread-key="2016/09/13/mTools/"
+     data-title="移动端页面工具类mTools"
      data-content=""
-     data-url="http://toggle.coding.io/2015/12/10/h5-performance/">
+     data-url="http://toggle.coding.io/2016/09/13/mTools/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -387,8 +319,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/12/10/h5-performance/"
-                   data-title="洽客前端性能优化指南V1.0.0" data-url="http://toggle.coding.io/2015/12/10/h5-performance/">
+              <div class="ds-thread" data-thread-key="2016/09/13/mTools/"
+                   data-title="移动端页面工具类mTools" data-url="http://toggle.coding.io/2016/09/13/mTools/">
               </div>
             
           </div>
@@ -487,7 +419,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端项目"><span class="nav-number">2.</span> <span class="nav-text">前端项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#急需解决的问题"><span class="nav-number">3.</span> <span class="nav-text">急需解决的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将要解决的问题【需要添加人手共同构建】"><span class="nav-number">4.</span> <span class="nav-text">将要解决的问题【需要添加人手共同构建】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片控制"><span class="nav-number">5.</span> <span class="nav-text">图片控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片加载"><span class="nav-number">6.</span> <span class="nav-text">图片加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存控制"><span class="nav-number">7.</span> <span class="nav-text">缓存控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#减少请求数"><span class="nav-number">8.</span> <span class="nav-text">减少请求数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口优化"><span class="nav-number">9.</span> <span class="nav-text">接口优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器端的优化"><span class="nav-number">10.</span> <span class="nav-text">服务器端的优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#首屏加载优化"><span class="nav-number">11.</span> <span class="nav-text">首屏加载优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#体验优化"><span class="nav-number">12.</span> <span class="nav-text">体验优化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#功能"><span class="nav-number">1.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用方式"><span class="nav-number">2.</span> <span class="nav-text">使用方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化REM"><span class="nav-number">2.1.</span> <span class="nav-text">初始化REM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检测浏览器信息"><span class="nav-number">2.2.</span> <span class="nav-text">检测浏览器信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检测系统平台"><span class="nav-number">2.3.</span> <span class="nav-text">检测系统平台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#是否支持Webp图片"><span class="nav-number">2.4.</span> <span class="nav-text">是否支持Webp图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#是否在线"><span class="nav-number">2.5.</span> <span class="nav-text">是否在线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面是否可见"><span class="nav-number">2.6.</span> <span class="nav-text">页面是否可见</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打印错误日志"><span class="nav-number">2.7.</span> <span class="nav-text">打印错误日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取-requestAnimationFrame-对象"><span class="nav-number">2.8.</span> <span class="nav-text">获取 requestAnimationFrame 对象</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
