@@ -39,16 +39,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="数组的标准定义：一个存储元素的线性集合，元素可以通过索引来任意存取，索引通常是数字，用来计算元素之间存储位置的偏移量。数组（array）是按次序排列的一组值。每个值的位置都有编号（从0开始），整个数组用方括号表示。">
+<meta name="description" content="数组在工作中使用频繁，但我们大多数情况下只使用到了部分特性，久而久之，对于数组其它的相关特性就变得模糊起来，不免有错漏不全的理解，这里花了一点时间，对最常用的数组做一些总结。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数组的总结">
+<meta property="og:title" content="数组的全面总结">
 <meta property="og:url" content="http://toggle.coding.io/2016/09/23/JS-Array/index.html">
 <meta property="og:site_name" content="Aitter Blog">
-<meta property="og:description" content="数组的标准定义：一个存储元素的线性集合，元素可以通过索引来任意存取，索引通常是数字，用来计算元素之间存储位置的偏移量。数组（array）是按次序排列的一组值。每个值的位置都有编号（从0开始），整个数组用方括号表示。">
-<meta property="og:updated_time" content="2016-09-23T09:33:45.000Z">
+<meta property="og:description" content="数组在工作中使用频繁，但我们大多数情况下只使用到了部分特性，久而久之，对于数组其它的相关特性就变得模糊起来，不免有错漏不全的理解，这里花了一点时间，对最常用的数组做一些总结。">
+<meta property="og:updated_time" content="2016-09-23T11:34:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数组的总结">
-<meta name="twitter:description" content="数组的标准定义：一个存储元素的线性集合，元素可以通过索引来任意存取，索引通常是数字，用来计算元素之间存储位置的偏移量。数组（array）是按次序排列的一组值。每个值的位置都有编号（从0开始），整个数组用方括号表示。">
+<meta name="twitter:title" content="数组的全面总结">
+<meta name="twitter:description" content="数组在工作中使用频繁，但我们大多数情况下只使用到了部分特性，久而久之，对于数组其它的相关特性就变得模糊起来，不免有错漏不全的理解，这里花了一点时间，对最常用的数组做一些总结。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -58,7 +58,7 @@
   };
 </script>
 
-  <title> 数组的总结 | Aitter Blog </title>
+  <title> 数组的全面总结 | Aitter Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -183,7 +183,7 @@
           
           
             
-              数组的总结
+              数组的全面总结
             
           
         </h1>
@@ -233,7 +233,8 @@
       
 
       
-        <span itemprop="articleBody"><p>数组的标准定义：一个存储元素的线性集合，元素可以通过索引来任意存取，索引通常是数字，用来计算元素之间存储位置的偏移量。<br>数组（array）是按次序排列的一组值。每个值的位置都有编号（从0开始），整个数组用方括号表示。<br><a id="more"></a></p>
+        <span itemprop="articleBody"><p>数组在工作中使用频繁，但我们大多数情况下只使用到了部分特性，久而久之，对于数组其它的相关特性就变得模糊起来，不免有错漏不全的理解，这里花了一点时间，对最常用的数组做一些总结。<br><a id="more"></a></p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>数组的标准定义：一个存储元素的线性集合，元素可以通过索引来任意存取，索引通常是数字，用来计算元素之间存储位置的偏移量。<br>数组（array）是按次序排列的一组值。每个值的位置都有编号（从0开始），整个数组用方括号表示。</p>
 <h2 id="内置方法"><a href="#内置方法" class="headerlink" title="内置方法"></a>内置方法</h2><ul>
 <li>concat / slice / splice</li>
 <li>sort / reverse</li>
@@ -533,7 +534,7 @@
     <div class="post-spread">
       
         <div class="ds-share flat" data-thread-key="2016/09/23/JS-Array/"
-     data-title="数组的总结"
+     data-title="数组的全面总结"
      data-content=""
      data-url="http://toggle.coding.io/2016/09/23/JS-Array/">
   <div class="ds-share-inline">
@@ -566,7 +567,7 @@
           <div class="comments" id="comments">
             
               <div class="ds-thread" data-thread-key="2016/09/23/JS-Array/"
-                   data-title="数组的总结" data-url="http://toggle.coding.io/2016/09/23/JS-Array/">
+                   data-title="数组的全面总结" data-url="http://toggle.coding.io/2016/09/23/JS-Array/">
               </div>
             
           </div>
@@ -665,7 +666,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#内置方法"><span class="nav-number">1.</span> <span class="nav-text">内置方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从已有的数组创建新的数组"><span class="nav-number">1.1.</span> <span class="nav-text">从已有的数组创建新的数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组排序"><span class="nav-number">1.2.</span> <span class="nav-text">数组排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为数组增减元素"><span class="nav-number">1.3.</span> <span class="nav-text">为数组增减元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组转字符串"><span class="nav-number">1.4.</span> <span class="nav-text">数组转字符串</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES5新增"><span class="nav-number">2.</span> <span class="nav-text">ES5新增</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组类型判断"><span class="nav-number">2.1.</span> <span class="nav-text">数组类型判断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找元素"><span class="nav-number">2.2.</span> <span class="nav-text">查找元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据遍历"><span class="nav-number">2.3.</span> <span class="nav-text">数据遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检测是否包含某元素"><span class="nav-number">2.4.</span> <span class="nav-text">检测是否包含某元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组过滤"><span class="nav-number">2.5.</span> <span class="nav-text">数组过滤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组聚合"><span class="nav-number">2.6.</span> <span class="nav-text">数组聚合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6新增"><span class="nav-number">3.</span> <span class="nav-text">ES6新增</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组转换"><span class="nav-number">3.1.</span> <span class="nav-text">数组转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组元素复制、填充与查找"><span class="nav-number">3.2.</span> <span class="nav-text">数组元素复制、填充与查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取数组中的键和值"><span class="nav-number">3.3.</span> <span class="nav-text">获取数组中的键和值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改变数组的方法"><span class="nav-number">4.</span> <span class="nav-text">改变数组的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不改变数组的方法"><span class="nav-number">5.</span> <span class="nav-text">不改变数组的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组空位"><span class="nav-number">6.</span> <span class="nav-text">数组空位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组乱序"><span class="nav-number">7.</span> <span class="nav-text">数组乱序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sort-random"><span class="nav-number">7.1.</span> <span class="nav-text">sort+random</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速随机排序"><span class="nav-number">7.2.</span> <span class="nav-text">快速随机排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机至新数组"><span class="nav-number">7.3.</span> <span class="nav-text">随机至新数组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组去重"><span class="nav-number">8.</span> <span class="nav-text">数组去重</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#for-for"><span class="nav-number">8.1.</span> <span class="nav-text">for+for</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for-indexOf"><span class="nav-number">8.2.</span> <span class="nav-text">for+indexOf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter-indexOf"><span class="nav-number">8.3.</span> <span class="nav-text">filter+indexOf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#splice去重"><span class="nav-number">8.4.</span> <span class="nav-text">splice去重</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sort-filter"><span class="nav-number">8.5.</span> <span class="nav-text">sort+filter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hash去重"><span class="nav-number">8.6.</span> <span class="nav-text">Hash去重</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ES6-的去重方法"><span class="nav-number">8.7.</span> <span class="nav-text">ES6 的去重方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组排序（跳转）"><span class="nav-number">9.</span> <span class="nav-text">数组排序（跳转）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reduce高级用法"><span class="nav-number">10.</span> <span class="nav-text">reduce高级用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元素添加"><span class="nav-number">11.</span> <span class="nav-text">元素添加</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多维数组扁平化"><span class="nav-number">12.</span> <span class="nav-text">多维数组扁平化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清空数组"><span class="nav-number">13.</span> <span class="nav-text">清空数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#求平均值、最大值、最小值"><span class="nav-number">14.</span> <span class="nav-text">求平均值、最大值、最小值</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内置方法"><span class="nav-number">2.</span> <span class="nav-text">内置方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从已有的数组创建新的数组"><span class="nav-number">2.1.</span> <span class="nav-text">从已有的数组创建新的数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组排序"><span class="nav-number">2.2.</span> <span class="nav-text">数组排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为数组增减元素"><span class="nav-number">2.3.</span> <span class="nav-text">为数组增减元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组转字符串"><span class="nav-number">2.4.</span> <span class="nav-text">数组转字符串</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES5新增"><span class="nav-number">3.</span> <span class="nav-text">ES5新增</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组类型判断"><span class="nav-number">3.1.</span> <span class="nav-text">数组类型判断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找元素"><span class="nav-number">3.2.</span> <span class="nav-text">查找元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据遍历"><span class="nav-number">3.3.</span> <span class="nav-text">数据遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检测是否包含某元素"><span class="nav-number">3.4.</span> <span class="nav-text">检测是否包含某元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组过滤"><span class="nav-number">3.5.</span> <span class="nav-text">数组过滤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组聚合"><span class="nav-number">3.6.</span> <span class="nav-text">数组聚合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6新增"><span class="nav-number">4.</span> <span class="nav-text">ES6新增</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组转换"><span class="nav-number">4.1.</span> <span class="nav-text">数组转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组元素复制、填充与查找"><span class="nav-number">4.2.</span> <span class="nav-text">数组元素复制、填充与查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取数组中的键和值"><span class="nav-number">4.3.</span> <span class="nav-text">获取数组中的键和值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改变数组的方法"><span class="nav-number">5.</span> <span class="nav-text">改变数组的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不改变数组的方法"><span class="nav-number">6.</span> <span class="nav-text">不改变数组的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组空位"><span class="nav-number">7.</span> <span class="nav-text">数组空位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组乱序"><span class="nav-number">8.</span> <span class="nav-text">数组乱序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sort-random"><span class="nav-number">8.1.</span> <span class="nav-text">sort+random</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速随机排序"><span class="nav-number">8.2.</span> <span class="nav-text">快速随机排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机至新数组"><span class="nav-number">8.3.</span> <span class="nav-text">随机至新数组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组去重"><span class="nav-number">9.</span> <span class="nav-text">数组去重</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#for-for"><span class="nav-number">9.1.</span> <span class="nav-text">for+for</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for-indexOf"><span class="nav-number">9.2.</span> <span class="nav-text">for+indexOf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter-indexOf"><span class="nav-number">9.3.</span> <span class="nav-text">filter+indexOf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#splice去重"><span class="nav-number">9.4.</span> <span class="nav-text">splice去重</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sort-filter"><span class="nav-number">9.5.</span> <span class="nav-text">sort+filter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hash去重"><span class="nav-number">9.6.</span> <span class="nav-text">Hash去重</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ES6-的去重方法"><span class="nav-number">9.7.</span> <span class="nav-text">ES6 的去重方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组排序（跳转）"><span class="nav-number">10.</span> <span class="nav-text">数组排序（跳转）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reduce高级用法"><span class="nav-number">11.</span> <span class="nav-text">reduce高级用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元素添加"><span class="nav-number">12.</span> <span class="nav-text">元素添加</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多维数组扁平化"><span class="nav-number">13.</span> <span class="nav-text">多维数组扁平化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清空数组"><span class="nav-number">14.</span> <span class="nav-text">清空数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#求平均值、最大值、最小值"><span class="nav-number">15.</span> <span class="nav-text">求平均值、最大值、最小值</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
