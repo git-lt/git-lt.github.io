@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="ES6," />
 
 
 
@@ -39,31 +39,21 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="新版管理后台主要以Twitter的Bootstrap框架为基础，结合MVVM框架avalonJS，实现模块化，组件化，频道单页，数据双向绑定等功能。此次框架的改进主要有以几点作用：
-
-使用界面更加标准美观，提供较佳的用户体验
-减少UI设计师与前端在UI界面上的工作量
-利用UI组件快速构建页面，提升开发效率
-让前端更专注于接口调试，业务和数据处理，减少数据错误率。">
+<meta name="description" content="基于vue-cli脚手架修改而成的多页面项目脚手架，每一个页面是一个独立的SPA应用，可用于复杂的项目开发或多项目开发中。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="新版管理后台框架调整说明文档">
-<meta property="og:url" content="http://toggle.coding.io/2016/02/18/QKPlatform-readme/index.html">
+<meta property="og:title" content="Vue.js2.0多页项目脚手架设计">
+<meta property="og:url" content="http://toggle.coding.io/2016/11/03/vue-multi-page/index.html">
 <meta property="og:site_name" content="Aitter Blog">
-<meta property="og:description" content="新版管理后台主要以Twitter的Bootstrap框架为基础，结合MVVM框架avalonJS，实现模块化，组件化，频道单页，数据双向绑定等功能。此次框架的改进主要有以几点作用：
-
-使用界面更加标准美观，提供较佳的用户体验
-减少UI设计师与前端在UI界面上的工作量
-利用UI组件快速构建页面，提升开发效率
-让前端更专注于接口调试，业务和数据处理，减少数据错误率。">
-<meta property="og:updated_time" content="2016-07-17T02:48:41.000Z">
+<meta property="og:description" content="基于vue-cli脚手架修改而成的多页面项目脚手架，每一个页面是一个独立的SPA应用，可用于复杂的项目开发或多项目开发中。">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/623_4.jpg?imageView2/1/w/720/h/400">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E7%BB%8F%202016-11-02%20%E4%B8%8B%E5%8D%882.54.10.jpg">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-02%20%E4%B8%8B%E5%8D%882.55.27.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/22016-11-02%20%E4%B8%8B%E5%8D%882.55.12.jpg">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-02%20%E4%B8%8B%E5%8D%8811.34.57.png">
+<meta property="og:updated_time" content="2016-11-02T16:14:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="新版管理后台框架调整说明文档">
-<meta name="twitter:description" content="新版管理后台主要以Twitter的Bootstrap框架为基础，结合MVVM框架avalonJS，实现模块化，组件化，频道单页，数据双向绑定等功能。此次框架的改进主要有以几点作用：
-
-使用界面更加标准美观，提供较佳的用户体验
-减少UI设计师与前端在UI界面上的工作量
-利用UI组件快速构建页面，提升开发效率
-让前端更专注于接口调试，业务和数据处理，减少数据错误率。">
+<meta name="twitter:title" content="Vue.js2.0多页项目脚手架设计">
+<meta name="twitter:description" content="基于vue-cli脚手架修改而成的多页面项目脚手架，每一个页面是一个独立的SPA应用，可用于复杂的项目开发或多项目开发中。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -73,7 +63,7 @@
   };
 </script>
 
-  <title> 新版管理后台框架调整说明文档 | Aitter Blog </title>
+  <title> Vue.js2.0多页项目脚手架设计 | Aitter Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -198,7 +188,7 @@
           
           
             
-              新版管理后台框架调整说明文档
+              Vue.js2.0多页项目脚手架设计
             
           
         </h1>
@@ -207,8 +197,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-02-18T23:06:22+08:00" content="2016-02-18">
-            2016-02-18
+          <time itemprop="dateCreated" datetime="2016-11-03T00:06:36+08:00" content="2016-11-03">
+            2016-11-03
           </time>
         </span>
 
@@ -217,8 +207,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/文档/" itemprop="url" rel="index">
-                  <span itemprop="name">文档</span>
+                <a href="/categories/JS/" itemprop="url" rel="index">
+                  <span itemprop="name">JS</span>
                 </a>
               </span>
 
@@ -233,8 +223,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/02/18/QKPlatform-readme/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/18/QKPlatform-readme/" itemprop="commentsCount"></span>
+              <a href="/2016/11/03/vue-multi-page/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/03/vue-multi-page/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -248,68 +238,96 @@
       
 
       
-        <span itemprop="articleBody"><p>新版管理后台主要以Twitter的Bootstrap框架为基础，结合MVVM框架avalonJS，实现模块化，组件化，频道单页，数据双向绑定等功能。此次框架的改进主要有以几点作用：</p>
-<ul>
-<li>使用界面更加标准美观，提供较佳的用户体验</li>
-<li>减少UI设计师与前端在UI界面上的工作量</li>
-<li>利用UI组件快速构建页面，提升开发效率</li>
-<li>让前端更专注于接口调试，业务和数据处理，减少数据错误率。<a id="more"></a>
-</li>
+        <span itemprop="articleBody"><p><img src="http://7xi480.com1.z0.glb.clouddn.com/623_4.jpg?imageView2/1/w/720/h/400" alt=""><br>基于vue-cli脚手架修改而成的多页面项目脚手架，每一个页面是一个独立的SPA应用，可用于复杂的项目开发或多项目开发中。<br><a id="more"></a></p>
+<h2 id="必备知识点"><a href="#必备知识点" class="headerlink" title="必备知识点"></a>必备知识点</h2><ul>
+<li><code>Vue.js2.0</code> <a href="https://vuefe.cn/guide/" target="_blank" rel="external">中文文档</a> </li>
+<li><code>Vuex</code> 状态管理 <a href="https://vuefe.cn/vuex/" target="_blank" rel="external">中文文档</a></li>
+<li><code>Vue-router</code> 路由管理  <a href="https://router.vuejs.org/zh-cn/index.html" target="_blank" rel="external">中文文档</a></li>
+<li><code>Vue-resource</code> 异步请求处理 <a href="https://github.com/vuejs/vue-resource/blob/master/docs/api.md" target="_blank" rel="external">中文文档</a></li>
+<li><code>ES6</code> 语法特性 <a href="http://es6.ruanyifeng.com/#README" target="_blank" rel="external">阮一峰教程</a></li>
 </ul>
-<blockquote>
-<p>更新日期：2016年02月18日<br>维护：Aitter<br>版本：v1.0.0</p>
-</blockquote>
-<h3 id="UI框架"><a href="#UI框架" class="headerlink" title="UI框架"></a>UI框架</h3><p>UI框架使用Bootstrap的改进版 <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/11/13/bd8e8c6b10cca97713963f286eabd735/form-elements.html" target="_blank" rel="external">UBOLD</a></p>
-<h4 id="qk-common-css"><a href="#qk-common-css" class="headerlink" title="qk.common.css"></a>qk.common.css</h4><p>公共组件库相关样式<br><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">- bootstrap<span class="class">.min</span><span class="class">.css</span> 源主框架样式库</span><br><span class="line">- core<span class="class">.min</span><span class="class">.css</span> 框架自定义样式库</span><br><span class="line">- dialog<span class="class">.css</span> 弹出层样式</span><br><span class="line">- toastr<span class="class">.css</span> 消息框样式</span><br><span class="line">- uiLoading<span class="class">.css</span> 加载指示器样式</span><br><span class="line">- select2<span class="class">.css</span> 下拉框样式</span><br></pre></td></tr></table></figure></p>
-<h3 id="JS框架"><a href="#JS框架" class="headerlink" title="JS框架"></a>JS框架</h3><h4 id="avalon-js"><a href="#avalon-js" class="headerlink" title="avalon.js"></a>avalon.js</h4><p>MVVM框架 主文件</p>
-<h4 id="qk-config-js"><a href="#qk-config-js" class="headerlink" title="qk.config.js"></a>qk.config.js</h4><p>AMD加载配置 与 全局变量配置文件</p>
-<h4 id="qk-common-js"><a href="#qk-common-js" class="headerlink" title="qk.common.js"></a>qk.common.js</h4><p>公共组件库(依赖于 jquery)<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span> dialog 对话框</span><br><span class="line"><span class="number">2.</span> toastr 消息提示</span><br><span class="line"><span class="number">3.</span> uiLoading 加载提示</span><br><span class="line"><span class="number">4.</span> artTemplate 模板</span><br><span class="line"><span class="number">5.</span> bootstrap 框架基础组件</span><br><span class="line"><span class="number">6.</span> pagination 分页组件</span><br><span class="line"><span class="number">7.</span> select2 下拉组件</span><br><span class="line"><span class="number">8.</span> core.js 框架初始化相关</span><br></pre></td></tr></table></figure></p>
-<h4 id="qk-utils-js"><a href="#qk-utils-js" class="headerlink" title="qk.utils.js"></a>qk.utils.js</h4><p>工具库(依赖于 qk.common.js)<br><figure class="highlight haml"><table><tr><td class="code"><pre><span class="line">-<span class="ruby"> <span class="constant">Utils</span> 工具库</span><br><span class="line"></span>-<span class="ruby"> <span class="constant">Filters</span> 框架过滤器</span><br><span class="line"></span>-<span class="ruby"> <span class="constant">Components</span> <span class="constant">Config</span> 组件的全局配置</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><p>频道页中引用如下<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"X-UA-Compatible"</span> <span class="attribute">content</span>=<span class="value">"chrome=1;IE=edge"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">title</span>&gt;</span>管理平台<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"http://static.qiakr.com/source/qk.common.min.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"wrapper"</span> <span class="attribute">ms-controller</span>=<span class="value">"rootCtr"</span>&gt;</span> <span class="comment">&lt;!-- Your Code --&gt;</span> <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../js/avalon.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../js/qk.config.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="built_in">require</span>([<span class="string">'./pro/main'</span>],<span class="function"><span class="keyword">function</span>(<span class="params">main</span>)</span>&#123;</span><br><span class="line">        main.init();</span><br><span class="line">    &#125;)</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>main.js 页面主模块中的示例代码<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * [频道 主模块]</span><br><span class="line"> */</span></span><br><span class="line">define([<span class="string">'utils'</span>,<span class="string">'mmRouter'</span>],<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> mainVM;</span><br><span class="line"></span><br><span class="line">	mainVM = avalon.define(&#123;</span><br><span class="line">		$id: <span class="string">"rootCtr"</span>,</span><br><span class="line">	  oldPage: <span class="string">''</span>,</span><br><span class="line">	  currPage: <span class="string">'childPage'</span>,</span><br><span class="line">	  subPage:<span class="string">''</span>,</span><br><span class="line">	  params: &#123;&#125;, <span class="comment">//Url参数</span></span><br><span class="line">	  renderedFn: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	      <span class="keyword">if</span>(mainVM.$model.oldPage!= mainVM.$model.currPage )&#123;</span><br><span class="line">	        mainVM.$model.oldPage = mainVM.$model.currPage;</span><br><span class="line"></span><br><span class="line">	        <span class="comment">// 加载相应的模块</span></span><br><span class="line">	        <span class="built_in">require</span>([<span class="string">'./qiakr/'</span>+mainVM.$model.currPage], <span class="function"><span class="keyword">function</span>(<span class="params">pageModel</span>)</span>&#123;</span><br><span class="line">	            pageModel &amp;&amp; pageModel[<span class="string">'init'</span>] &amp;&amp; pageModel[<span class="string">'init'</span>]();</span><br><span class="line">	        &#125;);</span><br><span class="line"></span><br><span class="line">	        <span class="comment">//选中对应的菜单</span></span><br><span class="line">	        <span class="comment">// $('#sidebar-menu').find('[href*='+mainVM.$model.currPage+']').addClass('click');</span></span><br><span class="line">	      &#125;</span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> p_main = &#123;</span><br><span class="line">		init:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			toastr.success(<span class="string">'引用成功！'</span>);</span><br><span class="line">			<span class="keyword">this</span>.initRouter();</span><br><span class="line">		&#125;,</span><br><span class="line">		initRouter:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		    <span class="keyword">this</span>.params.page &amp;&amp; (mainVM.currPage = <span class="keyword">this</span>.params.page);</span><br><span class="line">		    mainVM.params = <span class="keyword">this</span>.query;</span><br><span class="line">		    mainVM.subPage = <span class="keyword">this</span>.query.subPage || <span class="string">''</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			avalon.router.get(<span class="string">'/:page'</span>, callback);</span><br><span class="line">			avalon.history.start(&#123; basepath: <span class="string">"/"</span>&#125;);</span><br><span class="line">			avalon.scan();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		init:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			p_main.init();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p><strong>注意</strong></p>
+<h2 id="ES6常用特性"><a href="#ES6常用特性" class="headerlink" title="ES6常用特性"></a>ES6常用特性</h2><p><a href="http://coderlt.coding.me/qkfe/2016/11/02/ES6-base/" target="_blank" rel="external">点此查看</a></p>
+<h2 id="Vuex基础介绍"><a href="#Vuex基础介绍" class="headerlink" title="Vuex基础介绍"></a>Vuex基础介绍</h2><p><a href="http://coderlt.coding.me/qkfe/2016/11/02/vuex-base/" target="_blank" rel="external">点此查看</a></p>
+<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><p>项目目录<br><img width="500" src="http://7xi480.com1.z0.glb.clouddn.com/%E7%BB%8F%202016-11-02%20%E4%B8%8B%E5%8D%882.54.10.jpg"></p>
+<p>状态管理目录<br><img width="500" src="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-02%20%E4%B8%8B%E5%8D%882.55.27.png"></p>
+<p>主要目录说明</p>
 <ul>
-<li>如果是单页则引用 mmRouter 模块，并在mainVM中添加renderFn函数，p_main中初始化路由</li>
-<li>模块必须返回一个init函数</li>
+<li><code>api</code> 目录：集中管理整个应用的api数据请求</li>
+<li><code>filters</code> 目录：注册Vue全局的filter，便于在所有页面中使用</li>
+<li><code>components</code> 目录：存放多个页面共用的Vue组件</li>
+<li><code>modules</code> 目录：管理每个独立的页面（频道）</li>
+<li><code>store</code> 目录：管理应用的全局状态</li>
 </ul>
-<p>子频道 childPage.html 代码示例<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">h2</span>&gt;</span></span><br><span class="line">	子频道A 页面</span><br><span class="line"><span class="tag">&lt;/<span class="title">h2</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>子频道 childPage.js 模块示例</p>
-<pre><code>/**
- * [账务结算 模块]
- */
-define([&apos;domReady!&apos;],function(){
-    var childVM;
-
-    var p_child = {
-        init:function(){
-            console.log(&apos;子频道A init!&apos;);
-        }
-    }
-
-    return {
-        init:function(){
-            p_child.init();
-        }
-    }
-});
-</code></pre></span>
+<h2 id="页面划分"><a href="#页面划分" class="headerlink" title="页面划分"></a>页面划分</h2><p><img width="500" src="http://7xi480.com1.z0.glb.clouddn.com/22016-11-02%20%E4%B8%8B%E5%8D%882.55.12.jpg"></p>
+<p><code>modules</code> 下每一个目录是一个独立的SPA页面的相关资源，把项目划分为多个频道，一个SPA页面为一个频道，每个频道下的相关子页面放置于views目录中</p>
+<p>好处是不同的频道可由不同的人开发，互不干扰，技术方案也可以不同，比如可不用vue-router、vuex等相关插件，结合jQuery或者其它路由管理模块使用，只把vue做为页面资源模块加载和容器也是可以的。</p>
+<h2 id="路由配置"><a href="#路由配置" class="headerlink" title="路由配置"></a>路由配置</h2><p>使用懒加载的方式加载路由对应的组件<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> SupplierData = resolve =&gt; <span class="built_in">require</span>([<span class="string">'./views/supplier-data.vue'</span>], resolve)</span><br><span class="line"><span class="keyword">const</span> SupplierList = resolve =&gt; <span class="built_in">require</span>([<span class="string">'./views/supplier-list.vue'</span>], resolve)</span><br><span class="line"><span class="keyword">const</span> SupplierSetup = resolve =&gt; <span class="built_in">require</span>([<span class="string">'./views/supplier-setup.vue'</span>], resolve)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> [</span><br><span class="line">  &#123;</span><br><span class="line">   path: <span class="string">'/'</span>,</span><br><span class="line">   meta:<span class="string">'首页'</span>,</span><br><span class="line">   redirect: <span class="string">'/data'</span>,</span><br><span class="line">  &#125;&#123;</span><br><span class="line">    path: <span class="string">'/data'</span>,</span><br><span class="line">    meta:<span class="string">'商户数据'</span>,</span><br><span class="line">    component: SupplierData,</span><br><span class="line">  &#125;,&#123;</span><br><span class="line">    path: <span class="string">'/list'</span>,</span><br><span class="line">    meta: <span class="string">'商户列表'</span>,</span><br><span class="line">    component: SupplierList,</span><br><span class="line">  &#125;,&#123;</span><br><span class="line">    path: <span class="string">'/setup'</span>,</span><br><span class="line">    meta: <span class="string">'商户设置'</span>,</span><br><span class="line">    component: SupplierSetup,</span><br><span class="line">  &#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure></p>
+<p>给路由注册全局的钩子，用于显示loading指示页面的切换状态</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">router.beforeEach((to, from , next) =&gt; &#123;</span><br><span class="line">  store.commit(<span class="string">'UPDATE_LOADING'</span>, &#123;loading: <span class="literal">true</span> &#125;)</span><br><span class="line">  next()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">router.afterEach(route =&gt; &#123;</span><br><span class="line">  store.commit(<span class="string">'UPDATE_LOADING'</span>, &#123;loading: <span class="literal">false</span> &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="Vuex数据流转"><a href="#Vuex数据流转" class="headerlink" title="Vuex数据流转"></a>Vuex数据流转</h2><p><img src="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-02%20%E4%B8%8B%E5%8D%8811.34.57.png" alt=""></p>
+<p>使用Vuex集中管理页面组件的状态，在编写组件时，将 <code>store</code> 中的 <code>Getters/State/Mutaions/Actions</code> 映射至组件，组件的事件操作触发Actions或Mutations来更新所绑定的状态数据，从而触发UI的更新。</p>
+<ul>
+<li><code>getters</code> 返回 store 中computed 属性</li>
+<li><code>state</code> 返回 store 中状态属性 data</li>
+<li><code>mutations</code> 返回唯一同步改变state的方法</li>
+<li><code>actions</code> 返回异步获取数据提交commit更新state的方法</li>
+</ul>
+<h2 id="RESTful-API设计"><a href="#RESTful-API设计" class="headerlink" title="RESTful API设计"></a>RESTful API设计</h2><p><code>REST(Representational State Transfer)</code> 的名称”表现层状态转化”中，省略了主语。”表现层”其实指的是”资源”（Resources）的”表现层”。</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ol>
+<li>每一个URI代表一种资源；</li>
+<li>客户端和服务器之间，传递这种资源的某种表现层；</li>
+<li>客户端通过四个HTTP动词，对服务器端资源进行操作，实现”表现层状态转化”。</li>
+</ol>
+<h3 id="HTTP动词"><a href="#HTTP动词" class="headerlink" title="HTTP动词"></a>HTTP动词</h3><p>使用 <code>HTTP动词</code> 来区别对数据的操作：</p>
+<ul>
+<li>GET（SELECT）：从服务器取出资源（一项或多项）。</li>
+<li>POST（CREATE）：在服务器新建一个资源。</li>
+<li>PUT（UPDATE）：在服务器更新资源（客户端提供改变后的 完整资源）。</li>
+<li>PATCH（UPDATE）：在服务器更新资源（客户端提供改变的 属性）。</li>
+<li>DELETE（DELETE）：从服务器删除资源。</li>
+</ul>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>一级API<br>GET /users - 获取用户列表<br>GET /users/1 - 获取 Id 为 1 的用户<br>POST /users - 创建一个用户<br>PUT /users/1 - 替换 Id 为 1 的用户<br>PATCH /users/1 - 修改 Id 为 1 的用户<br>DELETE /users/1 - 删除 Id 为 1 的用户</p>
+<p>多级API<br>GET /users/1/products - 获取 Id 为 1 用户下的产品列表<br>GET /users/1/products/2 - 获取 Id 为 1 用户下 Id 为 2 的产品<br>POST /users/1/products - 在 Id 为 1 用户下，创建一个产品<br>PUT /users/1/products/2 - 在 Id 为 1 用户下，替换 Id 为 2 的产品<br>PATCH /users/1/products/2 - 修改 Id 为 1 的用户下 Id 为 2 的产品<br>DELETE /users/1/products/2 - 删除 Id 为 1 的用户下 Id 为 2 的产品</p>
+<h3 id="注册与登录的API设计"><a href="#注册与登录的API设计" class="headerlink" title="注册与登录的API设计"></a>注册与登录的API设计</h3><p>登录/登出对应的服务端资源应该是session操作，所以相关api应该如下：</p>
+<ul>
+<li>GET /session           获取会话信息</li>
+<li>PUT /session           更新会话信息 (心跳)</li>
+<li>POST /session         创建新的会话（登入）</li>
+<li>DELETE /session     销毁当前会话（登出）</li>
+</ul>
+<p>注册对应的资源是user</p>
+<ul>
+<li>GET /user/:id 获取id用户的信息</li>
+<li>PUT /user/:id 更新id用户的信息</li>
+<li>POST /user 创建新的用户（注册）</li>
+<li>DELETE /user/:id 删除id用户（注销）</li>
+</ul>
+<h3 id="结合Vue-resource"><a href="#结合Vue-resource" class="headerlink" title="结合Vue-resource"></a>结合Vue-resource</h3><p>使用 vue-resource 对API进行集中式管理</p>
+<p>vue-resource 对应restful的操作<br><figure class="highlight"><table><tr><td class="code"><pre><span class="line">get: &#123;method: 'GET'&#125;,</span><br><span class="line">save: &#123;method: 'POST'&#125;,</span><br><span class="line">query: &#123;method: 'GET'&#125;,</span><br><span class="line">update: &#123;method: 'PUT'&#125;,</span><br><span class="line">remove: &#123;method: 'DELETE'&#125;,</span><br><span class="line">delete: &#123;method: 'DELETE'&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//api.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> VueResource <span class="keyword">from</span> <span class="string">'vue-resource'</span></span><br><span class="line"></span><br><span class="line">Vue.use(VueResource)</span><br><span class="line">Vue.http.options.emulateJSON = true;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> apiMenus = Vue.resource(<span class="string">'/api/menus'</span>)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> apiSession = Vue.resource(<span class="string">'/api/session&#123;/id&#125;'</span>)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> apiUser = Vue.resource(<span class="string">'/api/user&#123;/id&#125;'</span>)</span><br></pre></td></tr></table></figure>
+<p>在actions中导入api模块进行异步请求操作</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; apiSession, apiMenus &#125; <span class="keyword">from</span> <span class="string">'../../../api/'</span></span><br><span class="line"></span><br><span class="line">apiSession.save(&#123;uName:<span class="string">''</span>, password: <span class="string">''</span>&#125;).then().catch()</span><br><span class="line">apiSession.get().then().catch()</span><br><span class="line">apiSession.put(&#123;state: 1&#125;).then().catch()</span><br><span class="line">apiSession.delete().then().catch()</span><br></pre></td></tr></table></figure></span>
       
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ES6/" rel="tag">#ES6</a>
+          
+        </div>
       
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/02/24/Front-end-sharing/" rel="prev">移动端开发技巧汇总</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/10/h5-performance/" rel="next">洽客前端性能优化指南V1.0.0</a>
+              <a href="/2016/11/02/vuejs-vuex/" rel="next">VueJS组件通信</a>
             
           </div>
         </div>
@@ -324,10 +342,10 @@ define([&apos;domReady!&apos;],function(){
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/02/18/QKPlatform-readme/"
-     data-title="新版管理后台框架调整说明文档"
+        <div class="ds-share flat" data-thread-key="2016/11/03/vue-multi-page/"
+     data-title="Vue.js2.0多页项目脚手架设计"
      data-content=""
-     data-url="http://toggle.coding.io/2016/02/18/QKPlatform-readme/">
+     data-url="http://toggle.coding.io/2016/11/03/vue-multi-page/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -357,8 +375,8 @@ define([&apos;domReady!&apos;],function(){
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/02/18/QKPlatform-readme/"
-                   data-title="新版管理后台框架调整说明文档" data-url="http://toggle.coding.io/2016/02/18/QKPlatform-readme/">
+              <div class="ds-thread" data-thread-key="2016/11/03/vue-multi-page/"
+                   data-title="Vue.js2.0多页项目脚手架设计" data-url="http://toggle.coding.io/2016/11/03/vue-multi-page/">
               </div>
             
           </div>
@@ -457,7 +475,7 @@ define([&apos;domReady!&apos;],function(){
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#UI框架"><span class="nav-number">1.</span> <span class="nav-text">UI框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#qk-common-css"><span class="nav-number">1.1.</span> <span class="nav-text">qk.common.css</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS框架"><span class="nav-number">2.</span> <span class="nav-text">JS框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#avalon-js"><span class="nav-number">2.1.</span> <span class="nav-text">avalon.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#qk-config-js"><span class="nav-number">2.2.</span> <span class="nav-text">qk.config.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#qk-common-js"><span class="nav-number">2.3.</span> <span class="nav-text">qk.common.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#qk-utils-js"><span class="nav-number">2.4.</span> <span class="nav-text">qk.utils.js</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方式"><span class="nav-number">3.</span> <span class="nav-text">使用方式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#必备知识点"><span class="nav-number">1.</span> <span class="nav-text">必备知识点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6常用特性"><span class="nav-number">2.</span> <span class="nav-text">ES6常用特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vuex基础介绍"><span class="nav-number">3.</span> <span class="nav-text">Vuex基础介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目结构"><span class="nav-number">4.</span> <span class="nav-text">项目结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面划分"><span class="nav-number">5.</span> <span class="nav-text">页面划分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由配置"><span class="nav-number">6.</span> <span class="nav-text">路由配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vuex数据流转"><span class="nav-number">7.</span> <span class="nav-text">Vuex数据流转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RESTful-API设计"><span class="nav-number">8.</span> <span class="nav-text">RESTful API设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">8.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP动词"><span class="nav-number">8.2.</span> <span class="nav-text">HTTP动词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例"><span class="nav-number">8.3.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注册与登录的API设计"><span class="nav-number">8.4.</span> <span class="nav-text">注册与登录的API设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结合Vue-resource"><span class="nav-number">8.5.</span> <span class="nav-text">结合Vue-resource</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
