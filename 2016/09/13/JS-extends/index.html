@@ -1,0 +1,767 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="javascript | HTML5 | CSS3 | Node | React" />
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="继承，代码复用的一种模式。和其它高级程序语言相比，javascript有点点不一样，它是一门纯面向对象的语言，在JS中，没有类的概念，但也可以通过原型(prototype)来模拟对象的继承和多态。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="也来谈谈继承">
+<meta property="og:url" content="http://toggle.coding.io/2016/09/13/JS-extends/index.html">
+<meta property="og:site_name" content="Aitter Blog">
+<meta property="og:description" content="继承，代码复用的一种模式。和其它高级程序语言相比，javascript有点点不一样，它是一门纯面向对象的语言，在JS中，没有类的概念，但也可以通过原型(prototype)来模拟对象的继承和多态。">
+<meta property="og:updated_time" content="2016-09-13T01:16:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="也来谈谈继承">
+<meta name="twitter:description" content="继承，代码复用的一种模式。和其它高级程序语言相比，javascript有点点不一样，它是一门纯面向对象的语言，在JS中，没有类的概念，但也可以通过原型(prototype)来模拟对象的继承和多态。">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 也来谈谈继承 | Aitter Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Aitter Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              也来谈谈继承
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-09-13T09:06:22+08:00" content="2016-09-13">
+            2016-09-13
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/JS/" itemprop="url" rel="index">
+                  <span itemprop="name">JS</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/09/13/JS-extends/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/13/JS-extends/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>继承，代码复用的一种模式。和其它高级程序语言相比，javascript有点点不一样，它是一门纯面向对象的语言，在JS中，没有类的概念，但也可以通过原型(prototype)来模拟对象的继承和多态。<br><a id="more"></a></p>
+<h2 id="原型与实例"><a href="#原型与实例" class="headerlink" title="原型与实例"></a>原型与实例</h2><ul>
+<li>一切对象都是Object的实例，一切函数都是Function的实例</li>
+<li>构造函数通过 prototype 属性访问原型对象</li>
+<li>实例对象通过 [[prototype]] 内部属性访问原型对象，浏览器实现了 proto 属性用于实例对象访问原型对象</li>
+<li>Object 是构造函数，既然是函数，那么就是Function的实例对象；Function是构造函数，但Function.prototype是对象，既然是对象，那么就是Object的实例对象</li>
+</ul>
+<h2 id="关系判断"><a href="#关系判断" class="headerlink" title="关系判断"></a>关系判断</h2><ul>
+<li>instanceof 判断是否为另一个对象的实例</li>
+<li>isPrototypeOf() 判断一个对象是否存在于另一个对象的原型链上 Child.isPrototypeOf(Parent) //true</li>
+<li>Object.getPrototypeOf() ES6中新增的方法，用于获取子类的父类 Object.getPrototypeOf(Child) == Parent //true</li>
+</ul>
+<h2 id="继承类型"><a href="#继承类型" class="headerlink" title="继承类型"></a>继承类型</h2><ul>
+<li>引用对象继承：子引用类型继承父引用类型，然后通过子引用类型生成的实例对象，具有父引用类型的特性。</li>
+<li>实例对象继承：而实例对象继承，继承得到的对象都具有父实例对象的所有属性和方法，其实就是指对象的复制和克隆。</li>
+</ul>
+<h3 id="引用对象继承"><a href="#引用对象继承" class="headerlink" title="引用对象继承"></a>引用对象继承</h3><ol>
+<li>原型 （C.prototype = new P()）</li>
+<li>构造函数 (P.apply(this, arguments))</li>
+<li>原型 + 构造函数 (使用原型链实现对原型中的属性方法的继承，使用构造函数实现实例属性的继承)</li>
+<li>共享原型（子类与父类共享同一个原型）</li>
+<li>临时原型（使用中间类）</li>
+<li><strong>临时原型 + 构造函数</strong>（完美、nodejs的继承方式、ES5版本）</li>
+</ol>
+<h4 id="原型继承"><a href="#原型继承" class="headerlink" title="原型继承"></a>原型继承</h4><p>让子类的的原型等于父类的实例，从而继承父类的所有属性和原型</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = <span class="string">'father'</span>;</div><div class="line">  <span class="keyword">this</span>.friends = [<span class="string">'A'</span>,<span class="string">'B'</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line">Parent.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  log(<span class="keyword">this</span>.name, <span class="keyword">this</span>.friends)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"></div><div class="line">Person.prototype = <span class="keyword">new</span> Parent();</div><div class="line">Person.prototype.constructor = Person;</div><div class="line"></div><div class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Person();</div><div class="line"><span class="keyword">var</span> p2 = <span class="keyword">new</span> Person();</div><div class="line"></div><div class="line">log(p1.name);</div><div class="line">log(p2.name);</div><div class="line">p1.name = <span class="string">'jack'</span>;</div><div class="line">p2.name = <span class="string">'mak'</span>;</div><div class="line">log(p1.name);</div><div class="line">log(p2.name);</div><div class="line">log(p1.say())</div><div class="line">log(p2.say())</div><div class="line">log(<span class="string">'===================='</span>)</div><div class="line">log(p1.friends);</div><div class="line">log(p2.friends);</div><div class="line">p1.friends.push(<span class="string">'C'</span>);</div><div class="line">p1.friends.push(<span class="string">'D'</span>);</div><div class="line">log(p1.friends);</div><div class="line">log(p2.friends);</div><div class="line">log(p1.say())</div><div class="line">log(p2.say())</div></pre></td></tr></table></figure>
+<p>缺点：</p>
+<ol>
+<li>不能向父类的构造函数中传递参数</li>
+<li>父类中的引用类型属性会被实例共享</li>
+<li>需要修正实例的constructor指向，否则会指向父类</li>
+</ol>
+<h4 id="构造函数继承"><a href="#构造函数继承" class="headerlink" title="构造函数继承"></a>构造函数继承</h4><p>在子类的构造函数中使用 Parent.call(this, …args) 或 Parent.apply(this,[args]) 来继承父类的属性，并向父类的构造函数传参</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = name;</div><div class="line">  <span class="keyword">this</span>.friends = [<span class="string">'A'</span>,<span class="string">'B'</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line">Parent.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  log(<span class="keyword">this</span>.name, <span class="keyword">this</span>.friends)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  Parent.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</div><div class="line">  <span class="keyword">this</span>.age = <span class="number">23</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Person(<span class="string">'nameA'</span>);</div><div class="line"><span class="keyword">var</span> p2 = <span class="keyword">new</span> Person(<span class="string">'nameB'</span>);</div><div class="line">log(p1.name); <span class="comment">//nameA</span></div><div class="line">log(p2.name); <span class="comment">//nameB</span></div><div class="line"></div><div class="line">p1.friends.push(<span class="string">'C'</span>);</div><div class="line">p2.friends.push(<span class="string">'D'</span>);</div><div class="line">log(p1.friends) <span class="comment">//["A", "B", "C"]</span></div><div class="line">log(p2.friends) <span class="comment">//["A", "B", "D"]</span></div><div class="line"></div><div class="line">log(p1.say()) <span class="comment">// Uncaught TypeError: p1.say is not a function</span></div></pre></td></tr></table></figure>
+<ul>
+<li>优点：子类可以向父类的构造函数中传参，子类实例中的引用类型属性互不干扰</li>
+<li>缺点：子类实例无法访问父类的原型（无法复用父类原型中的方法）</li>
+</ul>
+<h4 id="原型-构造函数继承"><a href="#原型-构造函数继承" class="headerlink" title="原型+构造函数继承"></a>原型+构造函数继承</h4><p>为解决纯原型继承不能给父传参和纯构造函数继承不能继承父类原型的缺点，把二者结合起来实现</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = name;</div><div class="line">  <span class="keyword">this</span>.friends = [<span class="string">'A'</span>,<span class="string">'B'</span>];</div><div class="line">  log(<span class="string">'Parent constructor excuted'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">Parent.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  log(<span class="keyword">this</span>.name, <span class="keyword">this</span>.friends)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name, age</span>)</span>&#123;</div><div class="line">  Parent.call(<span class="keyword">this</span>, name);</div><div class="line">  <span class="keyword">this</span>.age = age;</div><div class="line">  log(<span class="string">'Child constructor excuted'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">Child.prototype = <span class="keyword">new</span> Parent();</div><div class="line">Child.prototype.constructor = Child;</div><div class="line"></div><div class="line">Child.prototype.see = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  log(<span class="keyword">this</span>.age);</div><div class="line">&#125;</div><div class="line">Child.prototype.getAge = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">this</span>.age;</div><div class="line"></div><div class="line"><span class="keyword">var</span> c1 = <span class="keyword">new</span> Child(<span class="string">'jack'</span>,<span class="number">12</span>);</div><div class="line">c1.friends.push(<span class="string">'F'</span>);</div><div class="line"></div><div class="line">log(c1.say()); <span class="comment">//jack ["A", "B", "F"]</span></div><div class="line">log(c1.see()); <span class="comment">//12</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> c2 = <span class="keyword">new</span> Child(<span class="string">'jack'</span>,<span class="number">42</span>);</div><div class="line">c2.friends.push(<span class="string">'D'</span>);</div><div class="line"></div><div class="line">log(c2.say()); <span class="comment">//jack ["A", "B", "D"]</span></div><div class="line">log(c2.see()); <span class="comment">//42</span></div></pre></td></tr></table></figure>
+<p>缺点：子类初次实例化时会多调用一个父类的构造函数（第一次创建子类原型和子类实例化时）</p>
+<h4 id="共享原型"><a href="#共享原型" class="headerlink" title="共享原型"></a>共享原型</h4><p>子类和父类共用一个原型</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">inherit</span>(<span class="params">C, P</span>)</span>&#123;</div><div class="line">  C.prototype = P.prototype;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = name;</div><div class="line">  <span class="keyword">this</span>.friends = [<span class="string">'A'</span>,<span class="string">'B'</span>];</div><div class="line">  log(<span class="string">'Parent constructor excuted'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">Parent.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  log(<span class="keyword">this</span>.name, <span class="keyword">this</span>.friends)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name, age</span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.age = age;</div><div class="line">  log(<span class="string">'Child constructor excuted'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">Child.prototype.say=<span class="function"><span class="params">()</span>=&gt;</span>log(<span class="string">'child'</span>,<span class="keyword">this</span>.name);</div><div class="line"></div><div class="line">inherit(Child, Parent);</div><div class="line"></div><div class="line"><span class="keyword">var</span> c1 = <span class="keyword">new</span> Child(<span class="string">'pake'</span>, <span class="number">44</span>);</div><div class="line">c1.name = <span class="string">'jack'</span>;</div><div class="line"></div><div class="line">log(c1.name)</div><div class="line">log(c1.say())</div></pre></td></tr></table></figure>
+<p>缺点：子类实例化时，父类构造函数接收不到参数， 子类原型如果改变也会影响到父类原型</p>
+<h4 id="临时原型"><a href="#临时原型" class="headerlink" title="临时原型"></a>临时原型</h4><p>使用一个纯净类继承父类的原型，再将纯净类的实例设置为子类的原型，如此子类继承了父类的原型和纯净类的构造函数，再修正一下子类的构造函数为子类本身，这样子类的原型改动就不影响父类。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">inherit</span>(<span class="params">C, P</span>)</span>&#123;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">  F.prototype = P.prototype;</div><div class="line">  C.prototype = <span class="keyword">new</span> F(); <span class="comment">//继承父类的原型，但不继承父类的构造函数</span></div><div class="line">  C.super = P.prototype; <span class="comment">//便于子类访问父类的原型</span></div><div class="line">  C.prototype.constructor = C; <span class="comment">//重置构造函数为本身</span></div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> F();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span> (<span class="params">age</span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = <span class="string">'parent'</span>;</div><div class="line">  <span class="keyword">this</span>.age = age || <span class="number">50</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Parent.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  log(<span class="keyword">this</span>.name, <span class="keyword">this</span>.age)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span> (<span class="params">name, age</span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div><div class="line">inherit(Child, Parent)</div><div class="line"></div><div class="line"><span class="keyword">var</span> c1 = <span class="keyword">new</span> Child(<span class="string">'jack'</span>, <span class="number">10</span>)</div><div class="line">log(c1.name) <span class="comment">// jack</span></div><div class="line">log( c1.say() ) <span class="comment">// jack undefined</span></div></pre></td></tr></table></figure>
+<p>缺点：只继承了父类的原型，子类实例化时一样不能给父类的构造函数传参</p>
+<h4 id="临时原型-构造函数"><a href="#临时原型-构造函数" class="headerlink" title="临时原型 + 构造函数"></a>临时原型 + 构造函数</h4><p>在子类的构造函数中调用父类的构造函数，修复了上面 临时原型 不能传递参数给父类构造函数的问题</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">inherit</span>(<span class="params">C, P</span>)</span>&#123;</div><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">   F.prototype = P.prototype;</div><div class="line">   C.prototype = <span class="keyword">new</span> F(); <span class="comment">//继承父类的原型，但不继承父类的构造函数</span></div><div class="line">   C.super = P.prototype; <span class="comment">//便于子类访问父类的原型</span></div><div class="line">   C.prototype.constructor = C; <span class="comment">//重置构造函数为本身</span></div><div class="line">   <span class="keyword">return</span> <span class="keyword">new</span> F();</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">Parent</span> (<span class="params">age</span>)</span>&#123;</div><div class="line">   <span class="keyword">this</span>.name = <span class="string">'parent'</span>;</div><div class="line">   <span class="keyword">this</span>.age = age || <span class="number">50</span>;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> Parent.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   log(<span class="keyword">this</span>.name, <span class="keyword">this</span>.age)</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">Child</span> (<span class="params">name, age</span>)</span>&#123;</div><div class="line">   Parent.call(<span class="keyword">this</span>, age);</div><div class="line">   <span class="keyword">this</span>.name = name;</div><div class="line"> &#125;</div><div class="line"> inherit(Child, Parent)</div><div class="line"></div><div class="line"> <span class="keyword">var</span> c1 = <span class="keyword">new</span> Child(<span class="string">'jack'</span>, <span class="number">10</span>)</div><div class="line"> log(c1.name) <span class="comment">// jack</span></div><div class="line"> log( c1.say() ) <span class="comment">// jack 10</span></div><div class="line"></div><div class="line"><span class="comment">// 这种方法是最合适，也是用得最广的继承模式</span></div><div class="line">另一种相同的实现，ES5的实现</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Shape</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.x = <span class="number">0</span>;</div><div class="line">  <span class="keyword">this</span>.y = <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Shape.prototype.move = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.x += x;</div><div class="line">    <span class="keyword">this</span>.y += y;</div><div class="line">    <span class="built_in">console</span>.info(<span class="string">"Shape moved."</span>);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Rectangle</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  Shape.call(<span class="keyword">this</span>); <span class="comment">//call super constructor.</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">Rectangle.prototype = <span class="built_in">Object</span>.create(Shape.prototype);</div><div class="line"></div><div class="line"><span class="keyword">var</span> rect = <span class="keyword">new</span> Rectangle();</div><div class="line"></div><div class="line">log(rect <span class="keyword">instanceof</span> Rectangle); <span class="comment">//true.</span></div><div class="line">log(rect <span class="keyword">instanceof</span> Shape); <span class="comment">//true.</span></div><div class="line"></div><div class="line">rect.move(); <span class="comment">//"Shape moved."</span></div></pre></td></tr></table></figure>
+<h3 id="实例对象继承"><a href="#实例对象继承" class="headerlink" title="实例对象继承"></a>实例对象继承</h3><ol>
+<li>原型实例</li>
+<li>克隆（深拷贝、浅拷贝）</li>
+<li>借用和绑定</li>
+</ol>
+<h4 id="原型实例"><a href="#原型实例" class="headerlink" title="原型实例"></a>原型实例</h4><p>创建一个继承父类原型的实例对象，这也是ES5中Object.create()的简单实现</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">P</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">  F.prototype = P;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> F();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name</span>) </span>&#123; <span class="keyword">this</span>.name = name || <span class="string">'Adam'</span>; &#125;</div><div class="line">Parent.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; log(<span class="keyword">this</span>.name) &#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> c1 = <span class="keyword">new</span> Parent(<span class="string">'jack'</span>);</div><div class="line"><span class="keyword">var</span> c2 = object(c1);</div><div class="line">c2.name = <span class="string">'mark'</span>;</div><div class="line"></div><div class="line">log(c1.say())</div><div class="line">log(c2.say())</div></pre></td></tr></table></figure>
+<h4 id="克隆"><a href="#克隆" class="headerlink" title="克隆"></a>克隆</h4><p>浅拷贝只能拷贝值类型的数据，对于引用类型，只会拷贝引用地址，如果有引用类型，多个拷贝对象会共用同一个引用类型的数据，造成混乱。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">parent, child</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> i, child = child || &#123;&#125;;</div><div class="line">  <span class="keyword">for</span>(i <span class="keyword">in</span> parent)&#123;</div><div class="line">    parent.hasOwnProperty(i) &amp;&amp; (child[i] = parent[i]);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> child;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> o1 = &#123; <span class="attr">arr</span>: [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>], <span class="attr">name</span>:<span class="string">'jack'</span>&#125;;</div><div class="line"><span class="keyword">var</span> o2 = clone(o1);</div><div class="line">o2.arr.push(<span class="number">3</span>);</div><div class="line">log(o1.arr); <span class="comment">//[1, 2, 4, 3]</span></div><div class="line">log(o2.arr); <span class="comment">//[1, 2, 4, 3]</span></div></pre></td></tr></table></figure>
+<p>两个拷贝对象共用同一个引用类型，会相互影响</p>
+<p>深拷贝</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">cloneDeep</span>(<span class="params">parent, child</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> i, child = child || &#123;&#125;;</div><div class="line"></div><div class="line">  <span class="keyword">for</span>(i <span class="keyword">in</span> parent)&#123;</div><div class="line">    <span class="keyword">if</span>(parent.hasOwnProperty(i))&#123;</div><div class="line">      <span class="keyword">if</span>(<span class="keyword">typeof</span> parent[i]===<span class="string">'object'</span>)&#123;</div><div class="line">        child[i] = <span class="built_in">Array</span>.isArray(parent[i]) ? []:&#123;&#125;;</div><div class="line">        cloneDeep(parent[i], child[i]);</div><div class="line">      &#125;<span class="keyword">else</span>&#123;</div><div class="line">        child[i] = parent[i];</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> child;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> o3 = &#123; <span class="attr">arr</span>: [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>], <span class="attr">name</span>:<span class="string">'jack'</span>&#125;;</div><div class="line"><span class="keyword">var</span> o4 = cloneDeep(o3);</div><div class="line">o4.arr.push(<span class="number">3</span>);</div><div class="line">log(o3.arr);<span class="comment">//[1, 2, 4]</span></div><div class="line">log(o4.arr);<span class="comment">//[1, 2, 4, 3]</span></div></pre></td></tr></table></figure>
+<p>两个对象引用不同的引用地址，互不影响</p>
+<h4 id="借用和绑定"><a href="#借用和绑定" class="headerlink" title="借用和绑定"></a>借用和绑定</h4><p>使用 call / apply / bind 复用对象上的方法</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> parent = &#123;</div><div class="line">  <span class="attr">name</span>:<span class="string">'parent'</span>,</div><div class="line">  <span class="attr">say</span>:<span class="function"><span class="keyword">function</span>(<span class="params">msg</span>)</span>&#123;</div><div class="line">    log(<span class="keyword">this</span>.name, msg)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> child = &#123;</div><div class="line">  <span class="attr">name</span>:<span class="string">'child'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 复用父类的say方法</span></div><div class="line">parent.say.call(child, <span class="string">'hello'</span>); <span class="comment">//child hello</span></div><div class="line">parent.say.bind(child, <span class="string">'world'</span>)(); <span class="comment">//child world</span></div><div class="line"></div><div class="line"><span class="comment">// bind的内部实现</span></div><div class="line"><span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="built_in">Function</span>.prototype.bind === <span class="string">'undefined'</span>)&#123;</div><div class="line">  <span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> _this = <span class="keyword">this</span>, slice = <span class="built_in">Array</span>.prototype.slice, args = slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="keyword">return</span> _this.apply(context, args.concat(slice.call(<span class="built_in">arguments</span>)));</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 借用Array中的slice方法</span></div><div class="line"><span class="comment">// Array.prototype.slice.call() 与 [].prototype.slice.call() 区别: 前者写法长，但少一个创建数组实例的开销</span></div></pre></td></tr></table></figure>
+<h2 id="ES6的继承方式"><a href="#ES6的继承方式" class="headerlink" title="ES6的继承方式"></a>ES6的继承方式</h2><p>使用 extends 关键字，来实现继承</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>&#123;</div><div class="line">  <span class="keyword">static</span> name = <span class="string">'parent'</span>; <span class="comment">//静态属性</span></div><div class="line">  work = <span class="string">'aa'</span>; <span class="comment">//实例属性</span></div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Parent</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(age)&#123;</div><div class="line">    <span class="keyword">super</span>(age); <span class="comment">// 在此必须先调用super()，否则子类实例化时会报错，因为子类没有自己的this对象，而是继承父类的this对象</span></div><div class="line">    <span class="keyword">this</span>.age = age;</div><div class="line">  &#125;</div><div class="line">  say()&#123;</div><div class="line">    log(<span class="string">'child say'</span>, <span class="keyword">this</span>.age);</div><div class="line">  &#125;</div><div class="line">  <span class="comment">// 通过 static 关键字标识类的静态方法</span></div><div class="line">  <span class="keyword">static</span> work()&#123;</div><div class="line">    log(<span class="string">'child working'</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">Child.work(); <span class="comment">//child working</span></div><div class="line"><span class="keyword">var</span> c1 = <span class="keyword">new</span> Child(<span class="number">16</span>);</div><div class="line">log(c1.say());<span class="comment">//child say 16</span></div><div class="line"></div><div class="line"><span class="comment">// 如果子类中没有 constructor 方法，ES6 会默认添加这个方法</span></div><div class="line"></div><div class="line"><span class="keyword">constructor</span>(...args)&#123;</div><div class="line">  <span class="keyword">super</span>(...args);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> <span class="keyword">extends</span> <span class="title">Object</span></span>&#123;&#125;</div><div class="line">A.__proto__ === <span class="built_in">Object</span> <span class="comment">//true</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">Array</span></span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> arrB = <span class="keyword">new</span> B();</div><div class="line">b.push(<span class="number">1</span>); <span class="comment">//[1]</span></div><div class="line">b.length; <span class="comment">//1</span></div></pre></td></tr></table></figure>
+<ul>
+<li>ES5继承 是先创建子类的实例对象this，再向this对象中添加父类的方法</li>
+<li>ES6继承 是先创造父类的实例对象this, 再用子类的构造函数修改this</li>
+<li>Parent 可以是任意函数（只要有prototype属性）</li>
+</ul>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/23/JS-Array/" rel="prev">数组的全面总结</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/13/mTools/" rel="next">移动端页面工具类mTools</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/09/13/JS-extends/"
+     data-title="也来谈谈继承"
+     data-content=""
+     data-url="http://toggle.coding.io/2016/09/13/JS-extends/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+            <!-- 多说热评文章-->
+            <p>热评文章</p>
+            <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2016/09/13/JS-extends/"
+                   data-title="也来谈谈继承" data-url="http://toggle.coding.io/2016/09/13/JS-extends/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar100.jpg" alt="Aitter" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Aitter</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/git-lt" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank">Zhihu</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">友情链接</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://hexo.io/" target="_blank">Hexo</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原型与实例"><span class="nav-number">1.</span> <span class="nav-text">原型与实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关系判断"><span class="nav-number">2.</span> <span class="nav-text">关系判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承类型"><span class="nav-number">3.</span> <span class="nav-text">继承类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引用对象继承"><span class="nav-number">3.1.</span> <span class="nav-text">引用对象继承</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原型继承"><span class="nav-number">3.1.1.</span> <span class="nav-text">原型继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构造函数继承"><span class="nav-number">3.1.2.</span> <span class="nav-text">构造函数继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型-构造函数继承"><span class="nav-number">3.1.3.</span> <span class="nav-text">原型+构造函数继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#共享原型"><span class="nav-number">3.1.4.</span> <span class="nav-text">共享原型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#临时原型"><span class="nav-number">3.1.5.</span> <span class="nav-text">临时原型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#临时原型-构造函数"><span class="nav-number">3.1.6.</span> <span class="nav-text">临时原型 + 构造函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例对象继承"><span class="nav-number">3.2.</span> <span class="nav-text">实例对象继承</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原型实例"><span class="nav-number">3.2.1.</span> <span class="nav-text">原型实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#克隆"><span class="nav-number">3.2.2.</span> <span class="nav-text">克隆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#借用和绑定"><span class="nav-number">3.2.3.</span> <span class="nav-text">借用和绑定</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6的继承方式"><span class="nav-number">4.</span> <span class="nav-text">ES6的继承方式</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright" >
+  
+  &copy; &nbsp;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aitter</span>
+</div>
+
+<div>
+  <span id="showDays"></span>
+  <span id="busuanzi_container_site_pv">
+    总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+  <span id="busuanzi_container_site_uv">
+    访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+<script>
+var birthDay = new Date("11/20/2014");
+var now = new Date();
+var duration = now.getTime() - birthDay.getTime(); 
+var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+</script>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"togglelt"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

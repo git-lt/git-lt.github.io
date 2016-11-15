@@ -1,0 +1,746 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="javascript | HTML5 | CSS3 | Node | React" />
+
+
+
+  <meta name="keywords" content="ReactJS," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="ES6有许多新的特性，语法也在ES5上有较大的变化，在React中应用广泛，下面列举部分示例，体会一下ES6的语法给我们带来的便利…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React的ES5与ES6写法对比">
+<meta property="og:url" content="http://toggle.coding.io/2016/05/17/React-ES5-ES6/index.html">
+<meta property="og:site_name" content="Aitter Blog">
+<meta property="og:description" content="ES6有许多新的特性，语法也在ES5上有较大的变化，在React中应用广泛，下面列举部分示例，体会一下ES6的语法给我们带来的便利…">
+<meta property="og:updated_time" content="2016-07-17T03:33:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React的ES5与ES6写法对比">
+<meta name="twitter:description" content="ES6有许多新的特性，语法也在ES5上有较大的变化，在React中应用广泛，下面列举部分示例，体会一下ES6的语法给我们带来的便利…">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> React的ES5与ES6写法对比 | Aitter Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Aitter Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              React的ES5与ES6写法对比
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-05-17T11:12:32+08:00" content="2016-05-17">
+            2016-05-17
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/JS/" itemprop="url" rel="index">
+                  <span itemprop="name">JS</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/05/17/React-ES5-ES6/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/17/React-ES5-ES6/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>ES6有许多新的特性，语法也在ES5上有较大的变化，在React中应用广泛，下面列举部分示例，体会一下ES6的语法给我们带来的便利…<br><a id="more"></a></p>
+<h2 id="导入模块"><a href="#导入模块" class="headerlink" title="导入模块"></a>导入模块</h2><p>ES5</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><div class="line"><span class="attribute">var React</span> = require(<span class="string">'react'</span>);</div><div class="line"><span class="attribute">var PropTypes</span> = React.PropTypes;</div></pre></td></tr></table></figure>
+<p>ES6</p>
+<p>使用 <code>import</code> 导出模块或模块中的方法</p>
+<figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> React, &#123;PropTypes&#125; <span class="keyword">from</span> <span class="string">'react'</span></div></pre></td></tr></table></figure>
+<h2 id="导出模块"><a href="#导出模块" class="headerlink" title="导出模块"></a>导出模块</h2><p>ES5</p>
+<figure class="highlight lasso"><table><tr><td class="code"><pre><div class="line"><span class="built_in">var</span> <span class="keyword">Header</span> = React.createClass(&#123; <span class="params">...</span> &#125;)</div><div class="line">module.exports = <span class="keyword">Header</span>;</div></pre></td></tr></table></figure>
+<p>ES6</p>
+<p>使用 <code>export default</code> 来导出模块中的内容</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Header</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123; ... &#125;</div></pre></td></tr></table></figure>
+<h2 id="组件定义"><a href="#组件定义" class="headerlink" title="组件定义"></a>组件定义</h2><p>ES5</p>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> Photo = React.createClass(&#123;</div><div class="line">	render: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>ES6</p>
+<p>使用 <code>class</code> 关键字标识为组件 使用 <code>extends</code> 来继承父组件</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Photo</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">	render()&#123;</div><div class="line">		<span class="keyword">return</span>(</div><div class="line">			 &lt;<span class="type">Image</span> source=&#123;<span class="keyword">this</span>.props.source&#125; /&gt;</div><div class="line">		)</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="添加组件的事件"><a href="#添加组件的事件" class="headerlink" title="添加组件的事件"></a>添加组件的事件</h2><p>ES5</p>
+<p>事件绑定不需要绑定this</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> Photo = React.createClass(&#123;</div><div class="line">	<span class="attr">clickEv</span>: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123; ... &#125;,</div><div class="line"></div><div class="line">	<span class="attr">render</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> (</div><div class="line">			<span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">onClick</span>=<span class="string">&#123;this.clickEv&#125;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line">		)</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>ES6</p>
+<p>使用 HTML 中的事件绑定属性</p>
+<p>事件绑定需要绑定this</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Photo</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span></span>&#123;</div><div class="line">	clickEv()&#123; ... &#125;</div><div class="line">	render()&#123;</div><div class="line">		<span class="keyword">return</span> (</div><div class="line">			&lt;div onClick=&#123;<span class="keyword">this</span>.clickEv.bind(<span class="keyword">this</span>)&#125;&gt;&lt;/div&gt;</div><div class="line">		)</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="指定组件的属性类型和默认属性"><a href="#指定组件的属性类型和默认属性" class="headerlink" title="指定组件的属性类型和默认属性"></a>指定组件的属性类型和默认属性</h2><p>ES5</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">var</span> Video = React.createClass(&#123;</div><div class="line">	getDefaultProps: function()&#123;</div><div class="line">		return &#123;</div><div class="line">			autoPlay: false,</div><div class="line">			maxLoops: <span class="number">10</span></div><div class="line">		&#125;</div><div class="line">	&#125;,</div><div class="line"></div><div class="line">	propTypes: &#123;</div><div class="line">		autoPlay: React<span class="selector-class">.PropTypes</span><span class="selector-class">.bool</span><span class="selector-class">.isRequired</span>,</div><div class="line">		maxLoops: React<span class="selector-class">.PropTypes</span><span class="selector-class">.number</span><span class="selector-class">.isRequired</span>,</div><div class="line">		posterFrameSrc: React<span class="selector-class">.PropTypes</span><span class="selector-class">.string</span><span class="selector-class">.isRequired</span>,</div><div class="line">		videoSrc: React<span class="selector-class">.PropTypes</span><span class="selector-class">.string</span><span class="selector-class">.isRequired</span>,</div><div class="line">	&#125;,</div><div class="line"></div><div class="line">	render: function()&#123;</div><div class="line">		return (</div><div class="line">			&lt;View /&gt;</div><div class="line">		)</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>ES6</p>
+<p>使用 <code>static</code> 关键字标识为组件的属性</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">class Video extends React.Component&#123;</div><div class="line">	static defaultProps = &#123;</div><div class="line">		autoPlay: false,</div><div class="line">		maxLoops: <span class="number">10</span></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	static propTypes = &#123;</div><div class="line">		autoPlay: React<span class="selector-class">.PropTypes</span><span class="selector-class">.bool</span><span class="selector-class">.isRequired</span>,</div><div class="line">		maxLoops: React<span class="selector-class">.PropTypes</span><span class="selector-class">.number</span><span class="selector-class">.isRequired</span>,</div><div class="line">		posterFrameSrc: React<span class="selector-class">.PropTypes</span><span class="selector-class">.string</span><span class="selector-class">.isRequired</span>,</div><div class="line">		videoSrc: React<span class="selector-class">.PropTypes</span><span class="selector-class">.string</span><span class="selector-class">.isRequired</span>,</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	render()&#123;</div><div class="line">		return (</div><div class="line">			&lt;View /&gt;</div><div class="line">		)</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="STATE-初始化"><a href="#STATE-初始化" class="headerlink" title="STATE 初始化"></a>STATE 初始化</h2><p>ES5</p>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> Video = React.createClass(&#123;</div><div class="line">	getInitialState: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> (</div><div class="line">			loopsRemaining: <span class="keyword">this</span>.props.maxLoops</div><div class="line">		)</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>ES6</p>
+<p>在构造函数 <code>constructor</code> 中使用 <code>this.state</code> 来指定组件的状态</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Video</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">	constructor(props)&#123;</div><div class="line">		<span class="keyword">super</span>(props)</div><div class="line">		<span class="keyword">this</span>.state = &#123;</div><div class="line">			loopsRemaining: <span class="keyword">this</span>.props.maxLoops</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h2><p>ES5</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> PostInfo = React.createClass(&#123;</div><div class="line">	<span class="attr">getInitialState</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> (</div><div class="line">			showModal: <span class="literal">false</span>,</div><div class="line">		)</div><div class="line">	&#125;,</div><div class="line">	<span class="attr">btnClickEv</span>: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">		<span class="keyword">this</span>.setState(&#123; <span class="attr">showModal</span>: <span class="literal">true</span> &#125;);</div><div class="line">	&#125;,</div><div class="line">	<span class="attr">render</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> (</div><div class="line">			<span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">onClick</span>=<span class="string">&#123;this.btnClickEv&#125;</span>&gt;</span>&#123;this.props.label&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line">		)</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>ES6</p>
+<p>使用箭头函数传递参数</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">PostInfo</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span></span>&#123;</div><div class="line">	btnClickEv(e)&#123;</div><div class="line">		<span class="keyword">this</span>.setState(&#123; showModal: <span class="literal">true</span> &#125;);</div><div class="line">	&#125;</div><div class="line">	render()&#123;</div><div class="line">		&lt;div&gt;</div><div class="line">			&lt;div onClick=&#123;e=&gt;<span class="keyword">this</span>.btnClickEv(e)&#125;&gt;&#123;<span class="keyword">this</span>.props.label&#125;&lt;/div&gt;</div><div class="line">			&lt;div onClick=&#123;<span class="keyword">this</span>.btnClickEv.bind(<span class="keyword">this</span>)&#125;&gt;&#123;<span class="keyword">this</span>.props.label&#125;&lt;/div&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="对象解构-与-属性延展"><a href="#对象解构-与-属性延展" class="headerlink" title="对象解构 与 属性延展"></a>对象解构 与 属性延展</h2><figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AutoloadingPostsGrid</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">    render() &#123;</div><div class="line">        <span class="keyword">var</span> &#123;</div><div class="line">            className,</div><div class="line">            ...others,  <span class="comment">// contains all properties of this.props except for className</span></div><div class="line">        &#125; = <span class="keyword">this</span>.props;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            &lt;div className=&#123;className&#125;&gt;</div><div class="line">                &lt;<span class="type">PostsGrid</span> &#123;...others&#125; /&gt;</div><div class="line">                &lt;button onClick=&#123;<span class="keyword">this</span>.handleLoadMoreClick&#125;&gt;<span class="type">Load</span> more&lt;/button&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="let-const"><a href="#let-const" class="headerlink" title="let const"></a>let const</h2><p>ES5</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><div class="line"><span class="keyword">for</span> (var <span class="built_in">i</span> = <span class="number">0</span>; <span class="built_in">i</span>&lt; arr.<span class="built_in">length</span>; <span class="built_in">i</span>++)&#123;&#125;</div><div class="line">console.<span class="built_in">log</span>(<span class="built_in">i</span>)</div></pre></td></tr></table></figure>
+<p>ES6</p>
+<figure class="highlight gauss"><table><tr><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++)&#123;&#125;</div><div class="line">console.<span class="built_in">log</span>(i);</div><div class="line"></div><div class="line">const <span class="built_in">PI</span> = <span class="number">3.1415</span>;</div><div class="line"><span class="built_in">PI</span> = <span class="number">3</span>;</div><div class="line"><span class="comment">// TypeError: Assignment to constant variable.</span></div></pre></td></tr></table></figure>
+<h2 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> image = <span class="keyword">new</span> Image();</div><div class="line"></div><div class="line">    image.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      resolve(image);</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    image.onerror = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Could not load image at '</span> + url));</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    image.src = url;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">promise.then(resoveCallback, rejectCallback);</div><div class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</div><div class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</div><div class="line"></div><div class="line"><span class="built_in">Promise</span>.all([p1, p2, p3]).then().catch()</div></pre></td></tr></table></figure>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ReactJS/" rel="tag">#ReactJS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/10/ReactJS-JSX/" rel="prev">ReactJS之JSX语法</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/11/AMD-Module-guid/" rel="next">AMD模块的编写规范</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/05/17/React-ES5-ES6/"
+     data-title="React的ES5与ES6写法对比"
+     data-content=""
+     data-url="http://toggle.coding.io/2016/05/17/React-ES5-ES6/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+            <!-- 多说热评文章-->
+            <p>热评文章</p>
+            <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2016/05/17/React-ES5-ES6/"
+                   data-title="React的ES5与ES6写法对比" data-url="http://toggle.coding.io/2016/05/17/React-ES5-ES6/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar100.jpg" alt="Aitter" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Aitter</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/git-lt" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank">Zhihu</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">友情链接</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://hexo.io/" target="_blank">Hexo</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导入模块"><span class="nav-number">1.</span> <span class="nav-text">导入模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导出模块"><span class="nav-number">2.</span> <span class="nav-text">导出模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件定义"><span class="nav-number">3.</span> <span class="nav-text">组件定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加组件的事件"><span class="nav-number">4.</span> <span class="nav-text">添加组件的事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指定组件的属性类型和默认属性"><span class="nav-number">5.</span> <span class="nav-text">指定组件的属性类型和默认属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STATE-初始化"><span class="nav-number">6.</span> <span class="nav-text">STATE 初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数传递"><span class="nav-number">7.</span> <span class="nav-text">参数传递</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象解构-与-属性延展"><span class="nav-number">8.</span> <span class="nav-text">对象解构 与 属性延展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#let-const"><span class="nav-number">9.</span> <span class="nav-text">let const</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#promise"><span class="nav-number">10.</span> <span class="nav-text">promise</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright" >
+  
+  &copy; &nbsp;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aitter</span>
+</div>
+
+<div>
+  <span id="showDays"></span>
+  <span id="busuanzi_container_site_pv">
+    总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+  <span id="busuanzi_container_site_uv">
+    访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+<script>
+var birthDay = new Date("11/20/2014");
+var now = new Date();
+var duration = now.getTime() - birthDay.getTime(); 
+var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+</script>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"togglelt"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
