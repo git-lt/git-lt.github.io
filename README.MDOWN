@@ -1,8 +1,0 @@
-> 精于心，简于形
-
-## 浏览器支持 Browser support
-![Browser support](http://iissnan.com/nexus/next/browser-support.png)
-
-Base on HEXO & Creat By LT
-
-UpdateTime: 2015年10月13日
