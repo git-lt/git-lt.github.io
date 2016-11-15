@@ -1,0 +1,760 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="javascript | HTML5 | CSS3 | Node | React" />
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="前言
+&amp;emsp;&amp;emsp;欢迎加入洽客前端开发团队。此文档主要从前端的开发环境、开发框架和开发流程三个方面描述了公司产品的前端开发。&amp;emsp;&amp;emsp;不同的公司都有着不同的开发环境，项目架构，目录规范，编码规范等等相关约定，在项目复杂的情况下，如何在最短的时间内融入团队，熟悉项目，接手任务进行开发，是每一个前端新人应必知必会的事情。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端入职指引">
+<meta property="og:url" content="http://toggle.coding.io/2016/02/28/FED-entry-guide/index.html">
+<meta property="og:site_name" content="Aitter Blog">
+<meta property="og:description" content="前言
+&amp;emsp;&amp;emsp;欢迎加入洽客前端开发团队。此文档主要从前端的开发环境、开发框架和开发流程三个方面描述了公司产品的前端开发。&amp;emsp;&amp;emsp;不同的公司都有着不同的开发环境，项目架构，目录规范，编码规范等等相关约定，在项目复杂的情况下，如何在最短的时间内融入团队，熟悉项目，接手任务进行开发，是每一个前端新人应必知必会的事情。">
+<meta property="og:updated_time" content="2016-07-17T03:11:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端入职指引">
+<meta name="twitter:description" content="前言
+&amp;emsp;&amp;emsp;欢迎加入洽客前端开发团队。此文档主要从前端的开发环境、开发框架和开发流程三个方面描述了公司产品的前端开发。&amp;emsp;&amp;emsp;不同的公司都有着不同的开发环境，项目架构，目录规范，编码规范等等相关约定，在项目复杂的情况下，如何在最短的时间内融入团队，熟悉项目，接手任务进行开发，是每一个前端新人应必知必会的事情。">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 前端入职指引 | Aitter Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Aitter Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              前端入职指引
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-02-28T23:45:00+08:00" content="2016-02-28">
+            2016-02-28
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/其它/" itemprop="url" rel="index">
+                  <span itemprop="name">其它</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/02/28/FED-entry-guide/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/28/FED-entry-guide/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>&emsp;&emsp;欢迎加入洽客前端开发团队。此文档主要从前端的开发环境、开发框架和开发流程三个方面描述了公司产品的前端开发。<br>&emsp;&emsp;不同的公司都有着不同的开发环境，项目架构，目录规范，编码规范等等相关约定，在项目复杂的情况下，如何在最短的时间内融入团队，熟悉项目，接手任务进行开发，是每一个前端新人应必知必会的事情。<br><a id="more"></a></p>
+</blockquote>
+<h2 id="文档主要内容"><a href="#文档主要内容" class="headerlink" title="文档主要内容"></a>文档主要内容</h2><h3 id="搭建前端开发环境"><a href="#搭建前端开发环境" class="headerlink" title="搭建前端开发环境"></a>搭建前端开发环境</h3><ul>
+<li>后端开发环境相关应用安装</li>
+<li>前端相关的工具应用安装</li>
+</ul>
+<h3 id="前端架构说明"><a href="#前端架构说明" class="headerlink" title="前端架构说明"></a>前端架构说明</h3><ul>
+<li>前端各项目业务说明</li>
+<li>前端框架组成</li>
+<li>前端常用JS插件和脚本库说明</li>
+<li>前端层次结构和调用关系</li>
+</ul>
+<h3 id="开发流程规范"><a href="#开发流程规范" class="headerlink" title="开发流程规范"></a>开发流程规范</h3><ul>
+<li>CSS编码基本规范和JS编码基本规范</li>
+<li>SVN版本管理说明</li>
+</ul>
+<hr>
+<h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>服务器开发环境搭建由服务器端同事协助完成(略)<br>前端开发环境由新人直属带教负责人协助完成</p>
+<h3 id="前端框架说明"><a href="#前端框架说明" class="headerlink" title="前端框架说明"></a>前端框架说明</h3><h4 id="项目组成"><a href="#项目组成" class="headerlink" title="项目组成"></a>项目组成</h4><ul>
+<li>商户管理平台</li>
+<li>商户数据平台</li>
+<li>商户财务系统</li>
+<li>洽客管理平台</li>
+<li>洽客数据平台</li>
+<li>洽客财务系统</li>
+<li>洽客官网及洽客大学</li>
+<li>洽客APP相关H5页面</li>
+<li>洽客身边店</li>
+</ul>
+<h4 id="前端技术框架组成"><a href="#前端技术框架组成" class="headerlink" title="前端技术框架组成"></a>前端技术框架组成</h4><h5 id="PC端"><a href="#PC端" class="headerlink" title="PC端"></a>PC端</h5><p>主要框架： <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/11/13/bd8e8c6b10cca97713963f286eabd735/form-elements.html" target="_blank" rel="external">Bootstrap UI框架</a>、<a href="http://avalonjs.github.io/" target="_blank" rel="external">Avalon.JS MVVM框架</a><br>主要JS插件：</p>
+<ol>
+<li><a href="http://aui.github.io/artDialog/doc/index.html#quickref-basic" target="_blank" rel="external">dialog 对话框</a></li>
+<li><a href="http://www.jqcool.net/demo/201406/jquery-toastr/demo.html" target="_blank" rel="external">toastr 消息提示</a></li>
+<li><a href="http://codepen.io/togglelt/pen/qZEXBz?editors=1010" target="_blank" rel="external">uiLoading 加载提示</a></li>
+<li><a href="http://aui.github.io/artTemplate/" target="_blank" rel="external">artTemplate 模板</a></li>
+<li><a href="http://v3.bootcss.com/javascript/" target="_blank" rel="external">bootstrap 框架基础组件</a></li>
+<li><a href="http://coderlt.coding.me/2016/02/24/bs-pagination/" target="_blank" rel="external">pagination 分页组件</a></li>
+<li><a href="http://select2.github.io/examples.html" target="_blank" rel="external">select2 下拉组件</a></li>
+<li>core.js 框架初始化相关</li>
+</ol>
+<p>注意：后台主频道以单页形式开发，模块化JS管理，必须熟练使用Bootstrap框架。<br>详细内容请参见<a href="http://coderlt.coding.me/2016/02/18/QKPlatform-readme/" target="_blank" rel="external">新版管理后台框架调整说明文档</a></p>
+<h5 id="H5端"><a href="#H5端" class="headerlink" title="H5端"></a>H5端</h5><p>主要资源：<a href="http://zeptojs.com/" target="_blank" rel="external">Zepto.js</a>, artTemplate.js，base.css<br>移动端布局使用rem做屏幕适配</p>
+<p>详细内容请参见<a href="http://coderlt.coding.me/2016/02/24/Front-end-sharing/" target="_blank" rel="external">移动端开发技巧汇总</a></p>
+<h2 id="工作时间安排"><a href="#工作时间安排" class="headerlink" title="工作时间安排"></a>工作时间安排</h2><h3 id="D1"><a href="#D1" class="headerlink" title="D1"></a>D1</h3><ul>
+<li>配置到本地环境，并能正常启动项目运行</li>
+<li>熟悉公司前端项目组成和目录结构</li>
+<li>熟悉SVN版本管理</li>
+</ul>
+<h3 id="D2"><a href="#D2" class="headerlink" title="D2"></a>D2</h3><ul>
+<li>了解前端项目所使用到的框架和插件</li>
+<li>了解前端CSS与JS开发规范</li>
+<li>了解Bug修改流程，及QA相关</li>
+</ul>
+<h3 id="D3"><a href="#D3" class="headerlink" title="D3"></a>D3</h3><ul>
+<li>根据小的需求完成前端开发</li>
+<li>熟悉开发流程</li>
+</ul>
+<p>注：<br>在练习过程中出现什么错误或不解之处，请及时反馈。<br>如果在阅读过程中发现文档中提到的内容有误或信息已经过时，请及时反馈给相关负责人，以便我们能及时更新完善此文档，帮助其他新同事少走弯路。</p>
+<p>前端编码规范参考 <a href="https://github.com/ecomfe/spec" target="_blank" rel="external">百度前端编码规范</a></p>
+<p>最后，希望我们在工作中合作愉快，是同事更是朋友，更希望你能在此有所收获，有所成就！<br>大家一起加油，共勉！！！</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/01/uiLoading-readme/" rel="prev">Loading 组件使用说明</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/02/26/videojs-readme/" rel="next">HTML5视频播放器Video.Js的使用</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/02/28/FED-entry-guide/"
+     data-title="前端入职指引"
+     data-content=""
+     data-url="http://toggle.coding.io/2016/02/28/FED-entry-guide/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+            <!-- 多说热评文章-->
+            <p>热评文章</p>
+            <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2016/02/28/FED-entry-guide/"
+                   data-title="前端入职指引" data-url="http://toggle.coding.io/2016/02/28/FED-entry-guide/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar100.jpg" alt="Aitter" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Aitter</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/git-lt" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank">Zhihu</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">友情链接</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://hexo.io/" target="_blank">Hexo</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文档主要内容"><span class="nav-number">2.</span> <span class="nav-text">文档主要内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建前端开发环境"><span class="nav-number">2.1.</span> <span class="nav-text">搭建前端开发环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端架构说明"><span class="nav-number">2.2.</span> <span class="nav-text">前端架构说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发流程规范"><span class="nav-number">2.3.</span> <span class="nav-text">开发流程规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境搭建"><span class="nav-number">2.4.</span> <span class="nav-text">环境搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端框架说明"><span class="nav-number">2.5.</span> <span class="nav-text">前端框架说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目组成"><span class="nav-number">2.5.1.</span> <span class="nav-text">项目组成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前端技术框架组成"><span class="nav-number">2.5.2.</span> <span class="nav-text">前端技术框架组成</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#PC端"><span class="nav-number">2.5.2.1.</span> <span class="nav-text">PC端</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#H5端"><span class="nav-number">2.5.2.2.</span> <span class="nav-text">H5端</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作时间安排"><span class="nav-number">3.</span> <span class="nav-text">工作时间安排</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#D1"><span class="nav-number">3.1.</span> <span class="nav-text">D1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D2"><span class="nav-number">3.2.</span> <span class="nav-text">D2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D3"><span class="nav-number">3.3.</span> <span class="nav-text">D3</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright" >
+  
+  &copy; &nbsp;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aitter</span>
+</div>
+
+<div>
+  <span id="showDays"></span>
+  <span id="busuanzi_container_site_pv">
+    总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+  <span id="busuanzi_container_site_uv">
+    访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+<script>
+var birthDay = new Date("11/20/2014");
+var now = new Date();
+var duration = now.getTime() - birthDay.getTime(); 
+var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+</script>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"togglelt"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
