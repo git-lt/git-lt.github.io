@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://toggle.coding.io/2016/11/20/js-ajax/</loc>
+    
+    <lastmod>2016-11-20T10:00:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://toggle.coding.io/about/index.html</loc>
     
     <lastmod>2016-11-18T14:55:53.000Z</lastmod>
