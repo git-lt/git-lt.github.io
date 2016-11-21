@@ -95,7 +95,7 @@
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/jd_cache.png">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/2661768535-57c2a42c84065_articlex.png">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/cache_status.jpg">
-<meta property="og:updated_time" content="2016-11-21T11:29:17.000Z">
+<meta property="og:updated_time" content="2016-11-21T11:33:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器的缓存机制">
 <meta name="twitter:description" content="浏览器的缓存是一把双刃剑，用好了可以加快资源的加载速度，提升用户体验，如果使用不当，没有缓存，则加载缓慢，而且可能会给服务器造成巨大的压力，消耗带宽，缓存太严重，又无法及时更新内容导致体验急剧下降，了解浏览器的缓存机制有利用我们合理的使用缓存提升产品体验。">
@@ -403,7 +403,7 @@
 <p>优先级<br><code>Expires</code> 与 <code>Cache-Control</code> 同时存在时，<code>Cache-Control</code> 的优先级 大于 <code>Expires</code> 的优先级</p>
 <p><code>Cache-Control</code> 值可以是 <code>public、private、no-cache、no- store、no-transform、must-revalidate、proxy-revalidate、max-age</code></p>
 <p>各个消息中的指令含义如下：<br><code>Public</code> 指示响应可被任何缓存区缓存。<br><code>Private</code> 指示对于单个用户的整个或部分响应消息，不能被共享缓存处理。这允许服务器仅仅描述当前用户的部分响应消息，此响应消息对于其他用户的请求无效。<br><code>no-cache</code> 指示请求或响应消息不能缓存，该选项并不是说可以设置”不缓存“，而是需要和服务器确认<br><code>no-store</code> 在请求消息中发送将使得请求和响应消息都不使用缓存，完全不存下來。<br><code>max-age</code> 指示客户机可以接收生存期不大于指定时间（以秒为单位）的响应。上次缓存时间（客户端的）+max-age（64200s）&lt;客户端当前时间<br><code>min-fresh</code> 指示客户机可以接收响应时间小于当前时间加上指定时间的响应。<br><code>max-stale</code> 指示客户机可以接收超出超时期间的响应消息。如果指定max-stale消息的值，那么客户机可以接收超出超时期指定值之内的响应消息。</p>
-<h3 id="适用性"><a href="#适用性" class="headerlink" title="适用性"></a>适用性</h3><p>一般用于静态资源使用，动态资源应该慎用，html页面也可以算是动态资源，如果html页面被缓存，html更新后就无法通知浏览器更新，所以一般html通常不加强缓存，以保证浏览器访问这些页面始终是最新的资源。<br>对于其它静态资源可以设置一个超长的Expire或Cache-Control，这样用户在第一次访问后，后面的访问就会从缓存中加载，速度会快很多。</p>
+<h4 id="适用性"><a href="#适用性" class="headerlink" title="适用性"></a>适用性</h4><p>一般用于静态资源使用，动态资源应该慎用，html页面也可以算是动态资源，如果html页面被缓存，html更新后就无法通知浏览器更新，所以一般html通常不加强缓存，以保证浏览器访问这些页面始终是最新的资源。<br>对于其它静态资源可以设置一个超长的Expire或Cache-Control，这样用户在第一次访问后，后面的访问就会从缓存中加载，速度会快很多。</p>
 <h3 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h3><h4 id="Last-Modified-If-Modified-Since"><a href="#Last-Modified-If-Modified-Since" class="headerlink" title="Last-Modified / If-Modified-Since"></a>Last-Modified / If-Modified-Since</h4><p>标识资源的最后修改时间(由服务器返回)<br>配合Cache-Control使用<br><img src="http://7xi480.com1.z0.glb.clouddn.com/jd_cache.png" alt=""></p>
 <p><strong>If-Modified-Since</strong><br>重复请求时，当强缓存失效，发现请求头中有Last-Modified声明，则添加If-Modified-Since，内容为当前请求时间，发送请求，服务器获取请求时间与资源最后修改时间对比：<br>如果最后个性时间大于请求时间，则说明资源更新过，返回资源文件和状态200，<br>如果请求时间大于最后修改时间，则说明资源未修改，返回状态304告知浏览器使用缓存</p>
 <p><strong>过程</strong></p>
@@ -430,7 +430,8 @@
 <li>用户在点击浏览器刷新或按 <code>F5</code> 时，<code>Last-Modified/Etag</code> 是有效的，但<code>Expires、Cache-Control</code> 重置失效</li>
 <li>用户在强制刷新按 <code>Ctr+F5</code> 时，缓存全部失效<br><img src="http://7xi480.com1.z0.glb.clouddn.com/2661768535-57c2a42c84065_articlex.png" alt=""></li>
 </ul>
-<h2 id="请求缓存资源返回状态码的区别"><a href="#请求缓存资源返回状态码的区别" class="headerlink" title="请求缓存资源返回状态码的区别"></a>请求缓存资源返回状态码的区别</h2><ul>
+<h2 id="常见状态码"><a href="#常见状态码" class="headerlink" title="常见状态码"></a>常见状态码</h2><p>请求缓存资源返回的状态码区别</p>
+<ul>
 <li><code>200</code>：强缓Expires/Cache-Control存失效时，返回新的资源文件</li>
 <li><code>304(Not Modified )</code>：协商缓存Last-modified/Etag没有过期时，服务端返回状态码304</li>
 <li><code>200(from cache)</code>: 强缓Expires/Cache-Control两者都存在，未过期，Cache-Control优先Expires时，浏览器从本地获取资源成功</li>
@@ -665,7 +666,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#强缓存与协商缓存"><span class="nav-number">1.</span> <span class="nav-text">强缓存与协商缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#强缓存"><span class="nav-number">1.1.</span> <span class="nav-text">强缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Expires"><span class="nav-number">1.1.1.</span> <span class="nav-text">Expires</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cache-Control"><span class="nav-number">1.1.2.</span> <span class="nav-text">Cache-Control</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适用性"><span class="nav-number">1.2.</span> <span class="nav-text">适用性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协商缓存"><span class="nav-number">1.3.</span> <span class="nav-text">协商缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Last-Modified-If-Modified-Since"><span class="nav-number">1.3.1.</span> <span class="nav-text">Last-Modified / If-Modified-Since</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Etag-If-None-Match"><span class="nav-number">1.3.2.</span> <span class="nav-text">Etag / If-None-Match</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户行为与缓存"><span class="nav-number">2.</span> <span class="nav-text">用户行为与缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求缓存资源返回状态码的区别"><span class="nav-number">3.</span> <span class="nav-text">请求缓存资源返回状态码的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用"><span class="nav-number">4.</span> <span class="nav-text">应用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#强缓存与协商缓存"><span class="nav-number">1.</span> <span class="nav-text">强缓存与协商缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#强缓存"><span class="nav-number">1.1.</span> <span class="nav-text">强缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Expires"><span class="nav-number">1.1.1.</span> <span class="nav-text">Expires</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cache-Control"><span class="nav-number">1.1.2.</span> <span class="nav-text">Cache-Control</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#适用性"><span class="nav-number">1.1.3.</span> <span class="nav-text">适用性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协商缓存"><span class="nav-number">1.2.</span> <span class="nav-text">协商缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Last-Modified-If-Modified-Since"><span class="nav-number">1.2.1.</span> <span class="nav-text">Last-Modified / If-Modified-Since</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Etag-If-None-Match"><span class="nav-number">1.2.2.</span> <span class="nav-text">Etag / If-None-Match</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户行为与缓存"><span class="nav-number">2.</span> <span class="nav-text">用户行为与缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见状态码"><span class="nav-number">3.</span> <span class="nav-text">常见状态码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用"><span class="nav-number">4.</span> <span class="nav-text">应用</span></a></li></ol></div>
             
 
           </div>
