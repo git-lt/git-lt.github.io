@@ -1,0 +1,854 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="事件," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="面试的时候经常会被问到，事件代理是利用了事件的什么机制？一般我们都会说，是利用了事件冒泡机制，但具体冒泡机制在事件代理的过程了起到了什么关键作用，我想大部分人也是不了解的。静下心来，仔细看了下有关事件和事件代理问题，自己终于找到了合适的答案。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DOM事件机制解惑">
+<meta property="og:url" content="http://toggle.coding.io/2016/11/22/js-event/index.html">
+<meta property="og:site_name" content="Aitter's Blog">
+<meta property="og:description" content="面试的时候经常会被问到，事件代理是利用了事件的什么机制？一般我们都会说，是利用了事件冒泡机制，但具体冒泡机制在事件代理的过程了起到了什么关键作用，我想大部分人也是不了解的。静下心来，仔细看了下有关事件和事件代理问题，自己终于找到了合适的答案。">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/121ba0d37798d6d23227d2dd49d0e58c_articlex.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-22%20%E4%B8%8A%E5%8D%8810.46.02.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-22%20%E4%B8%8A%E5%8D%8810.46.35.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-22%20%E4%B8%8A%E5%8D%8810.46.56.png">
+<meta property="og:updated_time" content="2016-11-22T02:55:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DOM事件机制解惑">
+<meta name="twitter:description" content="面试的时候经常会被问到，事件代理是利用了事件的什么机制？一般我们都会说，是利用了事件冒泡机制，但具体冒泡机制在事件代理的过程了起到了什么关键作用，我想大部分人也是不了解的。静下心来，仔细看了下有关事件和事件代理问题，自己终于找到了合适的答案。">
+<meta name="twitter:image" content="http://7xi480.com1.z0.glb.clouddn.com/121ba0d37798d6d23227d2dd49d0e58c_articlex.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://toggle.coding.io/2016/11/22/js-event/"/>
+
+
+
+
+
+  <title> DOM事件机制解惑 | Aitter's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Aitter's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">I can’t change the world, only change myself!</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2016/11/22/js-event/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Aitter">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar100.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Aitter's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Aitter's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                DOM事件机制解惑
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-22T10:50:29+08:00">
+                2016-11-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web前端/" itemprop="url" rel="index">
+                    <span itemprop="name">Web前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/11/22/js-event/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/22/js-event/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>面试的时候经常会被问到，事件代理是利用了事件的什么机制？一般我们都会说，是利用了事件冒泡机制，但具体冒泡机制在事件代理的过程了起到了什么关键作用，我想大部分人也是不了解的。静下心来，仔细看了下有关事件和事件代理问题，自己终于找到了合适的答案。<br><a id="more"></a></p>
+<p>在揭晓答案之前，还是来看一下事件的基本知识</p>
+<p>事件操作在项目中使用频繁，jQuery封装了我们对DOM的事件操作，NodeJS中也有 <code>events</code> 这个事件操作模块，几乎各种语言都有事件模型，事件使用频繁，事件模型可以使我们从复杂的业务中抽象出独立的逻辑，跨越模块与模块之间传递数据，以达到类似解耦的概念。</p>
+<p>不同的环境有不同的事件模型，在浏览器中，DOM事件模型比较特殊，重温一下DOM事件模型，再来自定义一个事件模型。</p>
+<h2 id="DOM事件发展"><a href="#DOM事件发展" class="headerlink" title="DOM事件发展"></a>DOM事件发展</h2><p>DOM事件：用户或浏览器执行的动作，如<code>click</code><br>事件处理程序：是响应某个事件的函数，如 <code>onclick()</code>也叫事件侦听器</p>
+<p>DOM有4次版本更新，与DOM版本变更，产生了3种不同的DOM事件定义 DOM0级、DOM2级、DOM3级。由于DOM1级中没有事件的相关内容，所以没有DOM1级事件。</p>
+<h3 id="DOM0级事件"><a href="#DOM0级事件" class="headerlink" title="DOM0级事件"></a>DOM0级事件</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">&lt;p onclick=<span class="string">"alert('click')"</span>&gt;HTML事件处理程序&lt;<span class="regexp">/p&gt;</span></div></pre></td></tr></table></figure>
+<p>问题</p>
+<ol>
+<li>HTML代码域JavaScript代码紧密的耦合在一起，没有实现相互分离，在进行代码的更新与维护的时候就显得异常困难。</li>
+<li>扩展事件处理程序的作用域链在不同浏览器当中会导致不同的结果。</li>
+<li>如果不采用调用函数的方式，而是像例子中那样直接书写代码，那么代码的通用性很差，会使得整站的代码量很大，通用性差。如果提取出来，存放在函数当中，那么，会面临另一个问题——当函数还没有被定义，只是HTML、CSS代码加载完毕，用户进行点击，会完全没有反应。</li>
+</ol>
+<p>DOM0中基本事件模型<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">'btn'</span>);</div><div class="line"> btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">     alert(<span class="keyword">this</span>.innerHTML);</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>问题<br>当希望为同一个元素/标签绑定多个同类型事件的时候（如，为上面的这个p标签绑定3个点击事件），是不被允许的。</p>
+<h3 id="DOM2级事件"><a href="#DOM2级事件" class="headerlink" title="DOM2级事件"></a>DOM2级事件</h3><p><code>el.addEventListener(event-name, callback, useCapture)</code></p>
+<p><code>event-name</code>: 事件名称，可以是标准的DOM事件<br><code>callbakc</code>: 回调函数，当事件触发时，函数会被注入一个参数为当前的事件对象 <code>event</code><br><code>useCapture</code>: 是否以捕获的方式触发，默认为true</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">'btn'</span>);</div><div class="line">btn.addEventListener(<span class="string">"click"</span>, test, <span class="literal">false</span>);</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">	e = e || <span class="built_in">window</span>.event;</div><div class="line">    alert((e.target || e.srcElement).innerHTML);</div><div class="line">    btn.removeEventListener(<span class="string">"click"</span>, test)</div><div class="line">&#125;</div><div class="line"><span class="comment">//IE9-:attachEvent()与detachEvent()。</span></div><div class="line"><span class="comment">//IE9+/chrom/FF:addEventListener()和removeEventListener()</span></div></pre></td></tr></table></figure>
+<p>IE9以下的IE浏览器不支持 <code>addEventListener()和removeEventListener()</code>，使用 <code>attachEvent()与detachEvent()</code> 代替，因为IE9以下是不支持事件捕获的，所以也没有第三个参数，第一个事件名称前要加<code>on</code>。</p>
+<h3 id="DOM3级事件"><a href="#DOM3级事件" class="headerlink" title="DOM3级事件"></a>DOM3级事件</h3><p>在DOM2级事件的基础上添加了更多的事件类型</p>
+<ol>
+<li>UI事件，当用户与页面上的元素交互时触发，如：load、scroll</li>
+<li>焦点事件，当元素获得或失去焦点时触发，如：blur、focus</li>
+<li>鼠标事件，当用户通过鼠标在页面执行操作时触发如：dbclick、mouseup</li>
+<li>滚轮事件，当使用鼠标滚轮或类似设备时触发，如：mousewheel</li>
+<li>文本事件，当在文档中输入文本时触发，如：textInput</li>
+<li>键盘事件，当用户通过键盘在页面上执行操作时触发，如：keydown、keypress</li>
+<li>合成事件，当为IME（输入法编辑器）输入字符时触发，如：compositionstart</li>
+<li>变动事件，当底层DOM结构发生变化时触发，如：DOMsubtreeModified<br>同时DOM3级事件也允许使用者自定义一些事件。<br>关于自定义事件，低版本的处理方式是不一样的，本篇主要介绍DOM事件流和自定义事件模型，这里就不展开讨论了，具体可参考<a href="http://www.zhangxinxu.com/wordpress/2012/04/js-dom%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6/" target="_blank" rel="external">漫谈js自定义事件、DOM/伪DOM自定义事件</a></li>
+</ol>
+<h2 id="DOM事件流"><a href="#DOM事件流" class="headerlink" title="DOM事件流"></a>DOM事件流</h2><h3 id="为什么是有事件流？"><a href="#为什么是有事件流？" class="headerlink" title="为什么是有事件流？"></a>为什么是有事件流？</h3><p>假如在一个button上注册了一个click事件，又在其它父元素div上注册了一个click事件，那么当我们点击button，是先触发父元素上的事件，还是button上的事件呢，这就需要一种约定去规范事件的执行顺序，就是事件执行的流程。</p>
+<p>浏览器在发展的过程中出现实了两种不同的规范</p>
+<ul>
+<li>IE9以下的IE浏览器使用的是事件冒泡，先从具体的接收元素，然后逐步向上传播到不具体的元素。</li>
+<li>Netscapte采用的是事件捕获，先由不具体的元素接收事件，最具体的节点最后才接收到事件。</li>
+<li>而W3C制定的Web标准中，是同时采用了两种方案，事件捕获和事件冒泡都可以。</li>
+</ul>
+<h2 id="事件阶段"><a href="#事件阶段" class="headerlink" title="事件阶段"></a>事件阶段</h2><p>既然有了事件捕获和事件冒泡，那就应该约定是事件的流向，是先捕获还是先冒泡，所以W3C标准中规定了事件流的三个阶段的顺序：</p>
+<ol>
+<li>事件捕获阶段</li>
+<li>处于目标阶段</li>
+<li>事件冒泡阶段</li>
+</ol>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/121ba0d37798d6d23227d2dd49d0e58c_articlex.png" alt=""><br>有了捕获和冒泡这两种模式，我们就可以很好的控制父元素和子元素的事件执行顺序了</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span> <span class="attr">id</span>=<span class="string">"wrap"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box box1"</span> <span class="attr">id</span>=<span class="string">"box1"</span>&gt;</span>box1</div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box box2"</span> <span class="attr">id</span>=<span class="string">"box2"</span>&gt;</span>box2</div><div class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box box3"</span> <span class="attr">id</span>=<span class="string">"box3"</span>&gt;</span>box3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"loger"</span> <span class="attr">id</span>=<span class="string">"loger"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> useCapture = <span class="literal">true</span>; <span class="comment">//是否使用捕获模式</span></div><div class="line"><span class="keyword">var</span> type = useCapture ? <span class="string">'捕获'</span>:<span class="string">'冒泡'</span>;</div><div class="line"><span class="keyword">var</span> logerBox = <span class="built_in">document</span>.getElementById(<span class="string">'loger'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 捕获 与 冒泡</span></div><div class="line"><span class="built_in">Array</span>.from(<span class="built_in">document</span>.querySelectorAll(<span class="string">'.box'</span>)).forEach(<span class="function"><span class="params">v</span> =&gt;</span> &#123;</div><div class="line">	<span class="keyword">var</span> id = v.id;</div><div class="line">	v.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">		logerBox.innerHTML += <span class="string">'&lt;p&gt;'</span>+type+<span class="string">': '</span>+id+<span class="string">'&lt;/p&gt;'</span>;</div><div class="line">		<span class="comment">//e.stopPropagation()</span></div><div class="line">	&#125;, useCapture);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>当我想事件的执行顺序是先父元素再子元素时，就使用事件捕获模式<br>点击box3时<br><img src="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-22%20%E4%B8%8A%E5%8D%8810.46.02.png" width="400"><br>如果是想先子元素上的事件先执行再执行父元素的上的事件时，使用冒泡模式<br>点击box3时<br><img src="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-22%20%E4%B8%8A%E5%8D%8810.46.35.png" width="400"></p>
+<p>这里我们是同时让这三个元素上的事件都执行了，那么我们要想实现点击某个元素，只触发这个元素本身的事件，而不影响父元素或子元素呢？</p>
+<p>所以这里需要一种方法，不让事件向下捕获或向上冒泡</p>
+<p>所以有了 <code>e.stopPropagation()</code> 方法，用于阻止事件的继续传递。</p>
+<p>执行这条语句，无论我们是使用捕获模式还是冒泡模式，事件都不会继续传递，只会响应我们点击的元素。<br>点击box3时<br><img src="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-22%20%E4%B8%8A%E5%8D%8810.46.56.png" width="400"></p>
+<h2 id="事件代理"><a href="#事件代理" class="headerlink" title="事件代理"></a>事件代理</h2><p>那么利用事件冒泡或捕获的机制，我们可以对事件绑定做一些优化。<br>在JS中，如果我们注册的事件越来越多，页面的性能就越来越差，因为：</p>
+<ul>
+<li>函数是对象，会占用内存，内存中的对象越多，浏览器性能越差</li>
+<li>注册的事件一般都会指定DOM元素，事件越多，导致DOM元素访问次数越多，会延迟页面交互就绪时间。</li>
+<li>删除子元素的时候不用考虑删除绑定事件</li>
+</ul>
+<p>为了减少事件的注册，我们使用一个代理元素是代理它内部所有子元素事件</p>
+<p>还是上面的例子，执行下面的代码<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">'wrap'</span>).addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span>(e.target.classList.contains(<span class="string">'box'</span>))&#123;</div><div class="line">		logerBox.innerHTML += <span class="string">'&lt;p&gt;'</span>+type+<span class="string">': '</span>+e.target.id+<span class="string">'&lt;/p&gt;'</span>;</div><div class="line">	&#125;</div><div class="line">&#125;, useCapture)</div></pre></td></tr></table></figure></p>
+<h2 id="答案揭晓"><a href="#答案揭晓" class="headerlink" title="答案揭晓"></a>答案揭晓</h2><p>上面的例子中，无论<code>useCapture</code>是true或是false，都能正确触发事件，那是不是说事件代理和事件冒泡没有关系呢？</p>
+<p>SF上关于这个问题的争论 <a href="https://segmentfault.com/a/1190000000470398" target="_blank" rel="external">事件委托和冒泡机制有关系吗？</a></p>
+<p>先来看两个问题<br>在同一个元素上同时绑定事件冒泡事件和事件捕获事件，谁先触发？<br>在同一个元素上同时绑定事件冒泡事件，第一个阻止事件传播，第二个会触发吗？</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">'box3'</span>).addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'box3-stop:'</span>,e.target.id)</div><div class="line">	e.stopPropagation();</div><div class="line">&#125;)</div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">'box3'</span>).addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'box3-冒泡:'</span>, e.target.id)</div><div class="line">&#125;)</div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">'box3'</span>).addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'box3-捕获:'</span>, e.target.id)</div><div class="line">&#125;,<span class="literal">true</span>)</div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">'box3'</span>).addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'box3-冒泡:'</span>, e.target.id)</div><div class="line">&#125;)</div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">'box3'</span>).addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'box3-stop:'</span>,e.target.id)</div><div class="line">	e.stopPropagation();</div><div class="line">&#125;)</div><div class="line"><span class="comment">/*点击输出：</span></div><div class="line">box3-stop: box3</div><div class="line">box3-冒泡: box3</div><div class="line">box3-捕获: box3</div><div class="line">box3-冒泡: box3</div><div class="line">box3-stop: box3*/</div></pre></td></tr></table></figure>
+<p>其实要回答这两个问题，首先要弄清楚捕获和冒泡的适用性，捕获和冒泡发生在嵌套元素绑定了相同的事件类型，才需要捕获和冒泡的机制去控制，单个元素上绑定的事件，在触发的时候，其实就是事件三个阶段中的目标阶段，此时，这个元素本身的事件的触发顺序，只和绑定顺序有关，和是否捕获，是否冒泡，是否阻止了事件传播都没有关系。</p>
+<p>再来看看 <code>e.target</code> 与 <code>e.currentTarget</code><br><code>e.target</code> 事件属性可返回事件的目标节点（触发该事件的节点），如生成事件的元素、文档或窗口。<br><code>e.currentTarget</code> 返回其监听器触发事件的节点，即当前处理该事件的元素、文档或窗口。在捕获和冒泡阶段，该属性是非常有用的，因为在这两个节点，它不同于 target 属性。</p>
+<p>在事件代理中，<code>e.target</code> 是当前点击的目标元素，而 <code>e.currentTarget</code> 始终是事件的代理元素</p>
+<p>回到上面的问题：无论<code>useCapture</code>是 <code>true</code> 或是 <code>false</code> ，都能正确触发事件，那是不是说事件代理和事件冒泡没有关系呢？</p>
+<p>嵌套关系 box1 &gt; box2 &gt; box3</p>
+<ol>
+<li>代理事件使用事件冒泡，先给box2注册一个click事件，并阻止冒泡，点击box3和box2，这里就不能触发代理事件了，说明子元素是利用了事件冒泡向上查找到事件，并将本身的 <code>e.target</code> 传递给了事件函数，box2阻止了冒泡，所以在事件向上流动中断了，就无法触发事件代理函数了。</li>
+<li>代理事件使用事件捕获，先给box2注册一个click事件，并阻止捕获，点击box3和box2，这里仍然可以正常触发代理事件，原因其实是父元素上的事件是捕获还是冒泡，其实子元素是不关心的，子元素事件流动一直都是冒泡行为。父元素的捕获或冒泡只会影响父元素的父级元素。</li>
+</ol>
+<p>了解了DOM事件模型，我们应该看看事件模型的内部实现是什么样的。</p>
+<h2 id="自定义事件模型"><a href="#自定义事件模型" class="headerlink" title="自定义事件模型"></a>自定义事件模型</h2><p>事件模型的实现从设计模式的角度来看，是一种观察者模式或者也叫发布订阅模式，订阅者订阅一个消息，发布者发布这个消息，订阅者收到消息，这是一种数据流动的方式，使用这个模式的好处是，可以有多个订阅者，一个发布者，发布一条消息，可被多个订阅者收到。</p>
+<p>最简短的发布订阅事件模型</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> o = $(&#123;&#125;);</div><div class="line">$.subscribe = <span class="function">(<span class="params">...args</span>) =&gt;</span> o.on.apply( o, args)</div><div class="line">$.publish = <span class="function">(<span class="params">...args</span>) =&gt;</span> o.trigger.apply( o, args )</div><div class="line">$.unsubscribe = <span class="function">(<span class="params">...args</span>) =&gt;</span> o.off.apply( o, args )</div><div class="line"></div><div class="line">$.subscribe(<span class="string">'cus'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e, a, b</span>)</span>&#123; <span class="built_in">console</span>.log(a+b+<span class="number">1</span>) &#125;)</div><div class="line">$.subscribe(<span class="string">'cus'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e, a, b</span>)</span>&#123; <span class="built_in">console</span>.log(a+b+<span class="number">2</span>) &#125;)</div><div class="line">$.subscribe(<span class="string">'cus'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e, a, b</span>)</span>&#123; <span class="built_in">console</span>.log(a+b+<span class="number">3</span>) &#125;)</div><div class="line">$.publish(<span class="string">'cus'</span>, [<span class="number">1</span>, <span class="number">2</span>])</div><div class="line"><span class="comment">// 4, 5, 6</span></div><div class="line">$.unsubscribe(<span class="string">'cus'</span>)</div><div class="line">$.publish(<span class="string">'cus'</span>, [<span class="number">1</span>, <span class="number">2</span>])</div></pre></td></tr></table></figure>
+<p>这里只是将jQuery的事件方法重命名了而已，要了解真正的事件模型内部对事件处理，还是需要我们从源码层面去探索了解的</p>
+<p>下面我们用ES6的语法，实现一个简单版的事件模型</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params">global</span>)</span>&#123;</div><div class="line">	<span class="class"><span class="keyword">class</span> <span class="title">Events</span> </span>&#123;</div><div class="line">		<span class="keyword">constructor</span>()&#123;</div><div class="line">			<span class="keyword">this</span>.cache = &#123;&#125;;</div><div class="line">			<span class="keyword">this</span>.onceKeys = [];</div><div class="line">		&#125;</div><div class="line">		on(key, fn)&#123;</div><div class="line">			<span class="keyword">if</span>(!<span class="keyword">this</span>.cache[key]) <span class="keyword">this</span>.cache[key] = [];</div><div class="line">			<span class="keyword">this</span>.cache[key].push(fn);</div><div class="line">		&#125;</div><div class="line">		one(key, fn)&#123;</div><div class="line">			<span class="keyword">this</span>.cache[key]=[];</div><div class="line">			<span class="keyword">this</span>.on(key, fn);</div><div class="line">			<span class="keyword">this</span>.onceKeys.push(key);</div><div class="line">		&#125;</div><div class="line">		off(key, fn)&#123;</div><div class="line">			<span class="keyword">if</span>(<span class="keyword">this</span>.cache[key]) <span class="keyword">this</span>.cache[key] = fn ? <span class="keyword">this</span>.cache[key].filter(<span class="function"><span class="params">v</span>=&gt;</span>v !== fn) : [];</div><div class="line">		&#125;</div><div class="line">		emit(key, ...args)&#123;</div><div class="line">			<span class="keyword">if</span>(<span class="keyword">this</span>.cache[key])&#123;</div><div class="line">				<span class="keyword">this</span>.cache[key].forEach(<span class="function"><span class="params">v</span>=&gt;</span>v.apply(<span class="literal">null</span>, args))</div><div class="line">				<span class="keyword">if</span>(<span class="keyword">this</span>.onceKeys.includes(key))&#123;</div><div class="line">					<span class="keyword">this</span>.cache[key] = [];</div><div class="line">					<span class="keyword">this</span>.onceKeys = <span class="keyword">this</span>.onceKeys.filter(<span class="function"><span class="params">v</span>=&gt;</span>v!==key);</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	global.Events = <span class="keyword">new</span> Events();</div><div class="line">&#125;)(<span class="keyword">this</span>)</div></pre></td></tr></table></figure>
+<p>这个事件模型很简单</p>
+<ul>
+<li><code>on()</code>用于绑定事件，参数：事件名称，事件处理函数</li>
+<li><code>emit()</code>用于触发事件，参数：事件名称，传递给事件处理函数的参数</li>
+<li><code>off</code> 用于解除绑定的指定事件， 参数：事件名称，要解绑的事件函数</li>
+<li><code>one</code> 用于绑定一次性事件，只能触发一次，参数：事件名称，事件处理函数</li>
+</ul>
+<p>使用<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">Events.on(<span class="string">'cus'</span>, (a, b)=&gt;<span class="built_in">console</span>.log(a+b))</div><div class="line">Events.emit(<span class="string">'cus'</span>, <span class="number">1</span>, <span class="number">2</span>);<span class="comment">//3</span></div><div class="line">Events.off(<span class="string">'cus'</span>);</div><div class="line">Events.emit(<span class="string">'cus'</span>, <span class="number">1</span>, <span class="number">2</span>)</div><div class="line"></div><div class="line"><span class="comment">// 只触发一次</span></div><div class="line">Events.one(<span class="string">'once'</span>, a=&gt;<span class="built_in">console</span>.log(a))</div><div class="line">Events.emit(<span class="string">'once'</span>, <span class="number">1</span>);<span class="comment">//1</span></div><div class="line">Events.emit(<span class="string">'once'</span>, <span class="number">2</span>);</div></pre></td></tr></table></figure></p>
+<p>当然 一个能用于生产环境的pubsub模块还需要考虑更多的情况</p>
+<ol>
+<li>不同平台下的引用</li>
+<li>命名空间和继承</li>
+<li>回调的上下文控制</li>
+</ol>
+<p>Github上有一个比较好的pubsub事件模块，有时间再来将这个模块做一个源码分析<a href="https://github.com/Sahadar/pubsub.js/blob/master/pubsub.js" target="_blank" rel="external">pubsub.js</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/事件/" rel="tag"># 事件</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/21/web-cache/" rel="next" title="浏览器的缓存机制">
+                <i class="fa fa-chevron-left"></i> 浏览器的缓存机制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/11/22/js-event/"
+     data-title="DOM事件机制解惑"
+     data-content=""
+     data-url="http://toggle.coding.io/2016/11/22/js-event/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/22/js-event/"
+           data-title="DOM事件机制解惑" data-url="http://toggle.coding.io/2016/11/22/js-event/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar100.jpg"
+               alt="Aitter" />
+          <p class="site-author-name" itemprop="name">Aitter</p>
+          <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">45</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/git-lt" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://hexo.io/" title="Hexo" target="_blank">Hexo</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM事件发展"><span class="nav-number">1.</span> <span class="nav-text">DOM事件发展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM0级事件"><span class="nav-number">1.1.</span> <span class="nav-text">DOM0级事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM2级事件"><span class="nav-number">1.2.</span> <span class="nav-text">DOM2级事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM3级事件"><span class="nav-number">1.3.</span> <span class="nav-text">DOM3级事件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM事件流"><span class="nav-number">2.</span> <span class="nav-text">DOM事件流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么是有事件流？"><span class="nav-number">2.1.</span> <span class="nav-text">为什么是有事件流？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件阶段"><span class="nav-number">3.</span> <span class="nav-text">事件阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件代理"><span class="nav-number">4.</span> <span class="nav-text">事件代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#答案揭晓"><span class="nav-number">5.</span> <span class="nav-text">答案揭晓</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义事件模型"><span class="nav-number">6.</span> <span class="nav-text">自定义事件模型</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aitter</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"togglelt"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
