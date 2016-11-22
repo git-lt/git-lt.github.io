@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://toggle.coding.io/2016/11/22/js-require/</loc>
+    
+    <lastmod>2016-11-22T13:56:15.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://toggle.coding.io/2016/11/22/js-event/</loc>
     
     <lastmod>2016-11-22T02:55:41.000Z</lastmod>
