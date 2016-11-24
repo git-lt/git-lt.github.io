@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://toggle.coding.io/2016/11/24/es6-events/</loc>
+    
+    <lastmod>2016-11-24T03:11:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://toggle.coding.io/2016/11/22/js-require/</loc>
     
-    <lastmod>2016-11-22T13:56:15.000Z</lastmod>
+    <lastmod>2016-11-24T03:07:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/11/21/JS-Cookie/</loc>
+    
+    <lastmod>2016-11-24T03:06:32.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/11/16/co-source-analysis/</loc>
+    
+    <lastmod>2016-11-24T03:06:24.000Z</lastmod>
     
   </url>
   
@@ -19,13 +40,6 @@
     <loc>http://toggle.coding.io/2016/11/21/web-cache/</loc>
     
     <lastmod>2016-11-21T11:33:23.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/11/21/JS-Cookie/</loc>
-    
-    <lastmod>2016-11-21T07:31:48.000Z</lastmod>
     
   </url>
   
@@ -47,13 +61,6 @@
     <loc>http://toggle.coding.io/about/index.html</loc>
     
     <lastmod>2016-11-18T14:55:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/11/16/co-source-analysis/</loc>
-    
-    <lastmod>2016-11-17T16:26:52.000Z</lastmod>
     
   </url>
   

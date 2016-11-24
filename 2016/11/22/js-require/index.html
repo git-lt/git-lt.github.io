@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-22%20%E4%B8%8B%E5%8D%886.05.50.png">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-22%20%E4%B8%8B%E5%8D%886.06.17.png">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-22%20%E4%B8%8B%E5%8D%886.34.00.png">
-<meta property="og:updated_time" content="2016-11-22T13:56:15.000Z">
+<meta property="og:updated_time" content="2016-11-24T03:07:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Requirejs源码浅析">
 <meta name="twitter:description" content="Requirejs在项目中使用很多，平时配置好以后，只是在用，很少去探究其内部实现，只知道是通过script标签去加载依赖，监听加载成功或失败的事件，再去继续逐步加载。今天大致看了一下源码，发现其内部实现还是十分复杂的，看了一小部分，做个笔记。">
@@ -375,7 +375,7 @@
 <p>AMD：Asynchronous Modules Definition异步模块定义，提供定义模块及异步加载该模块依赖的机制。</p>
 <p>版本 <code>RequireJS 2.3.2</code></p>
 <h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><p>新建几个最简单的示例文件，后面的推理以这几个文件为准</p>
-<p>主入口页<br><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"require.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line">	requirejs(&#123;</div><div class="line">		baseUrl:'modules/',</div><div class="line">	&#125;)</div><div class="line"></div><div class="line">	require(['main'],function(main)&#123;</div><div class="line">		main.init();</div><div class="line">	&#125;)</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>主入口页<br><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"require.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">	requirejs(&#123;</div><div class="line">		<span class="attr">baseUrl</span>:<span class="string">'modules/'</span>,</div><div class="line">	&#125;)</div><div class="line"></div><div class="line">	<span class="built_in">require</span>([<span class="string">'main'</span>],<span class="function"><span class="keyword">function</span>(<span class="params">main</span>)</span>&#123;</div><div class="line">		main.init();</div><div class="line">	&#125;)</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>main.js<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">define([<span class="string">'./a'</span>],<span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">		init()&#123;</div><div class="line">			a.init();</div><div class="line">			<span class="built_in">console</span>.log(<span class="string">'Main is init!'</span>)</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <p>a.js<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">		<span class="attr">init</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="built_in">console</span>.log(<span class="string">'A is init'</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <h2 id="初始化过程"><a href="#初始化过程" class="headerlink" title="初始化过程"></a>初始化过程</h2><p>从页面初始化到main模块还没有加载之前，源码里就已经执行了四次 <code>requiresjs()</code> 方法</p>
@@ -459,6 +459,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/24/es6-events/" rel="prev" title="使用ES6一步一步重构Events模块">
+                使用ES6一步一步重构Events模块 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -549,7 +553,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-count">47</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
