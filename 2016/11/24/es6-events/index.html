@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="Aitter's Blog">
 <meta property="og:description" content="看到了一个开源的Events模块 pubsub.js，源代码大概三百多行，本来以为是很简单的一个工具类，但细看之下，发现代码中还是有很多晦涩之处，今天使用ES6将源码重构一遍，其中还是有很多值得学习的地方，不得不说，一个开源的模块要考虑的东西还是很多很多的。">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-24%20%E4%B8%8A%E5%8D%8810.05.27.jpg">
-<meta property="og:updated_time" content="2016-11-24T03:29:21.000Z">
+<meta property="og:updated_time" content="2016-11-24T03:32:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用ES6一步一步重构Events模块">
 <meta name="twitter:description" content="看到了一个开源的Events模块 pubsub.js，源代码大概三百多行，本来以为是很简单的一个工具类，但细看之下，发现代码中还是有很多晦涩之处，今天使用ES6将源码重构一遍，其中还是有很多值得学习的地方，不得不说，一个开源的模块要考虑的东西还是很多很多的。">
@@ -439,7 +439,7 @@
 <li>进到 <code>3</code> 中，调用 <code>_register</code> 注册事件，并返回结果，回到 <code>3</code> 中，继续遍历 <code>keys</code>，调用 <code>on()</code> 方法</li>
 <li>进到 <code>3</code> 中，返回结果后，回到 <code>3</code> 中，<code>keys</code> 遍历结束，进到 <code>4</code> 中，返回存有两个事件对象的 <code>res</code></li>
 <li>回到 <code>1</code> 中，继续遍历 <code>fns</code>，又是一个循环，<code>2-&gt;3-&gt;2-&gt;3-&gt;4</code>，又返回了存有两个事件对象的 <code>res</code></li>
-<li>最后 <code>fns</code> 遍历结束，<code>res.concat(res)</code> 之后，<code>res</code> 就存储了四个事件对象，再最到到 <code>4</code>， 调用一次 <code>res</code>，返回结果</li>
+<li>最后 <code>fns</code> 遍历结束，<code>res.concat(res)</code> 之后，<code>res</code> 就存储了四个事件对象，再最后到 <code>4</code>， 返回结果res</li>
 </ol>
 <p>至此功能基本完成，再来看一下TODO</p>
 <figure class="highlight clean"><table><tr><td class="code"><pre><div class="line">X 事件名可以添加命名空间，如 `parent.child1.child2`</div><div class="line">X 自定义命名空间的分隔符，如：`<span class="string">'.'</span>` 、 `<span class="string">'/'</span>`</div><div class="line">X 事件名可以继承，如 `parent.child1.child2` 除了可以触发本身的事件之外，还可以触发父级 `parent.child1` 与 `parent` 注册的事件，默认不可继承</div><div class="line">X 指定回调函数的上下文 `context`， 可以全局配置也可以给回调单独配置。</div><div class="line">X 可注册 `one` 事件，注册后，只能执行一次</div><div class="line">X 回调函数可以是数组，一个事件可触发多个回调</div><div class="line">X 事件名可以是数组，多个事件名可以注册同一个回调或多个回调</div><div class="line"><span class="number">8.</span> 运行环境兼容处理：node / require / browser</div></pre></td></tr></table></figure>
