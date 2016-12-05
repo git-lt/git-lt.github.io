@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://toggle.coding.io/2016/12/03/promise-in-depth-an-introduction-1/index.html">
 <meta property="og:site_name" content="Aitter's Blog">
 <meta property="og:description" content="自从ES6流行起来，Promise 的使用变得更频繁更广泛了，比如异步请求一般返回一个 Promise 对象，Generator 中 yield 后面一般跟 Promise 对象，ES7中 Async 函数中 await 后面一般也是 Promise 对象，还有更多的 NodeAPI 也会返回 Promise 对象，可以说现在的编程中 Promise 的使用无处不在，那么我们是否真的弄懂了 Pro">
-<meta property="og:updated_time" content="2016-12-04T03:26:18.000Z">
+<meta property="og:updated_time" content="2016-12-05T01:29:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解 Promise (上)">
 <meta name="twitter:description" content="自从ES6流行起来，Promise 的使用变得更频繁更广泛了，比如异步请求一般返回一个 Promise 对象，Generator 中 yield 后面一般跟 Promise 对象，ES7中 Async 函数中 await 后面一般也是 Promise 对象，还有更多的 NodeAPI 也会返回 Promise 对象，可以说现在的编程中 Promise 的使用无处不在，那么我们是否真的弄懂了 Pro">
@@ -368,7 +368,7 @@
       
         <p>自从ES6流行起来，Promise 的使用变得更频繁更广泛了，比如异步请求一般返回一个 Promise 对象，Generator 中 yield 后面一般跟 Promise 对象，ES7中 Async 函数中 await 后面一般也是 Promise 对象，还有更多的 NodeAPI 也会返回 Promise 对象，可以说现在的编程中 Promise 的使用无处不在，那么我们是否真的弄懂了 Promise 呢？是否有误用或错误使用 Promise 呢？是否知道 Promise 的实现原理和 Promise 的花样玩法呢？下面让我们一起来探讨一下吧。<br><a id="more"></a></p>
 <p>在回顾知识的时候，总是能发现更多相关知识，从原理到源码再到实践，是一个深入浅出的过程，一边总结，一边实践，发现有太多太多的东西需要说明，本以为三言两语就能说清楚的东西，一下子就变成了长篇大论，为了便于阅读理解，我分成上中下三篇，文中不免有错漏之处，烦请各位大神们指出。</p>
-<p><strong><a href="">上 - 理论知识</a></strong></p>
+<p><strong><a href="http://coderlt.coding.me/2016/12/03/promise-in-depth-an-introduction-1/" target="_blank" rel="external">上 - 理论知识</a></strong></p>
 <ul>
 <li>Promise 规范</li>
 <li>ES6 Promise API</li>
@@ -386,7 +386,7 @@
 </li>
 <li>最佳实践</li>
 </ul>
-<p><strong><a href="">中 - 手动封装</a></strong></p>
+<p><strong><a href="http://coderlt.coding.me/2016/12/04/promise-in-depth-an-introduction-2/" target="_blank" rel="external">中 - 手动封装</a></strong></p>
 <ul>
 <li>实现一个简单的 Promise工具类<ul>
 <li>Promise类的结构</li>
@@ -410,17 +410,17 @@
 <li>测试</li>
 <li>源码</li>
 </ul>
-<p><strong><a href="">下 - 实践应用</a></strong></p>
+<p><strong><a href="http://coderlt.coding.me/2016/12/05/promise-in-depth-an-introduction-3/" target="_blank" rel="external">下 - 实践应用</a></strong></p>
 <ul>
 <li>结合应用场景使用Promise<ul>
 <li>使用Promise编写Web Notifications提示</li>
 <li>使用Deferred封装异步请求</li>
 <li>异步请求的超时处理</li>
-<li>Node.js文件操作API封装</li>
-<li>将数组包装成Promise数组</li>
+<li>基于Promise的fs方法链</li>
 </ul>
 </li>
 </ul>
+<hr>
 <h2 id="Promise-规范"><a href="#Promise-规范" class="headerlink" title="Promise 规范"></a>Promise 规范</h2><p>这里只列举规范中的大致内容，详细内容请查看 <a href="https://segmentfault.com/a/1190000002452115" target="_blank" rel="external">Promises/A+ 中文</a> ，这是ES6 Promises的前身，是一个社区规范，它和 ES6 Promises 有很多共通的内容。</p>
 <ol>
 <li><strong>状态</strong>  <code>Promise</code> 的初始状态是 <code>Pending</code> ，状态只能被转换为<code>（Resolved）Fulfilled</code>或<code>Rejected</code>，状态的转换不可逆。</li>
