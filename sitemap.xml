@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://toggle.coding.io/2016/12/05/promise-in-depth-an-introduction-3/</loc>
+    
+    <lastmod>2016-12-05T01:22:40.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/12/04/promise-in-depth-an-introduction-2/</loc>
+    
+    <lastmod>2016-12-04T03:31:26.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/12/03/promise-in-depth-an-introduction-1/</loc>
+    
+    <lastmod>2016-12-04T03:26:18.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://toggle.coding.io/2016/11/25/isomorphism-koa2-react-antd/</loc>
     
     <lastmod>2016-11-25T14:56:45.000Z</lastmod>
