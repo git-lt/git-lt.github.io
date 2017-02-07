@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://toggle.coding.io/2017/02/07/flex-layout/</loc>
+    
+    <lastmod>2017-02-07T03:56:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/12/29/retina-mobile/</loc>
+    
+    <lastmod>2016-12-29T06:27:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://toggle.coding.io/2016/12/18/lite-validator/</loc>
     
     <lastmod>2016-12-18T15:38:02.000Z</lastmod>
