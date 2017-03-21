@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://toggle.coding.io/2016/12/03/promise-in-depth-an-introduction-1/index.html">
 <meta property="og:site_name" content="Aitter's Blog">
 <meta property="og:description" content="自从ES6流行起来，Promise 的使用变得更频繁更广泛了，比如异步请求一般返回一个 Promise 对象，Generator 中 yield 后面一般跟 Promise 对象，ES7中 Async 函数中 await 后面一般也是 Promise 对象，还有更多的 NodeAPI 也会返回 Promise 对象，可以说现在的编程中 Promise 的使用无处不在，那么我们是否真的弄懂了 Pro">
-<meta property="og:updated_time" content="2016-12-05T02:09:45.000Z">
+<meta property="og:updated_time" content="2017-03-21T09:18:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解 Promise (上)">
 <meta name="twitter:description" content="自从ES6流行起来，Promise 的使用变得更频繁更广泛了，比如异步请求一般返回一个 Promise 对象，Generator 中 yield 后面一般跟 Promise 对象，ES7中 Async 函数中 await 后面一般也是 Promise 对象，还有更多的 NodeAPI 也会返回 Promise 对象，可以说现在的编程中 Promise 的使用无处不在，那么我们是否真的弄懂了 Pro">
@@ -469,7 +469,7 @@
 </ul>
 <ol>
 <li>同上，区别是，只要有一个Promise实例率先发生变化（无论是状态变成resolved还是rejected）都触发then中的回调，返回值将传递给回调</li>
-<li><code>reace()</code>的返回值也是新的Promise对象</li>
+<li><code>race()</code>的返回值也是新的Promise对象</li>
 </ol>
 <h2 id="Polyfill和扩展类库"><a href="#Polyfill和扩展类库" class="headerlink" title="Polyfill和扩展类库"></a>Polyfill和扩展类库</h2><h3 id="Polyfill"><a href="#Polyfill" class="headerlink" title="Polyfill"></a>Polyfill</h3><p>只需要在浏览器中加载Polyfill类库，就能使用IE10等或者还没有提供对Promise支持的浏览器中使用Promise里规定的方法。</p>
 <p><a href="https://github.com/calvinmetcalf/lie" target="_blank" rel="external">calvinmetcalf/lie</a> 非常简洁的 promise 库，中篇中的手动封装实现就是参考了这个库<br><a href="https://github.com/stefanpenner/es6-promise" target="_blank" rel="external">jakearchibald/es6-promise</a> 兼容 Promises/A+ 的类库， 它只是 RSVP.js 的一个子集，只实现了Promises 规定的 API。<br><a href="https://github.com/yahoo/ypromise" target="_blank" rel="external">yahoo/ypromise</a> 这是一个独立版本的 YUI 的 Promise Polyfill，具有和 ES6 Promises 的兼容性。</p>
