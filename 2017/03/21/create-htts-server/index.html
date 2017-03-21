@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="wiki," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,24 +84,25 @@
 
 
 
-<meta name="description" content="gollum 是github的使用的一个基于markdown的 wiki系统的构造工具，简单实用。
-gollum直接和git集成不需要数据库，你可以选择在Web页面撰写文档，也可以用你喜欢的markdown工具编辑文档在命令行进行提交，用来搭建自己的知识管理wiki系统。 “markdown+git = wiki” 这对程序员来讲绝对是最优(zhe)雅(teng)的方式。
-类似于博客系统jekyl">
+<meta name="description" content="使用HTTS的应用越来越多，现在大部分网站都采用了HTTS，虽然安全性得到了保障，但对于开发调试来说，并不方便调试预览,越来越多的Web API调用依赖HTTPS环境，比如Web Bluetooth API, Web Geo API, Web Notificaiton API等等所以在HTTS环境下调试将是一个常态，有必要本地建站HTTS的开发环境，以下内容教我们快速搭建一个HTTS服务器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在Github上建立自己的Wiki">
-<meta property="og:url" content="http://toggle.coding.io/2016/05/01/build-github-wiki/index.html">
+<meta property="og:title" content="快速搭建本地HTTPS开发服务器">
+<meta property="og:url" content="http://toggle.coding.io/2017/03/21/create-htts-server/index.html">
 <meta property="og:site_name" content="Aitter's Blog">
-<meta property="og:description" content="gollum 是github的使用的一个基于markdown的 wiki系统的构造工具，简单实用。
-gollum直接和git集成不需要数据库，你可以选择在Web页面撰写文档，也可以用你喜欢的markdown工具编辑文档在命令行进行提交，用来搭建自己的知识管理wiki系统。 “markdown+git = wiki” 这对程序员来讲绝对是最优(zhe)雅(teng)的方式。
-类似于博客系统jekyl">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/005yyi5Jjw1eojhaxfc75j31gm0xqgoz.jpg">
-<meta property="og:updated_time" content="2016-05-02T16:39:33.000Z">
+<meta property="og:description" content="使用HTTS的应用越来越多，现在大部分网站都采用了HTTS，虽然安全性得到了保障，但对于开发调试来说，并不方便调试预览,越来越多的Web API调用依赖HTTPS环境，比如Web Bluetooth API, Web Geo API, Web Notificaiton API等等所以在HTTS环境下调试将是一个常态，有必要本地建站HTTS的开发环境，以下内容教我们快速搭建一个HTTS服务器">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-1@2x.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/14715989422211.jpg">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-0@2x.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-2@2x.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-5@2x.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-7@2x.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-4@2x.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-6@2x.png">
+<meta property="og:updated_time" content="2017-03-21T09:07:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在Github上建立自己的Wiki">
-<meta name="twitter:description" content="gollum 是github的使用的一个基于markdown的 wiki系统的构造工具，简单实用。
-gollum直接和git集成不需要数据库，你可以选择在Web页面撰写文档，也可以用你喜欢的markdown工具编辑文档在命令行进行提交，用来搭建自己的知识管理wiki系统。 “markdown+git = wiki” 这对程序员来讲绝对是最优(zhe)雅(teng)的方式。
-类似于博客系统jekyl">
-<meta name="twitter:image" content="http://7xi480.com1.z0.glb.clouddn.com/005yyi5Jjw1eojhaxfc75j31gm0xqgoz.jpg">
+<meta name="twitter:title" content="快速搭建本地HTTPS开发服务器">
+<meta name="twitter:description" content="使用HTTS的应用越来越多，现在大部分网站都采用了HTTS，虽然安全性得到了保障，但对于开发调试来说，并不方便调试预览,越来越多的Web API调用依赖HTTPS环境，比如Web Bluetooth API, Web Geo API, Web Notificaiton API等等所以在HTTS环境下调试将是一个常态，有必要本地建站HTTS的开发环境，以下内容教我们快速搭建一个HTTS服务器">
+<meta name="twitter:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-1@2x.png">
 
 
 
@@ -129,13 +130,13 @@ gollum直接和git集成不需要数据库，你可以选择在Web页面撰写�
 
 
 
-  <link rel="canonical" href="http://toggle.coding.io/2016/05/01/build-github-wiki/"/>
+  <link rel="canonical" href="http://toggle.coding.io/2017/03/21/create-htts-server/"/>
 
 
 
 
 
-  <title> 在Github上建立自己的Wiki | Aitter's Blog </title>
+  <title> 快速搭建本地HTTPS开发服务器 | Aitter's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -276,7 +277,7 @@ gollum直接和git集成不需要数据库，你可以选择在Web页面撰写�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2016/05/01/build-github-wiki/">
+  <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2017/03/21/create-htts-server/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Aitter">
@@ -300,7 +301,7 @@ gollum直接和git集成不需要数据库，你可以选择在Web页面撰写�
             
             
               
-                在Github上建立自己的Wiki
+                快速搭建本地HTTPS开发服务器
               
             
           </h1>
@@ -313,8 +314,8 @@ gollum直接和git集成不需要数据库，你可以选择在Web页面撰写�
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-05-01T00:36:52+08:00">
-                2016-05-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-21T17:02:38+08:00">
+                2017-03-21
               </time>
             
 
@@ -347,8 +348,8 @@ gollum直接和git集成不需要数据库，你可以选择在Web页面撰写�
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/05/01/build-github-wiki/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/01/build-github-wiki/" itemprop="commentCount"></span>
+                <a href="/2017/03/21/create-htts-server/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/21/create-htts-server/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -374,34 +375,35 @@ gollum直接和git集成不需要数据库，你可以选择在Web页面撰写�
       
 
       
-        <p>gollum 是github的使用的一个基于markdown的 wiki系统的构造工具，简单实用。</p>
-<p>gollum直接和git集成不需要数据库，你可以选择在Web页面撰写文档，也可以用你喜欢的markdown工具编辑文档在命令行进行提交，用来搭建自己的知识管理wiki系统。 “markdown+git = wiki” 这对程序员来讲绝对是最优(zhe)雅(teng)的方式。</p>
-<p>类似于博客系统jekyll和hexo的功能。写博客与写wiki的区别是，前者在于创作，后者在于对知识的整理，非原创的文章适合使用wiki来整理归档。<br><a id="more"></a></p>
-<h2 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h2><ul>
-<li>轻量级，但结构和功能完整</li>
-<li>使用Markdown语法</li>
-<li>可提供网页服务</li>
-<li>使用git进行内容控制</li>
+        <p>使用HTTS的应用越来越多，现在大部分网站都采用了HTTS，虽然安全性得到了保障，但对于开发调试来说，并不方便调试预览,越来越多的Web API调用依赖HTTPS环境，比如Web Bluetooth API, Web Geo API, Web Notificaiton API等等<br>所以在HTTS环境下调试将是一个常态，有必要本地建站HTTS的开发环境，以下内容教我们快速搭建一个HTTS服务器</p>
+<a id="more"></a>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
+<li>OS X 10.11.6（El Capitan)</li>
+<li>Python 2.7.10 (OS自带)</li>
+<li>OpenSSL 1.0.2h 3 May 2016(brew install openssl)</li>
+<li>Google Chrome Version 52.0.2743.116 (64-bit)</li>
 </ul>
-<p><a href="https://github.com/gollum/gollum/wiki/Installation" target="_blank" rel="external">官方安装文档</a></p>
-<h2 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h2><p>系统版本：OS X 10.11.3</p>
-<p>包管理器：Homebrew 0.9.5</p>
-<p>Ruby版本：ruby 2.0.0p645 (2015-04-13 revision 50299) [universal.x86_64-darwin15]</p>
-<h2 id="安装gollum"><a href="#安装gollum" class="headerlink" title="安装gollum"></a>安装gollum</h2><figure class="highlight sql"><table><tr><td class="code"><pre><div class="line">sudo brew <span class="keyword">install</span> icu4c</div><div class="line"># <span class="keyword">On</span> Yosemite (<span class="number">10.10</span>), there seem <span class="keyword">to</span> be additional problems installing nokogiri.</div><div class="line"> Working fix seems <span class="keyword">to</span> be:</div><div class="line">sudo gem <span class="keyword">install</span> nokogiri -v <span class="string">'1.6.6.2'</span> <span class="comment">-- --use-system-libraries --with-xml2-include=/usr/include/libxml2 --with-xml2-lib=/usr/lib</span></div><div class="line">sudo gem <span class="keyword">install</span> charlock_holmes <span class="comment">-- --with-icu-dir=/usr/local/opt/icu4c</span></div><div class="line">sudo gem <span class="keyword">install</span> gollum</div></pre></td></tr></table></figure>
-<p>如果长时间安装不上，可能是因为GFW导致，更换为淘宝镜像地址，重新安装即可</p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><div class="line">sudo gem sources --<span class="built_in">remove</span> http<span class="variable">s:</span>//rubygems.org/</div><div class="line">sudo gem sources -<span class="keyword">a</span> http<span class="variable">s:</span>//<span class="keyword">ruby</span>.taobao.org/</div><div class="line">sudo gem sources -<span class="keyword">l</span></div><div class="line">*** CURRENT SOURCES ***</div><div class="line"></div><div class="line">http<span class="variable">s:</span>//<span class="keyword">ruby</span>.taobao.org</div></pre></td></tr></table></figure>
-<p>安装成功后输入以下命令，如果返回版本号则安装成功<br><figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">gollum</span> <span class="selector-tag">--v</span></div><div class="line"><span class="selector-tag">Gollum</span> 4<span class="selector-class">.0</span><span class="selector-class">.1</span></div></pre></td></tr></table></figure></p>
-<h2 id="Clone-Wiki到本地"><a href="#Clone-Wiki到本地" class="headerlink" title="Clone Wiki到本地"></a>Clone Wiki到本地</h2><p>先在<code>github</code>上建立一个项目仓库，并开通wiki，初始化一个wiki主页<br>复制仓库的地址，并在后台添加 <code>wiki</code></p>
-<p><strong> Repositories地址 </strong></p>
-<figure class="highlight groovy"><table><tr><td class="code"><pre><div class="line">git<span class="meta">@github</span>.<span class="string">com:</span>gitlt/qkfe.git</div></pre></td></tr></table></figure>
-<p><strong> wiki地址 </strong> </p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">git@github<span class="selector-class">.com</span>:gitlt/qkfe<span class="selector-class">.wiki</span><span class="selector-class">.git</span></div></pre></td></tr></table></figure>
-<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">git clone git@github<span class="selector-class">.com</span>:gitlt/qkfe<span class="selector-class">.wiki</span><span class="selector-class">.git</span> wiki</div><div class="line">gollum</div></pre></td></tr></table></figure>
-<p>提示 <code>INFO  WEBrick::HTTPServer#start: pid=70851 port=4567</code><br>在浏览器打开地址 <code>127.0.0.1:4567</code> 即可看到如下操作界面</p>
-<p><img src="http://7xi480.com1.z0.glb.clouddn.com/005yyi5Jjw1eojhaxfc75j31gm0xqgoz.jpg" alt=""></p>
-<p>添加新的文章，进行<code>wiki</code>目录，执行命令推送到github上就能完成更新了</p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><div class="line"><span class="keyword">cd</span> wiki</div><div class="line">git <span class="built_in">add</span> .</div><div class="line">git commit -<span class="keyword">am</span><span class="comment">"我的wiki的第一次提交“</span></div><div class="line">git push</div></pre></td></tr></table></figure>
-<p>如果提示提交失败，请检查 是否github没有添加本地的SSH keys, 是否github项目中没有初始化wiki，添加一个wiki页面。</p>
+<h2 id="生成证书"><a href="#生成证书" class="headerlink" title="生成证书"></a>生成证书</h2><p>进入一个目录（用于搭建Web服务器的根目录）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">openssl req -new -x509 -keyout server.pem -out server.pem -days 365 -nodes</div></pre></td></tr></table></figure>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-1@2x.png" width="300" alt=""></p>
+<p>然后回车，填写相关信息（随意填写），但是 Common Name 这项要填写一个域名，将来做为htts访问的域名，例如此项填写为 lt，那么访问时使用 htts://lt:4443/index.html 访问</p>
+<p>信息录入完成后，会在当前目录下生成server.pem证书</p>
+<h2 id="使用证书"><a href="#使用证书" class="headerlink" title="使用证书"></a>使用证书</h2><p>新建一个 <code>Python</code> 文件 </p>
+<p><code>vi https-server.py</code></p>
+<p>写入<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">import BaseHTTPServer, SimpleHTTPServer</div><div class="line">import ssl</div><div class="line">httpd = BaseHTTPServer.HTTPServer((<span class="string">'localhost'</span>, 4443), SimpleHTTPServer.SimpleHTTPRequestHandler)</div><div class="line">httpd.socket = ssl.wrap_socket (httpd.socket, certfile=<span class="string">'./server.pem'</span>, server_side=True)</div><div class="line">httpd.serve_forever()</div></pre></td></tr></table></figure></p>
+<h2 id="启动HTTS服务器"><a href="#启动HTTS服务器" class="headerlink" title="启动HTTS服务器"></a>启动HTTS服务器</h2><figure class="highlight vim"><table><tr><td class="code"><pre><div class="line"><span class="keyword">python</span> simple-https-server.<span class="keyword">py</span></div></pre></td></tr></table></figure>
+<p>如果端口冲突，请修改上面 <code>https-server.py</code> 中的端口号</p>
+<h2 id="Chrome访问"><a href="#Chrome访问" class="headerlink" title="Chrome访问"></a>Chrome访问</h2><p>打开 <code>chorme</code> 浏览器访问<br><img src="http://7xi480.com1.z0.glb.clouddn.com/14715989422211.jpg" alt=""></p>
+<h2 id="授权证书"><a href="#授权证书" class="headerlink" title="授权证书"></a>授权证书</h2><p>查看当前证书 -&gt; 拖动到桌面 -&gt; 双击导入到Keychain Access -&gt; 设置为总是信任 -&gt; 保存</p>
+<p>打开控制台查看当前证书</p>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-0@2x.png" width="300" alt=""><br><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-2@2x.png" width="300" alt=""><br><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-5@2x.png" width="300" alt=""></p>
+<p>将证书拖动到桌面，点击打开<br><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-7@2x.png" width="300" alt=""></p>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-4@2x.png" width="300" alt=""></p>
+<h2 id="添加自定义域名"><a href="#添加自定义域名" class="headerlink" title="添加自定义域名"></a>添加自定义域名</h2><p><code>vi /etc/hosts</code></p>
+<p>设置本地代理</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">127.0.0.1 lt</div></pre></td></tr></table></figure>
+<h2 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h2><p>重启chrome，访问</p>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-6@2x.png" width="400" alt=""></p>
 
       
     </div>
@@ -423,19 +425,13 @@ gollum直接和git集成不需要数据库，你可以选择在Web页面撰写�
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/wiki/" rel="tag"># wiki</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/28/decoration-for-store/" rel="next" title="微商城装修的设计实现">
-                <i class="fa fa-chevron-left"></i> 微商城装修的设计实现
+              <a href="/2017/03/06/vue-base-01/" rel="next" title="Vue2.x 之 基础API">
+                <i class="fa fa-chevron-left"></i> Vue2.x 之 基础API
               </a>
             
           </div>
@@ -443,10 +439,6 @@ gollum直接和git集成不需要数据库，你可以选择在Web页面撰写�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/10/Define-Component-guid/" rel="prev" title="组件编写规范">
-                组件编写规范 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -461,10 +453,10 @@ gollum直接和git集成不需要数据库，你可以选择在Web页面撰写�
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/05/01/build-github-wiki/"
-     data-title="在Github上建立自己的Wiki"
+        <div class="ds-share flat" data-thread-key="2017/03/21/create-htts-server/"
+     data-title="快速搭建本地HTTPS开发服务器"
      data-content=""
-     data-url="http://toggle.coding.io/2016/05/01/build-github-wiki/">
+     data-url="http://toggle.coding.io/2017/03/21/create-htts-server/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -491,8 +483,8 @@ gollum直接和git集成不需要数据库，你可以选择在Web页面撰写�
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/05/01/build-github-wiki/"
-           data-title="在Github上建立自己的Wiki" data-url="http://toggle.coding.io/2016/05/01/build-github-wiki/">
+      <div class="ds-thread" data-thread-key="2017/03/21/create-htts-server/"
+           data-title="快速搭建本地HTTPS开发服务器" data-url="http://toggle.coding.io/2017/03/21/create-htts-server/">
       </div>
     
   </div>
@@ -623,7 +615,7 @@ gollum直接和git集成不需要数据库，你可以选择在Web页面撰写�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#优点："><span class="nav-number">1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行环境"><span class="nav-number">2.</span> <span class="nav-text">运行环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装gollum"><span class="nav-number">3.</span> <span class="nav-text">安装gollum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Clone-Wiki到本地"><span class="nav-number">4.</span> <span class="nav-text">Clone Wiki到本地</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行"><span class="nav-number">4.1.</span> <span class="nav-text">运行</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境准备"><span class="nav-number">1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成证书"><span class="nav-number">2.</span> <span class="nav-text">生成证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用证书"><span class="nav-number">3.</span> <span class="nav-text">使用证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动HTTS服务器"><span class="nav-number">4.</span> <span class="nav-text">启动HTTS服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chrome访问"><span class="nav-number">5.</span> <span class="nav-text">Chrome访问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#授权证书"><span class="nav-number">6.</span> <span class="nav-text">授权证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加自定义域名"><span class="nav-number">7.</span> <span class="nav-text">添加自定义域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问"><span class="nav-number">8.</span> <span class="nav-text">访问</span></a></li></ol></div>
             
 
           </div>
