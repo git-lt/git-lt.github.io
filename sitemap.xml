@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://toggle.coding.io/2017/04/11/code-convention-for-react/</loc>
+    
+    <lastmod>2017-04-11T09:41:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://toggle.coding.io/2016/12/03/promise-in-depth-an-introduction-1/</loc>
     
     <lastmod>2017-03-21T09:18:43.000Z</lastmod>
