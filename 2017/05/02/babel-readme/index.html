@@ -1,0 +1,964 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ES6," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Babel是一个广泛使用的ES6转码器，可以将ES6代码转为ES5代码，从而在现有环境执行。ECMAScript 6是JavaScript语言的下一代标准。因为当前版本的ES6是在2015年发布的，所以又称ECMAScript 2015。但是目前浏览器对es6不完全兼容，需要借住babel编译。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Babel使用入门">
+<meta property="og:url" content="http://toggle.coding.io/2017/05/02/babel-readme/index.html">
+<meta property="og:site_name" content="Aitter's Blog">
+<meta property="og:description" content="Babel是一个广泛使用的ES6转码器，可以将ES6代码转为ES5代码，从而在现有环境执行。ECMAScript 6是JavaScript语言的下一代标准。因为当前版本的ES6是在2015年发布的，所以又称ECMAScript 2015。但是目前浏览器对es6不完全兼容，需要借住babel编译。">
+<meta property="og:updated_time" content="2017-05-02T10:42:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Babel使用入门">
+<meta name="twitter:description" content="Babel是一个广泛使用的ES6转码器，可以将ES6代码转为ES5代码，从而在现有环境执行。ECMAScript 6是JavaScript语言的下一代标准。因为当前版本的ES6是在2015年发布的，所以又称ECMAScript 2015。但是目前浏览器对es6不完全兼容，需要借住babel编译。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://toggle.coding.io/2017/05/02/babel-readme/"/>
+
+
+
+
+
+  <title> Babel使用入门 | Aitter's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Aitter's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">I can’t change the world, only change myself!</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2017/05/02/babel-readme/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Aitter">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar100.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Aitter's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Aitter's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Babel使用入门
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-02T18:41:06+08:00">
+                2017-05-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/移动前端/" itemprop="url" rel="index">
+                    <span itemprop="name">移动前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/移动前端/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2017/05/02/babel-readme/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/02/babel-readme/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Babel是一个广泛使用的ES6转码器，可以将ES6代码转为ES5代码，从而在现有环境执行。<br>ECMAScript 6是JavaScript语言的下一代标准。因为当前版本的ES6是在2015年发布的，所以又称ECMAScript 2015。但是目前浏览器对es6不完全兼容，需要借住babel编译。<br><a id="more"></a></p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><p>配置文件</p>
+</li>
+<li><p>预设</p>
+<ul>
+<li>官方预设</li>
+</ul>
+</li>
+<li><p>插件</p>
+<ul>
+<li>模块支持</li>
+<li>实验性插件</li>
+<li>优化编译</li>
+<li>React</li>
+<li>其它</li>
+</ul>
+</li>
+<li><p>ES2015</p>
+</li>
+<li><p>常用ES6语法与转码对比</p>
+<ul>
+<li>函数</li>
+<li>类</li>
+<li>let &amp; const</li>
+<li>解构赋值</li>
+<li>模板字符串</li>
+<li>模块导入导出</li>
+<li>属性与方法简写</li>
+</ul>
+</li>
+<li><p>Babel-polyfill</p>
+</li>
+<li><p>Stage说明</p>
+<p>​</p>
+</li>
+</ul>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>通过 <code>.babelrc</code> 来配置Babel 转码规则，放在项目根目录下 <code>/.babelrc</code></p>
+<figure class="highlight json"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attr">"presets"</span>: [<span class="string">"es2015"</span>, <span class="string">"react"</span>, <span class="string">"stage-2"</span>],</div><div class="line">	<span class="attr">"plugins"</span>: []</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面配置了 Babel 转码规则为，将ES6的语法转为ES2015的转码，支持React的JSX语法转码，使用 <code>stage-2</code> 模式转码（相关模式下面会详细介绍）</p>
+<p>Babel 通过三个步骤 语法解析-转码-生成文件来编译Javascript。</p>
+<p>Babel 是通过一系列插件来完成对JS的编译。</p>
+<p>stage-x 是对非标准或未定案的标准的API的转码实现</p>
+<h2 id="Presets"><a href="#Presets" class="headerlink" title="Presets"></a>Presets</h2><p><code>presets</code> 是Babel内置的一些预设，是一系列插件的组合。</p>
+<h3 id="官方预设-Official-Presets"><a href="#官方预设-Official-Presets" class="headerlink" title="官方预设 Official Presets"></a>官方预设 Official Presets</h3><ul>
+<li><a href="https://babeljs.io/docs/plugins/preset-env/" target="_blank" rel="external">env</a> 根据配置的环境自动加载相关的插件</li>
+<li><a href="https://babeljs.io/docs/plugins/preset-es2015/" target="_blank" rel="external">es2015</a> 将ES6的语法转码为ES5的语法</li>
+<li><a href="https://babeljs.io/docs/plugins/preset-es2016/" target="_blank" rel="external">es2016</a> 幂运算语法糖插件 <code>2**3</code> =&gt; <code>2*2*2</code></li>
+<li><a href="https://babeljs.io/docs/plugins/preset-es2017/" target="_blank" rel="external">es2017</a> Async / Await / Generator</li>
+<li><a href="https://babeljs.io/docs/plugins/preset-react/" target="_blank" rel="external">react</a> 支持React编译</li>
+<li><a href="https://babeljs.io/docs/plugins/preset-flow/" target="_blank" rel="external">flow</a> 支持静态类型检测编译</li>
+</ul>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><h3 id="支持的模块加载Modules"><a href="#支持的模块加载Modules" class="headerlink" title="支持的模块加载Modules"></a>支持的模块加载<a href="https://babeljs.io/docs/plugins/#transform-plugins-modules" target="_blank" rel="external">Modules</a></h3><ul>
+<li><a href="https://babeljs.io/docs/plugins/transform-es2015-modules-amd/" target="_blank" rel="external">es2015-modules-amd</a> 浏览器端的AMD模块加载管理 </li>
+<li><a href="https://babeljs.io/docs/plugins/transform-es2015-modules-commonjs/" target="_blank" rel="external">es2015-modules-commonjs</a> 服务端的同步模块加载管理</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-es2015-modules-systemjs/" target="_blank" rel="external">es2015-modules-systemjs</a> ES6的模块管理方式</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-es2015-modules-umd/" target="_blank" rel="external">es2015-modules-umd</a> 兼容AMD CMD的模块管理方式</li>
+</ul>
+<h3 id="实验性插件Experimental"><a href="#实验性插件Experimental" class="headerlink" title="实验性插件Experimental"></a>实验性插件<a href="https://babeljs.io/docs/plugins/#transform-plugins-experimental" target="_blank" rel="external">Experimental</a></h3><ul>
+<li><a href="https://babeljs.io/docs/plugins/transform-async-generator-functions/" target="_blank" rel="external">async-generator-functions</a> 支持将ES7的 async await 函数转换为ES6的 generator 函数</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-async-to-module-method/" target="_blank" rel="external">async-to-module-method</a> 支持将ES7的 async await 函数转换为 bluebird 语法以兼容低版本[需要配置]</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-class-properties/" target="_blank" rel="external">class-properties</a> 类的静态属性与方法</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-decorators/" target="_blank" rel="external">decorators</a> 类的装饰器 @connect</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-do-expressions/" target="_blank" rel="external">do-expressions</a> 支持模板中使用 if/else</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-export-extensions/" target="_blank" rel="external">export-extensions</a> 模块导出的扩展</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-function-bind/" target="_blank" rel="external">function-bind</a> 支持通过 :: 来绑定上下文</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-object-rest-spread/" target="_blank" rel="external">object-rest-spread</a> 支持使用 … 将对象展开</li>
+</ul>
+<h3 id="优化编译插件-Minification"><a href="#优化编译插件-Minification" class="headerlink" title="优化编译插件 Minification"></a>优化编译插件 <a href="https://babeljs.io/docs/plugins/#transform-plugins-minification" target="_blank" rel="external">Minification</a></h3><ul>
+<li><a href="https://babeljs.io/docs/plugins/transform-inline-environment-variables/" target="_blank" rel="external">inline-environment-variables</a> 简化环境变量</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-inline-consecutive-adds/" target="_blank" rel="external">inline-consecutive-adds</a> 简化对象与数据定义</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-merge-sibling-variables/" target="_blank" rel="external">merge-sibling-variables</a> 将多次变量申明，合并为一次</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-minify-booleans/" target="_blank" rel="external">minify-booleans</a> 将true 和 false 转换为 !0 和 !1</li>
+<li><a href="https://babeljs.io/docs/plugins/minify-constant-folding/" target="_blank" rel="external">minify-constant-folding</a> 优化数字与字符串的计算： a = 2 * 4 =&gt; a = 8;</li>
+<li><a href="https://babeljs.io/docs/plugins/minify-dead-code-elimination/" target="_blank" rel="external">minify-dead-code-elimination</a> 简化代码，去掉冗余的代码片段</li>
+<li><a href="https://babeljs.io/docs/plugins/minify-flip-comparisons/" target="_blank" rel="external">minify-flip-comparisons</a> 优化 Gzip 的压缩算法</li>
+<li><a href="https://babeljs.io/docs/plugins/minify-guarded-expressions/" target="_blank" rel="external">minify-guarded-expressions</a> 优化 &amp;&amp; 表达式</li>
+<li><a href="https://babeljs.io/docs/plugins/minify-infinity/" target="_blank" rel="external">minify-infinity</a>  Infinity =&gt; 1/0</li>
+<li><a href="https://babeljs.io/docs/plugins/minify-mangle-names/" target="_blank" rel="external">minify-mangle-names</a> 简化局部变量的名称</li>
+<li><a href="https://babeljs.io/docs/plugins/minify-numeric-literals/" target="_blank" rel="external">minify-numeric-literals</a> 将大数字转成科学计算法表示 1000 =&gt; 1e3</li>
+<li><a href="https://babeljs.io/docs/plugins/minify-replace/" target="_blank" rel="external">minify-replace</a> 自定义在编译过程需要缩短变量的变量</li>
+<li><a href="https://babeljs.io/docs/plugins/minify-simplify/" target="_blank" rel="external">minify-simplify</a>  优化if else 语句、undefined =&gt; void 0, Number(foo)=&gt; +foo, foo[‘bar’]=&gt;foo.bar</li>
+<li><a href="https://babeljs.io/docs/plugins/minify-type-constructors/" target="_blank" rel="external">minify-type-constructors</a> 简化使用基本类型构造的变量</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-node-env-inline/" target="_blank" rel="external">node-env-inline</a> node中将环境变量转换成行内变量</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-property-literals/" target="_blank" rel="external">property-literals</a> 对象字符属性转成唯一属性，关键字除外</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-regexp-constructors/" target="_blank" rel="external">regexp-constructors</a> 如果Regext()参数是字符串，则转成字面量</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-remove-console/" target="_blank" rel="external">remove-console</a> 去掉console语句</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-remove-debugger/" target="_blank" rel="external">remove-debugger</a> 去掉 debugger 语句</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-simplify-comparison-operators/" target="_blank" rel="external">simplify-comparison-operators</a> 如果两边的类型一致，则将 === 转换为 == </li>
+<li><a href="https://babeljs.io/docs/plugins/transform-undefined-to-void/" target="_blank" rel="external">undefined-to-void</a> undefined =&gt; void 0</li>
+</ul>
+<h3 id="React"><a href="#React" class="headerlink" title="React"></a><a href="https://babeljs.io/docs/plugins/#transform-plugins-react" target="_blank" rel="external">React</a></h3><ul>
+<li><a href="https://babeljs.io/docs/plugins/transform-react-constant-elements/" target="_blank" rel="external">react-constant-elements</a> 静态模板转常量</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-react-display-name/" target="_blank" rel="external">react-display-name</a> 为组件添加 displayName 属性</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-react-inline-elements/" target="_blank" rel="external">react-inline-elements</a> 使用性能更好的 babelHelpers.jsx() 替换 React.createElement() 转换模板</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-react-jsx/" target="_blank" rel="external">react-jsx</a> JSX模板转为JS语句</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-react-jsx-compat/" target="_blank" rel="external">react-jsx-compat</a> JSX模板转成 0.12之前语法</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-react-jsx-self/" target="_blank" rel="external">react-jsx-self</a> 添加__self属性标识本身信息</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-react-jsx-source/" target="_blank" rel="external">react-jsx-source</a> 添加源码信息到JSX模板</li>
+</ul>
+<h3 id="Other"><a href="#Other" class="headerlink" title="Other"></a><a href="https://babeljs.io/docs/plugins/#transform-plugins-other" target="_blank" rel="external">Other</a></h3><ul>
+<li><a href="https://babeljs.io/docs/plugins/transform-eval/" target="_blank" rel="external">eval</a> 转码eval()中的ES6语法</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-flow-comments/" target="_blank" rel="external">flow-comments</a> 转码后添加类型检查注释</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-flow-strip-types/" target="_blank" rel="external">flow-strip-types</a> 类型检测转成ES5语法</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-jscript/" target="_blank" rel="external">jscript</a> 函数表达式转换为申明式函数</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-object-assign/" target="_blank" rel="external">object-assign</a> 转码 Object.assign 为ES5的 _extends()语法</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-object-set-prototype-of-to-assign/" target="_blank" rel="external">object-set-prototype-of-to-assign</a> 转码 setPrototypeOf 为 _defautls() 方法</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-proto-to-assign/" target="_blank" rel="external">proto-to-assign</a>  使用_defaults() 替换 <code>__proto__</code> 为对象扩展属性</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-regenerator/" target="_blank" rel="external">regenerator</a> 转码generator语法</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-runtime/" target="_blank" rel="external">runtime</a> 提供一些工具方法如_extends 来帮助转码</li>
+<li><a href="https://babeljs.io/docs/plugins/transform-strict-mode/" target="_blank" rel="external">strict-mode</a> 添加 ‘use strict’;</li>
+</ul>
+<h2 id="语法解析插件Syntax"><a href="#语法解析插件Syntax" class="headerlink" title="语法解析插件Syntax"></a>语法解析插件Syntax</h2><p>语法解析插件，只提供编译过程中的语法解析，并不转码，转码需要想关的转码插件支持，在使用相关转码插件时，会自动安装使用相关语法解析插件，不需要手动安装配置。</p>
+<ul>
+<li><a href="http://babeljs.cn/docs/plugins/syntax-async-functions" target="_blank" rel="external">async-functions</a></li>
+<li><a href="http://babeljs.cn/docs/plugins/syntax-async-generators" target="_blank" rel="external">async-generators</a></li>
+<li><a href="http://babeljs.cn/docs/plugins/syntax-class-constructor-call" target="_blank" rel="external">class-constructor-call</a></li>
+<li><a href="http://babeljs.cn/docs/plugins/syntax-class-properties" target="_blank" rel="external">class-properties</a></li>
+<li><a href="http://babeljs.cn/docs/plugins/syntax-decorators" target="_blank" rel="external">decorators</a></li>
+<li><a href="http://babeljs.cn/docs/plugins/syntax-do-expressions" target="_blank" rel="external">do-expressions</a></li>
+<li><a href="http://babeljs.cn/docs/plugins/syntax-exponentiation-operator" target="_blank" rel="external">exponentiation-operator</a></li>
+<li><a href="http://babeljs.cn/docs/plugins/syntax-export-extensions" target="_blank" rel="external">export-extensions</a></li>
+<li><a href="http://babeljs.cn/docs/plugins/syntax-flow" target="_blank" rel="external">flow</a></li>
+<li><a href="http://babeljs.cn/docs/plugins/syntax-function-bind" target="_blank" rel="external">function-bind</a></li>
+<li><a href="http://babeljs.cn/docs/plugins/syntax-jsx" target="_blank" rel="external">jsx</a></li>
+<li><a href="http://babeljs.cn/docs/plugins/syntax-object-rest-spread" target="_blank" rel="external">object-rest-spread</a></li>
+<li><a href="http://babeljs.cn/docs/plugins/syntax-trailing-function-commas" target="_blank" rel="external">trailing-function-commas</a></li>
+</ul>
+<h2 id="ES2015"><a href="#ES2015" class="headerlink" title="ES2015"></a>ES2015</h2><p>默认情况下，Babel 自带了一组 ES2015 语法转化器。这些转化器能让你<strong>现在</strong>就使用最新的 JavaScript 语法，而不用等待浏览器提供支持。(每个一支持的特性都有独立的插件可以使用)</p>
+<figure class="highlight maxima"><table><tr><td class="code"><pre><div class="line">check-es2015-constants 检查const的使用规则</div><div class="line"><span class="built_in">transform</span>-es2015-arrow-<span class="built_in">functions</span> 箭头函数 ()=&gt;&#123;&#125;</div><div class="line"><span class="built_in">transform</span>-es2015-<span class="built_in">block</span>-scoped-<span class="built_in">functions</span> 确实块级作用域下函数重复申明</div><div class="line"><span class="built_in">transform</span>-es2015-<span class="built_in">block</span>-scoping 块级作用域 <span class="built_in">let</span> &amp; const</div><div class="line"><span class="built_in">transform</span>-es2015-classes 类 class Header &#123;&#125;</div><div class="line"><span class="built_in">transform</span>-es2015-computed-<span class="built_in">properties</span> 动态属性名 obj[getKey('enabled')] = <span class="literal">true</span>;</div><div class="line"><span class="built_in">transform</span>-es2015-destructuring 解构 <span class="built_in">let</span> [a,b] = [<span class="number">0</span>,<span class="number">0</span>]</div><div class="line"><span class="built_in">transform</span>-es2015-duplicate-keys 防止对象属性重复</div><div class="line"><span class="built_in">transform</span>-es2015-<span class="keyword">for</span>-of 迭代器遍历</div><div class="line"><span class="built_in">transform</span>-es2015-function-name 支持通过 func.name 获取函数名称</div><div class="line"><span class="built_in">transform</span>-es2015-literals 将ES2015的整数和unicode文字编译为ES5</div><div class="line"><span class="built_in">transform</span>-es2015-modules-commonjs 支持 commonjs 模块导入导出方式</div><div class="line"><span class="built_in">transform</span>-es2015-object-super ES6对象编译为ES5对象</div><div class="line"><span class="built_in">transform</span>-es2015-parameters 支持函数参数设置默认值 function foo (a=<span class="number">1</span>,b)&#123;&#125;</div><div class="line"><span class="built_in">transform</span>-es2015-shorthand-<span class="built_in">properties</span> 属性简写 <span class="built_in">var</span> d = &#123;a, b&#125;</div><div class="line"><span class="built_in">transform</span>-es2015-spread 展开符 ...</div><div class="line"><span class="built_in">transform</span>-es2015-sticky-regex 支持正则的粘性特性</div><div class="line"><span class="built_in">transform</span>-es2015-template-literals 支持ES6的字符串模板 `/a/$&#123;c&#125;`</div><div class="line"><span class="built_in">transform</span>-es2015-typeof-symbol 提升typeof的兼容性</div><div class="line"><span class="built_in">transform</span>-es2015-unicode-regex 支持正则匹配 unicode 字符</div><div class="line"><span class="built_in">transform</span>-regenerator 编译 genenerator 语法，并不转码(需要 babel-polyfill 或 regenerator runtime 的支持)</div></pre></td></tr></table></figure>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp/sticky" target="_blank" rel="external">Strick regex</a>  是否可以从指定的 lastIndex 开始搜索</p>
+<p><a href="https://segmentfault.com/a/1190000008088489" target="_blank" rel="external">Flow - JS静态类型检查工具</a></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">one: any, two: number, three?</span>): <span class="title">string</span> </span>&#123;&#125;</div></pre></td></tr></table></figure>
+<h2 id="常用ES6语法与转码对比"><a href="#常用ES6语法与转码对比" class="headerlink" title="常用ES6语法与转码对比"></a>常用ES6语法与转码对比</h2><p>Arrow Function、Class、Funciton bind、Let、Const、Template、Modules、Destructuring、Spreade</p>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">//in</span></div><div class="line"><span class="keyword">var</span> nums = evens.map(<span class="function">(<span class="params">v, i</span>) =&gt;</span> v + i);</div><div class="line"><span class="comment">//out</span></div><div class="line"><span class="keyword">var</span> nums = evens.map(<span class="function"><span class="keyword">function</span> (<span class="params">v, i</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> v + i;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//保持方法的上下文</span></div><div class="line"><span class="comment">//in</span></div><div class="line"><span class="keyword">var</span> bob = &#123;</div><div class="line">  <span class="attr">_name</span>: <span class="string">"Bob"</span>,</div><div class="line">  <span class="attr">_friends</span>: [],</div><div class="line">  printFriends() &#123;</div><div class="line">    <span class="keyword">this</span>._friends.forEach(<span class="function"><span class="params">f</span> =&gt;</span></div><div class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>._name + <span class="string">" knows "</span> + f));</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"><span class="comment">//out</span></div><div class="line"><span class="keyword">var</span> bob = &#123;</div><div class="line">  <span class="attr">_name</span>: <span class="string">"Bob"</span>,</div><div class="line">  <span class="attr">_friends</span>: [],</div><div class="line">  <span class="attr">printFriends</span>: <span class="function"><span class="keyword">function</span> <span class="title">printFriends</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> _this = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">    <span class="keyword">this</span>._friends.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">f</span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">console</span>.log(_this._name + <span class="string">" knows "</span> + f);</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//in</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">one: any, two: number, three?</span>): <span class="title">string</span> </span>&#123;&#125;</div><div class="line"><span class="comment">//out</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">one, two, three</span>) </span>&#123;&#125;</div></pre></td></tr></table></figure>
+<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SkinnedMesh</span> <span class="keyword">extends</span> <span class="title">THREE</span>.<span class="title">Mesh</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(geometry, materials) &#123;</div><div class="line">    <span class="keyword">super</span>(geometry, materials);</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.idMatrix = SkinnedMesh.defaultMatrix();</div><div class="line">    <span class="keyword">this</span>.bones = [];</div><div class="line">    <span class="keyword">this</span>.boneMatrices = [];</div><div class="line">    <span class="comment">//...</span></div><div class="line">  &#125;</div><div class="line">  update(camera) &#123;</div><div class="line">    <span class="comment">//...</span></div><div class="line">    <span class="keyword">super</span>.update();</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">static</span> defaultMatrix() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> THREE.Matrix4();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="https://babeljs.io/repl/#?babili=false&amp;evaluate=false&amp;lineWrap=true&amp;presets=es2015%2Creact%2Cstage-0&amp;targets=&amp;browsers=&amp;builtIns=false&amp;debug=false&amp;code=class%20SkinnedMesh%20extends%20THREE.Mesh%20%7B%0A%20%20constructor(geometry%2C%20materials" target="_blank" rel="external">类的编译结果</a>%20%7B%0A%20%20%20%20super(geometry%2C%20materials)%3B%0A%0A%20%20%20%20this.idMatrix%20%3D%20SkinnedMesh.defaultMatrix()%3B%0A%20%20%20%20this.bones%20%3D%20%5B%5D%3B%0A%20%20%20%20this.boneMatrices%20%3D%20%5B%5D%3B%0A%20%20%20%20%2F%2F…%0A%20%20%7D%0A%20%20update(camera)%20%7B%0A%20%20%20%20%2F%2F…%0A%20%20%20%20super.update()%3B%0A%20%20%7D%0A%20%20static%20defaultMatrix()%20%7B%0A%20%20%20%20return%20new%20THREE.Matrix4()%3B%0A%20%20%7D%0A%7D%0A)</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">//in</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bork</span> </span>&#123;</div><div class="line">    <span class="comment">//Property initializer syntax</span></div><div class="line">    instanceProperty = <span class="string">"bork"</span>;</div><div class="line">    boundFunction = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.instanceProperty;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//Static class properties</span></div><div class="line">    <span class="keyword">static</span> staticProperty = <span class="string">"babelIsCool"</span>;</div><div class="line">    <span class="keyword">static</span> staticFunction = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> Bork.staticProperty;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line"><span class="comment">// out</span></div><div class="line"><span class="meta">"use strict"</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">_classCallCheck</span>(<span class="params">instance, Constructor</span>) </span>&#123; <span class="keyword">if</span> (!(instance <span class="keyword">instanceof</span> Constructor)) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">"Cannot call a class as a function"</span>); &#125; &#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> Bork = <span class="function"><span class="keyword">function</span> <span class="title">Bork</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> _this = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">  _classCallCheck(<span class="keyword">this</span>, Bork);</div><div class="line"></div><div class="line">  <span class="keyword">this</span>.instanceProperty = <span class="string">"bork"</span>;</div><div class="line"></div><div class="line">  <span class="keyword">this</span>.boundFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> _this.instanceProperty;</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"><span class="comment">//Property initializer syntax</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//Static class properties</span></div><div class="line">;</div><div class="line"></div><div class="line">Bork.staticProperty = <span class="string">"babelIsCool"</span>;</div><div class="line"></div><div class="line">Bork.staticFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> Bork.staticProperty;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="Let-Const"><a href="#Let-Const" class="headerlink" title="Let + Const"></a>Let + Const</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">//in</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  &#123;</div><div class="line">    <span class="comment">// 块级作用域下的变量</span></div><div class="line">    <span class="keyword">let</span> x;</div><div class="line">    &#123;</div><div class="line">      <span class="comment">// 块级作用域下的const常量</span></div><div class="line">      <span class="keyword">const</span> x = <span class="string">"sneaky"</span>;</div><div class="line">      x = <span class="string">'foo'</span>; <span class="comment">// 报错，常量不允许修改</span></div><div class="line">    &#125;</div><div class="line">    x = <span class="string">"bar"</span>;</div><div class="line">    <span class="keyword">let</span> x= <span class="string">'foo'</span>; <span class="comment">// 报错，变量重复定义</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//out</span></div><div class="line"><span class="meta">"use strict"</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  &#123;</div><div class="line">    <span class="comment">// 块级作用域下的变量</span></div><div class="line">    <span class="keyword">var</span> x = <span class="keyword">void</span> <span class="number">0</span>;</div><div class="line">    &#123;</div><div class="line">      <span class="comment">// 块级作用域下的const常量</span></div><div class="line">      <span class="keyword">var</span> _x = <span class="string">"sneaky"</span>;</div><div class="line">    &#125;</div><div class="line">    x = <span class="string">"bar"</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="属性与方法的语法糖转换"><a href="#属性与方法的语法糖转换" class="headerlink" title="属性与方法的语法糖转换"></a>属性与方法的语法糖转换</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> o = &#123; a, b, c &#125;; <span class="comment">// var o = &#123; a: a, b: b, c: c &#125;;</span></div><div class="line"></div><div class="line"><span class="comment">//in</span></div><div class="line"><span class="keyword">var</span> cat = &#123;</div><div class="line">  getName() &#123;</div><div class="line">    <span class="keyword">return</span> name;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"><span class="comment">//out</span></div><div class="line"><span class="keyword">var</span> cat = &#123;</div><div class="line">  <span class="attr">getName</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> name;</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">//in</span></div><div class="line"><span class="keyword">var</span> name = <span class="string">"Bob"</span>, time = <span class="string">"today"</span>;</div><div class="line"><span class="string">`Hello <span class="subst">$&#123;name&#125;</span>, how are you <span class="subst">$&#123;time&#125;</span>?`</span></div><div class="line"><span class="comment">//out</span></div><div class="line"><span class="keyword">var</span> name = <span class="string">"Bob"</span>,</div><div class="line">    time = <span class="string">"today"</span>;</div><div class="line"><span class="string">"Hello "</span> + name + <span class="string">", how are you "</span> + time + <span class="string">"?"</span>;</div></pre></td></tr></table></figure>
+<p><a href="https://babeljs.io/repl/#?babili=false&amp;evaluate=false&amp;lineWrap=true&amp;presets=es2015%2Cstage-0%2Creact&amp;code=%2F%2F%20Basic%20literal%20string%20creation%0A%60This%20is%20a%20pretty%20little%20template%20string.%60%0A%0A%2F%2F%20Multiline%20strings%0A%60In%20ES5%20this%20is%0A%20not%20legal.%60%0A%0A%2F%2F%20Interpolate%20variable%20bindings%0Avar%20name%20%3D%20%22Bob%22%2C%20time%20%3D%20%22today%22%3B%0A%60Hello%20%24%7Bname%7D%2C%20how%20are%20you%20%24%7Btime%7D%3F%60%0A%0A%2F%2F%20Unescaped%20template%20strings%0AString.raw%60In%20ES5%20%22%5Cn%22%20is%20a%20line-feed.%60%0A%0A%2F%2F%20Construct%20an%20HTTP%20request%20prefix%20is%20used%20to%20interpret%20the%20replacements%20and%20construction%0AGET%60http%3A%2F%2Ffoo.org%2Fbar%3Fa%3D%24%7Ba%7D%26b%3D%24%7Bb%7D%0A%20%20%20%20Content-Type%3A%20application%2Fjson%0A%20%20%20%20X-Credentials%3A%20%24%7Bcredentials%7D%0A%20%20%20%20%7B%20%22foo%22%3A%20%24%7Bfoo%7D%2C%0A%20%20%20%20%20%20%22bar%22%3A%20%24%7Bbar%7D%7D%60(myOnReadyStateChangeHandler" target="_blank" rel="external">更多解析参考</a>%3B%0A)</p>
+<h3 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 从数组中解构</span></div><div class="line"><span class="comment">//in</span></div><div class="line"><span class="keyword">var</span> [a, b,c] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="comment">//out</span></div><div class="line"><span class="keyword">var</span> a = <span class="number">1</span>,</div><div class="line">    b = <span class="number">2</span>,</div><div class="line">    c = <span class="number">3</span>;</div><div class="line"></div><div class="line"><span class="comment">// 从函数返回值中解构</span></div><div class="line"><span class="comment">//in</span></div><div class="line"><span class="keyword">var</span> &#123;op, lhs, rhs&#125; = getASTNode()</div><div class="line"><span class="comment">//out</span></div><div class="line"><span class="keyword">var</span> _getASTNode2 = getASTNode(),</div><div class="line">    op = _getASTNode2.op,</div><div class="line">    lhs = _getASTNode2.lhs,</div><div class="line">    rhs = _getASTNode2.rhs;</div><div class="line"></div><div class="line"><span class="comment">//从实参中解构与默认值配置</span></div><div class="line"><span class="comment">//in</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">r</span>(<span class="params">&#123;x, y, w = <span class="number">10</span>, h = <span class="number">10</span>&#125;</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> x + y + w + h;</div><div class="line">&#125;</div><div class="line">r(&#123;<span class="attr">x</span>:<span class="number">1</span>, <span class="attr">y</span>:<span class="number">2</span>&#125;) === <span class="number">23</span></div><div class="line"><span class="comment">//out</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">r</span>(<span class="params">_ref4</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> x = _ref4.x,</div><div class="line">      y = _ref4.y,</div><div class="line">      _ref4$w = _ref4.w,</div><div class="line">      w = _ref4$w === <span class="literal">undefined</span> ? <span class="number">10</span> : _ref4$w,</div><div class="line">      _ref4$h = _ref4.h,</div><div class="line">      h = _ref4$h === <span class="literal">undefined</span> ? <span class="number">10</span> : _ref4$h;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> x + y + w + h;</div><div class="line">&#125;</div><div class="line">r(&#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span> &#125;) === <span class="number">23</span>;</div></pre></td></tr></table></figure>
+<h3 id="模块内容导出与导入"><a href="#模块内容导出与导入" class="headerlink" title="模块内容导出与导入"></a>模块内容导出与导入</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">//in</span></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">x, y</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> x + y;</div><div class="line">&#125;</div><div class="line"><span class="keyword">export</span> <span class="keyword">var</span> pi = <span class="number">3.141593</span>;</div><div class="line"></div><div class="line"><span class="comment">//out</span></div><div class="line"><span class="meta">"use strict"</span>;</div><div class="line"><span class="built_in">Object</span>.defineProperty(exports, <span class="string">"__esModule"</span>, &#123;</div><div class="line">  <span class="attr">value</span>: <span class="literal">true</span></div><div class="line">&#125;);</div><div class="line">exports.sum = sum;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">x, y</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> x + y;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> pi = exports.pi = <span class="number">3.141593</span>;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//in</span></div><div class="line"><span class="keyword">import</span> * <span class="keyword">as</span> math <span class="keyword">from</span> <span class="string">"lib/math"</span>;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"2π = "</span> + math.sum(math.pi, math.pi));</div><div class="line"><span class="comment">//out</span></div><div class="line"><span class="keyword">var</span> _math = <span class="built_in">require</span>(<span class="string">"lib/math"</span>);</div><div class="line"><span class="keyword">var</span> math = _interopRequireWildcard(_math);</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">_interopRequireWildcard</span>(<span class="params">obj</span>) </span>&#123; <span class="keyword">if</span> (obj &amp;&amp; obj.__esModule) &#123; <span class="keyword">return</span> obj; &#125; <span class="keyword">else</span> &#123; <span class="keyword">var</span> newObj = &#123;&#125;; <span class="keyword">if</span> (obj != <span class="literal">null</span>) &#123; <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) &#123; <span class="keyword">if</span> (<span class="built_in">Object</span>.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; &#125; &#125; newObj.default = obj; <span class="keyword">return</span> newObj; &#125; &#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"2π = "</span> + math.sum(math.pi, math.pi)); <span class="comment">// app.js</span></div></pre></td></tr></table></figure>
+<h2 id="Babel-polyfill"><a href="#Babel-polyfill" class="headerlink" title="Babel-polyfill"></a>Babel-polyfill</h2><p>针对默认不转换的API，需要另外添加一个Polyfill，或针对某个API添加插件。</p>
+<p>Babel 默认只转换新的JavaScript句法（syntax），而不转换新的API，比如Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise等全局对象，以及一些定义在全局对象上的方法（比如<code>Object.assign</code>）都不会转码。</p>
+<p>举例来说，ES6在 <code>Array</code> 对象上新增了 <code>Array.from</code> 方法。Babel就不会转码这个方法。如果想让这个方法运行，必须使用 <code>babel-polyfill</code>，为当前环境提供一个垫片。</p>
+<figure class="highlight q"><table><tr><td class="code"><pre><div class="line">npm install --<span class="built_in">save</span>-<span class="built_in">dev</span> babel-polyfill</div></pre></td></tr></table></figure>
+<p><code>babel-polyfill</code> 提提供了对新的标准API的支持，兼容老的版本。</p>
+<p>下列特性需要使用 <code>babel-polyfill</code> 才能转码，或者单独引用相关插件</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 数组操作</span></div><div class="line">ArrayBuffer</div><div class="line">Array<span class="selector-class">.from</span></div><div class="line">Array<span class="selector-class">.of</span></div><div class="line">Array<span class="selector-id">#copyWithin</span></div><div class="line">Array<span class="selector-id">#fill</span></div><div class="line">Array<span class="selector-id">#find</span></div><div class="line">Array<span class="selector-id">#findIndex</span></div><div class="line"></div><div class="line">Function<span class="selector-id">#name</span></div><div class="line"></div><div class="line"><span class="comment">// 数学方法</span></div><div class="line">Math<span class="selector-class">.acosh</span></div><div class="line">Math<span class="selector-class">.hypot</span></div><div class="line">Math<span class="selector-class">.imul</span></div><div class="line"></div><div class="line"><span class="comment">// 数字类型的扩展方法</span></div><div class="line">Number<span class="selector-class">.isNaN</span></div><div class="line">Number<span class="selector-class">.isInteger</span></div><div class="line"></div><div class="line"><span class="comment">// 对象的扩展方法</span></div><div class="line">Object<span class="selector-class">.assign</span></div><div class="line">Object<span class="selector-class">.getOwnPropertyDescriptors</span></div><div class="line">Object<span class="selector-class">.is</span></div><div class="line">Object<span class="selector-class">.entries</span></div><div class="line">Object<span class="selector-class">.values</span></div><div class="line">Object<span class="selector-class">.setPrototypeOf</span></div><div class="line"></div><div class="line">Promise</div><div class="line"></div><div class="line">Reflect</div><div class="line">RegExp<span class="selector-id">#flags</span></div><div class="line"></div><div class="line"><span class="comment">// 字符串的扩展方法</span></div><div class="line">String<span class="selector-id">#codePointAt</span></div><div class="line">String<span class="selector-id">#endsWith</span></div><div class="line">String<span class="selector-class">.fromCodePoint</span></div><div class="line">String<span class="selector-id">#includes</span></div><div class="line">String<span class="selector-class">.raw</span></div><div class="line">String<span class="selector-id">#repeat</span></div><div class="line">String<span class="selector-id">#startsWith</span></div><div class="line">String<span class="selector-id">#padStart</span></div><div class="line">String<span class="selector-id">#padEnd</span></div><div class="line"></div><div class="line"><span class="comment">// 新扩展的数据类型</span></div><div class="line">Map</div><div class="line">Set</div><div class="line">Symbol</div><div class="line">WeakMap</div><div class="line">WeakSet</div></pre></td></tr></table></figure>
+<p>使用</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">'babel-polyfill'</span>;</div><div class="line"><span class="comment">// 或者</span></div><div class="line"><span class="built_in">require</span>(<span class="string">'babel-polyfill'</span>);</div></pre></td></tr></table></figure>
+<h2 id="Stage说明"><a href="#Stage说明" class="headerlink" title="Stage说明"></a>Stage说明</h2><p>Babel的转换级别依据 ES7不同阶段的语法提案设置了4个阶段：<code>stage-0</code> 、<code>stage-1</code>、<code>stage-2</code>、<code>stage-3</code>，使用时选装一个。（0的级别最高，包含的转码插件最多，往后越来越少）</p>
+<h3 id="stage-0"><a href="#stage-0" class="headerlink" title="stage-0"></a>stage-0</h3><p>提供ES7的支持</p>
+<p>包含  <code>stage-1</code>、<code>stage-2</code>、<code>stage-3</code> 的内容</p>
+<p>特有的插件</p>
+<ul>
+<li><a href="https://babeljs.io/docs/plugins/transform-do-expressions" target="_blank" rel="external">transform-do-expressions</a></li>
+<li><a href="https://babeljs.io/docs/plugins/transform-function-bind" target="_blank" rel="external">transform-function-bind</a></li>
+</ul>
+<p>transform-do-expressions 支持 模板中使用if else</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">&lt;div className=<span class="string">"parents"</span>&gt;</div><div class="line">&#123;</div><div class="line">  <span class="keyword">do</span> &#123;</div><div class="line">   <span class="keyword">if</span>(color == <span class="string">'blue'</span>) &#123; </div><div class="line">     &lt;BlueComponent/&gt;; </div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(color == <span class="string">'red'</span>) &#123; </div><div class="line">      &lt;RedComponent/&gt;; </div><div class="line">    &#125;<span class="keyword">else</span> &#123; </div><div class="line">      &lt;GreenComponent/&gt;; &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure>
+<p> transform-function-bind 绑定上下文</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 语法</span></div><div class="line">obj::func <span class="comment">// func.bind(obj)</span></div><div class="line">obj::func(val) <span class="comment">// func.call(obj, val)</span></div><div class="line">::obj.func(val) <span class="comment">// func.call(obj, val)</span></div><div class="line"></div><div class="line"><span class="comment">// 基本用法</span></div><div class="line"><span class="keyword">const</span> box = &#123;</div><div class="line">  <span class="attr">weight</span>: <span class="number">2</span>,</div><div class="line">  getWeight() &#123; <span class="keyword">return</span> <span class="keyword">this</span>.weight; &#125;,</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> &#123; getWeight &#125; = box;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(box.getWeight()); <span class="comment">// prints '2'</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> bigBox = &#123; <span class="attr">weight</span>: <span class="number">10</span> &#125;;</div><div class="line"><span class="built_in">console</span>.log(bigBox::getWeight()); <span class="comment">// prints '10'</span></div><div class="line"></div><div class="line"><span class="comment">// Can be chained:</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">val</span>) </span>&#123; <span class="keyword">return</span> <span class="keyword">this</span> + val; &#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(bigBox::getWeight()::add(<span class="number">5</span>)); <span class="comment">// prints '15'</span></div><div class="line"></div><div class="line"><span class="comment">// 处理Nodelist(Array Like 类型)</span></div><div class="line"><span class="keyword">const</span> &#123; map, filter &#125; = <span class="built_in">Array</span>.prototype;</div><div class="line"></div><div class="line"><span class="keyword">let</span> sslUrls = <span class="built_in">document</span>.querySelectorAll(<span class="string">'a'</span>)</div><div class="line">                ::map(<span class="function"><span class="params">node</span> =&gt;</span> node.href)</div><div class="line">                ::filter(<span class="function"><span class="params">href</span> =&gt;</span> href.substring(<span class="number">0</span>, <span class="number">5</span>) === <span class="string">'https'</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(sslUrls);</div><div class="line"></div><div class="line"><span class="comment">// is equivalent to</span></div><div class="line"><span class="keyword">const</span> &#123; map, filter &#125; = <span class="built_in">Array</span>.prototype;</div><div class="line"></div><div class="line"><span class="keyword">let</span> sslUrls = <span class="built_in">document</span>.querySelectorAll(<span class="string">'a'</span>);</div><div class="line">sslUrls = map.call(sslUrls, node =&gt; node.href);</div><div class="line">sslUrls = filter.call(sslUrls, href =&gt; href.substring(<span class="number">0</span>, <span class="number">5</span>) === <span class="string">'https'</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(sslUrls);</div><div class="line"></div><div class="line"><span class="comment">//绑定自身</span></div><div class="line">$(<span class="string">'.some-link'</span>).on(<span class="string">'click'</span>, ::view.reset);</div><div class="line"><span class="comment">// is equivalent to:</span></div><div class="line">$(<span class="string">'.some-link'</span>).on(<span class="string">'click'</span>, view.reset.bind(view));</div></pre></td></tr></table></figure>
+<h3 id="stage-1"><a href="#stage-1" class="headerlink" title="stage-1"></a>stage-1</h3><p>包含 stage-2 、stage-3</p>
+<p>提供对 类的静态、实例属性和方法的支持 以及 对模块导入方式的扩展</p>
+<p>特有插件</p>
+<ul>
+<li><a href="http://babeljs.io/docs/plugins/transform-class-properties" target="_blank" rel="external">transform-class-properties</a></li>
+<li><a href="http://babeljs.io/docs/plugins/transform-export-extensions" target="_blank" rel="external">transform-export-extensions</a></li>
+</ul>
+<p>transform-class-properties 支持</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bork</span> </span>&#123;</div><div class="line">    <span class="comment">//Property initializer syntax</span></div><div class="line">    instanceProperty = <span class="string">"bork"</span>;</div><div class="line">    boundFunction = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.instanceProperty;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//Static class properties</span></div><div class="line">    <span class="keyword">static</span> staticProperty = <span class="string">"babelIsCool"</span>;</div><div class="line">    <span class="keyword">static</span> staticFunction = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> Bork.staticProperty;</div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>transform-export-extensions 扩展export导出方式</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">export</span> * <span class="keyword">as</span> ns <span class="keyword">from</span> <span class="string">'mod'</span>;</div><div class="line"><span class="keyword">export</span> v <span class="keyword">from</span> <span class="string">'mod'</span>;</div></pre></td></tr></table></figure>
+<h3 id="stage-2"><a href="#stage-2" class="headerlink" title="stage-2"></a>stage-2</h3><p>包含 stage-3</p>
+<p>提供尾逗号函数功能 及 支持 Object 使用延展符展开</p>
+<p>特有插件</p>
+<ul>
+<li><a href="http://babeljs.io/docs/plugins/syntax-trailing-function-commas/" target="_blank" rel="external">syntax-trailing-function-commas</a></li>
+<li><a href="http://babeljs.io/docs/plugins/transform-object-rest-spread" target="_blank" rel="external">transform-object-reset-spread</a></li>
+</ul>
+<p>syntax-trailing-function-commas 添加行尾逗号，减少文件的改动</p>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">clownPuppiesEverywhere</span><span class="params">(</span></span></div><div class="line">  param1,</div><div class="line">  param2,</div><div class="line">) &#123; <span class="comment">/* ... */</span> &#125;</div><div class="line"></div><div class="line">clownPuppiesEverywhere(</div><div class="line">  <span class="string">'foo'</span>,</div><div class="line">  <span class="string">'bar'</span>,</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>transform-object-reset-spread 支持使用展开符展开对象</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">let</span> &#123; x, y, ...z &#125; = &#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span>, <span class="attr">a</span>: <span class="number">3</span>, <span class="attr">b</span>: <span class="number">4</span> &#125;;</div><div class="line"><span class="built_in">console</span>.log(x); <span class="comment">// 1</span></div><div class="line"><span class="built_in">console</span>.log(y); <span class="comment">// 2</span></div><div class="line"><span class="built_in">console</span>.log(z); <span class="comment">// &#123; a: 3, b: 4 &#125;</span></div><div class="line"></div><div class="line"><span class="comment">// 属性展开</span></div><div class="line"><span class="keyword">let</span> n = &#123; x, y, ...z &#125;;</div><div class="line"><span class="built_in">console</span>.log(n); <span class="comment">// &#123; x: 1, y: 2, a: 3, b: 4 &#125;</span></div></pre></td></tr></table></figure>
+<h3 id="stage-3"><a href="#stage-3" class="headerlink" title="stage-3"></a>stage-3</h3><p>提供对ES7的<code>async</code>和<code>await</code>的支持 及提供幂操作的语法糖</p>
+<p>特有插件</p>
+<ul>
+<li><a href="http://babeljs.io/docs/plugins/transform-async-to-generator/" target="_blank" rel="external">transform-async-to-generator</a></li>
+<li><a href="http://babeljs.io/docs/plugins/transform-exponentiation-operator" target="_blank" rel="external">transform-exponentiation-operator</a></li>
+</ul>
+<p>transform-async-to-generator 转码ES7的 async与await</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">//in</span></div><div class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span>* <span class="title">agf</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">await</span> <span class="number">1</span>;</div><div class="line">  <span class="keyword">yield</span> <span class="number">2</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//out</span></div><div class="line"><span class="keyword">var</span> _asyncGenerator = ...</div><div class="line"></div><div class="line">let agf = <span class="function">(<span class="params">(</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">var</span> _ref = _asyncGenerator.wrap(<span class="function"><span class="keyword">function</span>* (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">yield</span> _asyncGenerator.await(<span class="number">1</span>);</div><div class="line">    <span class="keyword">yield</span> <span class="number">2</span>;</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">agf</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> _ref.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</div><div class="line">  &#125;;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>transform-exponentiation-operator 支持幂运算语法糖 **</p>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line"><span class="comment">// x ** y</span></div><div class="line"></div><div class="line">let squared = <span class="number">2</span> ** <span class="number">2</span>;</div><div class="line"><span class="comment">// 相当于: 2 * 2</span></div><div class="line"></div><div class="line">let cubed = <span class="number">2</span> ** <span class="number">3</span>;</div><div class="line"><span class="comment">// 相当于: 2 * 2 * 2</span></div></pre></td></tr></table></figure>
+<p>为了防止某些实验中的标准在未来不能定案，一般使用 stage-1 或 stage-2 来进行转码。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ES6/" rel="tag"># ES6</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/11/code-convention-for-react/" rel="next" title="ReactJS代码规范">
+                <i class="fa fa-chevron-left"></i> ReactJS代码规范
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/05/02/babel-readme/"
+     data-title="Babel使用入门"
+     data-content=""
+     data-url="http://toggle.coding.io/2017/05/02/babel-readme/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/05/02/babel-readme/"
+           data-title="Babel使用入门" data-url="http://toggle.coding.io/2017/05/02/babel-readme/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar100.jpg"
+               alt="Aitter" />
+          <p class="site-author-name" itemprop="name">Aitter</p>
+          <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">59</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/git-lt" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://hexo.io/" title="Hexo" target="_blank">Hexo</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置文件"><span class="nav-number">2.</span> <span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Presets"><span class="nav-number">3.</span> <span class="nav-text">Presets</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#官方预设-Official-Presets"><span class="nav-number">3.1.</span> <span class="nav-text">官方预设 Official Presets</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件"><span class="nav-number">4.</span> <span class="nav-text">插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#支持的模块加载Modules"><span class="nav-number">4.1.</span> <span class="nav-text">支持的模块加载Modules</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验性插件Experimental"><span class="nav-number">4.2.</span> <span class="nav-text">实验性插件Experimental</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化编译插件-Minification"><span class="nav-number">4.3.</span> <span class="nav-text">优化编译插件 Minification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React"><span class="nav-number">4.4.</span> <span class="nav-text">React</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Other"><span class="nav-number">4.5.</span> <span class="nav-text">Other</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法解析插件Syntax"><span class="nav-number">5.</span> <span class="nav-text">语法解析插件Syntax</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES2015"><span class="nav-number">6.</span> <span class="nav-text">ES2015</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用ES6语法与转码对比"><span class="nav-number">7.</span> <span class="nav-text">常用ES6语法与转码对比</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数"><span class="nav-number">7.1.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类"><span class="nav-number">7.2.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Let-Const"><span class="nav-number">7.3.</span> <span class="nav-text">Let + Const</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性与方法的语法糖转换"><span class="nav-number">7.4.</span> <span class="nav-text">属性与方法的语法糖转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板字符串"><span class="nav-number">7.5.</span> <span class="nav-text">模板字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解构赋值"><span class="nav-number">7.6.</span> <span class="nav-text">解构赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块内容导出与导入"><span class="nav-number">7.7.</span> <span class="nav-text">模块内容导出与导入</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Babel-polyfill"><span class="nav-number">8.</span> <span class="nav-text">Babel-polyfill</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stage说明"><span class="nav-number">9.</span> <span class="nav-text">Stage说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stage-0"><span class="nav-number">9.1.</span> <span class="nav-text">stage-0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stage-1"><span class="nav-number">9.2.</span> <span class="nav-text">stage-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stage-2"><span class="nav-number">9.3.</span> <span class="nav-text">stage-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stage-3"><span class="nav-number">9.4.</span> <span class="nav-text">stage-3</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aitter</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"togglelt"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
