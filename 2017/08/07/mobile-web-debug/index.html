@@ -1,0 +1,922 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="debug," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Chrome为PC端调试提供了很方便的调试功能，控制台功能的强大使Chrome浏览器博得了众多前端开发者的喜爱，然而随着移动端H5的流行和广泛的应用，H5的调试越来越变得重要而不可或缺，这里汇兑了一些目前较为实用移动端H5的调试方法供大家参考学习，方便做微信、webview、手机浏览器调试及错位定位。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动前端调试方法汇总">
+<meta property="og:url" content="http://toggle.coding.io/2017/08/07/mobile-web-debug/index.html">
+<meta property="og:site_name" content="Aitter's Blog">
+<meta property="og:description" content="Chrome为PC端调试提供了很方便的调试功能，控制台功能的强大使Chrome浏览器博得了众多前端开发者的喜爱，然而随着移动端H5的流行和广泛的应用，H5的调试越来越变得重要而不可或缺，这里汇兑了一些目前较为实用移动端H5的调试方法供大家参考学习，方便做微信、webview、手机浏览器调试及错位定位。">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-08-03%20%E4%B8%8B%E5%8D%888.55.55.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/屏幕快照 2017-08-04 上午9.53.50.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/屏幕快照 2017-08-04 上午9.54.41.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/屏幕快照 2017-08-03 下午8.58.06.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/屏幕快照 2017-08-03 下午9.12.03.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-pro-4.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-pro-3.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-proxy-setting.jpg">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-iphone-setting.jpg">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-local-ip.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-pro-2.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-pro-1.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-ssl-add-host.jpg">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-pro-2.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-edit.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-execute.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-map.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-map-remote.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-save-response.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-map-local.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-rewrite-1.jpeg">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-rewrite-2.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-rewrite-3.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-breakpoint.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-repeat-1.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-repeat-2.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/屏幕快照 2017-07-17 下午4.25.15.png">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/屏幕快照 2017-07-17 上午11.41.24.png">
+<meta property="og:image" content="https://github.com/wuchangming/spy-debugger/raw/master/demo/img/spy-debugger-w.gif">
+<meta property="og:image" content="https://github.com/wuchangming/spy-debugger/raw/master/demo/img/demo.png">
+<meta property="og:image" content="https://github.com/wuchangming/spy-debugger/raw/master/demo/img/AnyProxy.png">
+<meta property="og:updated_time" content="2017-08-07T01:51:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动前端调试方法汇总">
+<meta name="twitter:description" content="Chrome为PC端调试提供了很方便的调试功能，控制台功能的强大使Chrome浏览器博得了众多前端开发者的喜爱，然而随着移动端H5的流行和广泛的应用，H5的调试越来越变得重要而不可或缺，这里汇兑了一些目前较为实用移动端H5的调试方法供大家参考学习，方便做微信、webview、手机浏览器调试及错位定位。">
+<meta name="twitter:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-08-03%20%E4%B8%8B%E5%8D%888.55.55.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://toggle.coding.io/2017/08/07/mobile-web-debug/"/>
+
+
+
+
+
+  <title> 移动前端调试方法汇总 | Aitter's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Aitter's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">I can’t change the world, only change myself!</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2017/08/07/mobile-web-debug/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Aitter">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar100.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Aitter's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Aitter's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                移动前端调试方法汇总
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-07T09:42:41+08:00">
+                2017-08-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2017/08/07/mobile-web-debug/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/07/mobile-web-debug/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Chrome为PC端调试提供了很方便的调试功能，控制台功能的强大使Chrome浏览器博得了众多前端开发者的喜爱，然而随着移动端H5的流行和广泛的应用，H5的调试越来越变得重要而不可或缺，这里汇兑了一些目前较为实用移动端H5的调试方法供大家参考学习，方便做微信、webview、手机浏览器调试及错位定位。<br><a id="more"></a></p>
+<h2 id="Chrome调试面板"><a href="#Chrome调试面板" class="headerlink" title="Chrome调试面板"></a>Chrome调试面板</h2><h3 id="常见用法"><a href="#常见用法" class="headerlink" title="常见用法"></a>常见用法</h3><ul>
+<li>查看或编辑DOM元素、查看或编辑CSS样式、元素的事件绑定、盒模型</li>
+<li>模拟移动设备、横竖屏、网速、DPR</li>
+<li>Console控制台 log/warn/error/dir/info</li>
+<li>查看源码、格式化源码、断点、堆栈</li>
+<li>查看源文件，Sinppets代码片段</li>
+<li>查看网络请求、模拟网速、禁止缓存、查看资源加载时间及状态、过滤查看资源文件</li>
+<li>Timeline 可以显示JS执行时间、页面元素渲染时间</li>
+<li>Profiles 可以查看CPU执行时间与内存占用</li>
+<li>Resources 查看站点所有资源，如图片、Cookies、Local Storage、Session Storage、IndexDB 等等</li>
+<li>Security 查看网站安全性，HTTPS证书</li>
+<li>Audits 帮助分析网站性能，给出建议报告</li>
+</ul>
+<h4 id="Sources-下几个实用的快捷键"><a href="#Sources-下几个实用的快捷键" class="headerlink" title="Sources 下几个实用的快捷键"></a>Sources 下几个实用的快捷键</h4><ul>
+<li><code>cmd(ctrl) + o</code> 查找文件</li>
+<li><code>cmd(ctrl) + shift + o</code> 查找函数定义</li>
+<li><code>ctrl + g</code> 跳到指定行</li>
+<li><code>ctrl + l</code> 清空console日志</li>
+<li><code>Esc</code> 切换 <code>console</code> 的显示隐藏</li>
+</ul>
+<h3 id="几个实用的API"><a href="#几个实用的API" class="headerlink" title="几个实用的API"></a>几个实用的API</h3><ul>
+<li>console.table()</li>
+<li>console.count()</li>
+<li>console.dir()</li>
+<li>console.time() &amp; console.timeEnd()</li>
+<li>$、keys、values</li>
+</ul>
+<p>更多API查看 <a href="http://getfirebug.com/wiki/index.php/Console_API#console.trace.28.29" target="_blank" rel="external">Console API</a></p>
+<h3 id="console-table"><a href="#console-table" class="headerlink" title="console.table"></a>console.table</h3><p>将数组内容以表格的形式将数据展示出来，方便查看数组内容</p>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-08-03%20%E4%B8%8B%E5%8D%888.55.55.png" alt=""></p>
+<h4 id="console-count"><a href="#console-count" class="headerlink" title="console.count"></a>console.count</h4><p>记录方法执行的次数<br><img src="http://7xi480.com1.z0.glb.clouddn.com/屏幕快照 2017-08-04 上午9.53.50.png" alt=""></p>
+<h4 id="console-time-amp-console-timeEnd"><a href="#console-time-amp-console-timeEnd" class="headerlink" title="console.time &amp; console.timeEnd"></a>console.time &amp; console.timeEnd</h4><p>记录代码执行的时间</p>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/屏幕快照 2017-08-04 上午9.54.41.png" alt=""></p>
+<h4 id="keys-amp-values"><a href="#keys-amp-values" class="headerlink" title="keys &amp; values"></a>keys &amp; values</h4><p>获取对象的 <code>keys</code> 和 <code>values</code></p>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/屏幕快照 2017-08-03 下午8.58.06.png" alt=""></p>
+<h2 id="vConsole-调试插件"><a href="#vConsole-调试插件" class="headerlink" title="vConsole 调试插件"></a>vConsole 调试插件</h2><p><a href="https://github.com/WechatFE/vConsole/blob/dev/README_CN.md" target="_blank" rel="external">vConsole</a> 是一个网页前端调试面板，专为手机 web 页面量身设计，帮助开发者更为便捷地进行开发调试工作</p>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/屏幕快照 2017-08-03 下午9.12.03.png" alt=""></p>
+<p>在PC上调试，有很方便Chrome调试工具，在移动端调试可以使用 vConsole 代替调试面板，查看基本调试信息</p>
+<p>功能：可以查看console日志、网络请求、设备信息、执行js代码</p>
+<p>设置标识 <code>xxxxxxx</code>，线上启用调试</p>
+<figure class="highlight flix"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 添加线上调试配置</span></div><div class="line"><span class="keyword">if</span>(/xxxxxx/ig.test(location.href))&#123;</div><div class="line">  document.writeln('&lt;script <span class="keyword">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"//coding.net/u/coderlt/p/CDN/git/raw/master/vconsole.min.js"</span><span class="string">'+'</span>&gt;<span class="string">'+'</span>&lt;<span class="string">'+'</span>/<span class="string">'+'</span>script&gt;');</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Charles抓包工具"><a href="#Charles抓包工具" class="headerlink" title="Charles抓包工具"></a>Charles抓包工具</h2><p><a href="http://www.charlesproxy.com/" target="_blank" rel="external">Charles</a> Mac 下常用的网络封包截取工具，通过将自己设置成系统的网络访问代理服务器，使得所有的网络访问请求都通过它来完成，从而实现了网络封包的截取和分析。</p>
+<p>Windows 用户可使用 <a href="http://blog.csdn.net/qq_21445563/article/details/51017605" target="_blank" rel="external">Fildder</a> 来替代 Charles</p>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><ul>
+<li>截取 Http 和 Https 网络封包</li>
+<li>支持重发网络请求，方便后端调试</li>
+<li>支持修改网络请求参数</li>
+<li>支持网络请求的截获并动态修改</li>
+<li>支持模拟慢速网络</li>
+<li>断点 + 修改返回内容</li>
+<li>映射本地资源</li>
+</ul>
+<h3 id="界面介绍"><a href="#界面介绍" class="headerlink" title="界面介绍"></a>界面介绍</h3><p><img src="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-pro-4.png" alt=""></p>
+<ul>
+<li><code>Structure</code> 视图将网络请求按访问的域名分类</li>
+<li><code>Sequence</code> 视图将网络请求按访问的时间排序</li>
+</ul>
+<h3 id="设置为系统代理服务器"><a href="#设置为系统代理服务器" class="headerlink" title="设置为系统代理服务器"></a>设置为系统代理服务器</h3><p>选择菜单中的 <code>Proxy</code> -&gt; <code>Mac OS X Proxy</code> 来将 Charles 设置成系统代理</p>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-pro-3.png" alt=""></p>
+<h3 id="截取-http-网络封包"><a href="#截取-http-网络封包" class="headerlink" title="截取 http 网络封包"></a>截取 http 网络封包</h3><ol>
+<li><p>charles 上设置<br>设置代理端口号 <code>Proxy</code> -&gt; <code>Proxy Settings</code><br><img src="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-proxy-setting.jpg" alt=""></p>
+</li>
+<li><p>手机网络设置代理<br>到本地IP与在 <code>charles</code> 上设置的端口号<br><img src="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-iphone-setting.jpg" alt=""></p>
+</li>
+</ol>
+<p>获取本地IP<br><code>Help</code> -&gt; <code>Local IP Address</code><br><img src="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-local-ip.png" alt=""></p>
+<ol>
+<li>确认连接<br>设置成功后，charles上会弹出提示，确认连接<br><img src="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-pro-2.png" alt=""></li>
+</ol>
+<h3 id="截取-Https-网络封包"><a href="#截取-Https-网络封包" class="headerlink" title="截取 Https 网络封包"></a>截取 Https 网络封包</h3><ol>
+<li>安装证书</li>
+</ol>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-pro-1.png" alt=""></p>
+<ol>
+<li>设置代理<br>选择 <code>Proxy</code> -&gt; <code>SSL proxy</code></li>
+</ol>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-ssl-add-host.jpg" alt=""></p>
+<ol>
+<li><p>手机上安装证书<br>在 iOS 或 Android 机器上截取 Https 协议的通讯内容，还需要在手机上安装相应的证书</p>
+<p><code>Help</code> -&gt; <code>SSL Proxying</code> -&gt; <code>Install Charles Root Certificate on a Mobile Device or Remote Browser</code>，然后就可以看到 Charles 弹出的简单的安装教程</p>
+</li>
+</ol>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-pro-2.png" alt=""></p>
+<p>手机浏览器打开 <code>http://charlesproxy.com/getssl</code> 下载并安装证书即可</p>
+<h3 id="修改请求内容"><a href="#修改请求内容" class="headerlink" title="修改请求内容"></a>修改请求内容</h3><p>Charles 提供了类似 postman 的功能，可以修改请求内容测试接口</p>
+<p>网络请求上点击右键，选择 “Edit”，即可创建一个可编辑的网络请求</p>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-edit.png" alt=""><br><img src="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-execute.png" alt=""></p>
+<h3 id="修改响应内容"><a href="#修改响应内容" class="headerlink" title="修改响应内容"></a>修改响应内容</h3><p>有些时候我们想让服务器返回一些指定的内容，方便我们调试一些特殊情况。例如列表页面为空的情况，数据异常的情况，部分耗时的网络请求超时的情况等。如果没有 Charles，要服务器配合构造相应的数据显得会比较麻烦。这个时候，使用 Charles 相关的功能就可以满足我们的需求。</p>
+<p>根据具体的需求，Charles 提供了 <code>Map</code> 功能、 <code>Rewrite</code> 功能以及 <code>Breakpoints</code> 功能，都可以达到修改服务器返回内容的目的。这三者在功能上的差异是：</p>
+<ul>
+<li><code>Map</code> 功能适合长期地将某一些请求重定向到另一个网络地址或本地文件。</li>
+<li><code>Rewrite</code> 功能适合对网络请求进行一些正则替换。</li>
+<li><code>Breakpoints</code> 功能适合做一些临时性的修改。</li>
+</ul>
+<h4 id="Map功能"><a href="#Map功能" class="headerlink" title="Map功能"></a>Map功能</h4><p>Charles 的 <code>Map</code> 功能分 <code>Map Remote</code> 和 <code>Map Local</code> 两种，顾名思义，<code>Map Remote</code> 是将指定的网络请求重定向到另一个网址请求地址，<code>Map Local</code> 是将指定的网络请求重定向到本地文件。</p>
+<p>在 Charles 的菜单中，选择 <code>Tools</code>-&gt;<code>Map Remote</code> 或 <code>Map Local</code> 即可进入到相应功能的设置页面。</p>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-map.png" alt=""></p>
+<p>对于 <code>Map Remote</code> 功能，我们需要分别填写网络重定向的源地址和目的地址，对于不需要限制的条件，可以留空。下图是一个示例，我将所有 <code>ytk1.yuanku.ws</code>（测试服务器）的请求重定向到了 <code>www.yuantiku.com</code>（线上服务器）。<br><img src="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-map-remote.png" alt=""></p>
+<p>对于 Map Local 功能，我们需要填写的重定向的源地址和本地的目标文件。对于有一些复杂的网络请求结果，我们可以先使用 Charles 提供的 <code>Save Response…</code>功能，将请求结果保存到本地（如下图所示），然后稍加修改，成为我们的目标映射文件。</p>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-save-response.png" alt=""><br>下图是一个示例，我将一个指定的网络请求通过 Map Local 功能映射到了本地的一个经过修改的文件中。<br><img src="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-map-local.png" alt=""></p>
+<p><code>Map Local</code> 在使用的时候，有一个潜在的问题，就是其返回的 <code>Http Response Header</code> 与正常的请求并不一样。这个时候如果客户端校验了 <code>Http Response Header</code> 中的部分内容，就会使得该功能失效。解决办法是同时使用 <code>Map Local</code> 以下面提到的 <code>Rewrite</code> 功能，将相关的 Http 头 Rewrite 成我们希望的内容。</p>
+<h4 id="Rewrite-功能"><a href="#Rewrite-功能" class="headerlink" title="Rewrite 功能"></a>Rewrite 功能</h4><p><code>Rewrite</code> 功能功能适合对某一类网络请求进行一些正则替换，以达到修改结果的目的。</p>
+<p>例如，我们的客户端有一个 API 请求是获得用户昵称，而我当前的昵称是 “tangqiaoboy”，如下所示：</p>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-rewrite-1.jpeg" alt=""></p>
+<p>我们想试着直接修改网络返回值，将 <code>tangqiaoboy</code> 换成成 <code>iosboy</code>。于是我们启用 Rewrite 功能，然后设置如下的规则：<br><img src="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-rewrite-2.png" alt=""></p>
+<p>完成设置之后，我们就可以从 Charles 中看到，之后的 API 获得的昵称被自动 Rewrite 成了 iosboy，如下图所示：<br><img src="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-rewrite-3.png" alt=""></p>
+<h4 id="Breakpoints-功能"><a href="#Breakpoints-功能" class="headerlink" title="Breakpoints 功能"></a>Breakpoints 功能</h4><p>上面提供的 <code>Rewrite</code> 功能最适合做批量和长期的替换，但是很多时候，我们只是想临时修改一次网络请求结果，这个时候，使用 <code>Rewrite</code> 功能虽然也可以达到目的，但是过于麻烦，对于临时性的修改，我们最好使用 <code>Breakpoints</code> 功能。</p>
+<p><code>Breakpoints</code> 功能类似我们在 <code>Xcode</code> 中设置的断点一样，当指定的网络请求发生时，<code>Charles</code> 会截获该请求，这个时候，我们可以在 <code>Charles</code> 中临时修改网络请求的返回内容。</p>
+<p>下图是我们临时修改获取用户信息的 API，将用户的昵称进行了更改，修改完成后点击 <code>Execute</code> 则可以让网络请求继续进行。</p>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-breakpoint.png" alt=""><br>需要注意的是，使用 <code>Breakpoints</code> 功能将网络请求截获并修改过程中，整个网络请求的计时并不会暂停，所以长时间的暂停可能导致客户端的请求超时。</p>
+<h3 id="给服务器做压力测试"><a href="#给服务器做压力测试" class="headerlink" title="给服务器做压力测试"></a>给服务器做压力测试</h3><p>使用 Charles 的 Repeat 功能来简单地测试服务器的并发处理能力<br><img src="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-repeat-1.png" alt=""><br><img src="http://7xi480.com1.z0.glb.clouddn.com/charles/charles-repeat-2.png" alt=""></p>
+<h2 id="使用模拟器-浏览器-Charles"><a href="#使用模拟器-浏览器-Charles" class="headerlink" title="使用模拟器 + 浏览器 + Charles"></a>使用模拟器 + 浏览器 + Charles</h2><p>有时候我们身边并没有足够多的真机来调试，或者使用手机不方便调试，那么我们就可以在电脑上安装模拟器以模拟手机环境，并在电脑上打开调试面板调试模拟器中的页面，以达到最真实的线上环境。</p>
+<ul>
+<li>iOS系统：使用 <code>iOS Simulator</code> 模拟器，模拟iOS系统的各产品下的显示，使用 <code>Safari</code> 的调试面板进行调试</li>
+<li>Android系统：使用 <code>Genymotion</code> 模拟器，模拟安卓各品牌各型号的手机，使用 <code>Chrome</code> 的调试面板进行调试</li>
+</ul>
+<p>在模拟器中打开页面<br>在PC上打开 <code>Safari</code> 浏览器 ，菜单中选择 <code>开发</code>-&gt;<code>simulator</code>-&gt;<code>http://ww.xxx.com/xxx</code>， 打开调试面板</p>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/屏幕快照 2017-07-17 下午4.25.15.png" alt=""></p>
+<p><img src="http://7xi480.com1.z0.glb.clouddn.com/屏幕快照 2017-07-17 上午11.41.24.png" alt=""></p>
+<h2 id="使用-spy-debugger"><a href="#使用-spy-debugger" class="headerlink" title="使用 spy-debugger"></a>使用 spy-debugger</h2><p>基于 <code>weinre</code> 的调试工具 <a href="https://github.com/wuchangming/spy-debugger" target="_blank" rel="external">spy-debugger</a></p>
+<p>微信调试，各种WebView样式调试、手机浏览器的页面真机调试。便捷的远程调试手机页面、抓包工具，支持：HTTP/HTTPS，无需USB连接设备。</p>
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><p>1、页面调试＋抓包<br>2、操作简单，无需USB连接设备<br>3、支持HTTPS。<br>4、spy-debugger内部集成了weinre、node-mitmproxy、AnyProxy。<br>5、自动忽略原生App发起的https请求，只拦截webview发起的https请求。对使用了SSL pinning技术的原生App不造成任何影响。<br>6、可以配合其它代理工具一起使用(默认使用AnyProxy) (设置外部代理)</p>
+<h3 id="页面编辑模式"><a href="#页面编辑模式" class="headerlink" title="页面编辑模式"></a>页面编辑模式</h3><p><img src="https://github.com/wuchangming/spy-debugger/raw/master/demo/img/spy-debugger-w.gif" alt=""></p>
+<h3 id="weinre-调试界面"><a href="#weinre-调试界面" class="headerlink" title="weinre 调试界面"></a>weinre 调试界面</h3><p><img src="https://github.com/wuchangming/spy-debugger/raw/master/demo/img/demo.png" alt=""></p>
+<h3 id="抓包界面"><a href="#抓包界面" class="headerlink" title="抓包界面"></a>抓包界面</h3><p><img src="https://github.com/wuchangming/spy-debugger/raw/master/demo/img/AnyProxy.png" alt=""></p>
+<p>阅读参考：</p>
+<ul>
+<li><a href="https://github.com/jieyou/remote_inspect_web_on_real_device?utm_campaign=email_admin&amp;utm_source=trigger-email&amp;utm_medium=email" target="_blank" rel="external">各种 真机远程调试 方法 汇总</a></li>
+<li><a href="https://github.com/wuchangming/spy-debugger" target="_blank" rel="external">spy-debugger</a></li>
+<li><a href="https://www.zhihu.com/question/24250869" target="_blank" rel="external">怎么在移动端调试web前端?</a></li>
+<li><a href="http://yujiangshui.com/multidevice-frontend-debug/" target="_blank" rel="external">移动端前端开发调试</a></li>
+<li><a href="http://div.io/topic/1449" target="_blank" rel="external">打造最舒适的webview调试环境</a></li>
+<li><a href="http://blog.devtang.com/2015/11/14/charles-introduction" target="_blank" rel="external">Charles 从入门到精通</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/debug/" rel="tag"># debug</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/29/svg-base/" rel="next" title="SVG起手式">
+                <i class="fa fa-chevron-left"></i> SVG起手式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/08/07/mobile-web-debug/"
+     data-title="移动前端调试方法汇总"
+     data-content=""
+     data-url="http://toggle.coding.io/2017/08/07/mobile-web-debug/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/08/07/mobile-web-debug/"
+           data-title="移动前端调试方法汇总" data-url="http://toggle.coding.io/2017/08/07/mobile-web-debug/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar100.jpg"
+               alt="Aitter" />
+          <p class="site-author-name" itemprop="name">Aitter</p>
+          <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">64</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/git-lt" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://hexo.io/" title="Hexo" target="_blank">Hexo</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chrome调试面板"><span class="nav-number">1.</span> <span class="nav-text">Chrome调试面板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常见用法"><span class="nav-number">1.1.</span> <span class="nav-text">常见用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sources-下几个实用的快捷键"><span class="nav-number">1.1.1.</span> <span class="nav-text">Sources 下几个实用的快捷键</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#几个实用的API"><span class="nav-number">1.2.</span> <span class="nav-text">几个实用的API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-table"><span class="nav-number">1.3.</span> <span class="nav-text">console.table</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#console-count"><span class="nav-number">1.3.1.</span> <span class="nav-text">console.count</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#console-time-amp-console-timeEnd"><span class="nav-number">1.3.2.</span> <span class="nav-text">console.time & console.timeEnd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#keys-amp-values"><span class="nav-number">1.3.3.</span> <span class="nav-text">keys & values</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vConsole-调试插件"><span class="nav-number">2.</span> <span class="nav-text">vConsole 调试插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Charles抓包工具"><span class="nav-number">3.</span> <span class="nav-text">Charles抓包工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能"><span class="nav-number">3.1.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#界面介绍"><span class="nav-number">3.2.</span> <span class="nav-text">界面介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置为系统代理服务器"><span class="nav-number">3.3.</span> <span class="nav-text">设置为系统代理服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#截取-http-网络封包"><span class="nav-number">3.4.</span> <span class="nav-text">截取 http 网络封包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#截取-Https-网络封包"><span class="nav-number">3.5.</span> <span class="nav-text">截取 Https 网络封包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改请求内容"><span class="nav-number">3.6.</span> <span class="nav-text">修改请求内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改响应内容"><span class="nav-number">3.7.</span> <span class="nav-text">修改响应内容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Map功能"><span class="nav-number">3.7.1.</span> <span class="nav-text">Map功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Rewrite-功能"><span class="nav-number">3.7.2.</span> <span class="nav-text">Rewrite 功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Breakpoints-功能"><span class="nav-number">3.7.3.</span> <span class="nav-text">Breakpoints 功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给服务器做压力测试"><span class="nav-number">3.8.</span> <span class="nav-text">给服务器做压力测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用模拟器-浏览器-Charles"><span class="nav-number">4.</span> <span class="nav-text">使用模拟器 + 浏览器 + Charles</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-spy-debugger"><span class="nav-number">5.</span> <span class="nav-text">使用 spy-debugger</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特性"><span class="nav-number">5.1.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面编辑模式"><span class="nav-number">5.2.</span> <span class="nav-text">页面编辑模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#weinre-调试界面"><span class="nav-number">5.3.</span> <span class="nav-text">weinre 调试界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抓包界面"><span class="nav-number">5.4.</span> <span class="nav-text">抓包界面</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aitter</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"togglelt"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
