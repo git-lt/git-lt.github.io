@@ -85,11 +85,13 @@
 
 
 <meta name="description" content="记录一下在搭建博客中的经验和爬过的坑个人博客一般部署在Github、Coding或GitFace这样的代码托管平台中，这里使用国内正火的Coding.net平台，以确保博客的访问速度，避免被墙。在阅读本篇之前，假如你已经掌握了hexo的本地环境搭建、git版本管理工具、coding代码托管平台的基本使用。">
+<meta name="keywords" content="HEXO">
 <meta property="og:type" content="article">
 <meta property="og:title" content="部署Hexo博客到Coding">
 <meta property="og:url" content="http://toggle.coding.io/2015/09/24/hexo-to-coding-150924/index.html">
-<meta property="og:site_name" content="Aitter's Blog">
+<meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="记录一下在搭建博客中的经验和爬过的坑个人博客一般部署在Github、Coding或GitFace这样的代码托管平台中，这里使用国内正火的Coding.net平台，以确保博客的访问速度，避免被墙。在阅读本篇之前，假如你已经掌握了hexo的本地环境搭建、git版本管理工具、coding代码托管平台的基本使用。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/001.jpg">
 <meta property="og:image" content="http://7oxisv.com1.z0.glb.clouddn.com/005.png">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/coding2.jpg">
@@ -397,7 +399,7 @@
 <p>这样下来，本地的博客代码就可以正常推送到Coding中了，下面做一下hexo的相关配置</p>
 <h2 id="Hexo部署"><a href="#Hexo部署" class="headerlink" title="Hexo部署"></a>Hexo部署</h2><h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>使用git推送代码到管理平台，必须先安装hexo的git发布插件<br><code>hexo-deployer-git</code>:<br><figure class="highlight sql"><table><tr><td class="code"><pre><div class="line">npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></div></pre></td></tr></table></figure></p>
 <p>修改_config.yml的deploy配置<br><figure class="highlight less"><table><tr><td class="code"><pre><div class="line"><span class="attribute">deploy</span>:</div><div class="line">    <span class="attribute">type</span>: git <span class="comment">//此处为git，不用修改</span></div><div class="line">    <span class="attribute">repository</span>: <span class="attribute">https</span>:<span class="comment">//git.coding.net/codert/blog.git  //填入从coding项目中获得的项目SSH地址</span></div><div class="line">    <span class="attribute">branch</span>: master  <span class="comment">//一般为master</span></div></pre></td></tr></table></figure></p>
-<h2 id="Hexo发布"><a href="#Hexo发布" class="headerlink" title="Hexo发布"></a>Hexo发布</h2><p>配置好以上环境后，就可以使用Hexo一键部署了<br><figure class="highlight nginx"><table><tr><td class="code"><pre><div class="line"><span class="attribute">hexo</span> deploy -g <span class="comment">#生成加部署</span></div></pre></td></tr></table></figure></p>
+<h2 id="Hexo发布"><a href="#Hexo发布" class="headerlink" title="Hexo发布"></a>Hexo发布</h2><p>配置好以上环境后，就可以使用Hexo一键部署了<br><figure class="highlight jboss-cli"><table><tr><td class="code"><pre><div class="line">hexo <span class="keyword">deploy</span> -g <span class="comment">#生成加部署</span></div></pre></td></tr></table></figure></p>
 <p>编译项目文件到 <code>public</code> 文件夹中，并提交到Coding项目blog的mastrer分支中</p>
 <h2 id="Coding-演示模式"><a href="#Coding-演示模式" class="headerlink" title="Coding 演示模式"></a>Coding 演示模式</h2><p>开启演示<a href="https://coding.net/help/doc/paas/paas.html" target="_blank" rel="external">Coding演示平台手册</a>：<br>设置好访问域名、应用内存，点击 <code>一键部署</code>，稍等片刻就可以访问自己的博客了<br>部署成功后，界面如下：<br><img src="http://7xi480.com1.z0.glb.clouddn.com/coding2.jpg" alt=""></p>
 <p><strong>注意：</strong>我们部署到Coding上的博客文件，是Hexo编译生成的静态文件，而Coding上对静态文件的项目开启演示有必要条件，项目根目录下必需有StaticFile文件，我们在Hexo博客项目themes\next\source\目录下添加文件<code>StaticFile</code>与 <code>README.MDOWN</code></p>
@@ -545,7 +547,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">64</span>
+              <span class="site-state-item-count">65</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

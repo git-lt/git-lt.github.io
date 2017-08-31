@@ -84,37 +84,17 @@
 
 
 
-<meta name="description" content="curl 是一个用来进行HTTP访问的命令（和函数库）。用curl可以模拟浏览器对特定的网站进行通信。
-curl 可以为前端开发者提供http测试功能，例如：
-
-测试 GET 或 POST 请求
-请求某地址时，添加cookie，请求头信息等
-查看Request Header 和 Response Header
-查看请求过程
-ftp操作">
+<meta name="description" content="curl 是一个用来进行HTTP访问的命令（和函数库）。用curl可以模拟浏览器对特定的网站进行通信。 curl 可以为前端开发者提供http测试功能，例如：  测试 GET 或 POST 请求 请求某地址时，添加cookie，请求头信息等 查看Request Header 和 Response Header 查看请求过程 ftp操作">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MAC之http命令行工具curl">
 <meta property="og:url" content="http://toggle.coding.io/2016/03/22/mac-command-curl/index.html">
-<meta property="og:site_name" content="Aitter's Blog">
-<meta property="og:description" content="curl 是一个用来进行HTTP访问的命令（和函数库）。用curl可以模拟浏览器对特定的网站进行通信。
-curl 可以为前端开发者提供http测试功能，例如：
-
-测试 GET 或 POST 请求
-请求某地址时，添加cookie，请求头信息等
-查看Request Header 和 Response Header
-查看请求过程
-ftp操作">
+<meta property="og:site_name" content="Aitter&#39;s Blog">
+<meta property="og:description" content="curl 是一个用来进行HTTP访问的命令（和函数库）。用curl可以模拟浏览器对特定的网站进行通信。 curl 可以为前端开发者提供http测试功能，例如：  测试 GET 或 POST 请求 请求某地址时，添加cookie，请求头信息等 查看Request Header 和 Response Header 查看请求过程 ftp操作">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-07-17T02:48:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MAC之http命令行工具curl">
-<meta name="twitter:description" content="curl 是一个用来进行HTTP访问的命令（和函数库）。用curl可以模拟浏览器对特定的网站进行通信。
-curl 可以为前端开发者提供http测试功能，例如：
-
-测试 GET 或 POST 请求
-请求某地址时，添加cookie，请求头信息等
-查看Request Header 和 Response Header
-查看请求过程
-ftp操作">
+<meta name="twitter:description" content="curl 是一个用来进行HTTP访问的命令（和函数库）。用curl可以模拟浏览器对特定的网站进行通信。 curl 可以为前端开发者提供http测试功能，例如：  测试 GET 或 POST 请求 请求某地址时，添加cookie，请求头信息等 查看Request Header 和 Response Header 查看请求过程 ftp操作">
 
 
 
@@ -418,8 +398,8 @@ ftp操作">
 <h2 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h2><p>添加 <code>--data</code> 或 <code>-D</code> 后面跟传递的参数，再加网址，即可发送POST请求<br><figure class="highlight nginx"><table><tr><td class="code"><pre><div class="line"><span class="attribute">curl</span> -D <span class="string">"name=jack&amp;age=22"</span> <span class="number">127.0.0.1:8899</span>/post</div></pre></td></tr></table></figure></p>
 <p>如果要对数据内容做编码处理，可使用 –data-urlencode 参数<br><figure class="highlight nginx"><table><tr><td class="code"><pre><div class="line"><span class="attribute">curl</span> -D <span class="string">"name=jack jason&amp;age=22"</span> <span class="number">127.0.0.1:8899</span>/post</div></pre></td></tr></table></figure></p>
 <h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><p>假定文件上传的表单是下面这样：<br><figure class="highlight accesslog"><table><tr><td class="code"><pre><div class="line">&lt;form method=<span class="string">"<span class="keyword">POST</span>"</span> enctype='multipart/form-data' action=<span class="string">"upload.cgi"</span>&gt;</div><div class="line">　&lt;input type=file name=upload&gt;</div><div class="line">　&lt;input type=submit name=press value=<span class="string">"OK"</span>&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure></p>
-<p>可以用curl这样上传文件：<br><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">curl --<span class="selector-tag">form</span> upload=@localfilename --<span class="selector-tag">form</span> press=OK <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">8899</span>/upload</div></pre></td></tr></table></figure></p>
-<h2 id="添加-referer-字段"><a href="#添加-referer-字段" class="headerlink" title="添加 referer 字段"></a>添加 referer 字段</h2><p>有一些防盗链网站通过请求头中的 referer 信息来判断是否为盗链，curl可以任意修改referer信息<br>添加参数 <code>--referer</code> 或 <code>-e</code> 给请求头中添加referer信息<br><figure class="highlight awk"><table><tr><td class="code"><pre><div class="line">curl --e http:<span class="regexp">//</span>www.example.com http:<span class="regexp">//</span>www.example.com</div></pre></td></tr></table></figure></p>
+<p>可以用curl这样上传文件：<br><figure class="highlight routeros"><table><tr><td class="code"><pre><div class="line">curl --form <span class="attribute">upload</span>=@localfilename --form <span class="attribute">press</span>=OK 127.0.0.1:8899/upload</div></pre></td></tr></table></figure></p>
+<h2 id="添加-referer-字段"><a href="#添加-referer-字段" class="headerlink" title="添加 referer 字段"></a>添加 referer 字段</h2><p>有一些防盗链网站通过请求头中的 referer 信息来判断是否为盗链，curl可以任意修改referer信息<br>添加参数 <code>--referer</code> 或 <code>-e</code> 给请求头中添加referer信息<br><figure class="highlight jboss-cli"><table><tr><td class="code"><pre><div class="line">curl <span class="params">--e</span> http:<span class="string">//www.example.com</span> http:<span class="string">//www.example.com</span></div></pre></td></tr></table></figure></p>
 <h2 id="添加浏览器信息"><a href="#添加浏览器信息" class="headerlink" title="添加浏览器信息"></a>添加浏览器信息</h2><p>有些网站，如淘宝会对用户使用的浏览器做检测适配处理，添加特定的浏览器信息可以模拟真实的浏览器访问<br><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">curl -A <span class="string">"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"</span> -x <span class="number">123.45</span>.<span class="number">67.89</span>:<span class="number">1080</span> -o page<span class="selector-class">.html</span> -D cookie0001<span class="selector-class">.txt</span> http:<span class="comment">//www.yahoo.com</span></div></pre></td></tr></table></figure></p>
 <p>这样，服务器端接到访问的要求，会认为你是一个运行在Windows 2000上的IE6.0</p>
 <h2 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h2><p>添加 <code>-o</code> 或 <code>-O</code> 参数，<br><figure class="highlight awk"><table><tr><td class="code"><pre><div class="line">curl -o <span class="number">1</span>.jpg http:<span class="regexp">//</span>cgi2.tky.<span class="number">3</span>web.ne.jp<span class="regexp">/~zzh/</span>screen1.JPG</div><div class="line">curl -O http:<span class="regexp">//</span>cgi2.tky.<span class="number">3</span>web.ne.jp<span class="regexp">/~zzh/</span>screen1.JPG</div></pre></td></tr></table></figure></p>
@@ -558,7 +538,7 @@ ftp操作">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">64</span>
+              <span class="site-state-item-count">65</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

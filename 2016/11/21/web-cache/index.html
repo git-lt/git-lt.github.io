@@ -85,11 +85,13 @@
 
 
 <meta name="description" content="浏览器的缓存是一把双刃剑，用好了可以加快资源的加载速度，提升用户体验，如果使用不当，没有缓存，则加载缓慢，而且可能会给服务器造成巨大的压力，消耗带宽，缓存太严重，又无法及时更新内容导致体验急剧下降，了解浏览器的缓存机制有利用我们合理的使用缓存提升产品体验。">
+<meta name="keywords" content="浏览器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浏览器的缓存机制">
 <meta property="og:url" content="http://toggle.coding.io/2016/11/21/web-cache/index.html">
-<meta property="og:site_name" content="Aitter's Blog">
+<meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="浏览器的缓存是一把双刃剑，用好了可以加快资源的加载速度，提升用户体验，如果使用不当，没有缓存，则加载缓慢，而且可能会给服务器造成巨大的压力，消耗带宽，缓存太严重，又无法及时更新内容导致体验急剧下降，了解浏览器的缓存机制有利用我们合理的使用缓存提升产品体验。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/015343_psx2_568818.png">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/huancun02.png">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/jd_cache.png">
@@ -389,7 +391,7 @@
 <li>节省宽带，已缓存的文件无需发送请求</li>
 <li>降低服务器压力，大并发下访问，将静态资源放置在多个网络节点，起到负载均衡的作用</li>
 </ol>
-<p>浏览器缓存中有一种HTML Meta标签中设置缓存<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">META</span> <span class="attr">HTTP-EQUIV</span>=<span class="string">"Pragma"</span> <span class="attr">CONTENT</span>=<span class="string">"no-cache"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>浏览器缓存中有一种HTML Meta标签中设置缓存<br><figure class="highlight routeros"><table><tr><td class="code"><pre><div class="line">&lt;META <span class="attribute">HTTP-EQUIV</span>=<span class="string">"Pragma"</span> <span class="attribute">CONTENT</span>=<span class="string">"no-cache"</span>&gt;</div></pre></td></tr></table></figure></p>
 <p>上述代码的作用是告诉浏览器当前页面不被缓存，每次访问都需要去服务器拉取。使用上很简单，但只有部分浏览器可以支持，而且所有缓存代理服务器都不支持，因为代理不解析HTML内容本身。极少使用。</p>
 <h2 id="强缓存与协商缓存"><a href="#强缓存与协商缓存" class="headerlink" title="强缓存与协商缓存"></a>强缓存与协商缓存</h2><p><strong>第一次请求</strong><br><img src="http://7xi480.com1.z0.glb.clouddn.com/015343_psx2_568818.png" width="400"> </p>
 <p><strong>再次请求</strong><br><img src="http://7xi480.com1.z0.glb.clouddn.com/huancun02.png" width="500"> </p>
@@ -593,7 +595,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">64</span>
+              <span class="site-state-item-count">65</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

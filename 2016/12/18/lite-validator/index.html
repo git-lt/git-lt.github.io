@@ -85,11 +85,13 @@
 
 
 <meta name="description" content="使用过很多的验证插件，总是没有一个特别让我满意，要么规则配置复杂，要么样式更改麻烦，这种大而全的框架在特定的环境下是很有用的，可以帮忙节省大量时间，可在一些定制性要求高的场景下，却总是不够灵活，依赖各种环境和框架，于是，还是来自己动手封装一个简单的工具吧。">
+<meta name="keywords" content="工具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="通用的验证模块">
 <meta property="og:url" content="http://toggle.coding.io/2016/12/18/lite-validator/index.html">
-<meta property="og:site_name" content="Aitter's Blog">
+<meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="使用过很多的验证插件，总是没有一个特别让我满意，要么规则配置复杂，要么样式更改麻烦，这种大而全的框架在特定的环境下是很有用的，可以帮忙节省大量时间，可在一些定制性要求高的场景下，却总是不够灵活，依赖各种环境和框架，于是，还是来自己动手封装一个简单的工具吧。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2016/12/18/dbd92d06e3cecc40fc25427902a3fd35">
 <meta property="og:updated_time" content="2016-12-18T15:38:02.000Z">
 <meta name="twitter:card" content="summary">
@@ -388,7 +390,7 @@
 <p>AMD 引用</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> liteValidator = <span class="built_in">require</span>(<span class="string">'lite-validator'</span>);</div><div class="line">validForm = liteValidator.validForm;</div><div class="line">validValue = liteValidator.validValue;</div><div class="line">validField = liteValidator.validField;</div></pre></td></tr></table></figure>
 <p>浏览器引用</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">&lt;script src=<span class="string">"../lite-validator/dist/lite-validator-es5.js"</span> type=<span class="string">"text/javascript"</span>&gt;</div><div class="line"></div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></div><div class="line"><span class="built_in">window</span>.liteValidator.validForm</div><div class="line"><span class="built_in">window</span>.liteValidator.validValue</div><div class="line"><span class="built_in">window</span>.liteValidator.validField</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">&lt;script src=<span class="string">"../lite-validator/dist/lite-validator-es5.js"</span> type=<span class="string">"text/javascript"</span>&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line"><span class="built_in">window</span>.liteValidator.validForm</div><div class="line"><span class="built_in">window</span>.liteValidator.validValue</div><div class="line"><span class="built_in">window</span>.liteValidator.validField</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
 <h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p>极简的API，记住下面这三个API，走遍天下，验证我不怕😏</p>
 <ul>
 <li><code>validForm</code> 验证整个 <code>表单</code></li>
@@ -584,7 +586,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">64</span>
+              <span class="site-state-item-count">65</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

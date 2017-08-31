@@ -1,0 +1,983 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="SVG," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="本节主要讲解如何实现以下几种动画  图表展示-圆环 操作成功，操作失败动画 Logo 线条绘制动画 Loading 加载动画  通过普通的div实现方式与svg的实现做对比，体验使用SVG做动画的好处，以及SVG在实际项目中应用 并使用Vue及React封装一个基于SVG的圆环图表展示组件">
+<meta name="keywords" content="SVG">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SVG线条动画应用">
+<meta property="og:url" content="http://toggle.coding.io/2017/08/31/svg-line-effect/index.html">
+<meta property="og:site_name" content="Aitter&#39;s Blog">
+<meta property="og:description" content="本节主要讲解如何实现以下几种动画  图表展示-圆环 操作成功，操作失败动画 Logo 线条绘制动画 Loading 加载动画  通过普通的div实现方式与svg的实现做对比，体验使用SVG做动画的好处，以及SVG在实际项目中应用 并使用Vue及React封装一个基于SVG的圆环图表展示组件">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://oc5n93kni.qnssl.com/blog/array.png">
+<meta property="og:updated_time" content="2017-08-31T07:00:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SVG线条动画应用">
+<meta name="twitter:description" content="本节主要讲解如何实现以下几种动画  图表展示-圆环 操作成功，操作失败动画 Logo 线条绘制动画 Loading 加载动画  通过普通的div实现方式与svg的实现做对比，体验使用SVG做动画的好处，以及SVG在实际项目中应用 并使用Vue及React封装一个基于SVG的圆环图表展示组件">
+<meta name="twitter:image" content="https://oc5n93kni.qnssl.com/blog/array.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://toggle.coding.io/2017/08/31/svg-line-effect/"/>
+
+
+
+
+
+  <title> SVG线条动画应用 | Aitter's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Aitter's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">I can’t change the world, only change myself!</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2017/08/31/svg-line-effect/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Aitter">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar100.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Aitter's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Aitter's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                SVG线条动画应用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-31T14:59:24+08:00">
+                2017-08-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web前端/" itemprop="url" rel="index">
+                    <span itemprop="name">Web前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2017/08/31/svg-line-effect/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/31/svg-line-effect/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/08/31/svg-line-effect/" class="leancloud_visitors" data-flag-title="SVG线条动画应用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本节主要讲解如何实现以下几种动画</p>
+<ol>
+<li>图表展示-圆环</li>
+<li>操作成功，操作失败动画</li>
+<li>Logo 线条绘制动画</li>
+<li>Loading 加载动画</li>
+</ol>
+<p>通过普通的div实现方式与svg的实现做对比，体验使用SVG做动画的好处，以及SVG在实际项目中应用</p>
+<p>并使用Vue及React封装一个基于SVG的圆环图表展示组件</p>
+<a id="more"></a>
+<h2 id="CSS3-版本的实现"><a href="#CSS3-版本的实现" class="headerlink" title="CSS3 版本的实现"></a>CSS3 版本的实现</h2><p>效果来源 <a href="http://t4t5.github.io/sweetalert/" target="_blank" rel="external">sweetAlert 插件</a><br><a href="http://www.zhangxinxu.com/wordpress/2014/04/css3-pie-loading-waiting-animation/" target="_blank" rel="external">CSS3实现鸡蛋饼饼状图loading</a></p>
+<iframe height="300" scrolling="no" title="CSS3-Success" src="//codepen.io/togglelt/embed/PKBNqj/?height=300&theme-id=13299&default-tab=result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/togglelt/pen/PKBNqj/" target="_blank" rel="external">CSS3-Success</a> by LT (<a href="https://codepen.io/togglelt" target="_blank" rel="external">@togglelt</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.<br></iframe>
+
+<p>使用多层遮罩+css动画</p>
+<h3 id="成功的动画"><a href="#成功的动画" class="headerlink" title="成功的动画"></a>成功的动画</h3><p>结构</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 深色环 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ui-icon-success"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 对号短线 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ui-icon-success__line ui-icon-success__line-tip"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 对号长线 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ui-icon-success__line ui-icon-success__line-long"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 浅色环 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ui-icon-success__placeholder"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 圆环的修复 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ui-icon-success__fix"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>圆环动画：半圆遮罩旋转，漏出下面深色圆环，旋转一周之后，回位，重新遮盖住，显示浅色圆环<br>对号动画，线段的位移</p>
+<p>CSS<br><figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.ui-icon-success</span>&#123;</div><div class="line">    &amp;.active&#123;</div><div class="line">        &amp;<span class="selector-pseudo">:after</span>&#123;</div><div class="line">            <span class="attribute">animation</span>: rotatePlaceholder <span class="number">4.25s</span> ease-in;</div><div class="line">        &#125;</div><div class="line">        <span class="selector-class">.ui-icon-success__line-tip</span>&#123;</div><div class="line">            <span class="attribute">animation</span>: animateSuccessTip <span class="number">0.75s</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="selector-class">.ui-icon-success__line-long</span>&#123;</div><div class="line">            <span class="attribute">animation</span>: animateSuccessLong <span class="number">0.75s</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">keyframes</span> rotatePlaceholder &#123;</div><div class="line">  0% &#123; <span class="attribute">transform</span>: <span class="built_in">rotate</span>(-45deg); &#125;</div><div class="line">  5% &#123; <span class="attribute">transform</span>: <span class="built_in">rotate</span>(-45deg); &#125;</div><div class="line">  12% &#123; <span class="attribute">transform</span>: <span class="built_in">rotate</span>(-405deg); &#125;</div><div class="line">  100% &#123; <span class="attribute">transform</span>: <span class="built_in">rotate</span>(-405deg); &#125; </div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">keyframes</span> animateSuccessLong &#123;</div><div class="line">  0% &#123; <span class="attribute">width</span>: <span class="number">0</span>; <span class="attribute">right</span>: <span class="number">46px</span>; <span class="attribute">top</span>: <span class="number">54px</span>; &#125;</div><div class="line">  65% &#123; <span class="attribute">width</span>: <span class="number">0</span>; <span class="attribute">right</span>: <span class="number">46px</span>; <span class="attribute">top</span>: <span class="number">54px</span>; &#125;</div><div class="line">  84% &#123; <span class="attribute">width</span>: <span class="number">55px</span>; <span class="attribute">right</span>: <span class="number">0px</span>; <span class="attribute">top</span>: <span class="number">35px</span>; &#125;</div><div class="line">  100% &#123; <span class="attribute">width</span>: <span class="number">47px</span>; <span class="attribute">right</span>: <span class="number">8px</span>; <span class="attribute">top</span>: <span class="number">38px</span>; &#125; </div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">keyframes</span> animateSuccessTip &#123;</div><div class="line">  0% &#123; <span class="attribute">width</span>: <span class="number">0</span>; <span class="attribute">left</span>: <span class="number">1px</span>; <span class="attribute">top</span>: <span class="number">19px</span>; &#125; </div><div class="line">  54% &#123; <span class="attribute">width</span>: <span class="number">0</span>; <span class="attribute">left</span>: <span class="number">1px</span>; <span class="attribute">top</span>: <span class="number">19px</span>; &#125;</div><div class="line">  70% &#123; <span class="attribute">width</span>: <span class="number">50px</span>; <span class="attribute">left</span>: -<span class="number">8px</span>; <span class="attribute">top</span>: <span class="number">37px</span>; &#125;</div><div class="line">  84% &#123; <span class="attribute">width</span>: <span class="number">17px</span>; <span class="attribute">left</span>: <span class="number">21px</span>; <span class="attribute">top</span>: <span class="number">48px</span>; &#125;</div><div class="line">  100% &#123; <span class="attribute">width</span>: <span class="number">25px</span>; <span class="attribute">left</span>: <span class="number">14px</span>; <span class="attribute">top</span>: <span class="number">45px</span>; &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="loading动画"><a href="#loading动画" class="headerlink" title="loading动画"></a>loading动画</h3><p>使用三个半圆 + 深色圆环 + 浅色圆环</p>
+<p>结构</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ui-icon-circle"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ui-icon-circle__placeholder"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"ui-icon-circle__half"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>浅色圆环 <code>ui-icon-circle</code></li>
+<li>右边半圆遮罩 <code>ui-icon-circle:after</code>  旋转180后隐藏</li>
+<li>左边圆遮罩 <code>ui-icon-circle:before</code> 旋转180</li>
+<li>右边半圆带深色环遮罩 <code>ui-icon-circle __half</code> 用于修复被遮罩的半环</li>
+</ul>
+<p>css</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.ui-icon-circle</span>&#123;</div><div class="line">	&amp;.active&#123;</div><div class="line">		&amp;<span class="selector-pseudo">:after</span>&#123;</div><div class="line">			<span class="attribute">animation</span>: circle-right-rotate <span class="number">1s</span> linear both;</div><div class="line">		&#125;</div><div class="line">		&amp;<span class="selector-pseudo">:before</span>&#123;</div><div class="line">			<span class="attribute">animation</span>: circle-left-rotate .<span class="number">5s</span> .<span class="number">5s</span> linear both;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">keyframes</span> circle-right-rotate &#123;</div><div class="line">    0% &#123;<span class="attribute">transform</span>:<span class="built_in">rotateZ</span>(0); <span class="attribute">opacity</span>: <span class="number">1</span>;&#125;</div><div class="line">    50% &#123;<span class="attribute">transform</span>:<span class="built_in">rotateZ</span>(180deg); <span class="attribute">opacity</span>: <span class="number">1</span>;&#125;</div><div class="line">    51%,100% &#123; <span class="attribute">transform</span>:<span class="built_in">rotateZ</span>(180deg); <span class="attribute">opacity</span>: <span class="number">0</span>;&#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">keyframes</span> circle-left-rotate &#123;</div><div class="line">    0% &#123;<span class="attribute">transform</span>:<span class="built_in">rotateZ</span>(0);&#125;</div><div class="line">    100% &#123; <span class="attribute">transform</span>:<span class="built_in">rotateZ</span>(180deg);&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="线条动画原理回顾"><a href="#线条动画原理回顾" class="headerlink" title="线条动画原理回顾"></a>线条动画原理回顾</h2><h3 id="两个关键的属性"><a href="#两个关键的属性" class="headerlink" title="两个关键的属性"></a>两个关键的属性</h3><p><code>stroke-dasharray</code>: 逗号或空格分隔的数值列表。表示各个虚线端的长度。可以是固定的长度值，也可以是百分比值<br><code>stroke-dashoffset</code>: 表示虚线的起始偏移</p>
+<p><img src="https://oc5n93kni.qnssl.com/blog/array.png" width="400px"> </p>
+<h3 id="两种实现方式"><a href="#两种实现方式" class="headerlink" title="两种实现方式"></a>两种实现方式</h3><ul>
+<li>使用stroke-dasharray, 改变 线段的长度</li>
+<li>使用stroke-dashoffset, 改变起始偏移的距离</li>
+</ul>
+<h2 id="SVG微交互的实际应用"><a href="#SVG微交互的实际应用" class="headerlink" title="SVG微交互的实际应用"></a>SVG微交互的实际应用</h2><p>loading、占位图、圆环进度、各种图表、H5活动</p>
+<p><a href="https://codepen.io/sdras/full/NqYGZv" target="_blank" rel="external">示例动画1</a><br><a href="https://codepen.io/sdras/full/waXKPw" target="_blank" rel="external">屏幕适配</a><br><a href="https://codepen.io/sdras/pen/gWWQgb" target="_blank" rel="external">页面转场</a></p>
+<h2 id="获取Path的总长度"><a href="#获取Path的总长度" class="headerlink" title="获取Path的总长度"></a>获取Path的总长度</h2><p><code>el.getTotalLength()</code> <strong>只能获取Path的长度</strong><br>其它形状的获取，可以从AI或sketch的属性面板中获取或通过公式计算得出</p>
+<h2 id="常用SVG标签参数解析"><a href="#常用SVG标签参数解析" class="headerlink" title="常用SVG标签参数解析"></a>常用SVG标签参数解析</h2><h3 id="Circle-圆"><a href="#Circle-圆" class="headerlink" title="Circle 圆"></a>Circle 圆</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><div class="line">&lt;circle <span class="attribute">cx</span>=<span class="string">"100"</span> <span class="attribute">cy</span>=<span class="string">"100"</span> <span class="attribute">r</span>=<span class="string">"50"</span> <span class="attribute">fill</span>=<span class="string">"#fff"</span>&gt;&lt;/circle&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>r       半径</li>
+<li>cx      圆心x位置, 默认为 0</li>
+<li>cy      圆心y位置, 默认为 0</li>
+</ul>
+<h3 id="Path-路径"><a href="#Path-路径" class="headerlink" title="Path 路径"></a>Path 路径</h3><p>这里只列举用到的圆弧的表示方法</p>
+<p>两点之间的弧形可能有四种情总，两种小弧形，两种大弧形</p>
+<p><code>a 45 45, 0, 0, 0, 125 125</code><br>参数说明：起点坐标、large-arc-flag（大小弧标记，0小，1大）、sweep-flag（弧线方向，0逆时针，1顺时针）、终点</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"325px"</span> <span class="attr">height</span>=<span class="string">"325px"</span> <span class="attr">version</span>=<span class="string">"1.1"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"M80 80</span></span></div><div class="line"><span class="tag"><span class="string">           A 45 45, 0, 0, 0, 125 125</span></span></div><div class="line"><span class="tag"><span class="string">           L 125 80 Z"</span> <span class="attr">fill</span>=<span class="string">"green"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"M230 80</span></span></div><div class="line"><span class="tag"><span class="string">           A 45 45, 0, 1, 0, 275 125</span></span></div><div class="line"><span class="tag"><span class="string">           L 275 80 Z"</span> <span class="attr">fill</span>=<span class="string">"red"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"M80 230</span></span></div><div class="line"><span class="tag"><span class="string">           A 45 45, 0, 0, 1, 125 275</span></span></div><div class="line"><span class="tag"><span class="string">           L 125 230 Z"</span> <span class="attr">fill</span>=<span class="string">"purple"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"M230 230</span></span></div><div class="line"><span class="tag"><span class="string">           A 45 45, 0, 1, 1, 275 275</span></span></div><div class="line"><span class="tag"><span class="string">           L 275 230 Z"</span> <span class="attr">fill</span>=<span class="string">"blue"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>更多关于Path的参数说明，请查看 <a href="https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Paths#Arcs" target="_blank" rel="external">SVG PATH MDN</a></p>
+<h3 id="Line-直线"><a href="#Line-直线" class="headerlink" title="Line 直线"></a>Line 直线</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><div class="line">&lt;line <span class="attribute">x1</span>=<span class="string">"10"</span> <span class="attribute">x2</span>=<span class="string">"50"</span> <span class="attribute">y1</span>=<span class="string">"110"</span> <span class="attribute">y2</span>=<span class="string">"150"</span>/&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>x1 起点的x位置</li>
+<li>y1 起点的y位置</li>
+<li>x2 终点的x位置</li>
+<li>y2 终点的y位置</li>
+</ul>
+<h3 id="polyline-折线"><a href="#polyline-折线" class="headerlink" title="polyline 折线"></a>polyline 折线</h3><figure class="highlight tap"><table><tr><td class="code"><pre><div class="line">&lt;polyline points="60 110,<span class="number"> 65 </span>120,<span class="number"> 70 </span>115,<span class="number"> 75 </span>130,<span class="number"> 80 </span>125,<span class="number"> 85 </span>140,<span class="number"> 90 </span>135,<span class="number"> 95 </span>150,<span class="number"> 100 </span>145"/&gt;</div></pre></td></tr></table></figure>
+<p>points 点集数列，每个数字用空白、逗号、终止命令符或者换行符分隔开，每个点必须包含2个数字，一个是x坐标，一个是y坐标 如0 0, 1 1, 2 2”</p>
+<h3 id="SVG成功动画"><a href="#SVG成功动画" class="headerlink" title="SVG成功动画"></a>SVG成功动画</h3><iframe height="300" scrolling="no" title="SVG-success-error" src="//codepen.io/togglelt/embed/JyewOy/?height=300&theme-id=13299&default-tab=result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/togglelt/pen/JyewOy/" target="_blank" rel="external">SVG-success-error</a> by LT (<a href="https://codepen.io/togglelt" target="_blank" rel="external">@togglelt</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.<br></iframe>
+
+
+<p>结构</p>
+<p>一个背景环，一个动画环，一条折线</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">g</span> <span class="attr">id</span>=<span class="string">"Group-3"</span> <span class="attr">transform</span>=<span class="string">"translate(2.000000, 2.000000)"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">circle</span> <span class="attr">id</span>=<span class="string">"Oval-2"</span> <span class="attr">stroke</span>=<span class="string">"rgba(165, 220, 134, 0.2)"</span> <span class="attr">stroke-width</span>=<span class="string">"4"</span> <span class="attr">cx</span>=<span class="string">"41.5"</span> <span class="attr">cy</span>=<span class="string">"41.5"</span> <span class="attr">r</span>=<span class="string">"41.5"</span>&gt;</span><span class="tag">&lt;/<span class="name">circle</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">circle</span>  <span class="attr">class</span>=<span class="string">"ui-success-circle"</span> <span class="attr">id</span>=<span class="string">"Oval-2"</span> <span class="attr">stroke</span>=<span class="string">"#A5DC86"</span> <span class="attr">stroke-width</span>=<span class="string">"4"</span> <span class="attr">cx</span>=<span class="string">"41.5"</span> <span class="attr">cy</span>=<span class="string">"41.5"</span> <span class="attr">r</span>=<span class="string">"41.5"</span>&gt;</span><span class="tag">&lt;/<span class="name">circle</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">polyline</span> <span class="attr">class</span>=<span class="string">"ui-success-path"</span> <span class="attr">id</span>=<span class="string">"Path-2"</span> <span class="attr">stroke</span>=<span class="string">"#A5DC86"</span> <span class="attr">stroke-width</span>=<span class="string">"4"</span> <span class="attr">points</span>=<span class="string">"19 38.8036813 31.1020744 54.8046875 63.299221 28"</span>&gt;</span><span class="tag">&lt;/<span class="name">polyline</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">g</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>动画</p>
+<p>先发生环的填充和收缩动画，再延时执行对号的成功动画</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line">@<span class="keyword">keyframes</span> ani-success-circle &#123;</div><div class="line">	<span class="selector-tag">to</span>&#123;<span class="attribute">stroke-dashoffset</span>: <span class="number">782.2565707438586px</span>;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">keyframes</span> ani-success-path &#123;</div><div class="line">	0% &#123;<span class="attribute">stroke-dashoffset</span>: <span class="number">62px</span>;&#125;</div><div class="line">	65% &#123;<span class="attribute">stroke-dashoffset</span>: -<span class="number">5px</span>;&#125;</div><div class="line">	84%&#123;<span class="attribute">stroke-dashoffset</span>: <span class="number">4px</span>;&#125;</div><div class="line">	100%&#123;<span class="attribute">stroke-dashoffset</span>: -<span class="number">2px</span>;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="SVG失败动画"><a href="#SVG失败动画" class="headerlink" title="SVG失败动画"></a>SVG失败动画</h3><p>结构</p>
+<p>背景环、动画环、<code>X</code>号的两条线</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">g</span> <span class="attr">id</span>=<span class="string">"Group-2"</span> <span class="attr">transform</span>=<span class="string">"translate(2.000000, 2.000000)"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">circle</span> <span class="attr">id</span>=<span class="string">"Oval-2"</span> <span class="attr">stroke</span>=<span class="string">"rgba(252, 191, 191, .5)"</span> <span class="attr">stroke-width</span>=<span class="string">"4"</span> <span class="attr">cx</span>=<span class="string">"41.5"</span> <span class="attr">cy</span>=<span class="string">"41.5"</span> <span class="attr">r</span>=<span class="string">"41.5"</span>&gt;</span><span class="tag">&lt;/<span class="name">circle</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">circle</span>  <span class="attr">class</span>=<span class="string">"ui-error-circle"</span> <span class="attr">stroke</span>=<span class="string">"#F74444"</span> <span class="attr">stroke-width</span>=<span class="string">"4"</span> <span class="attr">cx</span>=<span class="string">"41.5"</span> <span class="attr">cy</span>=<span class="string">"41.5"</span> <span class="attr">r</span>=<span class="string">"41.5"</span>&gt;</span><span class="tag">&lt;/<span class="name">circle</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">class</span>=<span class="string">"ui-error-line1"</span> <span class="attr">d</span>=<span class="string">"M22.244224,22 L60.4279902,60.1837662"</span> <span class="attr">id</span>=<span class="string">"Line"</span> <span class="attr">stroke</span>=<span class="string">"#F74444"</span> <span class="attr">stroke-width</span>=<span class="string">"3"</span> <span class="attr">stroke-linecap</span>=<span class="string">"square"</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">class</span>=<span class="string">"ui-error-line2"</span> <span class="attr">d</span>=<span class="string">"M60.755776,21 L23.244224,59.8443492"</span> <span class="attr">id</span>=<span class="string">"Line"</span> <span class="attr">stroke</span>=<span class="string">"#F74444"</span> <span class="attr">stroke-width</span>=<span class="string">"3"</span> <span class="attr">stroke-linecap</span>=<span class="string">"square"</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">g</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>动画</p>
+<p>先环进行动画，然后 <code>X</code>号的右边线开始描边动画，然后左边线开始描边动画</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line">@<span class="keyword">keyframes</span> ani-error-line&#123;</div><div class="line">	<span class="selector-tag">to</span> &#123; <span class="attribute">stroke-dashoffset</span>: <span class="number">0</span>; &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">keyframes</span> ani-error-circle &#123;</div><div class="line">    0% &#123;</div><div class="line">            <span class="attribute">stroke-dasharray</span>: <span class="number">0</span>, <span class="number">260.75219024795285px</span>;</div><div class="line">            <span class="attribute">stroke-dashoffset</span>: <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    35% &#123;</div><div class="line">            <span class="attribute">stroke-dasharray</span>: <span class="number">120px</span>, <span class="number">120px</span>;</div><div class="line">            <span class="attribute">stroke-dashoffset</span>: -<span class="number">120px</span>;</div><div class="line">    &#125;</div><div class="line">    70% &#123;</div><div class="line">            <span class="attribute">stroke-dasharray</span>: <span class="number">0</span>, <span class="number">260.75219024795285px</span>;</div><div class="line">            <span class="attribute">stroke-dashoffset</span>: -<span class="number">260.75219024795285px</span>;</div><div class="line">    &#125;</div><div class="line">    100% &#123;</div><div class="line">            <span class="attribute">stroke-dasharray</span>: <span class="number">260.75219024795285px</span>, <span class="number">0</span>;</div><div class="line">            <span class="attribute">stroke-dashoffset</span>: -<span class="number">260.75219024795285px</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="SVG加载动画"><a href="#SVG加载动画" class="headerlink" title="SVG加载动画"></a>SVG加载动画</h3><iframe height="300" scrolling="no" title="SVG-loading" src="//codepen.io/togglelt/embed/eEPZzK/?height=300&theme-id=13299&default-tab=result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/togglelt/pen/eEPZzK/" target="_blank" rel="external">SVG-loading</a> by LT (<a href="https://codepen.io/togglelt" target="_blank" rel="external">@togglelt</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.<br></iframe>
+
+<p>结构</p>
+<p>一个圆环<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"ui-loading"</span>&gt;</div><div class="line">	&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"ui-loading-inner"</span> :style=<span class="string">"innerStyle"</span>&gt;</div><div class="line">		&lt;svg viewBox=<span class="string">"0 0 100 100"</span>&gt;</div><div class="line">			&lt;circle <span class="class"><span class="keyword">class</span></span>=<span class="string">"ui-loading-path"</span> cx=<span class="string">"50"</span> cy=<span class="string">"50"</span> r=<span class="string">"40"</span> fill=<span class="string">"none"</span> :style=<span class="string">"strokeStyle"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">circle</span>&gt;</span></span></div><div class="line">		&lt;<span class="regexp">/svg&gt;</span></div><div class="line"><span class="regexp">	&lt;/</span>div&gt;</div><div class="line">	&lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"ui-loading-text"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">slot</span>&gt;</span><span class="tag">&lt;<span class="name">slot</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
+<p>动画</p>
+<p>不停的旋转，并增长线段的长度<br><figure class="highlight css"><table><tr><td class="code"><pre><div class="line">@<span class="keyword">keyframes</span> ui-loading-spin &#123;</div><div class="line">    0%&#123;<span class="attribute">transform</span>:<span class="built_in">rotate</span>(0); <span class="attribute">stroke-dasharray</span>:<span class="number">0</span>, <span class="number">251.327px</span>;&#125;</div><div class="line">    100%&#123;<span class="attribute">transform</span>:<span class="built_in">rotate</span>(360deg); <span class="attribute">stroke-dasharray</span>:<span class="number">251.327px</span>, <span class="number">251.327px</span>;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="SVG-Logo动画"><a href="#SVG-Logo动画" class="headerlink" title="SVG Logo动画"></a>SVG Logo动画</h3><iframe height="300" scrolling="no" title="SVG-Text" src="//codepen.io/togglelt/embed/GvBZJW/?height=300&theme-id=13299&default-tab=result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/togglelt/pen/GvBZJW/" target="_blank" rel="external">SVG-Text</a> by LT (<a href="https://codepen.io/togglelt" target="_blank" rel="external">@togglelt</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.<br></iframe>
+
+<p>原理： 多个文字路径叠加，不同的描边长度，同时动画</p>
+<p>结构</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">version</span>=<span class="string">"1.1"</span> <span class="attr">viewBox</span>=<span class="string">"0 0 1000 600"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">symbol</span> <span class="attr">id</span>=<span class="string">"text"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">text</span> <span class="attr">x</span>=<span class="string">"0"</span> <span class="attr">y</span>=<span class="string">"35%"</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span>AITTER<span class="tag">&lt;/<span class="name">text</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">symbol</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">g</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">use</span> <span class="attr">xlink:href</span>=<span class="string">"#text"</span> <span class="attr">class</span>=<span class="string">"use-text"</span>&gt;</span><span class="tag">&lt;/<span class="name">use</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">use</span> <span class="attr">xlink:href</span>=<span class="string">"#text"</span> <span class="attr">class</span>=<span class="string">"use-text"</span>&gt;</span><span class="tag">&lt;/<span class="name">use</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">use</span> <span class="attr">xlink:href</span>=<span class="string">"#text"</span> <span class="attr">class</span>=<span class="string">"use-text"</span>&gt;</span><span class="tag">&lt;/<span class="name">use</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">use</span> <span class="attr">xlink:href</span>=<span class="string">"#text"</span> <span class="attr">class</span>=<span class="string">"use-text"</span>&gt;</span><span class="tag">&lt;/<span class="name">use</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">use</span> <span class="attr">xlink:href</span>=<span class="string">"#text"</span> <span class="attr">class</span>=<span class="string">"use-text"</span>&gt;</span><span class="tag">&lt;/<span class="name">use</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">g</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>动画</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.use-text</span><span class="selector-pseudo">:nth-child(1)</span> &#123;</div><div class="line">	<span class="attribute">stroke</span>: <span class="number">#360745</span>;</div><div class="line">	<span class="attribute">animation</span>: animation1 <span class="number">8s</span> infinite ease-in-out forwards;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.use-text</span><span class="selector-pseudo">:nth-child(2)</span> &#123;</div><div class="line">	<span class="attribute">stroke</span>: <span class="number">#D61C59</span>;</div><div class="line">	<span class="attribute">animation</span>: animation2 <span class="number">8s</span> infinite ease-in-out forwards;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.use-text</span><span class="selector-pseudo">:nth-child(3)</span> &#123;</div><div class="line">	<span class="attribute">stroke</span>: <span class="number">#E7D84B</span>;</div><div class="line">	<span class="attribute">animation</span>: animation3 <span class="number">8s</span> infinite ease-in-out forwards;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.use-text</span><span class="selector-pseudo">:nth-child(4)</span> &#123;</div><div class="line">	<span class="attribute">stroke</span>: <span class="number">#EFEAC5</span>;</div><div class="line">	<span class="attribute">animation</span>: animation4 <span class="number">8s</span> infinite ease-in-out forwards;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.use-text</span><span class="selector-pseudo">:nth-child(5)</span> &#123;</div><div class="line">	<span class="attribute">stroke</span>: <span class="number">#1B8798</span>;</div><div class="line">	<span class="attribute">animation</span>: animation5 <span class="number">8s</span> infinite ease-in-out forwards;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">keyframes</span> animation1 &#123;</div><div class="line">	50%,70%&#123; <span class="attribute">stroke-dasharray</span>: <span class="number">7%</span> <span class="number">28%</span>; <span class="attribute">stroke-dashoffset</span>: <span class="number">7%</span>; &#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">keyframes</span> animation2 &#123;</div><div class="line">	50%,70%&#123; <span class="attribute">stroke-dasharray</span>: <span class="number">7%</span> <span class="number">28%</span>; <span class="attribute">stroke-dashoffset</span>: <span class="number">14%</span>; &#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">keyframes</span> animation3 &#123;</div><div class="line">	50%,70%&#123; <span class="attribute">stroke-dasharray</span>: <span class="number">7%</span> <span class="number">28%</span>; <span class="attribute">stroke-dashoffset</span>: <span class="number">21%</span>; &#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">keyframes</span> animation4 &#123;</div><div class="line">	50%, 70%&#123; <span class="attribute">stroke-dasharray</span>: <span class="number">7%</span> <span class="number">28%</span>; <span class="attribute">stroke-dashoffset</span>: <span class="number">28%</span>; &#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">keyframes</span> animation5 &#123;</div><div class="line">	50%,70%&#123; <span class="attribute">stroke-dasharray</span>: <span class="number">7%</span> <span class="number">28%</span>; <span class="attribute">stroke-dashoffset</span>: <span class="number">35%</span>; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="封装成组件"><a href="#封装成组件" class="headerlink" title="封装成组件"></a>封装成组件</h2><p>将圆环进度封装成Vue及React组件</p>
+<h3 id="React组件-Circle"><a href="#React组件-Circle" class="headerlink" title="React组件 - Circle"></a>React组件 - Circle</h3><p><a href="http://aitter.oschina.io/#/circle" target="_blank" rel="external">查看Demo</a></p>
+<p>使用方法</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">React.createClass(&#123;</div><div class="line">  getInitialState()&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      percent1: <span class="number">20</span>,</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  render()&#123;</div><div class="line">      <span class="keyword">const</span> precent1= <span class="keyword">this</span>.state.percent1</div><div class="line">      <span class="keyword">return</span> (</div><div class="line">          &lt;Circle </div><div class="line">            percent=&#123; percent1 &#125; </div><div class="line">            strokeWidth=&#123;<span class="number">8</span>&#125; </div><div class="line">            trailWidth=&#123;<span class="number">8</span>&#125; </div><div class="line">            strokeColor=<span class="string">"#34C0E3"</span>&gt;</div><div class="line">            &#123; percent1 &#125;</div><div class="line">        &lt;<span class="regexp">/Circle&gt;</span></div><div class="line"><span class="regexp">      )</span></div><div class="line"><span class="regexp">  &#125;</span></div></pre></td></tr></table></figure>
+<p>配置参数</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attribute">strokeWidth</span>: <span class="number">1</span>, <span class="comment">// 自定义描边宽度，这个宽度是相对于svg容器的</span></div><div class="line">    <span class="attribute">strokeColor</span>: <span class="string">'#37c7fa'</span>, <span class="comment">//自定义描边颜色</span></div><div class="line">    <span class="attribute">trailWidth</span>: <span class="number">1</span>, <span class="comment">// 自定义背景宽度</span></div><div class="line">    <span class="attribute">trailColor</span>: <span class="string">'#d9d9d9'</span>, <span class="comment">// 自定义背景颜色</span></div><div class="line">    <span class="attribute">percent</span>: <span class="number">0</span>, <span class="comment">//当前的进度</span></div><div class="line">    <span class="attribute">strokeLinecap</span>: <span class="string">'round'</span>, <span class="comment">//端点的样式</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>实现细节</p>
+<ul>
+<li>使用 <code>Math.PI * 2 * r</code> 来计算出圆的周长</li>
+<li>使用 <code>Path</code> 来绘制两段弧形组成圆形</li>
+<li>使用 <code>stroke-dashoffset</code> 来实现描边动画</li>
+<li>组件的大小由来层包装的容器决定</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> Circle = React.createClass(&#123;</div><div class="line">  getInitialState()&#123;</div><div class="line">    <span class="keyword">const</span> radius = <span class="number">50</span> - <span class="keyword">this</span>.props.strokeWidth / <span class="number">2</span>;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      radius: radius, <span class="comment">// 半径</span></div><div class="line">      len:  <span class="built_in">Math</span>.PI * <span class="number">2</span> * radius, <span class="comment">// 周长</span></div><div class="line">      pathString: <span class="string">`M 50,50 m 0,-<span class="subst">$&#123;radius&#125;</span></span></div><div class="line"><span class="string">            a <span class="subst">$&#123;radius&#125;</span>,<span class="subst">$&#123;radius&#125;</span> 0 1 1 0,<span class="subst">$&#123;<span class="number">2</span> * radius&#125;</span></span></div><div class="line"><span class="string">            a <span class="subst">$&#123;radius&#125;</span>,<span class="subst">$&#123;radius&#125;</span> 0 1 1 0,-<span class="subst">$&#123;<span class="number">2</span> * radius&#125;</span>`</span>,</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  render()&#123;</div><div class="line">    <span class="keyword">let</span> &#123; pathString, len, radius &#125; = <span class="keyword">this</span>.state;</div><div class="line"></div><div class="line">    <span class="keyword">let</span> &#123;</div><div class="line">      strokeWidth, strokeColor, trailWidth, trailColor, percent,</div><div class="line">      strokeLinecap, className, children, ...others</div><div class="line">    &#125; = <span class="keyword">this</span>.props;</div><div class="line"></div><div class="line">    <span class="keyword">const</span> pathStyle = &#123;</div><div class="line">      <span class="string">'strokeDasharray'</span>: <span class="string">`<span class="subst">$&#123;len&#125;</span>px <span class="subst">$&#123;len&#125;</span>px`</span>,</div><div class="line">      <span class="string">'strokeDashoffset'</span>: <span class="string">`<span class="subst">$&#123;((<span class="number">100</span> - percent) <span class="regexp">/ 100 * len)&#125;px`,</span></span></span></div><div class="line"><span class="string"><span class="subst"><span class="regexp">      'transition': 'stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease'</span></span></span></div><div class="line"><span class="string"><span class="subst"><span class="regexp">    &#125;</span></span></span></div><div class="line"><span class="string"><span class="subst"><span class="regexp"></span></span></span></div><div class="line"><span class="string"><span class="subst"><span class="regexp">    const cls = classNames('mt-circle', &#123;</span></span></span></div><div class="line"><span class="string"><span class="subst"><span class="regexp">      [className]: className</span></span></span></div><div class="line"><span class="string"><span class="subst"><span class="regexp">    &#125;)</span></span></span></div><div class="line"><span class="string"><span class="subst"><span class="regexp"></span></span></span></div><div class="line"><span class="string"><span class="subst"><span class="regexp">    return(</span></span></span></div><div class="line"><span class="string"><span class="subst"><span class="regexp">      &lt;div className=&#123; cls &#125;&gt;</span></span></span></div><div class="line"><span class="string"><span class="subst"><span class="regexp">        &lt;svg viewBox="0 0 100 100"&gt;</span></span></span></div><div class="line"><span class="string"><span class="subst"><span class="regexp">          &lt;path</span></span></span></div><div class="line"><span class="string"><span class="subst"><span class="regexp">            d=&#123; pathString &#125;</span></span></span></div><div class="line"><span class="string"><span class="subst"><span class="regexp">            stroke=&#123; trailColor &#125;</span></span></span></div><div class="line"><span class="string"><span class="subst"><span class="regexp">            strokeWidth=&#123; trailWidth &#125;</span></span></span></div><div class="line"><span class="string"><span class="subst"><span class="regexp">            fillOpacity="0"/</span>&gt;</span></span></div><div class="line"><span class="string"><span class="subst">          &lt;path</span></span></div><div class="line"><span class="string"><span class="subst">            d=&#123; pathString &#125;</span></span></div><div class="line"><span class="string">            strokeLinecap=&#123; strokeLinecap &#125;</span></div><div class="line"><span class="string">            stroke=&#123; strokeColor &#125;</span></div><div class="line"><span class="string">            strokeWidth=&#123; strokeWidth &#125;</span></div><div class="line"><span class="string">            fillOpacity="0"</span></div><div class="line"><span class="string">            style=&#123; pathStyle &#125;/&gt;</span></div><div class="line"><span class="string">        &lt;/svg&gt;</span></div><div class="line"><span class="string">        &lt;div className="mt-circle-content"&gt;&#123; children &#125;&lt;/div&gt;</span></div><div class="line"><span class="string">      &lt;/div&gt;</span></div><div class="line"><span class="string">    )</span></div><div class="line"><span class="string">  &#125;</span></div><div class="line"><span class="string">&#125;)</span></div></pre></td></tr></table></figure>
+<h3 id="Vue组件-ui-progress-circle"><a href="#Vue组件-ui-progress-circle" class="headerlink" title="Vue组件 - ui-progress-circle"></a>Vue组件 - ui-progress-circle</h3><iframe height="300" scrolling="no" title="SVG-progress-circle" src="//codepen.io/togglelt/embed/vJaVyX/?height=300&theme-id=13299&default-tab=result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/togglelt/pen/vJaVyX/" target="_blank" rel="external">SVG-progress-circle</a> by LT (<a href="https://codepen.io/togglelt" target="_blank" rel="external">@togglelt</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.<br></iframe>
+
+<p>基本原理与设置同上</p>
+<p>使用方法</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">&lt;progress-circle</div><div class="line">    :percent=<span class="string">"percent"</span></div><div class="line">    :strokeColor=<span class="string">"strokeColor"</span></div><div class="line">    :strokeWidth=<span class="string">"strokeWidth"</span></div><div class="line">    :size=<span class="string">"size"</span></div><div class="line">&gt;</div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#app'</span>,</div><div class="line">  template: <span class="string">'#main-page'</span>,</div><div class="line">  data: &#123;</div><div class="line">    percent:<span class="number">10</span>,</div><div class="line">    strokeColor: <span class="string">'#108EE9'</span>,</div><div class="line">    strokeWidth: <span class="number">5</span>,</div><div class="line">    size: <span class="number">140</span>,</div><div class="line">    pathLen: <span class="number">0</span>,</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>配置参数</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&apos;size&apos;: &#123;</div><div class="line">    type: Number,</div><div class="line">    default: 100,</div><div class="line">&#125;,</div><div class="line">&apos;percent&apos;:&#123;</div><div class="line">    type:Number,</div><div class="line">    default: 0</div><div class="line">&#125;, </div><div class="line">&apos;strokeWidth&apos;:&#123;</div><div class="line">    type:Number,</div><div class="line">    default: 8</div><div class="line">&#125;, </div><div class="line">&apos;strokeColor&apos;:&#123;</div><div class="line">    type:String,</div><div class="line">    default: &apos;#108EE9&apos;</div><div class="line">&#125;, </div><div class="line">&apos;trailColor&apos;:&#123;</div><div class="line">    type:String,</div><div class="line">    default: &apos;#F7F7F7&apos;</div><div class="line">&#125;, </div><div class="line">&apos;trailWidth&apos;:&#123;</div><div class="line">    type:Number,</div><div class="line">    default: 8</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>实现细节</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"progress-circle"</span>&gt;</div><div class="line">	&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"progress-circle-inner"</span> :style=<span class="string">"innerStyle"</span>&gt;</div><div class="line">		&lt;svg viewBox=<span class="string">"0 0 100 100"</span>&gt;</div><div class="line">			&lt;circle <span class="class"><span class="keyword">class</span></span>=<span class="string">"progress-circle-trail"</span> cx=<span class="string">"50"</span> cy=<span class="string">"50"</span> r=<span class="string">"40"</span> fill=<span class="string">"none"</span> :style=<span class="string">"trailStyle"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">circle</span>&gt;</span></span></div><div class="line">			&lt;circle <span class="class"><span class="keyword">class</span></span>=<span class="string">"progress-circle-path"</span> cx=<span class="string">"50"</span> cy=<span class="string">"50"</span> r=<span class="string">"40"</span> fill=<span class="string">"none"</span> :style=<span class="string">"strokeStyle"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">circle</span>&gt;</span></span></div><div class="line">		&lt;<span class="regexp">/svg&gt;</span></div><div class="line"><span class="regexp">	&lt;/</span>div&gt;</div><div class="line">	&lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"progress-circle-text"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">slot</span>&gt;</span><span class="tag">&lt;<span class="name">slot</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line"></div><div class="line"></div><div class="line">Vue.component(<span class="string">'progress-circle'</span>, &#123;</div><div class="line">	data:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> &#123;</div><div class="line">			len: <span class="built_in">Math</span>.PI*<span class="number">2</span>*<span class="number">40</span></div><div class="line">		&#125;</div><div class="line">	&#125;,</div><div class="line">	props: &#123;</div><div class="line">		<span class="string">'size'</span>: &#123;</div><div class="line">			type: <span class="built_in">Number</span>,</div><div class="line">			<span class="keyword">default</span>: <span class="number">100</span>,</div><div class="line">		&#125;,</div><div class="line">		<span class="string">'percent'</span>:&#123;</div><div class="line">			type:<span class="built_in">Number</span>,</div><div class="line">			<span class="keyword">default</span>: <span class="number">0</span></div><div class="line">		&#125;, </div><div class="line">		<span class="string">'strokeWidth'</span>:&#123;</div><div class="line">			type:<span class="built_in">Number</span>,</div><div class="line">			<span class="keyword">default</span>: <span class="number">8</span></div><div class="line">		&#125;, </div><div class="line">		<span class="string">'strokeColor'</span>:&#123;</div><div class="line">			type:<span class="built_in">String</span>,</div><div class="line">			<span class="keyword">default</span>: <span class="string">'#108EE9'</span></div><div class="line">		&#125;, </div><div class="line">		<span class="string">'trailColor'</span>:&#123;</div><div class="line">			type:<span class="built_in">String</span>,</div><div class="line">			<span class="keyword">default</span>: <span class="string">'#F7F7F7'</span></div><div class="line">		&#125;, </div><div class="line">		<span class="string">'trailWidth'</span>:&#123;</div><div class="line">			type:<span class="built_in">Number</span>,</div><div class="line">			<span class="keyword">default</span>: <span class="number">8</span></div><div class="line">		&#125;</div><div class="line">	&#125;,</div><div class="line">  template: <span class="string">'#progress-circle'</span>,</div><div class="line">	computed: &#123;</div><div class="line">		innerStyle: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="keyword">return</span> &#123; <span class="attr">width</span>:<span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.size&#125;</span>px`</span>, <span class="attr">height</span>: <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.size&#125;</span>px`</span>&#125;</div><div class="line">		&#125;,</div><div class="line">		strokeStyle: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="keyword">const</span> currPercent = <span class="keyword">this</span>.percent/<span class="number">100</span> * <span class="keyword">this</span>.len;</div><div class="line">			<span class="keyword">return</span> &#123;</div><div class="line">				<span class="string">'stroke'</span>:<span class="keyword">this</span>.strokeColor,</div><div class="line">				<span class="string">'stroke-dasharray'</span>:<span class="string">`<span class="subst">$&#123;currPercent&#125;</span>px, <span class="subst">$&#123;<span class="keyword">this</span>.len&#125;</span>px`</span>,</div><div class="line">				<span class="string">'stroke-width'</span>: <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.strokeWidth&#125;</span>px`</span>,</div><div class="line">			&#125;</div><div class="line">		&#125;,</div><div class="line">		trailStyle: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="keyword">return</span> &#123;</div><div class="line">				<span class="string">'stroke'</span>:<span class="keyword">this</span>.trailColor,</div><div class="line">				<span class="string">'stroke-dasharray'</span>:<span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.len&#125;</span>px, <span class="subst">$&#123;<span class="keyword">this</span>.len&#125;</span>px`</span>,</div><div class="line">				<span class="string">'stroke-width'</span>: <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.trailWidth&#125;</span>px`</span>,</div><div class="line">			&#125;</div><div class="line">		&#125;,</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SVG/" rel="tag"># SVG</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/07/mobile-web-debug/" rel="next" title="移动前端调试方法汇总">
+                <i class="fa fa-chevron-left"></i> 移动前端调试方法汇总
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/08/31/svg-line-effect/"
+     data-title="SVG线条动画应用"
+     data-content=""
+     data-url="http://toggle.coding.io/2017/08/31/svg-line-effect/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/08/31/svg-line-effect/"
+           data-title="SVG线条动画应用" data-url="http://toggle.coding.io/2017/08/31/svg-line-effect/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar100.jpg"
+               alt="Aitter" />
+          <p class="site-author-name" itemprop="name">Aitter</p>
+          <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">65</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/git-lt" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://hexo.io/" title="Hexo" target="_blank">Hexo</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3-版本的实现"><span class="nav-number">1.</span> <span class="nav-text">CSS3 版本的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#成功的动画"><span class="nav-number">1.1.</span> <span class="nav-text">成功的动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loading动画"><span class="nav-number">1.2.</span> <span class="nav-text">loading动画</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线条动画原理回顾"><span class="nav-number">2.</span> <span class="nav-text">线条动画原理回顾</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#两个关键的属性"><span class="nav-number">2.1.</span> <span class="nav-text">两个关键的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两种实现方式"><span class="nav-number">2.2.</span> <span class="nav-text">两种实现方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SVG微交互的实际应用"><span class="nav-number">3.</span> <span class="nav-text">SVG微交互的实际应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取Path的总长度"><span class="nav-number">4.</span> <span class="nav-text">获取Path的总长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用SVG标签参数解析"><span class="nav-number">5.</span> <span class="nav-text">常用SVG标签参数解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Circle-圆"><span class="nav-number">5.1.</span> <span class="nav-text">Circle 圆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Path-路径"><span class="nav-number">5.2.</span> <span class="nav-text">Path 路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Line-直线"><span class="nav-number">5.3.</span> <span class="nav-text">Line 直线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#polyline-折线"><span class="nav-number">5.4.</span> <span class="nav-text">polyline 折线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG成功动画"><span class="nav-number">5.5.</span> <span class="nav-text">SVG成功动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG失败动画"><span class="nav-number">5.6.</span> <span class="nav-text">SVG失败动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG加载动画"><span class="nav-number">5.7.</span> <span class="nav-text">SVG加载动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG-Logo动画"><span class="nav-number">5.8.</span> <span class="nav-text">SVG Logo动画</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#封装成组件"><span class="nav-number">6.</span> <span class="nav-text">封装成组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#React组件-Circle"><span class="nav-number">6.1.</span> <span class="nav-text">React组件 - Circle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue组件-ui-progress-circle"><span class="nav-number">6.2.</span> <span class="nav-text">Vue组件 - ui-progress-circle</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aitter</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"togglelt"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz", "IQ7Je02a33Mm5AVkAikKwxL2");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

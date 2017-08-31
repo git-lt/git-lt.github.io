@@ -85,11 +85,13 @@
 
 
 <meta name="description" content="自从ES6流行起来，Promise 的使用变得更频繁更广泛了，比如异步请求一般返回一个 Promise 对象，Generator 中 yield 后面一般跟 Promise 对象，ES7中 Async 函数中 await 后面一般也是 Promise 对象，还有更多的 NodeAPI 也会返回 Promise 对象，可以说现在的编程中 Promise 的使用无处不在，那么我们是否真的弄懂了 Pro">
+<meta name="keywords" content="ES6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解 Promise (上)">
 <meta property="og:url" content="http://toggle.coding.io/2016/12/03/promise-in-depth-an-introduction-1/index.html">
-<meta property="og:site_name" content="Aitter's Blog">
+<meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="自从ES6流行起来，Promise 的使用变得更频繁更广泛了，比如异步请求一般返回一个 Promise 对象，Generator 中 yield 后面一般跟 Promise 对象，ES7中 Async 函数中 await 后面一般也是 Promise 对象，还有更多的 NodeAPI 也会返回 Promise 对象，可以说现在的编程中 Promise 的使用无处不在，那么我们是否真的弄懂了 Pro">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-03-21T09:18:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解 Promise (上)">
@@ -508,7 +510,7 @@
 <figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> pA = [</div><div class="line">	<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span>=&gt;</span>resolve(<span class="number">1</span>))&#125;,</div><div class="line">	<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span>=&gt;</span>resolve(<span class="number">1</span>+data))&#125;,</div><div class="line">	<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span>=&gt;</span>resolve(<span class="number">1</span>+data))&#125;</div><div class="line">]</div><div class="line"></div><div class="line">pA.reduce(<span class="function">(<span class="params">prev, next</span>)=&gt;</span>prev.then(next).then(<span class="function"><span class="params">res</span>=&gt;</span>res),<span class="built_in">Promise</span>.resolve())</div><div class="line">.then(<span class="function"><span class="params">res</span>=&gt;</span><span class="built_in">console</span>.log(res))</div><div class="line"><span class="comment">// 3</span></div></pre></td></tr></table></figure>
 <h3 id="Promise-resolve的用法"><a href="#Promise-resolve的用法" class="headerlink" title="Promise.resolve的用法"></a>Promise.resolve的用法</h3><p><code>Promise.reoslve</code> 有一个作用就是可以将 <code>thenable</code> 对象转换为 <code>promise</code> 对象。</p>
 <p><code>thenable</code> 对象，指的是一个具有 <code>.then</code> 方法的对象。<br>要求是 <code>thenable</code> 对象所拥有的 <code>then</code> 方法应该和 <code>Promise</code> 所拥有的 <code>then</code> 方法具有同样的功能和处理过程。<br>一个标准的 thenable 对象应该是这样的</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> thenable = &#123;</div><div class="line">  <span class="attr">then</span>: <span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    resolve(<span class="number">42</span>);</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> thenable = &#123;</div><div class="line">  then: <span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    resolve(<span class="number">42</span>);</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <p>使用 Promise.resolve转换</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="built_in">Promise</span>.resolve(thenable).then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(value);  <span class="comment">// 42</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>同样具有标准的thenable特性的是 不同的实现Promise标准的类库，所以 ES6 Promise 与 Q 与buldbird 的对象都是可以互相转换的。</p>
@@ -657,7 +659,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">64</span>
+              <span class="site-state-item-count">65</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
