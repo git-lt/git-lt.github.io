@@ -1,15 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
 
 
 
@@ -27,36 +37,10 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
@@ -65,40 +49,25 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="性能优化," />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
 
 
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
 
 
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
+  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
 
 
 
-<meta name="description" content="前言在用户量日益增长和客户对体验要求越来越高的情况下，前端方面需进行性能优化，框架升级，优化开发流程，提高开发效率，改善用户体验，减少带宽消耗。以下参考 腾讯ISUX 及 阿里无线前端性能优化指南 理出以下前端性能优化升级项">
-<meta name="keywords" content="性能优化">
-<meta property="og:type" content="article">
-<meta property="og:title" content="洽客前端性能优化指南V1.0.0">
-<meta property="og:url" content="http://toggle.coding.io/2015/12/10/h5-performance/index.html">
-<meta property="og:site_name" content="Aitter&#39;s Blog">
-<meta property="og:description" content="前言在用户量日益增长和客户对体验要求越来越高的情况下，前端方面需进行性能优化，框架升级，优化开发流程，提高开发效率，改善用户体验，减少带宽消耗。以下参考 腾讯ISUX 及 阿里无线前端性能优化指南 理出以下前端性能优化升级项">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://isux.tencent.com/wp-content/uploads/2015/01/20150108170945527.png">
-<meta property="og:image" content="https://camo.githubusercontent.com/3f9c3d51b6afe0784ca3b664ca346f78196d77ad/687474703a2f2f696d67322e746263646e2e636e2f4c312f3436312f312f37636164373432316231363761613436323462356666626233386230613435656535643130643632">
-<meta property="og:updated_time" content="2015-12-10T12:31:46.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="洽客前端性能优化指南V1.0.0">
-<meta name="twitter:description" content="前言在用户量日益增长和客户对体验要求越来越高的情况下，前端方面需进行性能优化，框架升级，优化开发流程，提高开发效率，改善用户体验，减少带宽消耗。以下参考 腾讯ISUX 及 阿里无线前端性能优化指南 理出以下前端性能优化升级项">
-<meta name="twitter:image" content="http://isux.tencent.com/wp-content/uploads/2015/01/20150108170945527.png">
+
+
+
 
 
 
@@ -107,13 +76,13 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -125,19 +94,47 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="前言在用户量日益增长和客户对体验要求越来越高的情况下，前端方面需进行性能优化，框架升级，优化开发流程，提高开发效率，改善用户体验，减少带宽消耗。以下参考 腾讯ISUX 及 阿里无线前端性能优化指南 理出以下前端性能优化升级项">
+<meta name="keywords" content="性能优化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="洽客前端性能优化指南V1.0.0">
+<meta property="og:url" content="http://toggle.coding.io/2015/12/10/h5-performance/index.html">
+<meta property="og:site_name" content="Aitter&#39;s Blog">
+<meta property="og:description" content="前言在用户量日益增长和客户对体验要求越来越高的情况下，前端方面需进行性能优化，框架升级，优化开发流程，提高开发效率，改善用户体验，减少带宽消耗。以下参考 腾讯ISUX 及 阿里无线前端性能优化指南 理出以下前端性能优化升级项">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://isux.tencent.com/wp-content/uploads/2015/01/20150108170945527.png">
+<meta property="og:image" content="https://camo.githubusercontent.com/3f9c3d51b6afe0784ca3b664ca346f78196d77ad/687474703a2f2f696d67322e746263646e2e636e2f4c312f3436312f312f37636164373432316231363761613436323462356666626233386230613435656535643130643632">
+<meta property="og:updated_time" content="2015-12-10T12:31:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="洽客前端性能优化指南V1.0.0">
+<meta name="twitter:description" content="前言在用户量日益增长和客户对体验要求越来越高的情况下，前端方面需进行性能优化，框架升级，优化开发流程，提高开发效率，改善用户体验，减少带宽消耗。以下参考 腾讯ISUX 及 阿里无线前端性能优化指南 理出以下前端性能优化升级项">
+<meta name="twitter:image" content="http://isux.tencent.com/wp-content/uploads/2015/01/20150108170945527.png">
+
+
+
+
+
 
   <link rel="canonical" href="http://toggle.coding.io/2015/12/10/h5-performance/"/>
 
 
 
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title> 洽客前端性能优化指南V1.0.0 | Aitter's Blog </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>洽客前端性能优化指南V1.0.0 | Aitter's Blog</title>
   
+
+
+
 
 
 
@@ -145,7 +142,7 @@
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
+      hm.src = "https://hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
@@ -154,99 +151,134 @@
 
 
 
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
 
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
 
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Aitter's Blog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aitter's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">I can’t change the world, only change myself!</p>
+      
   </div>
-  <p class="site-subtitle">I can’t change the world, only change myself!</p>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+
+
 
 <nav class="site-nav">
-  
-
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+</li>
+
       
 
       
+      
     </ul>
+  
+
   
 
   
@@ -254,12 +286,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
 
@@ -272,32 +315,31 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2015/12/10/h5-performance/">
+  
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Aitter">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar100.jpg">
-  </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2015/12/10/h5-performance/">
 
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Aitter's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Aitter's Blog" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aitter">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar100.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aitter's Blog">
+    </span>
 
     
       <header class="post-header">
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                洽客前端性能优化指南V1.0.0
+          <h1 class="post-title" itemprop="name headline">洽客前端性能优化指南V1.0.0
               
             
           </h1>
@@ -306,15 +348,20 @@
         <div class="post-meta">
           <span class="post-time">
             
+                
+            
+
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-12-10T20:29:00+08:00">
-                2015-12-10
-              </time>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-10T20:29:00+08:00">2015-12-10</time>
             
 
+            
             
 
             
@@ -322,17 +369,17 @@
 
           
             <span class="post-category" >
+            
               <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/移动前端/" itemprop="url" rel="index">
-                    <span itemprop="name">移动前端</span>
-                  </a>
-                </span>
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/移动前端/" itemprop="url" rel="index"><span itemprop="name">移动前端</span></a></span>
 
                 
                 
@@ -344,13 +391,14 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2015/12/10/h5-performance/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/10/h5-performance/" itemprop="commentCount"></span>
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2015/12/10/h5-performance/" itemprop="commentCount"></span>
                 </a>
               </span>
             
-          
-
           
 
           
@@ -360,9 +408,13 @@
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
           
 
           
@@ -373,7 +425,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -420,7 +474,7 @@
 <li>异步请求数据缓存至Sessionstroage，设置缓存时间，减少请求次数，快速显示数据</li>
 <li><p>Native App将静态公用资源缓存至本地</p>
 <p> 代码需求：JS-使用LS缓存静态资源 | JS-使用SS缓存异步请求</p>
-<p> 参考：<a href="http://www.zhihu.com/question/28467444" target="_blank" rel="external">知乎</a><br> <a href="http://blog.csdn.net/a497785609/article/details/48321405" target="_blank" rel="external">移动端使用LocalStroage缓存JS与Css</a><br> <a href="http://www.open-open.com/lib/view/open1449498774019.html" target="_blank" rel="external">手机百度localstorage细粒度缓存介绍</a></p>
+<p> 参考：<a href="http://www.zhihu.com/question/28467444" target="_blank" rel="noopener">知乎</a><br> <a href="http://blog.csdn.net/a497785609/article/details/48321405" target="_blank" rel="noopener">移动端使用LocalStroage缓存JS与Css</a><br> <a href="http://www.open-open.com/lib/view/open1449498774019.html" target="_blank" rel="noopener">手机百度localstorage细粒度缓存介绍</a></p>
 </li>
 </ol>
 <h2 id="减少请求数"><a href="#减少请求数" class="headerlink" title="减少请求数"></a>减少请求数</h2><ol>
@@ -448,37 +502,34 @@
 <li>使用手淘滚动组件</li>
 <li>下拉刷新，上拉加载插件化</li>
 <li>动画效率提升优化</li>
-<li>分享内容优化 <a href="http://www.ui.cn/detail/50140.html" target="_blank" rel="external">一般化分享</a></li>
-<li>横竖屏提示优化<a href="http://www.xuanfengge.com/move-pages-anyway-screen-tips.html#more-5463" target="_blank" rel="external">lanscape.js</a></li>
+<li>分享内容优化 <a href="http://www.ui.cn/detail/50140.html" target="_blank" rel="noopener">一般化分享</a></li>
+<li>横竖屏提示优化<a href="http://www.xuanfengge.com/move-pages-anyway-screen-tips.html#more-5463" target="_blank" rel="noopener">lanscape.js</a></li>
 <li>字体屏幕适应</li>
 <li>DNS预解析 <code>&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//host/&quot;&gt;</code></li>
-<li>预渲染页面 <code>&lt;link rel=&quot;prerender&quot; href=&quot;http://www.cmcm.com&quot;&gt; prerendercmcm &lt;/link&gt;</code> <a href="http://blog.csdn.net/typename/article/details/38536167" target="_blank" rel="external">prerender</a></li>
+<li>预渲染页面 <code>&lt;link rel=&quot;prerender&quot; href=&quot;http://www.cmcm.com&quot;&gt; prerendercmcm &lt;/link&gt;</code> <a href="http://blog.csdn.net/typename/article/details/38536167" target="_blank" rel="noopener">prerender</a></li>
 </ol>
 <p>参考：</p>
 <ul>
-<li><a href="http://www.cnblogs.com/yexiaochai/p/4901341.html" target="_blank" rel="external">前端优化带来的思考，浅谈前端工程化</a></li>
-<li><a href="https://github.com/amfe/article/issues/1" target="_blank" rel="external">阿里无线前端性能优化指南</a></li>
-<li><a href="https://github.com/amfe/article/issues/21" target="_blank" rel="external">15年双11手淘前端技术巡演 - H5性能最佳实践</a></li>
-<li><a href="http://isux.tencent.com/h5-performance.html" target="_blank" rel="external">ISUX移动H5前端性能优化指南</a></li>
+<li><a href="http://www.cnblogs.com/yexiaochai/p/4901341.html" target="_blank" rel="noopener">前端优化带来的思考，浅谈前端工程化</a></li>
+<li><a href="https://github.com/amfe/article/issues/1" target="_blank" rel="noopener">阿里无线前端性能优化指南</a></li>
+<li><a href="https://github.com/amfe/article/issues/21" target="_blank" rel="noopener">15年双11手淘前端技术巡演 - H5性能最佳实践</a></li>
+<li><a href="http://isux.tencent.com/h5-performance.html" target="_blank" rel="noopener">ISUX移动H5前端性能优化指南</a></li>
 </ul>
 
       
     </div>
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
       
@@ -487,6 +538,10 @@
             <a href="/tags/性能优化/" rel="tag"># 性能优化</a>
           
         </div>
+      
+
+      
+      
       
 
       
@@ -514,30 +569,15 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
 
     <div class="post-spread">
-      
-        <div class="ds-share flat" data-thread-key="2015/12/10/h5-performance/"
-     data-title="洽客前端性能优化指南V1.0.0"
-     data-content=""
-     data-url="http://toggle.coding.io/2015/12/10/h5-performance/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
       
     </div>
   </div>
@@ -546,15 +586,11 @@
           </div>
           
 
+  
+    <div class="comments" id="comments">
+    </div>
+  
 
-          
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2015/12/10/h5-performance/"
-           data-title="洽客前端性能优化指南V1.0.0" data-url="http://toggle.coding.io/2015/12/10/h5-performance/">
-      </div>
-    
-  </div>
 
 
         </div>
@@ -570,106 +606,205 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             站点概览
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar100.jpg"
-               alt="Aitter" />
-          <p class="site-author-name" itemprop="name">Aitter</p>
-          <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">71</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar100.jpg"
+                alt="Aitter" />
+            
+              <p class="site-author-name" itemprop="name">Aitter</p>
+              <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
           </div>
 
           
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">14</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/git-lt" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank" title="Zhihu"><i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                  
+                </span>
+              
             </div>
           
 
           
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hexo.io/" title="Hexo" target="_blank">Hexo</a>
+                  </li>
+                
+              </ul>
             </div>
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
           
             
-              <span class="links-of-author-item">
-                <a href="https://github.com/git-lt" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank" title="Zhihu">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  Zhihu
-                </a>
-              </span>
-            
           
+          
+
         </div>
-
-        
-        
-
-        
-        
-          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-            <div class="links-of-blogroll-title">
-              <i class="fa  fa-fw fa-globe"></i>
-              友情链接
-            </div>
-            <ul class="links-of-blogroll-list">
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://hexo.io/" title="Hexo" target="_blank">Hexo</a>
-                </li>
-              
-            </ul>
-          </div>
-        
-
-        
-
-
       </section>
 
       
@@ -690,6 +825,8 @@
       <!--/noindex-->
       
 
+      
+
     </div>
   </aside>
 
@@ -700,38 +837,55 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2015 - 
-  <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Aitter</span>
+
+  
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.1.0</div>
+
+
 
 
         
+
+
+
+
+
+
+
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
   </div>
 
   
@@ -750,35 +904,12 @@
 
 
 
-  
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
 
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
@@ -786,68 +917,133 @@
   
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
 
 
 
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
 
   
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
 
 
 
   
 
-  
-    
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
   
 
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
   <script type="text/javascript">
-    var duoshuoQuery = {short_name:"togglelt"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz',
+        appKey: 'IQ7Je02a33Mm5AVkAikKwxL2',
+        placeholder: 'ヾﾉ≧∀≦)o来呀，快活呀!',
+        avatar:'monsterid',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
   </script>
 
+
+
   
-    
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
-  
-
-
-
 
 
 
 
 
   
-  
 
   
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz", "IQ7Je02a33Mm5AVkAikKwxL2");</script>
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz", "IQ7Je02a33Mm5AVkAikKwxL2#<app_key>");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);
@@ -903,35 +1099,24 @@
             var counter = results[0];
             counter.fetchWhenSave(true);
             counter.increment("time");
+            
             counter.save(null, {
               success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
               },
               error: function(counter, error) {
                 console.log('Failed to save Visitor num, with error message: ' + error.message);
               }
             });
           } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
           }
         },
         error: function(error) {
@@ -956,6 +1141,18 @@
 
   
 
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>

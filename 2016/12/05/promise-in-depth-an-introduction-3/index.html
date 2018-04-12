@@ -1,15 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
 
 
 
@@ -27,36 +37,10 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
@@ -65,39 +49,25 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ES6," />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
 
 
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
 
 
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
+  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
 
 
 
-<meta name="description" content="经过几天源码研究学习之后，基本上对Promise有了深入的了解，也手动封装了自己了Promise工具类，下面就是我们去在应用场景中去验证这个工具类的使用了">
-<meta name="keywords" content="ES6">
-<meta property="og:type" content="article">
-<meta property="og:title" content="深入理解 Promise (下)">
-<meta property="og:url" content="http://toggle.coding.io/2016/12/05/promise-in-depth-an-introduction-3/index.html">
-<meta property="og:site_name" content="Aitter&#39;s Blog">
-<meta property="og:description" content="经过几天源码研究学习之后，基本上对Promise有了深入的了解，也手动封装了自己了Promise工具类，下面就是我们去在应用场景中去验证这个工具类的使用了">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-04%20%E4%B8%8B%E5%8D%882.19.51.png">
-<meta property="og:updated_time" content="2016-12-05T02:10:03.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深入理解 Promise (下)">
-<meta name="twitter:description" content="经过几天源码研究学习之后，基本上对Promise有了深入的了解，也手动封装了自己了Promise工具类，下面就是我们去在应用场景中去验证这个工具类的使用了">
-<meta name="twitter:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-04%20%E4%B8%8B%E5%8D%882.19.51.png">
+
+
+
 
 
 
@@ -106,13 +76,13 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -124,19 +94,46 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="经过几天源码研究学习之后，基本上对Promise有了深入的了解，也手动封装了自己了Promise工具类，下面就是我们去在应用场景中去验证这个工具类的使用了">
+<meta name="keywords" content="ES6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入理解 Promise (下)">
+<meta property="og:url" content="http://toggle.coding.io/2016/12/05/promise-in-depth-an-introduction-3/index.html">
+<meta property="og:site_name" content="Aitter&#39;s Blog">
+<meta property="og:description" content="经过几天源码研究学习之后，基本上对Promise有了深入的了解，也手动封装了自己了Promise工具类，下面就是我们去在应用场景中去验证这个工具类的使用了">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-04%20%E4%B8%8B%E5%8D%882.19.51.png">
+<meta property="og:updated_time" content="2016-12-05T02:10:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="深入理解 Promise (下)">
+<meta name="twitter:description" content="经过几天源码研究学习之后，基本上对Promise有了深入的了解，也手动封装了自己了Promise工具类，下面就是我们去在应用场景中去验证这个工具类的使用了">
+<meta name="twitter:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-04%20%E4%B8%8B%E5%8D%882.19.51.png">
+
+
+
+
+
 
   <link rel="canonical" href="http://toggle.coding.io/2016/12/05/promise-in-depth-an-introduction-3/"/>
 
 
 
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title> 深入理解 Promise (下) | Aitter's Blog </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>深入理解 Promise (下) | Aitter's Blog</title>
   
+
+
+
 
 
 
@@ -144,7 +141,7 @@
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
+      hm.src = "https://hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
@@ -153,99 +150,134 @@
 
 
 
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
 
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
 
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Aitter's Blog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aitter's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">I can’t change the world, only change myself!</p>
+      
   </div>
-  <p class="site-subtitle">I can’t change the world, only change myself!</p>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+
+
 
 <nav class="site-nav">
-  
-
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+</li>
+
       
 
       
+      
     </ul>
+  
+
   
 
   
@@ -253,12 +285,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
 
@@ -271,32 +314,31 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2016/12/05/promise-in-depth-an-introduction-3/">
+  
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Aitter">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar100.jpg">
-  </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2016/12/05/promise-in-depth-an-introduction-3/">
 
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Aitter's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Aitter's Blog" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aitter">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar100.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aitter's Blog">
+    </span>
 
     
       <header class="post-header">
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                深入理解 Promise (下)
+          <h1 class="post-title" itemprop="name headline">深入理解 Promise (下)
               
             
           </h1>
@@ -305,15 +347,20 @@
         <div class="post-meta">
           <span class="post-time">
             
+                
+            
+
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-05T09:20:59+08:00">
-                2016-12-05
-              </time>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-05T09:20:59+08:00">2016-12-05</time>
             
 
+            
             
 
             
@@ -321,17 +368,17 @@
 
           
             <span class="post-category" >
+            
               <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
 
                 
                 
@@ -343,13 +390,14 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2016/12/05/promise-in-depth-an-introduction-3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/05/promise-in-depth-an-introduction-3/" itemprop="commentCount"></span>
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/12/05/promise-in-depth-an-introduction-3/" itemprop="commentCount"></span>
                 </a>
               </span>
             
-          
-
           
 
           
@@ -359,9 +407,13 @@
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
           
 
           
@@ -372,7 +424,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -380,7 +434,7 @@
 
       
         <p>经过几天源码研究学习之后，基本上对Promise有了深入的了解，也手动封装了自己了Promise工具类，下面就是我们去在应用场景中去验证这个工具类的使用了<br><a id="more"></a></p>
-<p><strong><a href="http://coderlt.coding.me/2016/12/03/promise-in-depth-an-introduction-1/" target="_blank" rel="external">上 - 理论知识</a></strong></p>
+<p><strong><a href="http://coderlt.coding.me/2016/12/03/promise-in-depth-an-introduction-1/" target="_blank" rel="noopener">上 - 理论知识</a></strong></p>
 <ul>
 <li>Promise 规范</li>
 <li>ES6 Promise API</li>
@@ -398,7 +452,7 @@
 </li>
 <li>最佳实践</li>
 </ul>
-<p><strong><a href="http://coderlt.coding.me/2016/12/04/promise-in-depth-an-introduction-2/" target="_blank" rel="external">中 - 手动封装</a></strong></p>
+<p><strong><a href="http://coderlt.coding.me/2016/12/04/promise-in-depth-an-introduction-2/" target="_blank" rel="noopener">中 - 手动封装</a></strong></p>
 <ul>
 <li>实现一个简单的 Promise工具类<ul>
 <li>Promise类的结构</li>
@@ -424,7 +478,7 @@
 <li>测试</li>
 <li>源码</li>
 </ul>
-<p><strong><a href="http://coderlt.coding.me/2016/12/05/promise-in-depth-an-introduction-3/" target="_blank" rel="external">下 - 实践应用</a></strong></p>
+<p><strong><a href="http://coderlt.coding.me/2016/12/05/promise-in-depth-an-introduction-3/" target="_blank" rel="noopener">下 - 实践应用</a></strong></p>
 <ul>
 <li>结合应用场景使用Promise<ul>
 <li>使用Promise编写Web Notifications提示</li>
@@ -448,41 +502,38 @@
 <li>如果没有点击，则2s之后自动关闭</li>
 <li>关闭之后打印消息</li>
 </ol>
-<p>代码逻辑<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> msgOpt = &#123;</div><div class="line">	body:<span class="string">'你今天还有需要完成的任务哦！'</span>,</div><div class="line">	icon:<span class="string">'http://7xi480.com1.z0.glb.clouddn.com/avatar100.jpg'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 是否允许显示桌面通知</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">requestNoti</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">new</span> MPromise(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123;</div><div class="line">		<span class="keyword">if</span>(Notification.permission === <span class="string">'granted'</span>)&#123;</div><div class="line">			resolve()</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			Notification.requestPermission(<span class="function"><span class="keyword">function</span> (<span class="params">status</span>) </span>&#123;</div><div class="line">	            <span class="keyword">if</span> (Notification.permission !== status) &#123;</div><div class="line">	                Notification.permission = status;</div><div class="line">	            &#125;</div><div class="line">	            <span class="keyword">if</span> (status === <span class="string">'granted'</span>) &#123;</div><div class="line">	                resolve()</div><div class="line">	            &#125; <span class="keyword">else</span> &#123;</div><div class="line">	                reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'user denied'</span>));</div><div class="line">	            &#125;</div><div class="line">	        &#125;);</div><div class="line">		&#125;</div><div class="line">	&#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 显示通知</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">showNoti</span>(<span class="params">msgObj</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">new</span> MPromise(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123;</div><div class="line">		<span class="keyword">var</span> n = <span class="keyword">new</span> Notification(<span class="string">'通知'</span>,msgObj)</div><div class="line">	</div><div class="line">		<span class="comment">// 3s钟之内，无论是用户点击还是超时未点击关闭，都将关闭通知</span></div><div class="line">		MPromise.timeout(closeNoti(), <span class="number">3000</span>).always(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line">			n.close();</div><div class="line">			resolve();</div><div class="line">		&#125;)</div><div class="line">	</div><div class="line">		<span class="comment">// 如果打开失败 reject 触发rejected回调</span></div><div class="line">		n.addEventListener(<span class="string">'error'</span>, reject)</div><div class="line">	</div><div class="line">		<span class="function"><span class="keyword">function</span> <span class="title">closeNoti</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">new</span> MPromise(<span class="function"><span class="params">rs</span> =&gt;</span> &#123;</div><div class="line">				n.addEventListener(<span class="string">'click'</span>, rs)</div><div class="line">				n.addEventListener(<span class="string">'close'</span>, rs)</div><div class="line">			&#125;)</div><div class="line">		&#125;</div><div class="line">	&#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 开始</span></div><div class="line">requestNoti()</div><div class="line">	.then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">'显示 桌面通知'</span>)</div><div class="line">		<span class="keyword">return</span> showNoti(msgOpt)</div><div class="line">	&#125;)</div><div class="line">	.catch(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">'中断 不允许显示桌面通知'</span>)</div><div class="line">		<span class="keyword">return</span> MPromise.stop();</div><div class="line">	&#125;)</div><div class="line">	.then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">'关闭 桌面通知'</span>)</div><div class="line">	&#125;)</div><div class="line">	.catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">'失败 桌面通知打开失败'</span>)</div><div class="line">	&#125;)</div></pre></td></tr></table></figure></p>
+<p>代码逻辑<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> msgOpt = &#123;</span><br><span class="line">	body:<span class="string">'你今天还有需要完成的任务哦！'</span>,</span><br><span class="line">	icon:<span class="string">'http://7xi480.com1.z0.glb.clouddn.com/avatar100.jpg'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否允许显示桌面通知</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">requestNoti</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> MPromise(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(Notification.permission === <span class="string">'granted'</span>)&#123;</span><br><span class="line">			resolve()</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			Notification.requestPermission(<span class="function"><span class="keyword">function</span> (<span class="params">status</span>) </span>&#123;</span><br><span class="line">	            <span class="keyword">if</span> (Notification.permission !== status) &#123;</span><br><span class="line">	                Notification.permission = status;</span><br><span class="line">	            &#125;</span><br><span class="line">	            <span class="keyword">if</span> (status === <span class="string">'granted'</span>) &#123;</span><br><span class="line">	                resolve()</span><br><span class="line">	            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	                reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'user denied'</span>));</span><br><span class="line">	            &#125;</span><br><span class="line">	        &#125;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 显示通知</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showNoti</span>(<span class="params">msgObj</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> MPromise(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> n = <span class="keyword">new</span> Notification(<span class="string">'通知'</span>,msgObj)</span><br><span class="line">	</span><br><span class="line">		<span class="comment">// 3s钟之内，无论是用户点击还是超时未点击关闭，都将关闭通知</span></span><br><span class="line">		MPromise.timeout(closeNoti(), <span class="number">3000</span>).always(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">			n.close();</span><br><span class="line">			resolve();</span><br><span class="line">		&#125;)</span><br><span class="line">	</span><br><span class="line">		<span class="comment">// 如果打开失败 reject 触发rejected回调</span></span><br><span class="line">		n.addEventListener(<span class="string">'error'</span>, reject)</span><br><span class="line">	</span><br><span class="line">		<span class="function"><span class="keyword">function</span> <span class="title">closeNoti</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> MPromise(<span class="function"><span class="params">rs</span> =&gt;</span> &#123;</span><br><span class="line">				n.addEventListener(<span class="string">'click'</span>, rs)</span><br><span class="line">				n.addEventListener(<span class="string">'close'</span>, rs)</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 开始</span></span><br><span class="line">requestNoti()</span><br><span class="line">	.then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'显示 桌面通知'</span>)</span><br><span class="line">		<span class="keyword">return</span> showNoti(msgOpt)</span><br><span class="line">	&#125;)</span><br><span class="line">	.catch(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'中断 不允许显示桌面通知'</span>)</span><br><span class="line">		<span class="keyword">return</span> MPromise.stop();</span><br><span class="line">	&#125;)</span><br><span class="line">	.then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'关闭 桌面通知'</span>)</span><br><span class="line">	&#125;)</span><br><span class="line">	.catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'失败 桌面通知打开失败'</span>)</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure></p>
 <p>这里API的应用<br><code>timeout()</code> 用于限制2s钟之内，通知必须关闭<br><code>always()</code> 与timeout结合使用<br><code>stop()</code>  在promise链的中途停止后面的执行</p>
 <h2 id="使用Deferred封装异步请求"><a href="#使用Deferred封装异步请求" class="headerlink" title="使用Deferred封装异步请求"></a>使用Deferred封装异步请求</h2><p>这里为什么使用Deferred来封装异步请求呢？<br>因为使用 <code>new Promise()</code> 的形式会有多一层嵌套，使用 <code>deferred</code> 可以对流程控制自由定制</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajaxGet</span>(<span class="params">URL</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> deferred = MPromise.deferred();</div><div class="line">    <span class="keyword">var</span> req = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">    req.open(<span class="string">'GET'</span>, URL, <span class="literal">true</span>);</div><div class="line">    req.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (req.status === <span class="number">200</span>) &#123;</div><div class="line">            deferred.resolve(req.responseText);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            deferred.reject(<span class="keyword">new</span> <span class="built_in">Error</span>(req.statusText));</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    req.onerror = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        deferred.reject(<span class="keyword">new</span> <span class="built_in">Error</span>(req.statusText));</div><div class="line">    &#125;;</div><div class="line">    req.send();</div><div class="line">	</div><div class="line">	<span class="keyword">var</span> abort = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (req.readyState !== XMLHttpRequest.UNSENT) &#123;</div><div class="line">            req.abort();</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">	    promise: deferred.promise,</div><div class="line">	    abort: abort</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">ajaxGet(<span class="string">'d1.json'</span>).promise</div><div class="line">	.then(<span class="function"><span class="params">res</span>=&gt;</span><span class="built_in">JSON</span>.parse(res))</div><div class="line">	.catch(<span class="function"><span class="params">err</span>=&gt;</span><span class="built_in">console</span>.log(err))</div><div class="line">	.then(<span class="function"><span class="params">res</span>=&gt;</span><span class="built_in">console</span>.log(res))</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajaxGet</span>(<span class="params">URL</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> deferred = MPromise.deferred();</span><br><span class="line">    <span class="keyword">var</span> req = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    req.open(<span class="string">'GET'</span>, URL, <span class="literal">true</span>);</span><br><span class="line">    req.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (req.status === <span class="number">200</span>) &#123;</span><br><span class="line">            deferred.resolve(req.responseText);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            deferred.reject(<span class="keyword">new</span> <span class="built_in">Error</span>(req.statusText));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    req.onerror = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        deferred.reject(<span class="keyword">new</span> <span class="built_in">Error</span>(req.statusText));</span><br><span class="line">    &#125;;</span><br><span class="line">    req.send();</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">var</span> abort = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (req.readyState !== XMLHttpRequest.UNSENT) &#123;</span><br><span class="line">            req.abort();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">	    promise: deferred.promise,</span><br><span class="line">	    abort: abort</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ajaxGet(<span class="string">'d1.json'</span>).promise</span><br><span class="line">	.then(<span class="function"><span class="params">res</span>=&gt;</span><span class="built_in">JSON</span>.parse(res))</span><br><span class="line">	.catch(<span class="function"><span class="params">err</span>=&gt;</span><span class="built_in">console</span>.log(err))</span><br><span class="line">	.then(<span class="function"><span class="params">res</span>=&gt;</span><span class="built_in">console</span>.log(res))</span><br></pre></td></tr></table></figure>
 <h2 id="异步请求的超时处理"><a href="#异步请求的超时处理" class="headerlink" title="异步请求的超时处理"></a>异步请求的超时处理</h2><p>发起一个异步请求，如果3s内还没有请求成功，则取消请求</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> getData = ajaxGet(<span class="string">'d1.json'</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'显示loading'</span>)</div><div class="line">MPromise.timeout(getData.promise, <span class="number">3000</span>)</div><div class="line">	.then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="built_in">JSON</span>.parse(res);</div><div class="line">	&#125;, err=&gt;&#123;</div><div class="line">		<span class="keyword">if</span>(err <span class="keyword">instanceof</span> <span class="built_in">window</span>.TimeoutError)&#123;</div><div class="line">			getData.abort();</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'请求超时，取消请求'</span>)</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			<span class="keyword">throw</span> err;</div><div class="line">		&#125;</div><div class="line">	&#125;)</div><div class="line">	.then(<span class="function"><span class="params">res</span>=&gt;</span>&#123; <span class="built_in">console</span>.log(<span class="string">'请求成功: '</span>, res); &#125;)</div><div class="line">	.always(<span class="function"><span class="params">()</span>=&gt;</span>&#123; <span class="built_in">console</span>.log(<span class="string">'取消loading'</span>) &#125;)</div><div class="line">	.catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123; <span class="built_in">console</span>.log(err) &#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> getData = ajaxGet(<span class="string">'d1.json'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'显示loading'</span>)</span><br><span class="line">MPromise.timeout(getData.promise, <span class="number">3000</span>)</span><br><span class="line">	.then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">JSON</span>.parse(res);</span><br><span class="line">	&#125;, err=&gt;&#123;</span><br><span class="line">		<span class="keyword">if</span>(err <span class="keyword">instanceof</span> <span class="built_in">window</span>.TimeoutError)&#123;</span><br><span class="line">			getData.abort();</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'请求超时，取消请求'</span>)</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">throw</span> err;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">	.then(<span class="function"><span class="params">res</span>=&gt;</span>&#123; <span class="built_in">console</span>.log(<span class="string">'请求成功: '</span>, res); &#125;)</span><br><span class="line">	.always(<span class="function"><span class="params">()</span>=&gt;</span>&#123; <span class="built_in">console</span>.log(<span class="string">'取消loading'</span>) &#125;)</span><br><span class="line">	.catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123; <span class="built_in">console</span>.log(err) &#125;)</span><br></pre></td></tr></table></figure>
 <h2 id="基于Promise的fs方法链"><a href="#基于Promise的fs方法链" class="headerlink" title="基于Promise的fs方法链"></a>基于Promise的fs方法链</h2><p>使用Promise对fs封装的好处是可以很方便的异步处理文件流，对错误可以集中式处理，如果是同步使用fs相关方法，错误处理将会变得复杂</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</div><div class="line"><span class="keyword">var</span> MPromise = <span class="built_in">require</span>(<span class="string">'./promise_browser'</span>);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">File</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.promise = MPromise.resolve();</div><div class="line">&#125;</div><div class="line"><span class="comment">// Static method for File.prototype.read</span></div><div class="line">File.read = <span class="function"><span class="keyword">function</span> (<span class="params">filePath</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> file = <span class="keyword">new</span> File();</div><div class="line">    <span class="keyword">return</span> file.read(filePath);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">File.prototype.then = <span class="function"><span class="keyword">function</span> (<span class="params">onFulfilled, onRejected</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.promise = <span class="keyword">this</span>.promise.then(onFulfilled, onRejected);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">&#125;;</div><div class="line">File.prototype[<span class="string">"catch"</span>] = <span class="function"><span class="keyword">function</span> (<span class="params">onRejected</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.promise = <span class="keyword">this</span>.promise.catch(onRejected);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">&#125;;</div><div class="line">File.prototype.read = <span class="function"><span class="keyword">function</span> (<span class="params">filePath</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> fs.readFileSync(filePath, <span class="string">"utf-8"</span>);</div><div class="line">    &#125;);</div><div class="line">&#125;;</div><div class="line">File.prototype.transform = <span class="function"><span class="keyword">function</span> (<span class="params">fn</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.then(fn);</div><div class="line">&#125;;</div><div class="line">File.prototype.write = <span class="function"><span class="keyword">function</span> (<span class="params">filePath</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.then(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> fs.writeFileSync(filePath, data)</div><div class="line">    &#125;);</div><div class="line">&#125;;</div><div class="line"><span class="built_in">module</span>.exports = File;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"><span class="keyword">var</span> MPromise = <span class="built_in">require</span>(<span class="string">'./promise_browser'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">File</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.promise = MPromise.resolve();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Static method for File.prototype.read</span></span><br><span class="line">File.read = <span class="function"><span class="keyword">function</span> (<span class="params">filePath</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> file = <span class="keyword">new</span> File();</span><br><span class="line">    <span class="keyword">return</span> file.read(filePath);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">File.prototype.then = <span class="function"><span class="keyword">function</span> (<span class="params">onFulfilled, onRejected</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.promise = <span class="keyword">this</span>.promise.then(onFulfilled, onRejected);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;;</span><br><span class="line">File.prototype[<span class="string">"catch"</span>] = <span class="function"><span class="keyword">function</span> (<span class="params">onRejected</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.promise = <span class="keyword">this</span>.promise.catch(onRejected);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;;</span><br><span class="line">File.prototype.read = <span class="function"><span class="keyword">function</span> (<span class="params">filePath</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> fs.readFileSync(filePath, <span class="string">"utf-8"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br><span class="line">File.prototype.transform = <span class="function"><span class="keyword">function</span> (<span class="params">fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.then(fn);</span><br><span class="line">&#125;;</span><br><span class="line">File.prototype.write = <span class="function"><span class="keyword">function</span> (<span class="params">filePath</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.then(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> fs.writeFileSync(filePath, data)</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">module</span>.exports = File;</span><br></pre></td></tr></table></figure>
 <p>使用</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> File = <span class="built_in">require</span>(<span class="string">"./fs-promise-chain"</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> inputFilePath = <span class="string">"input.txt"</span>,</div><div class="line">    outputFilePath = <span class="string">"output.txt"</span>;</div><div class="line"></div><div class="line">File.read(inputFilePath)</div><div class="line">    .transform(<span class="function"><span class="keyword">function</span> (<span class="params">content</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"&gt;&gt;"</span> + content;</div><div class="line">    &#125;)</div><div class="line">    .write(outputFilePath)</div><div class="line">    .catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</div><div class="line">    	<span class="built_in">console</span>.log(err)</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> File = <span class="built_in">require</span>(<span class="string">"./fs-promise-chain"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> inputFilePath = <span class="string">"input.txt"</span>,</span><br><span class="line">    outputFilePath = <span class="string">"output.txt"</span>;</span><br><span class="line"></span><br><span class="line">File.read(inputFilePath)</span><br><span class="line">    .transform(<span class="function"><span class="keyword">function</span> (<span class="params">content</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&gt;&gt;"</span> + content;</span><br><span class="line">    &#125;)</span><br><span class="line">    .write(outputFilePath)</span><br><span class="line">    .catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">    	<span class="built_in">console</span>.log(err)</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
 <p>对于 nodejs 相关的异步处理，<code>Q</code> 或 <code>bluebirde</code> 都有相关的API用于包装成Promise对象，</p>
-<p>例如 <code>bluebirde</code> 中可以使用 <code>Promise.promisify</code> 方法进行包装<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> readFile = <span class="built_in">Promise</span>.promisify(<span class="built_in">require</span>(<span class="string">"fs"</span>).readFile);</div><div class="line"></div><div class="line">readFile(<span class="string">"myfile.js"</span>, <span class="string">"utf8"</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">contents</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">eval</span>(contents);</div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">result</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"The result of evaluating myfile.js"</span>, result);</div><div class="line">&#125;).catch(<span class="built_in">SyntaxError</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"File had syntax error"</span>, e);</div><div class="line"><span class="comment">//Catch any other error</span></div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"Error reading file"</span>, e);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>例如 <code>bluebirde</code> 中可以使用 <code>Promise.promisify</code> 方法进行包装<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> readFile = <span class="built_in">Promise</span>.promisify(<span class="built_in">require</span>(<span class="string">"fs"</span>).readFile);</span><br><span class="line"></span><br><span class="line">readFile(<span class="string">"myfile.js"</span>, <span class="string">"utf8"</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">contents</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">eval</span>(contents);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">result</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"The result of evaluating myfile.js"</span>, result);</span><br><span class="line">&#125;).catch(<span class="built_in">SyntaxError</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"File had syntax error"</span>, e);</span><br><span class="line"><span class="comment">//Catch any other error</span></span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Error reading file"</span>, e);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <p>这里还是建议大家使用 <code>Q</code> 或者 <code>bluebirde</code> 等相关成熟的Promise方案，本系列的Promise学习就到这里的，在此过程中封装的Promise工具类也主要用于学习和理解Promise的原理。</p>
 <p>重点是我们掌握了Promise的使用之后，能更好的和ES7 的 <code>Async/await</code> 结合起来使用，那么以后的异步处理就更加得心应手了。</p>
 <p>据说 node7.0 已经支持 <code>Async/await</code> ，让我们视目以待吧。</p>
-<p>相关示例源码，请至 <a href="https://github.com/git-lt/MPromise" target="_blank" rel="external">MPromise
+<p>相关示例源码，请至 <a href="https://github.com/git-lt/MPromise" target="_blank" rel="noopener">MPromise
 </a> 查看</p>
 
       
     </div>
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
       
@@ -491,6 +542,10 @@
             <a href="/tags/ES6/" rel="tag"># ES6</a>
           
         </div>
+      
+
+      
+      
       
 
       
@@ -518,30 +573,15 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
 
     <div class="post-spread">
-      
-        <div class="ds-share flat" data-thread-key="2016/12/05/promise-in-depth-an-introduction-3/"
-     data-title="深入理解 Promise (下)"
-     data-content=""
-     data-url="http://toggle.coding.io/2016/12/05/promise-in-depth-an-introduction-3/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
       
     </div>
   </div>
@@ -550,15 +590,11 @@
           </div>
           
 
+  
+    <div class="comments" id="comments">
+    </div>
+  
 
-          
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2016/12/05/promise-in-depth-an-introduction-3/"
-           data-title="深入理解 Promise (下)" data-url="http://toggle.coding.io/2016/12/05/promise-in-depth-an-introduction-3/">
-      </div>
-    
-  </div>
 
 
         </div>
@@ -574,106 +610,205 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             站点概览
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar100.jpg"
-               alt="Aitter" />
-          <p class="site-author-name" itemprop="name">Aitter</p>
-          <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">71</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar100.jpg"
+                alt="Aitter" />
+            
+              <p class="site-author-name" itemprop="name">Aitter</p>
+              <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
           </div>
 
           
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">14</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/git-lt" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank" title="Zhihu"><i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                  
+                </span>
+              
             </div>
           
 
           
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hexo.io/" title="Hexo" target="_blank">Hexo</a>
+                  </li>
+                
+              </ul>
             </div>
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
           
             
-              <span class="links-of-author-item">
-                <a href="https://github.com/git-lt" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank" title="Zhihu">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  Zhihu
-                </a>
-              </span>
-            
           
+          
+
         </div>
-
-        
-        
-
-        
-        
-          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-            <div class="links-of-blogroll-title">
-              <i class="fa  fa-fw fa-globe"></i>
-              友情链接
-            </div>
-            <ul class="links-of-blogroll-list">
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://hexo.io/" title="Hexo" target="_blank">Hexo</a>
-                </li>
-              
-            </ul>
-          </div>
-        
-
-        
-
-
       </section>
 
       
@@ -694,6 +829,8 @@
       <!--/noindex-->
       
 
+      
+
     </div>
   </aside>
 
@@ -704,38 +841,55 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2015 - 
-  <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Aitter</span>
+
+  
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.1.0</div>
+
+
 
 
         
+
+
+
+
+
+
+
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
   </div>
 
   
@@ -754,35 +908,12 @@
 
 
 
-  
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
 
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
@@ -790,68 +921,133 @@
   
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
 
 
 
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
 
   
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
 
 
 
   
 
-  
-    
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
   
 
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
   <script type="text/javascript">
-    var duoshuoQuery = {short_name:"togglelt"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz',
+        appKey: 'IQ7Je02a33Mm5AVkAikKwxL2',
+        placeholder: 'ヾﾉ≧∀≦)o来呀，快活呀!',
+        avatar:'monsterid',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
   </script>
 
+
+
   
-    
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
-  
-
-
-
 
 
 
 
 
   
-  
 
   
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz", "IQ7Je02a33Mm5AVkAikKwxL2");</script>
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz", "IQ7Je02a33Mm5AVkAikKwxL2#<app_key>");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);
@@ -907,35 +1103,24 @@
             var counter = results[0];
             counter.fetchWhenSave(true);
             counter.increment("time");
+            
             counter.save(null, {
               success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
               },
               error: function(counter, error) {
                 console.log('Failed to save Visitor num, with error message: ' + error.message);
               }
             });
           } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
           }
         },
         error: function(error) {
@@ -960,6 +1145,18 @@
 
   
 
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>

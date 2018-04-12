@@ -1,15 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
 
 
 
@@ -27,36 +37,10 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
@@ -65,33 +49,64 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS3," />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
 
 
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
 
 
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
+  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
 
 
 
-<meta name="description" content="随着CSS3动画的普及，应用CSS3动画的活动页、宣传页、专题页，如雨后春笋般破土而出，达到了很好的传播与品牌宣传的效果。 H5几乎成为了移动端宣传的主流方式，不管是商业活动还是品牌推广宣传，大多都会选择制作H5页面来进行相应的宣传工作，因此在移动端，特别是微信上，几乎每天都能发现H5页面的踪影。">
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="随着CSS3动画的普及，应用CSS3动画的活动页、宣传页、专题页，如雨后春笋般破土而出，达到了很好的传播与品牌宣传的效果。 H5几乎成为了移动端宣传的主流方式，不管是商业活动还是品牌推广宣传，大多都会选择制作H5页面来进行相应的宣传工作，因此在移动端，特别是微信上，几乎每天都能发现H5页面的踪影。">
 <meta name="keywords" content="CSS3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="动画系列之Qzone5.0的H5技术分析">
 <meta property="og:url" content="http://toggle.coding.io/2017/06/09/animation-qzone/index.html">
 <meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="随着CSS3动画的普及，应用CSS3动画的活动页、宣传页、专题页，如雨后春笋般破土而出，达到了很好的传播与品牌宣传的效果。 H5几乎成为了移动端宣传的主流方式，不管是商业活动还是品牌推广宣传，大多都会选择制作H5页面来进行相应的宣传工作，因此在移动端，特别是微信上，几乎每天都能发现H5页面的踪影。">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/20150309180731626.gif">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-07%20%E4%B8%8B%E5%8D%882.18.52.png">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/2xxxx.pic.jpg">
@@ -105,27 +120,6 @@
 
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
 
 
 
@@ -133,14 +127,17 @@
 
 
 
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title> 动画系列之Qzone5.0的H5技术分析 | Aitter's Blog </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>动画系列之Qzone5.0的H5技术分析 | Aitter's Blog</title>
   
+
+
+
 
 
 
@@ -148,7 +145,7 @@
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
+      hm.src = "https://hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
@@ -157,99 +154,134 @@
 
 
 
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
 
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
 
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Aitter's Blog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aitter's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">I can’t change the world, only change myself!</p>
+      
   </div>
-  <p class="site-subtitle">I can’t change the world, only change myself!</p>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+
+
 
 <nav class="site-nav">
-  
-
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+</li>
+
       
 
       
+      
     </ul>
+  
+
   
 
   
@@ -257,12 +289,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
 
@@ -275,32 +318,31 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2017/06/09/animation-qzone/">
+  
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Aitter">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar100.jpg">
-  </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2017/06/09/animation-qzone/">
 
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Aitter's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Aitter's Blog" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aitter">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar100.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aitter's Blog">
+    </span>
 
     
       <header class="post-header">
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                动画系列之Qzone5.0的H5技术分析
+          <h1 class="post-title" itemprop="name headline">动画系列之Qzone5.0的H5技术分析
               
             
           </h1>
@@ -309,15 +351,20 @@
         <div class="post-meta">
           <span class="post-time">
             
+                
+            
+
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-09T14:16:10+08:00">
-                2017-06-09
-              </time>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-09T14:16:10+08:00">2017-06-09</time>
             
 
+            
             
 
             
@@ -325,17 +372,17 @@
 
           
             <span class="post-category" >
+            
               <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/移动前端/" itemprop="url" rel="index">
-                    <span itemprop="name">移动前端</span>
-                  </a>
-                </span>
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/移动前端/" itemprop="url" rel="index"><span itemprop="name">移动前端</span></a></span>
 
                 
                 
@@ -347,13 +394,14 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2017/06/09/animation-qzone/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/09/animation-qzone/" itemprop="commentCount"></span>
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/06/09/animation-qzone/" itemprop="commentCount"></span>
                 </a>
               </span>
             
-          
-
           
 
           
@@ -363,9 +411,13 @@
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
           
 
           
@@ -376,7 +428,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -385,7 +439,7 @@
       
         <p>随着CSS3动画的普及，应用CSS3动画的活动页、宣传页、专题页，如雨后春笋般破土而出，达到了很好的传播与品牌宣传的效果。</p>
 <p>H5几乎成为了移动端宣传的主流方式，不管是商业活动还是品牌推广宣传，大多都会选择制作H5页面来进行相应的宣传工作，因此在移动端，特别是微信上，几乎每天都能发现H5页面的踪影。<br><a id="more"></a></p>
-<p>2015年的<a href="http://qzs.qq.com/qzone/qzact/act/qzapp/qzone5.0/mobile/index.html" target="_blank" rel="external">QQ空间5.0预约页</a></p>
+<p>2015年的<a href="http://qzs.qq.com/qzone/qzact/act/qzapp/qzone5.0/mobile/index.html" target="_blank" rel="noopener">QQ空间5.0预约页</a></p>
 <p><img src="http://7xi480.com1.z0.glb.clouddn.com/20150309180731626.gif" alt=""></p>
 <h2 id="相关技术点"><a href="#相关技术点" class="headerlink" title="相关技术点"></a>相关技术点</h2><ol>
 <li>CSS Transiton &amp; Animation 动画</li>
@@ -400,7 +454,7 @@
 <li>PC适配</li>
 </ol>
 <h2 id="素材定位"><a href="#素材定位" class="headerlink" title="素材定位"></a>素材定位</h2><h3 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h3><p><code>.center-obj</code> 固定大小的盒子通过 absolute 绝对定位 垂直水平居中</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.center-obj</span> &#123;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(-50%, -50%, 0);</div><div class="line">  <span class="attribute">width</span>: <span class="number">320px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">350px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.center-obj</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(-50%, -50%, 0);</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">320px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">350px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h3><p>容器内的元素绝对定位，并且使用背景图片</p>
 <ul>
 <li>使用背景图片结合 <code>CSS3 Media query</code> 方便做高清屏的图片适配，同时也能很好的去过 <code>CSS Sprite</code> 雪碧图，提升图片加载效率。</li>
@@ -415,12 +469,12 @@
 </ul>
 <p>出场顺序：星星+火焰+Loading &gt; Button</p>
 <p>当页面素材加载时执行更新 Loading，加载完成时，删除 Loading 元素，显示 Button</p>
-<h4 id="Keframes"><a href="#Keframes" class="headerlink" title="Keframes"></a>Keframes</h4><figure class="highlight css"><table><tr><td class="code"><pre><div class="line">@<span class="keyword">keyframes</span> m1start &#123;</div><div class="line">  0% &#123; <span class="attribute">transform</span>: <span class="built_in">scale</span>(1); &#125;   <span class="comment">/* 正常大小 */</span></div><div class="line">  33% &#123; <span class="attribute">transform</span>: <span class="built_in">scale</span>(.9); &#125; <span class="comment">/* 缩小到.9倍大小 */</span></div><div class="line">  66% &#123; <span class="attribute">transform</span>: <span class="built_in">scale</span>(1.3); &#125;<span class="comment">/* 放大到1.3倍大小 */</span></div><div class="line">  100% &#123; <span class="attribute">transform</span>: <span class="built_in">scale</span>(1); &#125; <span class="comment">/* 还原到正常大小 */</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">animation</span>: <span class="selector-tag">m1start</span> 2<span class="selector-tag">s</span> <span class="selector-class">.5s</span> <span class="selector-tag">linear</span> <span class="selector-tag">infinite</span> <span class="selector-tag">backwards</span>;</div><div class="line"></div><div class="line"><span class="comment">/* 背影图片X轴向左移动210px */</span></div><div class="line">@<span class="keyword">keyframes</span> m1fly &#123;</div><div class="line">  0% &#123; <span class="attribute">background-position</span>: <span class="number">0</span> <span class="number">0</span>; &#125;</div><div class="line">  100% &#123; <span class="attribute">background-position</span>: <span class="number">210px</span> <span class="number">0</span>; &#125;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">animation</span>: <span class="selector-tag">m1fly</span> <span class="selector-class">.2s</span> <span class="selector-class">.5s</span> <span class="selector-tag">steps</span>(3, <span class="selector-tag">start</span>) <span class="selector-tag">infinite</span> <span class="selector-tag">alternate</span>;</div><div class="line"></div><div class="line"><span class="comment">/* 背影图片X轴从20px的位置回到原点 */</span></div><div class="line">@<span class="keyword">keyframes</span> progress-bar-stripes &#123;</div><div class="line">  0% &#123; <span class="attribute">background-position</span>: <span class="number">40px</span> <span class="number">0</span>; &#125;</div><div class="line">  100% &#123; <span class="attribute">background-position</span>: <span class="number">0</span> <span class="number">0</span>; &#125;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">animation</span>: <span class="selector-tag">progress-bar-stripes</span> 2<span class="selector-tag">s</span> <span class="selector-tag">linear</span> <span class="selector-tag">infinite</span>;</div><div class="line"></div><div class="line"><span class="comment">/* 大小随着关键帧缩放 */</span></div><div class="line">@<span class="keyword">keyframes</span> rubberBand &#123;</div><div class="line">  0% &#123; <span class="attribute">transform</span>: <span class="built_in">scale3d</span>(1,1,1); &#125;</div><div class="line">  30% &#123; <span class="attribute">transform</span>: <span class="built_in">scale3d</span>(1.25,.75,1); &#125;</div><div class="line">  40% &#123; <span class="attribute">transform</span>: <span class="built_in">scale3d</span>(0.75,1.25,1); &#125;</div><div class="line">  50% &#123; <span class="attribute">transform</span>: <span class="built_in">scale3d</span>(1.15,.85,1); &#125;</div><div class="line">  60% &#123; <span class="attribute">transform</span>: <span class="built_in">scale3d</span>(.95,1.05,1); &#125;</div><div class="line">  65% &#123; <span class="attribute">transform</span>: <span class="built_in">scale3d</span>(.95,1.05,1) &#125;</div><div class="line">  75% &#123; <span class="attribute">transform</span>: <span class="built_in">scale3d</span>(1.05,.95,1); &#125;</div><div class="line">  100% &#123;<span class="attribute">transform</span>: <span class="built_in">scale3d</span>(1,1,1);&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">animation</span>: <span class="selector-tag">rubberBand</span> <span class="selector-class">.6s</span> 1 <span class="selector-tag">forwards</span>;</div></pre></td></tr></table></figure>
+<h4 id="Keframes"><a href="#Keframes" class="headerlink" title="Keframes"></a>Keframes</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">keyframes</span> m1start &#123;</span><br><span class="line">  0% &#123; <span class="attribute">transform</span>: <span class="built_in">scale</span>(1); &#125;   <span class="comment">/* 正常大小 */</span></span><br><span class="line">  33% &#123; <span class="attribute">transform</span>: <span class="built_in">scale</span>(.9); &#125; <span class="comment">/* 缩小到.9倍大小 */</span></span><br><span class="line">  66% &#123; <span class="attribute">transform</span>: <span class="built_in">scale</span>(1.3); &#125;<span class="comment">/* 放大到1.3倍大小 */</span></span><br><span class="line">  100% &#123; <span class="attribute">transform</span>: <span class="built_in">scale</span>(1); &#125; <span class="comment">/* 还原到正常大小 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">animation</span>: <span class="selector-tag">m1start</span> 2<span class="selector-tag">s</span> <span class="selector-class">.5s</span> <span class="selector-tag">linear</span> <span class="selector-tag">infinite</span> <span class="selector-tag">backwards</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 背影图片X轴向左移动210px */</span></span><br><span class="line">@<span class="keyword">keyframes</span> m1fly &#123;</span><br><span class="line">  0% &#123; <span class="attribute">background-position</span>: <span class="number">0</span> <span class="number">0</span>; &#125;</span><br><span class="line">  100% &#123; <span class="attribute">background-position</span>: <span class="number">210px</span> <span class="number">0</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">animation</span>: <span class="selector-tag">m1fly</span> <span class="selector-class">.2s</span> <span class="selector-class">.5s</span> <span class="selector-tag">steps</span>(3, <span class="selector-tag">start</span>) <span class="selector-tag">infinite</span> <span class="selector-tag">alternate</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 背影图片X轴从20px的位置回到原点 */</span></span><br><span class="line">@<span class="keyword">keyframes</span> progress-bar-stripes &#123;</span><br><span class="line">  0% &#123; <span class="attribute">background-position</span>: <span class="number">40px</span> <span class="number">0</span>; &#125;</span><br><span class="line">  100% &#123; <span class="attribute">background-position</span>: <span class="number">0</span> <span class="number">0</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">animation</span>: <span class="selector-tag">progress-bar-stripes</span> 2<span class="selector-tag">s</span> <span class="selector-tag">linear</span> <span class="selector-tag">infinite</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 大小随着关键帧缩放 */</span></span><br><span class="line">@<span class="keyword">keyframes</span> rubberBand &#123;</span><br><span class="line">  0% &#123; <span class="attribute">transform</span>: <span class="built_in">scale3d</span>(1,1,1); &#125;</span><br><span class="line">  30% &#123; <span class="attribute">transform</span>: <span class="built_in">scale3d</span>(1.25,.75,1); &#125;</span><br><span class="line">  40% &#123; <span class="attribute">transform</span>: <span class="built_in">scale3d</span>(0.75,1.25,1); &#125;</span><br><span class="line">  50% &#123; <span class="attribute">transform</span>: <span class="built_in">scale3d</span>(1.15,.85,1); &#125;</span><br><span class="line">  60% &#123; <span class="attribute">transform</span>: <span class="built_in">scale3d</span>(.95,1.05,1); &#125;</span><br><span class="line">  65% &#123; <span class="attribute">transform</span>: <span class="built_in">scale3d</span>(.95,1.05,1) &#125;</span><br><span class="line">  75% &#123; <span class="attribute">transform</span>: <span class="built_in">scale3d</span>(1.05,.95,1); &#125;</span><br><span class="line">  100% &#123;<span class="attribute">transform</span>: <span class="built_in">scale3d</span>(1,1,1);&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">animation</span>: <span class="selector-tag">rubberBand</span> <span class="selector-class">.6s</span> 1 <span class="selector-tag">forwards</span>;</span><br></pre></td></tr></table></figure>
 <h4 id="动画说明"><a href="#动画说明" class="headerlink" title="动画说明"></a>动画说明</h4><p>星星闪烁</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><div class="line">animation: m1start <span class="number">2s</span> <span class="number">.5s</span> linear infinite backwards;</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">animation: m1start <span class="number">2s</span> <span class="number">.5s</span> linear infinite backwards;</span><br></pre></td></tr></table></figure>
 <p>运用 <code>m1start</code> 序列帧，动画执行2s，延迟0.5s，使用 linear 匀速动画函数，循环执行，每个循环停留在最后一帧。</p>
 <p>火焰闪烁</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">animation</span>: <span class="selector-tag">m1fly</span> <span class="selector-class">.2s</span> <span class="selector-class">.5s</span> <span class="selector-tag">steps</span>(3, <span class="selector-tag">start</span>) <span class="selector-tag">infinite</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">animation</span>: <span class="selector-tag">m1fly</span> <span class="selector-class">.2s</span> <span class="selector-class">.5s</span> <span class="selector-tag">steps</span>(3, <span class="selector-tag">start</span>) <span class="selector-tag">infinite</span></span><br></pre></td></tr></table></figure>
 <p>运用 <code>m1fly</code> 序列帧，动画执行 0.2s，延迟 0.5s，使用 steps 动画，循环执行，每个循环停留在最后一帧。</p>
 <p>steps</p>
 <p>火焰动画不需要平滑的线性渐变动画，而需要一帧一帧显示的帧动画，steps(<br>3，start) ，把动画 分为三个关键帧执行，从起点开始跃阶变化。</p>
@@ -435,7 +489,7 @@
 </ul>
 <p>出场顺序：<br>热气球&amp;黄色星球&amp;星星&amp;背景&amp;标题 &gt; 火箭&amp;人&amp;手机</p>
 <h4 id="通过关键帧控制动画的快慢"><a href="#通过关键帧控制动画的快慢" class="headerlink" title="通过关键帧控制动画的快慢"></a>通过关键帧控制动画的快慢</h4><p>关键帧与关键帧之间的间隔长短，可以决定动画的快慢</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><div class="line">@<span class="keyword">keyframes</span> m2fall3 &#123;</div><div class="line">  0% &#123; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(0); &#125;</div><div class="line">  35% &#123; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(0); &#125;</div><div class="line">  38% &#123; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(5px); &#125;</div><div class="line">  50% &#123; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(0); &#125;</div><div class="line">  85% &#123; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(5px); &#125;</div><div class="line">  100% &#123; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(0); &#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">keyframes</span> m2ball &#123;</div><div class="line">  0% &#123; <span class="attribute">opacity</span>: <span class="number">1</span>; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-10px); &#125;</div><div class="line">  50% &#123; <span class="attribute">opacity</span>: <span class="number">1</span>; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(0); &#125;</div><div class="line">  100% &#123; <span class="attribute">opacity</span>: <span class="number">1</span>; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-10px); &#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">keyframes</span> m2yball &#123;</div><div class="line">  0% &#123; <span class="attribute">opacity</span>: <span class="number">1</span>; <span class="attribute">transform</span>: <span class="built_in">scale</span>(1); &#125;</div><div class="line">  60% &#123; <span class="attribute">opacity</span>: <span class="number">1</span>; <span class="attribute">transform</span>: <span class="built_in">scale</span>(1.1); &#125;</div><div class="line">  100% &#123; <span class="attribute">opacity</span>: <span class="number">1</span>; <span class="attribute">transform</span>: <span class="built_in">scale</span>(1); &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">keyframes</span> m2fall3 &#123;</span><br><span class="line">  0% &#123; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(0); &#125;</span><br><span class="line">  35% &#123; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(0); &#125;</span><br><span class="line">  38% &#123; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(5px); &#125;</span><br><span class="line">  50% &#123; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(0); &#125;</span><br><span class="line">  85% &#123; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(5px); &#125;</span><br><span class="line">  100% &#123; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(0); &#125;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">keyframes</span> m2ball &#123;</span><br><span class="line">  0% &#123; <span class="attribute">opacity</span>: <span class="number">1</span>; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-10px); &#125;</span><br><span class="line">  50% &#123; <span class="attribute">opacity</span>: <span class="number">1</span>; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(0); &#125;</span><br><span class="line">  100% &#123; <span class="attribute">opacity</span>: <span class="number">1</span>; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-10px); &#125;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">keyframes</span> m2yball &#123;</span><br><span class="line">  0% &#123; <span class="attribute">opacity</span>: <span class="number">1</span>; <span class="attribute">transform</span>: <span class="built_in">scale</span>(1); &#125;</span><br><span class="line">  60% &#123; <span class="attribute">opacity</span>: <span class="number">1</span>; <span class="attribute">transform</span>: <span class="built_in">scale</span>(1.1); &#125;</span><br><span class="line">  100% &#123; <span class="attribute">opacity</span>: <span class="number">1</span>; <span class="attribute">transform</span>: <span class="built_in">scale</span>(1); &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>模拟陆地落地有缓冲的效果，0-35，没有动画，35-38，快速掉落，38-50，向上弹起，50-85再落下，85-100回到原点。</p>
 <h3 id="第三屏"><a href="#第三屏" class="headerlink" title="第三屏"></a>第三屏</h3><p>入场 手机&amp;文字 fall<br>入场 按钮 bounce<br>入场 线条 dash<br>入场 星球 m3wave<br>循环 星星与点 m3star</p>
 <p>出场顺序：手机&amp;文字&amp;按钮 &gt; SVG线条动画+星球</p>
@@ -451,55 +505,55 @@
 <li><p>如果使用 <code>stroke-dashoffset</code> 偏移来实现，则动画可以从初始状态</p>
 </li>
 </ul>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><div class="line"><span class="built_in">stroke</span>-dasharry: <span class="number">1000</span>, <span class="number">1000</span>;</div><div class="line"><span class="built_in">stroke</span>-dashoffset: <span class="number">1000</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="built_in">stroke</span>-dasharry: <span class="number">1000</span>, <span class="number">1000</span>;</span><br><span class="line"><span class="built_in">stroke</span>-dashoffset: <span class="number">1000</span>;</span><br></pre></td></tr></table></figure>
 <p>变化至</p>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><div class="line"><span class="built_in">stroke</span>-dashoffset: <span class="number">0</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="built_in">stroke</span>-dashoffset: <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
 <p>即先向左偏移100px，显示空白间隔，现减少偏移量，显示出线段来</p>
-<iframe height="300" scrolling="no" title="dRGXBO" src="//codepen.io/togglelt/embed/dRGXBO/?height=300&theme-id=13299&default-tab=result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/togglelt/pen/dRGXBO/" target="_blank" rel="external">dRGXBO</a> by LT (<a href="https://codepen.io/togglelt" target="_blank" rel="external">@togglelt</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.<br></iframe>
+<iframe height="300" scrolling="no" title="dRGXBO" src="//codepen.io/togglelt/embed/dRGXBO/?height=300&theme-id=13299&default-tab=result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/togglelt/pen/dRGXBO/" target="_blank" rel="noopener">dRGXBO</a> by LT (<a href="https://codepen.io/togglelt" target="_blank" rel="noopener">@togglelt</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.<br></iframe>
 
-<p>推荐阅读 <a href="http://www.cnblogs.com/coco1s/p/6225973.html" target="_blank" rel="external">SVG 线条动画入门</a></p>
+<p>推荐阅读 <a href="http://www.cnblogs.com/coco1s/p/6225973.html" target="_blank" rel="noopener">SVG 线条动画入门</a></p>
 <h3 id="第四屏"><a href="#第四屏" class="headerlink" title="第四屏"></a>第四屏</h3><p>入场 手机&amp;文字 fall<br>入场 按钮 bounce<br>入场 线条 dash<br>入场 猴 m4monkey<br>入场 蜜蜂 m4bee<br>入场 猫 m4cat<br>循环 星星与点 m4star<br>循环 蓝色纸人 m4paste</p>
 <h3 id="第五屏"><a href="#第五屏" class="headerlink" title="第五屏"></a>第五屏</h3><p>入场 手机&amp;文字 fall<br>入场 按钮 bounce<br>入场 汽泡 m5pop1 m5pop2 m5pop3<br>入场 热气球 m5ball</p>
 <p>第四屏与第五屏动画效果与上面基本相同（略）</p>
 <h3 id="第六屏"><a href="#第六屏" class="headerlink" title="第六屏"></a>第六屏</h3><p>入场 手机&amp;文字 fall<br>入场 按钮 bounce</p>
 <p>入场 云向右漂浮<br>入场+循环 人向右走动<br>入场 汽泡淡出</p>
 <h4 id="利用元素嵌套运用连续的动画效果"><a href="#利用元素嵌套运用连续的动画效果" class="headerlink" title="利用元素嵌套运用连续的动画效果"></a>利用元素嵌套运用连续的动画效果</h4><p><code>animation</code> 允许设置多个动画效果，但是如果多个动画效果有相同的动画属性时，动画则不能达到预期效果。</p>
-<p>可以正常执行<br><figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.element</span> &#123;</div><div class="line">	<span class="attribute">animation</span>: fadeIn <span class="number">2s</span>, float <span class="number">1.2s</span> <span class="number">2s</span> ease-in infinite both;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">keyframes</span> fadeIn &#123;</div><div class="line">	<span class="selector-tag">from</span> &#123; <span class="attribute">opacity</span>:<span class="number">0</span>; &#125;</div><div class="line">	<span class="selector-tag">to</span>&#123; <span class="attribute">opacity</span>: <span class="number">1</span>&#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">keyframes</span> float &#123;</div><div class="line">	25%&#123; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(10px)&#125;</div><div class="line">	50%&#123; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(0px)&#125;</div><div class="line">	75%&#123; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-10px)&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>后面相同的动画属性会覆盖掉前面的动画<br><figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.element2</span> &#123;</div><div class="line">	<span class="attribute">animation</span>: left-in <span class="number">2s</span>, zoomIn <span class="number">1.2s</span> <span class="number">2s</span> ease-in infinite both;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">keyframes</span> left-in &#123;</div><div class="line">	<span class="selector-tag">from</span> &#123; <span class="attribute">transform</span>: <span class="built_in">translateX</span>(0) &#125;</div><div class="line">	<span class="selector-tag">to</span>&#123; <span class="attribute">transform</span>: <span class="built_in">translateX</span>(40px) &#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">keyframes</span> zoomIn &#123;</div><div class="line">	<span class="selector-tag">from</span> &#123; <span class="attribute">transform</span>: <span class="built_in">scale</span>(.8) &#125;</div><div class="line">	<span class="selector-tag">to</span>&#123; <span class="attribute">transform</span>: <span class="built_in">scale</span>(1.2) &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<iframe height="300" scrolling="no" title="LLGZVK" src="//codepen.io/togglelt/embed/LLGZVK/?height=300&theme-id=13299&default-tab=result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/togglelt/pen/LLGZVK/" target="_blank" rel="external">LLGZVK</a> by LT (<a href="https://codepen.io/togglelt" target="_blank" rel="external">@togglelt</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.<br></iframe>
+<p>可以正常执行<br><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.element</span> &#123;</span><br><span class="line">	<span class="attribute">animation</span>: fadeIn <span class="number">2s</span>, float <span class="number">1.2s</span> <span class="number">2s</span> ease-in infinite both;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">keyframes</span> fadeIn &#123;</span><br><span class="line">	<span class="selector-tag">from</span> &#123; <span class="attribute">opacity</span>:<span class="number">0</span>; &#125;</span><br><span class="line">	<span class="selector-tag">to</span>&#123; <span class="attribute">opacity</span>: <span class="number">1</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">keyframes</span> float &#123;</span><br><span class="line">	25%&#123; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(10px)&#125;</span><br><span class="line">	50%&#123; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(0px)&#125;</span><br><span class="line">	75%&#123; <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-10px)&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>后面相同的动画属性会覆盖掉前面的动画<br><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.element2</span> &#123;</span><br><span class="line">	<span class="attribute">animation</span>: left-in <span class="number">2s</span>, zoomIn <span class="number">1.2s</span> <span class="number">2s</span> ease-in infinite both;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">keyframes</span> left-in &#123;</span><br><span class="line">	<span class="selector-tag">from</span> &#123; <span class="attribute">transform</span>: <span class="built_in">translateX</span>(0) &#125;</span><br><span class="line">	<span class="selector-tag">to</span>&#123; <span class="attribute">transform</span>: <span class="built_in">translateX</span>(40px) &#125;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">keyframes</span> zoomIn &#123;</span><br><span class="line">	<span class="selector-tag">from</span> &#123; <span class="attribute">transform</span>: <span class="built_in">scale</span>(.8) &#125;</span><br><span class="line">	<span class="selector-tag">to</span>&#123; <span class="attribute">transform</span>: <span class="built_in">scale</span>(1.2) &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<iframe height="300" scrolling="no" title="LLGZVK" src="//codepen.io/togglelt/embed/LLGZVK/?height=300&theme-id=13299&default-tab=result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/togglelt/pen/LLGZVK/" target="_blank" rel="noopener">LLGZVK</a> by LT (<a href="https://codepen.io/togglelt" target="_blank" rel="noopener">@togglelt</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.<br></iframe>
 
 <p>走路的人<br><code>walk</code> 元素从透明度 <code>1</code> 变成 <code>0.5</code>，同时从向右移动 <code>60px</code> ，并停留在 <code>60px</code>  的位置<br><code>ele-runner</code> 则应用 <code>steps</code> 帧动画，表现为走路的状态</p>
 <p>将两个动画应用在不同的元素上，避免相同的动画属性被覆盖掉</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><div class="line">&lt;div class="walk"&gt;</div><div class="line">    &lt;div class="ele-runner"&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line"><span class="selector-class">.page6</span><span class="selector-class">.active</span> <span class="selector-class">.walk</span> &#123;</div><div class="line">  <span class="attribute">animation</span>: m6walk <span class="number">1.5s</span> .<span class="number">4s</span> ease-in <span class="number">1</span> forwards;</div><div class="line">  <span class="attribute">transform-origin</span>: <span class="number">0</span> <span class="number">50%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.page6</span><span class="selector-class">.active</span> <span class="selector-class">.ele-runner</span> &#123;</div><div class="line">  <span class="attribute">animation</span>: m6runner .<span class="number">6s</span> .<span class="number">6s</span> <span class="built_in">steps</span>(9, start) alternate infinite;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">keyframes</span> m6walk &#123;</div><div class="line">  0% &#123; <span class="attribute">opacity</span>: <span class="number">1</span>; <span class="attribute">transform</span>: <span class="built_in">translateX</span>(0) &#125;</div><div class="line">  100% &#123; <span class="attribute">opacity</span>: .<span class="number">5</span>; <span class="attribute">transform</span>: <span class="built_in">translateX</span>(60px) &#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">keyframes</span> m6runner &#123;</div><div class="line">  0% &#123; <span class="attribute">background-position</span>: <span class="number">0</span> <span class="number">0</span> &#125;</div><div class="line">  100% &#123; <span class="attribute">background-position</span>: <span class="number">540px</span> <span class="number">0</span> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;div class="walk"&gt;</span><br><span class="line">    &lt;div class="ele-runner"&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.page6</span><span class="selector-class">.active</span> <span class="selector-class">.walk</span> &#123;</span><br><span class="line">  <span class="attribute">animation</span>: m6walk <span class="number">1.5s</span> .<span class="number">4s</span> ease-in <span class="number">1</span> forwards;</span><br><span class="line">  <span class="attribute">transform-origin</span>: <span class="number">0</span> <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.page6</span><span class="selector-class">.active</span> <span class="selector-class">.ele-runner</span> &#123;</span><br><span class="line">  <span class="attribute">animation</span>: m6runner .<span class="number">6s</span> .<span class="number">6s</span> <span class="built_in">steps</span>(9, start) alternate infinite;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">keyframes</span> m6walk &#123;</span><br><span class="line">  0% &#123; <span class="attribute">opacity</span>: <span class="number">1</span>; <span class="attribute">transform</span>: <span class="built_in">translateX</span>(0) &#125;</span><br><span class="line">  100% &#123; <span class="attribute">opacity</span>: .<span class="number">5</span>; <span class="attribute">transform</span>: <span class="built_in">translateX</span>(60px) &#125;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">keyframes</span> m6runner &#123;</span><br><span class="line">  0% &#123; <span class="attribute">background-position</span>: <span class="number">0</span> <span class="number">0</span> &#125;</span><br><span class="line">  100% &#123; <span class="attribute">background-position</span>: <span class="number">540px</span> <span class="number">0</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="整屏滚动"><a href="#整屏滚动" class="headerlink" title="整屏滚动"></a>整屏滚动</h2><p>jQuery的一款插件fullpage.js，可以实现全屏滚动，非常流行的效果，兼容性IE8+</p>
-<p>因为考虑到兼容性，使用了jQuery的fullpage插件，<a href="http://www.jq22.com/jquery-info472" target="_blank" rel="external">使用方法</a></p>
-<p><a href="http://www.jq22.com/yanshi472" target="_blank" rel="external">网易邮箱大师</a></p>
-<p>页面结构<br><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span> <span class="attr">id</span>=<span class="string">"fullPage"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">section</span> <span class="attr">style</span>=<span class="string">"height: 100%"</span> <span class="attr">class</span>=<span class="string">"page page2"</span>&gt;</span><span class="tag">&lt;/<span class="name">section</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">section</span> <span class="attr">style</span>=<span class="string">"height: 100%"</span> <span class="attr">class</span>=<span class="string">"page page3"</span>&gt;</span><span class="tag">&lt;/<span class="name">section</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">section</span> <span class="attr">style</span>=<span class="string">"height: 100%"</span> <span class="attr">class</span>=<span class="string">"page page4"</span>&gt;</span><span class="tag">&lt;/<span class="name">section</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">section</span> <span class="attr">style</span>=<span class="string">"height: 100%"</span> <span class="attr">class</span>=<span class="string">"page page5"</span>&gt;</span><span class="tag">&lt;/<span class="name">section</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">section</span> <span class="attr">style</span>=<span class="string">"height: 100%"</span> <span class="attr">class</span>=<span class="string">"page page6"</span>&gt;</span><span class="tag">&lt;/<span class="name">section</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>因为考虑到兼容性，使用了jQuery的fullpage插件，<a href="http://www.jq22.com/jquery-info472" target="_blank" rel="noopener">使用方法</a></p>
+<p><a href="http://www.jq22.com/yanshi472" target="_blank" rel="noopener">网易邮箱大师</a></p>
+<p>页面结构<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span> <span class="attr">id</span>=<span class="string">"fullPage"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">section</span> <span class="attr">style</span>=<span class="string">"height: 100%"</span> <span class="attr">class</span>=<span class="string">"page page2"</span>&gt;</span><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">section</span> <span class="attr">style</span>=<span class="string">"height: 100%"</span> <span class="attr">class</span>=<span class="string">"page page3"</span>&gt;</span><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">section</span> <span class="attr">style</span>=<span class="string">"height: 100%"</span> <span class="attr">class</span>=<span class="string">"page page4"</span>&gt;</span><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">section</span> <span class="attr">style</span>=<span class="string">"height: 100%"</span> <span class="attr">class</span>=<span class="string">"page page5"</span>&gt;</span><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">section</span> <span class="attr">style</span>=<span class="string">"height: 100%"</span> <span class="attr">class</span>=<span class="string">"page page6"</span>&gt;</span><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>Fullpage初始化</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">$(<span class="string">"#fullPage"</span>).fullpage(&#123;</div><div class="line">     css3: !<span class="number">0</span>,</div><div class="line">     scrollingSpeed: <span class="number">500</span>,</div><div class="line">     sectionSelector: <span class="string">".page"</span>,</div><div class="line"> &#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">"#fullPage"</span>).fullpage(&#123;</span><br><span class="line">     css3: !<span class="number">0</span>,</span><br><span class="line">     scrollingSpeed: <span class="number">500</span>,</span><br><span class="line">     sectionSelector: <span class="string">".page"</span>,</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
 <h2 id="图片适配与加载"><a href="#图片适配与加载" class="headerlink" title="图片适配与加载"></a>图片适配与加载</h2><h3 id="图片的高清适配"><a href="#图片的高清适配" class="headerlink" title="图片的高清适配"></a>图片的高清适配</h3><p>一般情况下使用 <code>@1x</code> 一倍图缩写样式<br>利用 media query 检测如果高清屏，则使用 <code>@2x</code> 两倍图</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-id">#loading</span> <span class="selector-class">.ele-man</span> &#123;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(img/m1-man.32.png);</div><div class="line">    <span class="attribute">width</span>: <span class="number">70px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">163px</span>;</div><div class="line">    <span class="attribute">top</span>: <span class="number">30px</span>;</div><div class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">    <span class="attribute">margin-left</span>: -<span class="number">35px</span>;</div><div class="line">    <span class="attribute">-webkit-transform-style</span>: preserve-<span class="number">3</span>d;</div><div class="line">    <span class="attribute">transform-style</span>: preserve-<span class="number">3</span>d</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">media</span></div><div class="line"><span class="keyword">only</span> screen and (-webkit-min-device-pixel-ratio: <span class="number">1.25</span>),</div><div class="line">only screen and (min-resolution:<span class="number">120dpi</span>),</div><div class="line">only screen and (min-resolution:<span class="number">1.25dppx</span>) &#123;</div><div class="line">	<span class="selector-id">#loading</span> <span class="selector-class">.ele-man</span> &#123;</div><div class="line">        <span class="attribute">background-image</span>:<span class="built_in">url</span>(img/m1-man.32@2x.png);</div><div class="line">        <span class="attribute">background-size</span>: <span class="number">210px</span> <span class="number">163px</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#loading</span> <span class="selector-class">.ele-man</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(img/m1-man.32.png);</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">70px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">163px</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">30px</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">35px</span>;</span><br><span class="line">    <span class="attribute">-webkit-transform-style</span>: preserve-<span class="number">3</span>d;</span><br><span class="line">    <span class="attribute">transform-style</span>: preserve-<span class="number">3</span>d</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span></span><br><span class="line"><span class="keyword">only</span> screen and (-webkit-min-device-pixel-ratio: <span class="number">1.25</span>),</span><br><span class="line">only screen and (min-resolution:<span class="number">120dpi</span>),</span><br><span class="line">only screen and (min-resolution:<span class="number">1.25dppx</span>) &#123;</span><br><span class="line">	<span class="selector-id">#loading</span> <span class="selector-class">.ele-man</span> &#123;</span><br><span class="line">        <span class="attribute">background-image</span>:<span class="built_in">url</span>(img/m1-man.32@2x.png);</span><br><span class="line">        <span class="attribute">background-size</span>: <span class="number">210px</span> <span class="number">163px</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="图片预加载"><a href="#图片预加载" class="headerlink" title="图片预加载"></a>图片预加载</h3><p>通过将一些大图预先加载出来，再展示页面动画<br>在加载的过程中，更新进度信息给予用户一定的反馈效果</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> img_list = [</div><div class="line">   <span class="string">'/sprite/loading-imp.32'</span>,</div><div class="line">    <span class="string">'/sprite/m-animate-1-imp.32'</span>,</div><div class="line">    <span class="string">'/sprite/m-animate-2-imp.32'</span>,</div><div class="line">    <span class="string">'/sprite/m-animate-3-imp.32'</span></div><div class="line">  ];</div><div class="line"></div><div class="line">  <span class="comment">// 高清屏适配</span></div><div class="line">  <span class="keyword">var</span> isRetina = <span class="built_in">window</span>.devicePixelRatio&gt;<span class="number">1.5</span>;</div><div class="line">  img_list = img_list.map(<span class="function"><span class="keyword">function</span>(<span class="params">v</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> v + (isRetina ? <span class="string">'@2x.png'</span> : <span class="string">'.png'</span>);</div><div class="line">  &#125;)</div><div class="line">  <span class="built_in">console</span>.log(img_list)</div><div class="line">  <span class="comment">// 预加载</span></div><div class="line">  loadImgs(img_list, <span class="function"><span class="keyword">function</span>(<span class="params">o</span>)</span>&#123;</div><div class="line">    <span class="comment">// 更新进度</span></div><div class="line">    $(<span class="string">'#J_loadTest'</span>).html((o*<span class="number">100</span>)+<span class="string">'%'</span>);</div><div class="line">    $(<span class="string">'#J_loadProgress'</span>).css(<span class="string">'width'</span>, (o*<span class="number">100</span>)+<span class="string">'%'</span>);</div><div class="line">    <span class="comment">// 隐藏进度条</span></div><div class="line">    <span class="keyword">if</span>(o === <span class="number">1</span>)&#123;</div><div class="line">      $(<span class="string">'#J_btnGo'</span>).removeClass(<span class="string">'hide'</span>);</div><div class="line">      $(<span class="string">'#J_loadArea'</span>).remove();</div><div class="line">    &#125;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> img_list = [</span><br><span class="line">   <span class="string">'/sprite/loading-imp.32'</span>,</span><br><span class="line">    <span class="string">'/sprite/m-animate-1-imp.32'</span>,</span><br><span class="line">    <span class="string">'/sprite/m-animate-2-imp.32'</span>,</span><br><span class="line">    <span class="string">'/sprite/m-animate-3-imp.32'</span></span><br><span class="line">  ];</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 高清屏适配</span></span><br><span class="line">  <span class="keyword">var</span> isRetina = <span class="built_in">window</span>.devicePixelRatio&gt;<span class="number">1.5</span>;</span><br><span class="line">  img_list = img_list.map(<span class="function"><span class="keyword">function</span>(<span class="params">v</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> v + (isRetina ? <span class="string">'@2x.png'</span> : <span class="string">'.png'</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="built_in">console</span>.log(img_list)</span><br><span class="line">  <span class="comment">// 预加载</span></span><br><span class="line">  loadImgs(img_list, <span class="function"><span class="keyword">function</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 更新进度</span></span><br><span class="line">    $(<span class="string">'#J_loadTest'</span>).html((o*<span class="number">100</span>)+<span class="string">'%'</span>);</span><br><span class="line">    $(<span class="string">'#J_loadProgress'</span>).css(<span class="string">'width'</span>, (o*<span class="number">100</span>)+<span class="string">'%'</span>);</span><br><span class="line">    <span class="comment">// 隐藏进度条</span></span><br><span class="line">    <span class="keyword">if</span>(o === <span class="number">1</span>)&#123;</span><br><span class="line">      $(<span class="string">'#J_btnGo'</span>).removeClass(<span class="string">'hide'</span>);</span><br><span class="line">      $(<span class="string">'#J_loadArea'</span>).remove();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
 <h4 id="图片预加载的原理"><a href="#图片预加载的原理" class="headerlink" title="图片预加载的原理"></a>图片预加载的原理</h4><p>通过创建一个 Image 对象，给对象的src属性赋值为图片URL，来达到加载图片目的</p>
 <p>图片预加载要考虑到的问题：</p>
 <ul>
 <li>如果图片被浏览器缓存，在ie和oprea中，则不会触发 onload 事件</li>
 <li>如果是动态图片如gif，则会多次触发 onload 事件</li>
 </ul>
-<figure class="highlight qml"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadImage</span>(<span class="params">url, callback</span>) </span>&#123;</div><div class="line">	<span class="comment">//创建一个Image对象，实现图片的预下载</span></div><div class="line">    <span class="keyword">var</span> img = <span class="keyword">new</span> Image();</div><div class="line"></div><div class="line">    <span class="comment">// 如果图片已经存在于浏览器缓存，直接调用回调函数     </span></div><div class="line">    <span class="keyword">if</span> (img.complete) &#123;</div><div class="line">        callback(img);     </div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 先绑定onload事件再赋值src     </span></div><div class="line">    img.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        img.onload = <span class="literal">null</span>;</div><div class="line">        callback(img);</div><div class="line">    &#125;</div><div class="line">    img.src = <span class="built_in">url</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight qml"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadImage</span>(<span class="params">url, callback</span>) </span>&#123;</span><br><span class="line">	<span class="comment">//创建一个Image对象，实现图片的预下载</span></span><br><span class="line">    <span class="keyword">var</span> img = <span class="keyword">new</span> Image();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果图片已经存在于浏览器缓存，直接调用回调函数     </span></span><br><span class="line">    <span class="keyword">if</span> (img.complete) &#123;</span><br><span class="line">        callback(img);     </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 先绑定onload事件再赋值src     </span></span><br><span class="line">    img.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        img.onload = <span class="literal">null</span>;</span><br><span class="line">        callback(img);</span><br><span class="line">    &#125;</span><br><span class="line">    img.src = <span class="built_in">url</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="竖屏提示"><a href="#竖屏提示" class="headerlink" title="竖屏提示"></a>竖屏提示</h2><p>通过监听 window 的 <code>onorientationchange</code> 事件，再判断用户是否是横屏，如果是横屏，则提示用户竖屏操作</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"> <span class="built_in">window</span>.onorientationchange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">var</span> show = <span class="string">"-90"</span> == <span class="built_in">window</span>.orientation || <span class="string">"90"</span> == <span class="built_in">window</span>.orientation;</div><div class="line">    $(<span class="string">".landscape-wrap"</span>)[show ? <span class="string">'removeClass'</span> : <span class="string">'addClass'</span>](<span class="string">'hide'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"> <span class="built_in">window</span>.onorientationchange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> show = <span class="string">"-90"</span> == <span class="built_in">window</span>.orientation || <span class="string">"90"</span> == <span class="built_in">window</span>.orientation;</span><br><span class="line">    $(<span class="string">".landscape-wrap"</span>)[show ? <span class="string">'removeClass'</span> : <span class="string">'addClass'</span>](<span class="string">'hide'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="http://7xi480.com1.z0.glb.clouddn.com/2xxxx.pic.jpg" alt=""></p>
-<h2 id="感应视差"><a href="#感应视差" class="headerlink" title="感应视差"></a>感应视差</h2><p><a href="http://matthew.wagerfield.com/parallax/" target="_blank" rel="external">Parallax.js</a>是一款功能非常强大的javascript视觉差特效引擎插件。通过这个视觉差插件可以制作出非常炫酷的视觉差特效。并可以检测智能设备的方向。</p>
-<figure class="highlight applescript"><table><tr><td class="code"><pre><div class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"parallax-obj"</span>&gt;</div><div class="line">   &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"layer ele-p1"</span> data-depth=<span class="string">"1.00"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</div><div class="line">   &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"layer ele-p2"</span> data-depth=<span class="string">"0.80"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</div><div class="line">   &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"layer ele-p3"</span> data-depth=<span class="string">"0.30"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</div><div class="line">   &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"layer ele-p4"</span> data-depth=<span class="string">"0.30"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</div><div class="line">   &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"layer ele-p5"</span> data-depth=<span class="string">"1.10"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</div><div class="line">&lt;/<span class="keyword">div</span>&gt;</div><div class="line"></div><div class="line">$(<span class="string">".parallax-obj"</span>).parallax();</div></pre></td></tr></table></figure>
+<h2 id="感应视差"><a href="#感应视差" class="headerlink" title="感应视差"></a>感应视差</h2><p><a href="http://matthew.wagerfield.com/parallax/" target="_blank" rel="noopener">Parallax.js</a>是一款功能非常强大的javascript视觉差特效引擎插件。通过这个视觉差插件可以制作出非常炫酷的视觉差特效。并可以检测智能设备的方向。</p>
+<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"parallax-obj"</span>&gt;</span><br><span class="line">   &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"layer ele-p1"</span> data-depth=<span class="string">"1.00"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">   &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"layer ele-p2"</span> data-depth=<span class="string">"0.80"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">   &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"layer ele-p3"</span> data-depth=<span class="string">"0.30"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">   &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"layer ele-p4"</span> data-depth=<span class="string">"0.30"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">   &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"layer ele-p5"</span> data-depth=<span class="string">"1.10"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line"></span><br><span class="line">$(<span class="string">".parallax-obj"</span>).parallax();</span><br></pre></td></tr></table></figure>
 <p><img src="http://7xi480.com1.z0.glb.clouddn.com/ajax_promise2.gif" alt=""></p>
-<h2 id="多媒体播放"><a href="#多媒体播放" class="headerlink" title="多媒体播放"></a>多媒体播放</h2><p>H5支持 audio 多媒体标签，直接播放多媒体内容<br><figure class="highlight routeros"><table><tr><td class="code"><pre><div class="line">&lt;audio <span class="attribute">id</span>=<span class="string">"audio"</span> <span class="attribute">src</span>=<span class="string">"audio.mp3"</span> loop <span class="attribute">preload</span>=<span class="string">"auto"</span> <span class="attribute">autoplay</span>=<span class="string">"true"</span>&gt;&lt;/audio&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="多媒体播放"><a href="#多媒体播放" class="headerlink" title="多媒体播放"></a>多媒体播放</h2><p>H5支持 audio 多媒体标签，直接播放多媒体内容<br><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">&lt;audio <span class="attribute">id</span>=<span class="string">"audio"</span> <span class="attribute">src</span>=<span class="string">"audio.mp3"</span> loop <span class="attribute">preload</span>=<span class="string">"auto"</span> <span class="attribute">autoplay</span>=<span class="string">"true"</span>&gt;&lt;/audio&gt;</span><br></pre></td></tr></table></figure></p>
 <p>在IOS中，多媒体的插放不能通过JS来触发播放，需要用户手动触发</p>
 <p>通过给 html 绑定 <code>touchstart</code> 事件，来触发音乐播放</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="built_in">document</span>.getElementById(<span class="string">"audio"</span>);</div><div class="line"><span class="keyword">var</span> b = <span class="number">0</span></div><div class="line">a.oncanplay = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    $(<span class="string">"html"</span>).on(<span class="string">"touchstart"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="number">0</span> == b &amp;&amp; (a.play(), b = <span class="number">1</span>)</div><div class="line">    &#125;)</div><div class="line">&#125;();</div><div class="line">a.autoplay = !<span class="number">0</span>;</div><div class="line">a.isLoadedmetadata = !<span class="number">1</span>;</div><div class="line">a.audio = !<span class="number">0</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="built_in">document</span>.getElementById(<span class="string">"audio"</span>);</span><br><span class="line"><span class="keyword">var</span> b = <span class="number">0</span></span><br><span class="line">a.oncanplay = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">"html"</span>).on(<span class="string">"touchstart"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="number">0</span> == b &amp;&amp; (a.play(), b = <span class="number">1</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;();</span><br><span class="line">a.autoplay = !<span class="number">0</span>;</span><br><span class="line">a.isLoadedmetadata = !<span class="number">1</span>;</span><br><span class="line">a.audio = !<span class="number">0</span>;</span><br></pre></td></tr></table></figure>
 <p>可以通过 <code>audio.play()</code> 与 <code>audio.pause()</code> 方法来控制 播放 与 暂停</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">$(<span class="string">'.J_musicIcon'</span>).on(<span class="string">'touchend click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">  e.preventDefault();</div><div class="line">  <span class="keyword">var</span> a = a = <span class="built_in">document</span>.querySelector(<span class="string">"audio"</span>);</div><div class="line">  <span class="keyword">if</span>($(<span class="keyword">this</span>).hasClass(<span class="string">'off'</span>))&#123;</div><div class="line">    $(<span class="string">".icon-music"</span>).removeClass(<span class="string">"off"</span>);</div><div class="line">    a.play();</div><div class="line">  &#125;<span class="keyword">else</span>&#123;</div><div class="line">    $(<span class="string">".icon-music"</span>).addClass(<span class="string">"off"</span>);</div><div class="line">    a.pause();</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">'.J_musicIcon'</span>).on(<span class="string">'touchend click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  e.preventDefault();</span><br><span class="line">  <span class="keyword">var</span> a = a = <span class="built_in">document</span>.querySelector(<span class="string">"audio"</span>);</span><br><span class="line">  <span class="keyword">if</span>($(<span class="keyword">this</span>).hasClass(<span class="string">'off'</span>))&#123;</span><br><span class="line">    $(<span class="string">".icon-music"</span>).removeClass(<span class="string">"off"</span>);</span><br><span class="line">    a.play();</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    $(<span class="string">".icon-music"</span>).addClass(<span class="string">"off"</span>);</span><br><span class="line">    a.pause();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h2 id="PC适配"><a href="#PC适配" class="headerlink" title="PC适配"></a>PC适配</h2><p>让主要内容固定大小剧中显示，背景全屏平铺显示，以达到PC的适配效果<br><img src="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-09%20%E4%B8%8B%E5%8D%881.44.38.png" alt=""></p>
 <h2 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h2><p>微信分享分为两种，一种是普通的网页分享，一种是利用微信的JS-SDK分享页面。</p>
 <h3 id="一般分享"><a href="#一般分享" class="headerlink" title="一般分享"></a>一般分享</h3><p>普通分享，只能分享页面的标题、缩略图、URL地址</p>
@@ -510,27 +564,24 @@
 </ul>
 <p><strong>如何在分享中显示指定的图片？</strong></p>
 <p>在body之后添加一张隐藏的缩略图，大小大于 <code>200 x 200</code></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"thumbnails"</span> <span class="attr">style</span>=<span class="string">"display:none"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/20141202165235_IOQF2pLPOv.jpg"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="微信JS-SDK分享"><a href="#微信JS-SDK分享" class="headerlink" title="微信JS-SDK分享"></a>微信JS-SDK分享</h3><p><a href="https://mp.weixin.qq.com/wiki" target="_blank" rel="external">微信JS-SDK分享</a>需要公众号授权，并有很多的<a href="http://kf.qq.com/faq/131117ne2MV7141117JzI32q.html" target="_blank" rel="external">限制规则</a></p>
-<p>微信分享可以分享到 朋友圈、微信好友、QQ、腾讯微博、QQ空间<br><figure class="highlight less"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">wx</span><span class="selector-class">.onMenuShareAppMessage</span>(&#123;</div><div class="line">    <span class="attribute">title</span>: <span class="string">''</span>, <span class="comment">// 分享标题</span></div><div class="line">    <span class="attribute">desc</span>: <span class="string">''</span>, <span class="comment">// 分享描述</span></div><div class="line">    <span class="attribute">link</span>: <span class="string">''</span>, <span class="comment">// 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致</span></div><div class="line">    <span class="attribute">imgUrl</span>: <span class="string">''</span>, <span class="comment">// 分享图标</span></div><div class="line">    <span class="attribute">type</span>: <span class="string">''</span>, <span class="comment">// 分享类型,music、video或link，不填默认为link</span></div><div class="line">    <span class="attribute">dataUrl</span>: <span class="string">''</span>, <span class="comment">// 如果type是music或video，则要提供数据链接，默认为空</span></div><div class="line">    <span class="attribute">success</span>: function () &#123;</div><div class="line">        <span class="comment">// 用户确认分享后执行的回调函数</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attribute">cancel</span>: function () &#123;</div><div class="line">        <span class="comment">// 用户取消分享后执行的回调函数</span></div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"thumbnails"</span> <span class="attr">style</span>=<span class="string">"display:none"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/20141202165235_IOQF2pLPOv.jpg"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="微信JS-SDK分享"><a href="#微信JS-SDK分享" class="headerlink" title="微信JS-SDK分享"></a>微信JS-SDK分享</h3><p><a href="https://mp.weixin.qq.com/wiki" target="_blank" rel="noopener">微信JS-SDK分享</a>需要公众号授权，并有很多的<a href="http://kf.qq.com/faq/131117ne2MV7141117JzI32q.html" target="_blank" rel="noopener">限制规则</a></p>
+<p>微信分享可以分享到 朋友圈、微信好友、QQ、腾讯微博、QQ空间<br><figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">wx</span><span class="selector-class">.onMenuShareAppMessage</span>(&#123;</span><br><span class="line">    <span class="attribute">title</span>: <span class="string">''</span>, <span class="comment">// 分享标题</span></span><br><span class="line">    <span class="attribute">desc</span>: <span class="string">''</span>, <span class="comment">// 分享描述</span></span><br><span class="line">    <span class="attribute">link</span>: <span class="string">''</span>, <span class="comment">// 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致</span></span><br><span class="line">    <span class="attribute">imgUrl</span>: <span class="string">''</span>, <span class="comment">// 分享图标</span></span><br><span class="line">    <span class="attribute">type</span>: <span class="string">''</span>, <span class="comment">// 分享类型,music、video或link，不填默认为link</span></span><br><span class="line">    <span class="attribute">dataUrl</span>: <span class="string">''</span>, <span class="comment">// 如果type是music或video，则要提供数据链接，默认为空</span></span><br><span class="line">    <span class="attribute">success</span>: function () &#123;</span><br><span class="line">        <span class="comment">// 用户确认分享后执行的回调函数</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attribute">cancel</span>: function () &#123;</span><br><span class="line">        <span class="comment">// 用户取消分享后执行的回调函数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
       
@@ -539,6 +590,10 @@
             <a href="/tags/CSS3/" rel="tag"># CSS3</a>
           
         </div>
+      
+
+      
+      
       
 
       
@@ -566,30 +621,15 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
 
     <div class="post-spread">
-      
-        <div class="ds-share flat" data-thread-key="2017/06/09/animation-qzone/"
-     data-title="动画系列之Qzone5.0的H5技术分析"
-     data-content=""
-     data-url="http://toggle.coding.io/2017/06/09/animation-qzone/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
       
     </div>
   </div>
@@ -598,15 +638,11 @@
           </div>
           
 
+  
+    <div class="comments" id="comments">
+    </div>
+  
 
-          
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2017/06/09/animation-qzone/"
-           data-title="动画系列之Qzone5.0的H5技术分析" data-url="http://toggle.coding.io/2017/06/09/animation-qzone/">
-      </div>
-    
-  </div>
 
 
         </div>
@@ -622,106 +658,205 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             站点概览
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar100.jpg"
-               alt="Aitter" />
-          <p class="site-author-name" itemprop="name">Aitter</p>
-          <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">71</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar100.jpg"
+                alt="Aitter" />
+            
+              <p class="site-author-name" itemprop="name">Aitter</p>
+              <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
           </div>
 
           
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">14</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/git-lt" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank" title="Zhihu"><i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                  
+                </span>
+              
             </div>
           
 
           
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hexo.io/" title="Hexo" target="_blank">Hexo</a>
+                  </li>
+                
+              </ul>
             </div>
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
           
             
-              <span class="links-of-author-item">
-                <a href="https://github.com/git-lt" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank" title="Zhihu">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  Zhihu
-                </a>
-              </span>
-            
           
+          
+
         </div>
-
-        
-        
-
-        
-        
-          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-            <div class="links-of-blogroll-title">
-              <i class="fa  fa-fw fa-globe"></i>
-              友情链接
-            </div>
-            <ul class="links-of-blogroll-list">
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://hexo.io/" title="Hexo" target="_blank">Hexo</a>
-                </li>
-              
-            </ul>
-          </div>
-        
-
-        
-
-
       </section>
 
       
@@ -742,6 +877,8 @@
       <!--/noindex-->
       
 
+      
+
     </div>
   </aside>
 
@@ -752,38 +889,55 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2015 - 
-  <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Aitter</span>
+
+  
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.1.0</div>
+
+
 
 
         
+
+
+
+
+
+
+
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
   </div>
 
   
@@ -802,35 +956,12 @@
 
 
 
-  
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
 
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
@@ -838,68 +969,133 @@
   
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
 
 
 
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
 
   
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
 
 
 
   
 
-  
-    
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
   
 
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
   <script type="text/javascript">
-    var duoshuoQuery = {short_name:"togglelt"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz',
+        appKey: 'IQ7Je02a33Mm5AVkAikKwxL2',
+        placeholder: 'ヾﾉ≧∀≦)o来呀，快活呀!',
+        avatar:'monsterid',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
   </script>
 
+
+
   
-    
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
-  
-
-
-
 
 
 
 
 
   
-  
 
   
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz", "IQ7Je02a33Mm5AVkAikKwxL2");</script>
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz", "IQ7Je02a33Mm5AVkAikKwxL2#<app_key>");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);
@@ -955,35 +1151,24 @@
             var counter = results[0];
             counter.fetchWhenSave(true);
             counter.increment("time");
+            
             counter.save(null, {
               success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
               },
               error: function(counter, error) {
                 console.log('Failed to save Visitor num, with error message: ' + error.message);
               }
             });
           } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
           }
         },
         error: function(error) {
@@ -1008,6 +1193,18 @@
 
   
 
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>

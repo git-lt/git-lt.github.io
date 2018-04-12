@@ -1,15 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
 
 
 
@@ -27,36 +37,10 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
@@ -65,37 +49,25 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="react," />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
 
 
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
 
 
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
+  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
 
 
 
-<meta name="description" content="之前对照小尤大大的hackernews-vue2.0的同构项目做过一遍之后，就是一直想看看reactjs的同构直出方案是怎样的，希望可以做个对比，体验一下两者之间的差别，平时一直忙于工作，这两天辞职在家，终于静下心来，实践体验了一下。年底不好找工作，哪位小伙伴有合适的可以推荐一下，最好杭州城西，在这先谢谢了:)">
-<meta name="keywords" content="react">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Koa2 + React + Redux + antd 同构直出探索">
-<meta property="og:url" content="http://toggle.coding.io/2016/11/25/isomorphism-koa2-react-antd/index.html">
-<meta property="og:site_name" content="Aitter&#39;s Blog">
-<meta property="og:description" content="之前对照小尤大大的hackernews-vue2.0的同构项目做过一遍之后，就是一直想看看reactjs的同构直出方案是怎样的，希望可以做个对比，体验一下两者之间的差别，平时一直忙于工作，这两天辞职在家，终于静下心来，实践体验了一下。年底不好找工作，哪位小伙伴有合适的可以推荐一下，最好杭州城西，在这先谢谢了:)">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2016-11-25T14:56:45.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Koa2 + React + Redux + antd 同构直出探索">
-<meta name="twitter:description" content="之前对照小尤大大的hackernews-vue2.0的同构项目做过一遍之后，就是一直想看看reactjs的同构直出方案是怎样的，希望可以做个对比，体验一下两者之间的差别，平时一直忙于工作，这两天辞职在家，终于静下心来，实践体验了一下。年底不好找工作，哪位小伙伴有合适的可以推荐一下，最好杭州城西，在这先谢谢了:)">
+
+
+
 
 
 
@@ -104,13 +76,13 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -122,19 +94,44 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="之前对照小尤大大的hackernews-vue2.0的同构项目做过一遍之后，就是一直想看看reactjs的同构直出方案是怎样的，希望可以做个对比，体验一下两者之间的差别，平时一直忙于工作，这两天辞职在家，终于静下心来，实践体验了一下。年底不好找工作，哪位小伙伴有合适的可以推荐一下，最好杭州城西，在这先谢谢了:)">
+<meta name="keywords" content="react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Koa2 + React + Redux + antd 同构直出探索">
+<meta property="og:url" content="http://toggle.coding.io/2016/11/25/isomorphism-koa2-react-antd/index.html">
+<meta property="og:site_name" content="Aitter&#39;s Blog">
+<meta property="og:description" content="之前对照小尤大大的hackernews-vue2.0的同构项目做过一遍之后，就是一直想看看reactjs的同构直出方案是怎样的，希望可以做个对比，体验一下两者之间的差别，平时一直忙于工作，这两天辞职在家，终于静下心来，实践体验了一下。年底不好找工作，哪位小伙伴有合适的可以推荐一下，最好杭州城西，在这先谢谢了:)">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2016-11-25T14:56:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Koa2 + React + Redux + antd 同构直出探索">
+<meta name="twitter:description" content="之前对照小尤大大的hackernews-vue2.0的同构项目做过一遍之后，就是一直想看看reactjs的同构直出方案是怎样的，希望可以做个对比，体验一下两者之间的差别，平时一直忙于工作，这两天辞职在家，终于静下心来，实践体验了一下。年底不好找工作，哪位小伙伴有合适的可以推荐一下，最好杭州城西，在这先谢谢了:)">
+
+
+
+
+
 
   <link rel="canonical" href="http://toggle.coding.io/2016/11/25/isomorphism-koa2-react-antd/"/>
 
 
 
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title> Koa2 + React + Redux + antd 同构直出探索 | Aitter's Blog </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>Koa2 + React + Redux + antd 同构直出探索 | Aitter's Blog</title>
   
+
+
+
 
 
 
@@ -142,7 +139,7 @@
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
+      hm.src = "https://hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
@@ -151,99 +148,134 @@
 
 
 
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
 
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
 
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Aitter's Blog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aitter's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">I can’t change the world, only change myself!</p>
+      
   </div>
-  <p class="site-subtitle">I can’t change the world, only change myself!</p>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+
+
 
 <nav class="site-nav">
-  
-
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+</li>
+
       
 
       
+      
     </ul>
+  
+
   
 
   
@@ -251,12 +283,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
 
@@ -269,32 +312,31 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2016/11/25/isomorphism-koa2-react-antd/">
+  
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Aitter">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar100.jpg">
-  </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2016/11/25/isomorphism-koa2-react-antd/">
 
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Aitter's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Aitter's Blog" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aitter">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar100.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aitter's Blog">
+    </span>
 
     
       <header class="post-header">
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                Koa2 + React + Redux + antd 同构直出探索
+          <h1 class="post-title" itemprop="name headline">Koa2 + React + Redux + antd 同构直出探索
               
             
           </h1>
@@ -303,15 +345,20 @@
         <div class="post-meta">
           <span class="post-time">
             
+                
+            
+
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-25T13:01:32+08:00">
-                2016-11-25
-              </time>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-25T13:01:32+08:00">2016-11-25</time>
             
 
+            
             
 
             
@@ -319,17 +366,17 @@
 
           
             <span class="post-category" >
+            
               <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JS/" itemprop="url" rel="index">
-                    <span itemprop="name">JS</span>
-                  </a>
-                </span>
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
 
                 
                 
@@ -341,13 +388,14 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2016/11/25/isomorphism-koa2-react-antd/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/25/isomorphism-koa2-react-antd/" itemprop="commentCount"></span>
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/11/25/isomorphism-koa2-react-antd/" itemprop="commentCount"></span>
                 </a>
               </span>
             
-          
-
           
 
           
@@ -357,9 +405,13 @@
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
           
 
           
@@ -370,7 +422,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -428,7 +482,7 @@
 <li>不能改变组件的状态</li>
 <li>不能修改DOM</li>
 </ul>
-<ol>
+<ol start="5">
 <li><p>componentDidMount<br>真实的DOM被渲染出来后调用，可以在此方法中通过 this.getDOMNode()访问真实的DOM元素。此时可以使用其它类库操作DOM。<strong>服务端不会被调用</strong></p>
 </li>
 <li><p>componetWillReceiveProps<br>组件在接收到新的props时调用，并将其作为参数nextProps使用，此时<strong>可以更改组件的props及state</strong></p>
@@ -442,7 +496,7 @@
 <li><p>componetWillUnmount<br>组件被移除之前调用，可以用于做一些清理工作，在componentDidMount方法中添加的所有任务都需要在该方法中撤销，比如创建的定时器或添加的事件监听器。</p>
 </li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> React = <span class="built_in">require</span>(<span class="string">"react"</span>);</div><div class="line"><span class="keyword">var</span> ReactDOM = <span class="built_in">require</span>(<span class="string">"react-dom"</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> NewView = React.createClass(&#123;</div><div class="line">    <span class="comment">//1.创建阶段</span></div><div class="line">    getDefaultProps:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"getDefaultProps"</span>);</div><div class="line">        <span class="keyword">return</span> &#123;&#125;;</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="comment">//2.实例化阶段</span></div><div class="line">    getInitialState:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"getInitialState"</span>);</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            num:<span class="number">1</span></div><div class="line">        &#125;;</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="comment">//render之前调用，业务逻辑都应该放在这里，如对state的操作等</span></div><div class="line">    componentWillMount:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"componentWillMount"</span>);</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="comment">//渲染并返回一个虚拟DOM</span></div><div class="line">    render:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"render"</span>);</div><div class="line">        <span class="keyword">return</span>(</div><div class="line">            &lt;div&gt;</div><div class="line">            hello &lt;strong&gt; &#123;<span class="keyword">this</span>.props.name&#125; &lt;<span class="regexp">/strong&gt;</span></div><div class="line"><span class="regexp">            &lt;/</span>div&gt;</div><div class="line">            );</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="comment">//该方法发生在render方法之后。在该方法中，ReactJS会使用render生成返回的虚拟DOM对象来创建真实的DOM结构</span></div><div class="line">    componentDidMount:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"componentDidMount"</span>);</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="comment">//3.更新阶段</span></div><div class="line">    componentWillReceiveProps:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"componentWillReceiveProps"</span>);</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="comment">//是否需要更新</span></div><div class="line">    shouldComponentUpdate:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"shouldComponentUpdate"</span>);</div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="comment">//将要更新 不可以在该方法中更新state和props</span></div><div class="line">    componentWillUpdate:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"componentWillUpdate"</span>);</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="comment">//更新完毕</span></div><div class="line">    componentDidUpdate:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"componentDidUpdate"</span>);</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="comment">//4.销毁阶段</span></div><div class="line">    componentWillUnmount:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"componentWillUnmount"</span>);</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="comment">// 处理点击事件</span></div><div class="line">    handleAddNumber:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">this</span>.setProps(&#123;<span class="attr">name</span>:<span class="string">"newName"</span>&#125;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">ReactDOM.render(<span class="xml"><span class="tag">&lt;<span class="name">NewView</span> <span class="attr">name</span>=<span class="string">"ReactJS"</span>&gt;</span><span class="tag">&lt;/<span class="name">NewView</span>&gt;</span></span>, <span class="built_in">document</span>.body);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> React = <span class="built_in">require</span>(<span class="string">"react"</span>);</span><br><span class="line"><span class="keyword">var</span> ReactDOM = <span class="built_in">require</span>(<span class="string">"react-dom"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> NewView = React.createClass(&#123;</span><br><span class="line">    <span class="comment">//1.创建阶段</span></span><br><span class="line">    getDefaultProps:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"getDefaultProps"</span>);</span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2.实例化阶段</span></span><br><span class="line">    getInitialState:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"getInitialState"</span>);</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            num:<span class="number">1</span></span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">//render之前调用，业务逻辑都应该放在这里，如对state的操作等</span></span><br><span class="line">    componentWillMount:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"componentWillMount"</span>);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">//渲染并返回一个虚拟DOM</span></span><br><span class="line">    render:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"render"</span>);</span><br><span class="line">        <span class="keyword">return</span>(</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">            hello &lt;strong&gt; &#123;<span class="keyword">this</span>.props.name&#125; &lt;<span class="regexp">/strong&gt;</span></span><br><span class="line"><span class="regexp">            &lt;/</span>div&gt;</span><br><span class="line">            );</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">//该方法发生在render方法之后。在该方法中，ReactJS会使用render生成返回的虚拟DOM对象来创建真实的DOM结构</span></span><br><span class="line">    componentDidMount:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"componentDidMount"</span>);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3.更新阶段</span></span><br><span class="line">    componentWillReceiveProps:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"componentWillReceiveProps"</span>);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">//是否需要更新</span></span><br><span class="line">    shouldComponentUpdate:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"shouldComponentUpdate"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">//将要更新 不可以在该方法中更新state和props</span></span><br><span class="line">    componentWillUpdate:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"componentWillUpdate"</span>);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">//更新完毕</span></span><br><span class="line">    componentDidUpdate:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"componentDidUpdate"</span>);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">//4.销毁阶段</span></span><br><span class="line">    componentWillUnmount:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"componentWillUnmount"</span>);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 处理点击事件</span></span><br><span class="line">    handleAddNumber:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.setProps(&#123;<span class="attr">name</span>:<span class="string">"newName"</span>&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">ReactDOM.render(<span class="xml"><span class="tag">&lt;<span class="name">NewView</span> <span class="attr">name</span>=<span class="string">"ReactJS"</span>&gt;</span><span class="tag">&lt;/<span class="name">NewView</span>&gt;</span></span>, <span class="built_in">document</span>.body);</span><br></pre></td></tr></table></figure>
 <p><strong> 因为服务端渲染，不存在挂载组件，所以挂载以后的生命周期将不会在服务端渲染时触发， 所以在做服务端组件状态或数据初始化时，要做特殊处理，后面会讲到 </strong></p>
 <h2 id="Redux的基本概念"><a href="#Redux的基本概念" class="headerlink" title="Redux的基本概念"></a>Redux的基本概念</h2><p>Redux 提供了一套类似 Flux 的单向数据流，整个应用只维护一个 Store，以及面向函数式的特性让它对服务器端渲染支持很友好。</p>
 <p>关于 Store：</p>
@@ -476,63 +530,60 @@
 <li>用户在前端跳转后刷新页面，此时被服务端路由截获，并由服务端处理渲染并返回页面内容</li>
 </ul>
 <p>共用路由 <code>/app/router.js</code> 放在client端，server端也共用这一个文件</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> (</div><div class="line">  &lt;Router history=&#123;browserHistory&#125;&gt;</div><div class="line">    &lt;Route path=<span class="string">"/"</span> component=&#123;App&#125;&gt;</div><div class="line">      &lt;IndexRoute component=&#123;Home&#125;/&gt;</div><div class="line">      &lt;Route path=<span class="string">"news"</span> component=&#123;News&#125; /&gt;</div><div class="line">      &lt;Route path=<span class="string">"about"</span> component=&#123;About&#125; /&gt;</div><div class="line">    &lt;<span class="regexp">/Route&gt;</span></div><div class="line"><span class="regexp">  &lt;/</span>Router&gt;</div><div class="line">)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> (</span><br><span class="line">  &lt;Router history=&#123;browserHistory&#125;&gt;</span><br><span class="line">    &lt;Route path=<span class="string">"/"</span> component=&#123;App&#125;&gt;</span><br><span class="line">      &lt;IndexRoute component=&#123;Home&#125;/&gt;</span><br><span class="line">      &lt;Route path=<span class="string">"news"</span> component=&#123;News&#125; /&gt;</span><br><span class="line">      &lt;Route path=<span class="string">"about"</span> component=&#123;About&#125; /&gt;</span><br><span class="line">    &lt;<span class="regexp">/Route&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>Router&gt;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <h3 id="Web页面请求"><a href="#Web页面请求" class="headerlink" title="Web页面请求"></a>Web页面请求</h3><h4 id="Server端页面请求"><a href="#Server端页面请求" class="headerlink" title="Server端页面请求"></a>Server端页面请求</h4><p>使用 <code>react-router</code> 的 <code>match</code> 方法，拿到的页面请求地址匹配到定义的 <code>routes</code>，解析成和客户端一致的 <code>props 对象</code> 传递给组件。</p>
-<p>React-router官网文档有前后端共用路由的相关介绍<a href="https://github.com/ReactTraining/react-router/blob/master/docs/guides/ServerRendering.md" target="_blank" rel="external">ServerRendering - React-router</a></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">async</span> (ctx, next) =&gt; &#123;</div><div class="line">  <span class="keyword">try</span>&#123;</div><div class="line">    <span class="comment">//Server端路由与前端路由共用 **页面路由** ../../../app/routes</span></div><div class="line">    <span class="keyword">const</span> &#123; redirectLocation, renderProps &#125; = <span class="keyword">await</span> _match(&#123; <span class="attr">routes</span>: <span class="built_in">require</span>(<span class="string">'../../../app/routes'</span>), <span class="attr">location</span>: ctx.url &#125;)</div><div class="line">    <span class="comment">//重定向</span></div><div class="line">    <span class="keyword">if</span>(redirectLocation)&#123;</div><div class="line">      ctx.redirect(redirectLocation.pathname + redirectLocation.search)</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(renderProps)&#123;</div><div class="line">      <span class="comment">//调用页面渲染控制器，开始服务端渲染</span></div><div class="line">      <span class="keyword">await</span> renderCtrl(ctx, next, renderProps)</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      <span class="keyword">await</span> next()</div><div class="line">    &#125;</div><div class="line">  &#125;<span class="keyword">catch</span>(e)&#123;</div><div class="line">    <span class="built_in">console</span>.error(<span class="string">'Server-Render Error Occurs: %s'</span>, e.stack)</div><div class="line">    <span class="keyword">await</span> ctx.render(<span class="string">'500'</span>, &#123;</div><div class="line">      msg: ctx.app.env === <span class="string">'development'</span> ? e.message : <span class="literal">false</span></div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>React-router官网文档有前后端共用路由的相关介绍<a href="https://github.com/ReactTraining/react-router/blob/master/docs/guides/ServerRendering.md" target="_blank" rel="noopener">ServerRendering - React-router</a></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">//Server端路由与前端路由共用 **页面路由** ../../../app/routes</span></span><br><span class="line">    <span class="keyword">const</span> &#123; redirectLocation, renderProps &#125; = <span class="keyword">await</span> _match(&#123; <span class="attr">routes</span>: <span class="built_in">require</span>(<span class="string">'../../../app/routes'</span>), <span class="attr">location</span>: ctx.url &#125;)</span><br><span class="line">    <span class="comment">//重定向</span></span><br><span class="line">    <span class="keyword">if</span>(redirectLocation)&#123;</span><br><span class="line">      ctx.redirect(redirectLocation.pathname + redirectLocation.search)</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(renderProps)&#123;</span><br><span class="line">      <span class="comment">//调用页面渲染控制器，开始服务端渲染</span></span><br><span class="line">      <span class="keyword">await</span> renderCtrl(ctx, next, renderProps)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="keyword">await</span> next()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">    <span class="built_in">console</span>.error(<span class="string">'Server-Render Error Occurs: %s'</span>, e.stack)</span><br><span class="line">    <span class="keyword">await</span> ctx.render(<span class="string">'500'</span>, &#123;</span><br><span class="line">      msg: ctx.app.env === <span class="string">'development'</span> ? e.message : <span class="literal">false</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>renderCtrl</code> 负责服务端处理数据并渲染页面输出到浏览器端，这里调用了<code>react</code> 服务端渲染的核心方法 <code>renderToString()</code></p>
-<p><code>server/controller/renderCtrl.js</code><br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">//renderProps：从路由组件中获取的路由与组件的信息</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">async</span> (ctx, next, renderProps) =&gt; &#123;</div><div class="line">  <span class="keyword">const</span> route = renderProps.routes[renderProps.routes.length - <span class="number">1</span>]</div><div class="line">  <span class="keyword">let</span> prefetchTasks = []</div><div class="line"></div><div class="line">  <span class="comment">// 遍历路由中注册的组件，创建加载数据请求，至数组中</span></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> component <span class="keyword">of</span> renderProps.components) &#123;</div><div class="line">    <span class="keyword">if</span> (component &amp;&amp; component.WrappedComponent &amp;&amp; component.WrappedComponent.fetch) &#123;</div><div class="line">      <span class="keyword">const</span> _tasks = component.WrappedComponent.fetch(store.getState(), store.dispatch)</div><div class="line">      <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(_tasks)) &#123;</div><div class="line">        prefetchTasks = prefetchTasks.concat(_tasks)</div><div class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (_tasks.then) &#123;</div><div class="line">        prefetchTasks.push(_tasks)</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">//当所有组件的数据加载完成后，</span></div><div class="line">  <span class="keyword">await</span> <span class="built_in">Promise</span>.all(prefetchTasks)</div><div class="line">  <span class="comment">// 渲染组件</span></div><div class="line">  <span class="keyword">await</span> ctx.render(<span class="string">'index'</span>, &#123;</div><div class="line">    title: config.title,</div><div class="line">    dev: ctx.app.env === <span class="string">'development'</span>,</div><div class="line">    <span class="comment">//将state输出到页面，用于浏览器端redux初始化state</span></div><div class="line">    reduxData: store.getState(),</div><div class="line">    <span class="comment">// render之后生成的HTML字符串在app这个对象中，通过ejs渲染至view中，最后输出</span></div><div class="line">    app: renderToString(<span class="xml"><span class="tag">&lt;<span class="name">Provider</span> <span class="attr">store</span>=<span class="string">&#123;store&#125;</span>&gt;</span></span></div><div class="line">      &lt;RouterContext &#123;...renderProps&#125; /&gt;</div><div class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">Provider</span>&gt;</span>)</span></div><div class="line"><span class="xml">  &#125;)</span></div><div class="line"><span class="xml">&#125;</span></div></pre></td></tr></table></figure></p>
+<p><code>server/controller/renderCtrl.js</code><br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//renderProps：从路由组件中获取的路由与组件的信息</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">async</span> (ctx, next, renderProps) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> route = renderProps.routes[renderProps.routes.length - <span class="number">1</span>]</span><br><span class="line">  <span class="keyword">let</span> prefetchTasks = []</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 遍历路由中注册的组件，创建加载数据请求，至数组中</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> component <span class="keyword">of</span> renderProps.components) &#123;</span><br><span class="line">    <span class="keyword">if</span> (component &amp;&amp; component.WrappedComponent &amp;&amp; component.WrappedComponent.fetch) &#123;</span><br><span class="line">      <span class="keyword">const</span> _tasks = component.WrappedComponent.fetch(store.getState(), store.dispatch)</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(_tasks)) &#123;</span><br><span class="line">        prefetchTasks = prefetchTasks.concat(_tasks)</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (_tasks.then) &#123;</span><br><span class="line">        prefetchTasks.push(_tasks)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//当所有组件的数据加载完成后，</span></span><br><span class="line">  <span class="keyword">await</span> <span class="built_in">Promise</span>.all(prefetchTasks)</span><br><span class="line">  <span class="comment">// 渲染组件</span></span><br><span class="line">  <span class="keyword">await</span> ctx.render(<span class="string">'index'</span>, &#123;</span><br><span class="line">    title: config.title,</span><br><span class="line">    dev: ctx.app.env === <span class="string">'development'</span>,</span><br><span class="line">    <span class="comment">//将state输出到页面，用于浏览器端redux初始化state</span></span><br><span class="line">    reduxData: store.getState(),</span><br><span class="line">    <span class="comment">// render之后生成的HTML字符串在app这个对象中，通过ejs渲染至view中，最后输出</span></span><br><span class="line">    app: renderToString(<span class="xml"><span class="tag">&lt;<span class="name">Provider</span> <span class="attr">store</span>=<span class="string">&#123;store&#125;</span>&gt;</span></span></span><br><span class="line">      &lt;RouterContext &#123;...renderProps&#125; /&gt;</span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">Provider</span>&gt;</span>)</span></span><br><span class="line"><span class="xml">  &#125;)</span></span><br><span class="line"><span class="xml">&#125;</span></span><br></pre></td></tr></table></figure></p>
 <h4 id="Client端页面请求"><a href="#Client端页面请求" class="headerlink" title="Client端页面请求"></a>Client端页面请求</h4><p>浏览器端，从服务端注入到全局对象中获取redux需要的应用状态state，初始化state<br>导入路由共用的配置模块，初始化路由<br>调用 <code>ReactDOM.render()</code> 方法来渲染页面</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span></div><div class="line"><span class="keyword">import</span> routes <span class="keyword">from</span> <span class="string">'../../app/routes'</span></div><div class="line"><span class="keyword">import</span> &#123; Provider &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span></div><div class="line"></div><div class="line"><span class="comment">// 和服务端共用的redux状态管理</span></div><div class="line"><span class="keyword">import</span> configureStore <span class="keyword">from</span> <span class="string">'../../app/store/configureStore'</span></div><div class="line"></div><div class="line"><span class="comment">// 页面加载时，从全局对象中获取服务端注入到页面的State数据</span></div><div class="line"><span class="keyword">const</span> store = configureStore(<span class="built_in">window</span>.__REDUX_STATE__)</div><div class="line"></div><div class="line"><span class="comment">// 浏览器端使用 ReactDOM.render 初始化页面，首屏渲染</span></div><div class="line">ReactDOM.render(</div><div class="line">  &lt;Provider store=&#123;store&#125;&gt;</div><div class="line">    &#123;routes&#125;</div><div class="line">  &lt;<span class="regexp">/Provider&gt;,</span></div><div class="line"><span class="regexp">  document.querySelector('.react-container')</span></div><div class="line"><span class="regexp">)</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span></span><br><span class="line"><span class="keyword">import</span> routes <span class="keyword">from</span> <span class="string">'../../app/routes'</span></span><br><span class="line"><span class="keyword">import</span> &#123; Provider &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 和服务端共用的redux状态管理</span></span><br><span class="line"><span class="keyword">import</span> configureStore <span class="keyword">from</span> <span class="string">'../../app/store/configureStore'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 页面加载时，从全局对象中获取服务端注入到页面的State数据</span></span><br><span class="line"><span class="keyword">const</span> store = configureStore(<span class="built_in">window</span>.__REDUX_STATE__)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 浏览器端使用 ReactDOM.render 初始化页面，首屏渲染</span></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">    &#123;routes&#125;</span><br><span class="line">  &lt;<span class="regexp">/Provider&gt;,</span></span><br><span class="line"><span class="regexp">  document.querySelector('.react-container')</span></span><br><span class="line"><span class="regexp">)</span></span><br></pre></td></tr></table></figure>
 <h2 id="数据请求共用"><a href="#数据请求共用" class="headerlink" title="数据请求共用"></a>数据请求共用</h2><h3 id="Server端api请求"><a href="#Server端api请求" class="headerlink" title="Server端api请求"></a>Server端api请求</h3><p>Server端由于渲染组件时，不会执行到 <code>componentWillMount</code> 方法(因为不存在挂载操作)，那么就要手动去处理数据状态的初始化工作，方法是给组件添加一个静态方法 <code>fetch()</code>，服务端在 <code>renderCtrl</code> 中渲染之前，先加载完数据，初始化state，再将state注入到页面，渲染至浏览器端</p>
 <p>渲染部分的代码上面已经展示了，下面来看看给组件添加的静态方法 <code>fetch()</code></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; fetchNews &#125; <span class="keyword">from</span> <span class="string">'../actions/news'</span></div><div class="line"></div><div class="line">@connect( <span class="function"><span class="params">state</span> =&gt;</span> state.news )</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">News</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line"><span class="comment">//这里声明一个数据，为的是可以获取多个接口的数据，接口请求是异步请求，返回之后，render之前调用 Promise.all() 保证所有异步请求完成后，再渲染页面</span></div><div class="line">  <span class="keyword">static</span> fetch (state, dispatch) &#123;</div><div class="line">   <span class="keyword">const</span> fetchTasks = []</div><div class="line">   fetchTasks.push(</div><div class="line">     dispatch(fetchNews(state))</div><div class="line">   )</div><div class="line">   <span class="keyword">return</span> fetchTasks</div><div class="line"> &#125;</div><div class="line">  render()&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; fetchNews &#125; <span class="keyword">from</span> <span class="string">'../actions/news'</span></span><br><span class="line"></span><br><span class="line">@connect( <span class="function"><span class="params">state</span> =&gt;</span> state.news )</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">News</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line"><span class="comment">//这里声明一个数据，为的是可以获取多个接口的数据，接口请求是异步请求，返回之后，render之前调用 Promise.all() 保证所有异步请求完成后，再渲染页面</span></span><br><span class="line">  <span class="keyword">static</span> fetch (state, dispatch) &#123;</span><br><span class="line">   <span class="keyword">const</span> fetchTasks = []</span><br><span class="line">   fetchTasks.push(</span><br><span class="line">     dispatch(fetchNews(state))</span><br><span class="line">   )</span><br><span class="line">   <span class="keyword">return</span> fetchTasks</span><br><span class="line"> &#125;</span><br><span class="line">  render()&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="Client端api请求"><a href="#Client端api请求" class="headerlink" title="Client端api请求"></a>Client端api请求</h3><p>当页面从服务端返回后，那么浏览器端就接管了页面的控制，比如点击 下一页 这个功能，数据请求就是<code>ajax</code> 异步请求服务端，服务端返回 <code>json</code> 数据，那么这里，只需要调用组件的静态方法 <code>fetch()</code>，获取数据即可。</p>
 <p><strong> 注意 </strong></p>
 <ol>
 <li>前端在组件挂载后，要判断一下这个页面的状态数据，有没有初始化，如果没有，应该加载一次，以避免在前端路由跳转后，新的页面没有数据而报错。</li>
 <li>每个页面的state最好设置一下默认值，这样在前端页面异步数据还没有加载回来之后，给页面状态一个默认状态，避免数据获取时出错。</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">News</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line"> <span class="keyword">static</span> fetch (state, dispatch) &#123;</div><div class="line">   <span class="keyword">const</span> fetchTasks = []</div><div class="line">   fetchTasks.push(</div><div class="line">     dispatch(fetchNews(state))</div><div class="line">   )</div><div class="line">   <span class="keyword">return</span> fetchTasks</div><div class="line"> &#125;</div><div class="line"> <span class="comment">//如果没有加载后，组件挂载后，加载一次</span></div><div class="line"> componentDidMount () &#123;</div><div class="line">   <span class="keyword">const</span> &#123; loaded &#125; = <span class="keyword">this</span>.props</div><div class="line">   <span class="keyword">if</span> ( !loaded ) &#123;</div><div class="line">     <span class="keyword">this</span>.constructor.fetch(<span class="keyword">this</span>.props, <span class="keyword">this</span>.props.dispatch)</div><div class="line">   &#125;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> getNextPage()&#123;</div><div class="line">	<span class="comment">//调用组件的静态方法异步获取数据</span></div><div class="line">   <span class="keyword">this</span>.constructor.fetch(<span class="keyword">this</span>.props, <span class="keyword">this</span>.props.dispatch);</div><div class="line"> &#125;</div><div class="line"> render()&#123;</div><div class="line">	&lt;div style=&#123;&#123; <span class="attr">background</span>: <span class="string">'#ECECEC'</span>, <span class="attr">padding</span>: <span class="string">'30px'</span> &#125;&#125;&gt;</div><div class="line">        &lt;Button type=<span class="string">"primary"</span> loading=&#123;!loaded&#125; onClick=&#123;<span class="keyword">this</span>.getNextPage.bind(<span class="keyword">this</span>)&#125;&gt;</div><div class="line">         下一页</div><div class="line">       &lt;<span class="regexp">/Button&gt;</span></div><div class="line"><span class="regexp">        &lt;div&gt;</span></div><div class="line"><span class="regexp">        &#123; newsList &#125;</span></div><div class="line"><span class="regexp">        &lt;/</span>div&gt;</div><div class="line">     &lt;<span class="regexp">/div&gt;</span></div><div class="line"><span class="regexp">	&#125;</span></div><div class="line"><span class="regexp">&#125;</span></div></pre></td></tr></table></figure>
-<p>api请求最终都是调用redux 中的 <code>actions</code> 去做异步请求处理，那么在action中，可以使用 <code>isomorphic-fetch</code> 去做请求去差异化，服务端使用http.request方法需要完整路径，客户端使用ajax，使用相对路径，具体如下<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> fetchStateUrl = __SERVER__</div><div class="line">  ? <span class="string">`http://localhost:<span class="subst">$&#123;<span class="built_in">require</span>(<span class="string">'../../platforms/common/config'</span>).port&#125;</span>/api/news`</span></div><div class="line">  : <span class="string">'/api/news'</span></div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">fetchNews</span>(<span class="params">state</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">dispatch</span>) =&gt;</span> &#123;</div><div class="line">    dispatch(newsRequest())</div><div class="line">    <span class="keyword">return</span> fetch(fetchStateUrl)</div><div class="line">      .then(<span class="function"><span class="params">res</span> =&gt;</span> res.json())</div><div class="line">      .then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'===&gt;news'</span>)</div><div class="line">        <span class="built_in">console</span>.log(data)</div><div class="line">        dispatch(newsSucceed(data))</div><div class="line">      &#125;)</div><div class="line">      .catch(<span class="function"><span class="params">e</span> =&gt;</span> dispatch(newsFailed(e)))</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这里的 <code>__SERVER__</code> 是webpack中配置的全局变量<br><figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">new</span> <span class="selector-tag">webpack</span><span class="selector-class">.DefinePlugin</span>(&#123;</div><div class="line">  <span class="attribute">__SERVER__</span>: true</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">News</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line"> <span class="keyword">static</span> fetch (state, dispatch) &#123;</span><br><span class="line">   <span class="keyword">const</span> fetchTasks = []</span><br><span class="line">   fetchTasks.push(</span><br><span class="line">     dispatch(fetchNews(state))</span><br><span class="line">   )</span><br><span class="line">   <span class="keyword">return</span> fetchTasks</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">//如果没有加载后，组件挂载后，加载一次</span></span><br><span class="line"> componentDidMount () &#123;</span><br><span class="line">   <span class="keyword">const</span> &#123; loaded &#125; = <span class="keyword">this</span>.props</span><br><span class="line">   <span class="keyword">if</span> ( !loaded ) &#123;</span><br><span class="line">     <span class="keyword">this</span>.constructor.fetch(<span class="keyword">this</span>.props, <span class="keyword">this</span>.props.dispatch)</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> getNextPage()&#123;</span><br><span class="line">	<span class="comment">//调用组件的静态方法异步获取数据</span></span><br><span class="line">   <span class="keyword">this</span>.constructor.fetch(<span class="keyword">this</span>.props, <span class="keyword">this</span>.props.dispatch);</span><br><span class="line"> &#125;</span><br><span class="line"> render()&#123;</span><br><span class="line">	&lt;div style=&#123;&#123; <span class="attr">background</span>: <span class="string">'#ECECEC'</span>, <span class="attr">padding</span>: <span class="string">'30px'</span> &#125;&#125;&gt;</span><br><span class="line">        &lt;Button type=<span class="string">"primary"</span> loading=&#123;!loaded&#125; onClick=&#123;<span class="keyword">this</span>.getNextPage.bind(<span class="keyword">this</span>)&#125;&gt;</span><br><span class="line">         下一页</span><br><span class="line">       &lt;<span class="regexp">/Button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;div&gt;</span></span><br><span class="line"><span class="regexp">        &#123; newsList &#125;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>div&gt;</span><br><span class="line">     &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">	&#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>api请求最终都是调用redux 中的 <code>actions</code> 去做异步请求处理，那么在action中，可以使用 <code>isomorphic-fetch</code> 去做请求去差异化，服务端使用http.request方法需要完整路径，客户端使用ajax，使用相对路径，具体如下<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fetchStateUrl = __SERVER__</span><br><span class="line">  ? <span class="string">`http://localhost:<span class="subst">$&#123;<span class="built_in">require</span>(<span class="string">'../../platforms/common/config'</span>).port&#125;</span>/api/news`</span></span><br><span class="line">  : <span class="string">'/api/news'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">fetchNews</span>(<span class="params">state</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">dispatch</span>) =&gt;</span> &#123;</span><br><span class="line">    dispatch(newsRequest())</span><br><span class="line">    <span class="keyword">return</span> fetch(fetchStateUrl)</span><br><span class="line">      .then(<span class="function"><span class="params">res</span> =&gt;</span> res.json())</span><br><span class="line">      .then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'===&gt;news'</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(data)</span><br><span class="line">        dispatch(newsSucceed(data))</span><br><span class="line">      &#125;)</span><br><span class="line">      .catch(<span class="function"><span class="params">e</span> =&gt;</span> dispatch(newsFailed(e)))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里的 <code>__SERVER__</code> 是webpack中配置的全局变量<br><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">new</span> <span class="selector-tag">webpack</span><span class="selector-class">.DefinePlugin</span>(&#123;</span><br><span class="line">  <span class="attribute">__SERVER__</span>: true</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 <h2 id="应用状态同步"><a href="#应用状态同步" class="headerlink" title="应用状态同步"></a>应用状态同步</h2><p>状态同步主要使用redux去同步，服务端渲染时，生成一个 state，在返回页面时，将这个state注入页面，浏览器端拿到state，接管页面状态的管理。</p>
-<p>服务器端在 <code>render</code> 中，先获取数据，初始化state，注入页面<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">ctx.render(<span class="string">'index'</span>, &#123;</div><div class="line">   title: config.title,</div><div class="line">   dev: ctx.app.env === <span class="string">'development'</span>,</div><div class="line">   <span class="comment">//将state输出到页面，用于浏览器端redux初始化state</span></div><div class="line">   reduxData: store.getState(),</div><div class="line">   app: renderToString(<span class="xml"><span class="tag">&lt;<span class="name">Provider</span> <span class="attr">store</span>=<span class="string">&#123;store&#125;</span>&gt;</span></span></div><div class="line">     &lt;RouterContext &#123;...renderProps&#125; /&gt;</div><div class="line"><span class="xml">   <span class="tag">&lt;/<span class="name">Provider</span>&gt;</span>)</span></div><div class="line"><span class="xml"> &#125;)</span></div></pre></td></tr></table></figure></p>
+<p>服务器端在 <code>render</code> 中，先获取数据，初始化state，注入页面<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">ctx.render(<span class="string">'index'</span>, &#123;</span><br><span class="line">   title: config.title,</span><br><span class="line">   dev: ctx.app.env === <span class="string">'development'</span>,</span><br><span class="line">   <span class="comment">//将state输出到页面，用于浏览器端redux初始化state</span></span><br><span class="line">   reduxData: store.getState(),</span><br><span class="line">   app: renderToString(<span class="xml"><span class="tag">&lt;<span class="name">Provider</span> <span class="attr">store</span>=<span class="string">&#123;store&#125;</span>&gt;</span></span></span><br><span class="line">     &lt;RouterContext &#123;...renderProps&#125; /&gt;</span><br><span class="line"><span class="xml">   <span class="tag">&lt;/<span class="name">Provider</span>&gt;</span>)</span></span><br><span class="line"><span class="xml"> &#125;)</span></span><br></pre></td></tr></table></figure></p>
 <p><code>server/views/index.ejs</code></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">    &lt;section role=<span class="string">"main"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"react-container"</span>&gt;</div><div class="line">      &lt;div&gt;<span class="xml"><span class="tag">&lt;<span class="name">%-</span> <span class="attr">app</span> %&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line">    &lt;<span class="regexp">/section&gt;</span></div><div class="line"><span class="regexp">    &lt;script&gt;</span></div><div class="line"><span class="regexp">      try &#123;</span></div><div class="line"><span class="regexp">        /</span><span class="regexp">/通过render，将应用的state由ejs注入到全局对象__REDUX_STATE__中，用于redux的state初始化</span></div><div class="line"><span class="regexp">        window.__REDUX_STATE__ = &lt;%- JSON.stringify(reduxData) %&gt;;</span></div><div class="line"><span class="regexp">      &#125; catch (e) &#123;</span></div><div class="line"><span class="regexp">        console.warn('error in getting server redux data');</span></div><div class="line"><span class="regexp">      &#125;</span></div><div class="line"><span class="regexp">    &lt;/</span>script&gt;</div><div class="line">    &lt;script src=<span class="string">"/build/common.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">    &lt;script src=<span class="string">"/build/main.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">  &lt;<span class="regexp">/body&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;section role=<span class="string">"main"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"react-container"</span>&gt;</span><br><span class="line">      &lt;div&gt;<span class="xml"><span class="tag">&lt;<span class="name">%-</span> <span class="attr">app</span> %&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    &lt;<span class="regexp">/section&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script&gt;</span></span><br><span class="line"><span class="regexp">      try &#123;</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/通过render，将应用的state由ejs注入到全局对象__REDUX_STATE__中，用于redux的state初始化</span></span><br><span class="line"><span class="regexp">        window.__REDUX_STATE__ = &lt;%- JSON.stringify(reduxData) %&gt;;</span></span><br><span class="line"><span class="regexp">      &#125; catch (e) &#123;</span></span><br><span class="line"><span class="regexp">        console.warn('error in getting server redux data');</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>script&gt;</span><br><span class="line">    &lt;script src=<span class="string">"/build/common.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">    &lt;script src=<span class="string">"/build/main.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">  &lt;<span class="regexp">/body&gt;</span></span><br></pre></td></tr></table></figure>
 <p>浏览器端从全局对象中获取并初始化redux</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">//这里获取服务端注入的state</span></div><div class="line"><span class="keyword">const</span> store = configureStore(<span class="built_in">window</span>.__REDUX_STATE__)</div><div class="line">ReactDOM.render(</div><div class="line">  &lt;Provider store=&#123;store&#125;&gt;</div><div class="line">    &#123;routes&#125;</div><div class="line">  &lt;<span class="regexp">/Provider&gt;,</span></div><div class="line"><span class="regexp">  document.querySelector('.react-container')</span></div><div class="line"><span class="regexp">)</span></div></pre></td></tr></table></figure>
-<h2 id="构建与打包"><a href="#构建与打包" class="headerlink" title="构建与打包"></a>构建与打包</h2><p>这个项目框架是参考 @wssgcg1213 的 <a href="https://github.com/wssgcg1213/koa2-react-isomorphic-boilerplate" target="_blank" rel="external">koa2-react-isomorphic-boilerplate</a>，他在构建与打包这方便做出了很多的工作，更多细节可查看他的文档和源码。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//这里获取服务端注入的state</span></span><br><span class="line"><span class="keyword">const</span> store = configureStore(<span class="built_in">window</span>.__REDUX_STATE__)</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">    &#123;routes&#125;</span><br><span class="line">  &lt;<span class="regexp">/Provider&gt;,</span></span><br><span class="line"><span class="regexp">  document.querySelector('.react-container')</span></span><br><span class="line"><span class="regexp">)</span></span><br></pre></td></tr></table></figure>
+<h2 id="构建与打包"><a href="#构建与打包" class="headerlink" title="构建与打包"></a>构建与打包</h2><p>这个项目框架是参考 @wssgcg1213 的 <a href="https://github.com/wssgcg1213/koa2-react-isomorphic-boilerplate" target="_blank" rel="noopener">koa2-react-isomorphic-boilerplate</a>，他在构建与打包这方便做出了很多的工作，更多细节可查看他的文档和源码。</p>
 <p>这里有几个点要处理，服务端的打包和客户端的打包，服务端打包<br><code>target</code> 要配置为 <code>node</code>,  <code>libraryTarget</code> 要配置为 <code>commonjs2</code>，产生node端运行的代码</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">output: &#123;</div><div class="line">    path: path.join(__dirname, <span class="string">'/dist'</span>),</div><div class="line">    filename: <span class="string">'index.js'</span>,</div><div class="line">    publicPath: <span class="string">'/build/'</span>,</div><div class="line">    libraryTarget: <span class="string">'commonjs2'</span></div><div class="line">  &#125;,</div><div class="line">  target: <span class="string">'node'</span>,</div><div class="line">  node: &#123;</div><div class="line">    fs: <span class="string">'empty'</span>,</div><div class="line">    __dirname: <span class="literal">true</span>,</div><div class="line">    __filename: <span class="literal">true</span></div><div class="line">  &#125;,</div><div class="line">  externals: [</div><div class="line">    <span class="function"><span class="keyword">function</span> (<span class="params">context, request, callback</span>) </span>&#123;</div><div class="line">      <span class="keyword">var</span> pathStart = request.split(<span class="string">'/'</span>)[<span class="number">0</span>]</div><div class="line">      <span class="keyword">if</span> (pathStart &amp;&amp; (pathStart[<span class="number">0</span>] === <span class="string">'!'</span>) || nodeModules.indexOf(pathStart) &gt;= <span class="number">0</span> &amp;&amp; request !== <span class="string">'webpack/hot/signal.js'</span>) &#123;</div><div class="line">        <span class="keyword">return</span> callback(<span class="literal">null</span>, <span class="string">'commonjs '</span> + request)</div><div class="line">      &#125;</div><div class="line">      callback()</div><div class="line">    &#125;</div><div class="line">  ],</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">output: &#123;</span><br><span class="line">    path: path.join(__dirname, <span class="string">'/dist'</span>),</span><br><span class="line">    filename: <span class="string">'index.js'</span>,</span><br><span class="line">    publicPath: <span class="string">'/build/'</span>,</span><br><span class="line">    libraryTarget: <span class="string">'commonjs2'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  target: <span class="string">'node'</span>,</span><br><span class="line">  node: &#123;</span><br><span class="line">    fs: <span class="string">'empty'</span>,</span><br><span class="line">    __dirname: <span class="literal">true</span>,</span><br><span class="line">    __filename: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  externals: [</span><br><span class="line">    <span class="function"><span class="keyword">function</span> (<span class="params">context, request, callback</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> pathStart = request.split(<span class="string">'/'</span>)[<span class="number">0</span>]</span><br><span class="line">      <span class="keyword">if</span> (pathStart &amp;&amp; (pathStart[<span class="number">0</span>] === <span class="string">'!'</span>) || nodeModules.indexOf(pathStart) &gt;= <span class="number">0</span> &amp;&amp; request !== <span class="string">'webpack/hot/signal.js'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> callback(<span class="literal">null</span>, <span class="string">'commonjs '</span> + request)</span><br><span class="line">      &#125;</span><br><span class="line">      callback()</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br></pre></td></tr></table></figure>
 <p>另外react 的 component 中充满了 <code>import &#39;./component.less&#39;, import img from &#39;./img.png&#39;</code> 这样的语法, 但在 node 中是会报错的，@wssgcg1213 使用了<code>babel-plugin-transform-require-ignore</code> 来忽略 css/less , 转而在 webpack-dev-middleware 中使用 <code>style-loader</code> 打包成 js bundle 输出, 这样也能同时支持 hot module replacement; 对于图片使用 <code>asset-require-hook</code> 这个包来使 require 直接返回文件路径.</p>
 <h2 id="模板和UI框架"><a href="#模板和UI框架" class="headerlink" title="模板和UI框架"></a>模板和UI框架</h2><p>这个Demo里使用了ejs做为koa的模板引擎，这样可以为一些非SPA页面提供公用的片段，Header或Footer</p>
-<p>引入了 <code>antd</code> 做为UI框架，这里不得不提 <a href="https://ant.design/" target="_blank" rel="external">ant.design</a> 这个框架做的真是太好了，为管理界面的开发提升了很大开发的效率，组件设计美观，api合理，真正实现了一切UI皆组件的思想。</p>
-<p>这里引入 antd 有个优化点，使用 <a href="http://npm.taobao.org/package/babel-plugin-antd" target="_blank" rel="external">babel-plugin-antd</a> 插件，可以按需加载组件资源，不用全部引入，安装这个组件之后，还要在 <code>.babelrc</code> 中配置一下</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"plugins"</span>: [[<span class="string">"antd"</span>, &#123;</div><div class="line">     <span class="string">"libraryDirectory"</span>: <span class="string">"lib"</span>,</div><div class="line">     <span class="string">"libraryName"</span>: <span class="string">"antd"</span></div><div class="line">   &#125;]]</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; Button &#125; <span class="keyword">from</span> <span class="string">'antd'</span>;</div><div class="line">=&gt;</div><div class="line"><span class="keyword">var</span> _button = <span class="built_in">require</span>(<span class="string">'antd/lib/button'</span>);</div></pre></td></tr></table></figure>
-<p>另外在项目中使用到了用 <code>@</code> <a href="http://es6.ruanyifeng.com/#docs/decorator" target="_blank" rel="external">修饰器</a>的方式将redux的state注入到类的props中，因为这是ES7的一个提案，这里需要安装另一个插件 <code>babel-plugin-transform-decorators-legacy</code> 配合使用，同样要在 <code>.babelrc</code> 中配置一下<br><figure class="highlight scala"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"plugins"</span>: [<span class="string">"transform-decorators-legacy"</span>]</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">import</span> &#123;connect&#125; from <span class="symbol">'react</span>-redux';</div><div class="line"></div><div class="line"><span class="comment">//在组件中使用</span></div><div class="line"><span class="meta">@connect</span>(</div><div class="line">  state =&gt; state.server,</div><div class="line">)</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">News</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;&#125;</div></pre></td></tr></table></figure></p>
+<p>引入了 <code>antd</code> 做为UI框架，这里不得不提 <a href="https://ant.design/" target="_blank" rel="noopener">ant.design</a> 这个框架做的真是太好了，为管理界面的开发提升了很大开发的效率，组件设计美观，api合理，真正实现了一切UI皆组件的思想。</p>
+<p>这里引入 antd 有个优化点，使用 <a href="http://npm.taobao.org/package/babel-plugin-antd" target="_blank" rel="noopener">babel-plugin-antd</a> 插件，可以按需加载组件资源，不用全部引入，安装这个组件之后，还要在 <code>.babelrc</code> 中配置一下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"plugins"</span>: [[<span class="string">"antd"</span>, &#123;</span><br><span class="line">     <span class="string">"libraryDirectory"</span>: <span class="string">"lib"</span>,</span><br><span class="line">     <span class="string">"libraryName"</span>: <span class="string">"antd"</span></span><br><span class="line">   &#125;]]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; Button &#125; <span class="keyword">from</span> <span class="string">'antd'</span>;</span><br><span class="line">=&gt;</span><br><span class="line"><span class="keyword">var</span> _button = <span class="built_in">require</span>(<span class="string">'antd/lib/button'</span>);</span><br></pre></td></tr></table></figure>
+<p>另外在项目中使用到了用 <code>@</code> <a href="http://es6.ruanyifeng.com/#docs/decorator" target="_blank" rel="noopener">修饰器</a>的方式将redux的state注入到类的props中，因为这是ES7的一个提案，这里需要安装另一个插件 <code>babel-plugin-transform-decorators-legacy</code> 配合使用，同样要在 <code>.babelrc</code> 中配置一下<br><figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"plugins"</span>: [<span class="string">"transform-decorators-legacy"</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123;connect&#125; from <span class="symbol">'react</span>-redux';</span><br><span class="line"></span><br><span class="line"><span class="comment">//在组件中使用</span></span><br><span class="line"><span class="meta">@connect</span>(</span><br><span class="line">  state =&gt; state.server,</span><br><span class="line">)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">News</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>花了两天的时间，重温了一下react，实践了一下koa2+react+redux+antd的同构方式，总体感觉下来，要处理问题还是很多的，可能是自己对webpack还不是很熟悉，在开发环境和build环境的配置中，webpack改动还是很大的，幸好有开源的框架可以参考，一步步走来，还算顺利，但想想同构真的有必要吗？</p>
 <p>如果是2B的业务，其实应该没有同构的必要吧，增加了开发的复杂性，前后端也不能很好的分工合作，而且用户体验也没有那么高的需求。<br>所以适合2C的移动端项目，对体验要求很高，需要用到服务端优化加载和渲染的项目是合适同构的<br>另外，服务端渲染还要做缓存的，虽然我没有做性能测试，不过从QQ音乐的实践和测试来看，服务端不做缓存，在大并发下，还是有很大的性能瓶颈的。<br>最好的方式是像Vue的同构方案一样，建立缓存，并可以stream输出，这样就完美了。</p>
-<h2 id="项目源码"><a href="#项目源码" class="headerlink" title="项目源码"></a>项目源码</h2><p><a href="https://github.com/git-lt/isomorphism-koa2-react-antd" target="_blank" rel="external">isomorphism-koa2-react-antd</a></p>
-<p>参考阅读<br><a href="https://github.com/wssgcg1213/koa2-react-isomorphic-boilerplate" target="_blank" rel="external">koa2-react-isomorphic-boilerplate</a><br><a href="https://blog.coding.net/blog/React-server-rendering" target="_blank" rel="external">玩转 React 服务器端渲染</a><br><a href="http://chuansong.me/n/331913437152" target="_blank" rel="external">ReactJS 服务端同构实践【QQ音乐web团队】</a><br><a href="http://www.aliued.com/?p=3077" target="_blank" rel="external">React+Redux 同构应用开发</a></p>
+<h2 id="项目源码"><a href="#项目源码" class="headerlink" title="项目源码"></a>项目源码</h2><p><a href="https://github.com/git-lt/isomorphism-koa2-react-antd" target="_blank" rel="noopener">isomorphism-koa2-react-antd</a></p>
+<p>参考阅读<br><a href="https://github.com/wssgcg1213/koa2-react-isomorphic-boilerplate" target="_blank" rel="noopener">koa2-react-isomorphic-boilerplate</a><br><a href="https://blog.coding.net/blog/React-server-rendering" target="_blank" rel="noopener">玩转 React 服务器端渲染</a><br><a href="http://chuansong.me/n/331913437152" target="_blank" rel="noopener">ReactJS 服务端同构实践【QQ音乐web团队】</a><br><a href="http://www.aliued.com/?p=3077" target="_blank" rel="noopener">React+Redux 同构应用开发</a></p>
 
       
     </div>
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
       
@@ -541,6 +592,10 @@
             <a href="/tags/react/" rel="tag"># react</a>
           
         </div>
+      
+
+      
+      
       
 
       
@@ -568,30 +623,15 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
 
     <div class="post-spread">
-      
-        <div class="ds-share flat" data-thread-key="2016/11/25/isomorphism-koa2-react-antd/"
-     data-title="Koa2 + React + Redux + antd 同构直出探索"
-     data-content=""
-     data-url="http://toggle.coding.io/2016/11/25/isomorphism-koa2-react-antd/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
       
     </div>
   </div>
@@ -600,15 +640,11 @@
           </div>
           
 
+  
+    <div class="comments" id="comments">
+    </div>
+  
 
-          
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2016/11/25/isomorphism-koa2-react-antd/"
-           data-title="Koa2 + React + Redux + antd 同构直出探索" data-url="http://toggle.coding.io/2016/11/25/isomorphism-koa2-react-antd/">
-      </div>
-    
-  </div>
 
 
         </div>
@@ -624,106 +660,205 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             站点概览
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar100.jpg"
-               alt="Aitter" />
-          <p class="site-author-name" itemprop="name">Aitter</p>
-          <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">71</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar100.jpg"
+                alt="Aitter" />
+            
+              <p class="site-author-name" itemprop="name">Aitter</p>
+              <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
           </div>
 
           
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">14</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/git-lt" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank" title="Zhihu"><i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                  
+                </span>
+              
             </div>
           
 
           
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hexo.io/" title="Hexo" target="_blank">Hexo</a>
+                  </li>
+                
+              </ul>
             </div>
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
           
             
-              <span class="links-of-author-item">
-                <a href="https://github.com/git-lt" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank" title="Zhihu">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  Zhihu
-                </a>
-              </span>
-            
           
+          
+
         </div>
-
-        
-        
-
-        
-        
-          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-            <div class="links-of-blogroll-title">
-              <i class="fa  fa-fw fa-globe"></i>
-              友情链接
-            </div>
-            <ul class="links-of-blogroll-list">
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://hexo.io/" title="Hexo" target="_blank">Hexo</a>
-                </li>
-              
-            </ul>
-          </div>
-        
-
-        
-
-
       </section>
 
       
@@ -744,6 +879,8 @@
       <!--/noindex-->
       
 
+      
+
     </div>
   </aside>
 
@@ -754,38 +891,55 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2015 - 
-  <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Aitter</span>
+
+  
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.1.0</div>
+
+
 
 
         
+
+
+
+
+
+
+
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
   </div>
 
   
@@ -804,35 +958,12 @@
 
 
 
-  
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
 
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
@@ -840,68 +971,133 @@
   
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
 
 
 
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
 
   
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
 
 
 
   
 
-  
-    
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
   
 
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
   <script type="text/javascript">
-    var duoshuoQuery = {short_name:"togglelt"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz',
+        appKey: 'IQ7Je02a33Mm5AVkAikKwxL2',
+        placeholder: 'ヾﾉ≧∀≦)o来呀，快活呀!',
+        avatar:'monsterid',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
   </script>
 
+
+
   
-    
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
-  
-
-
-
 
 
 
 
 
   
-  
 
   
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz", "IQ7Je02a33Mm5AVkAikKwxL2");</script>
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz", "IQ7Je02a33Mm5AVkAikKwxL2#<app_key>");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);
@@ -957,35 +1153,24 @@
             var counter = results[0];
             counter.fetchWhenSave(true);
             counter.increment("time");
+            
             counter.save(null, {
               success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
               },
               error: function(counter, error) {
                 console.log('Failed to save Visitor num, with error message: ' + error.message);
               }
             });
           } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
           }
         },
         error: function(error) {
@@ -1010,6 +1195,18 @@
 
   
 
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>

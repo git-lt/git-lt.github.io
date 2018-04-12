@@ -1,15 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
 
 
 
@@ -27,36 +37,10 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
@@ -65,37 +49,25 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JS," />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
 
 
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
 
 
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
+  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
 
 
 
-<meta name="description" content="函数式编程名词众多，可能有些我们在日常的编码中实践过，但并不知道他的学名，也有可能很多我们从来没有听说过，下面是一些常见的函数式编程中的名词说明">
-<meta name="keywords" content="JS">
-<meta property="og:type" content="article">
-<meta property="og:title" content="函数式编程之名词解释">
-<meta property="og:url" content="http://toggle.coding.io/2017/10/05/code-function-word/index.html">
-<meta property="og:site_name" content="Aitter&#39;s Blog">
-<meta property="og:description" content="函数式编程名词众多，可能有些我们在日常的编码中实践过，但并不知道他的学名，也有可能很多我们从来没有听说过，下面是一些常见的函数式编程中的名词说明">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-05T07:11:34.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="函数式编程之名词解释">
-<meta name="twitter:description" content="函数式编程名词众多，可能有些我们在日常的编码中实践过，但并不知道他的学名，也有可能很多我们从来没有听说过，下面是一些常见的函数式编程中的名词说明">
+
+
+
 
 
 
@@ -104,13 +76,13 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -122,19 +94,44 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="函数式编程名词众多，可能有些我们在日常的编码中实践过，但并不知道他的学名，也有可能很多我们从来没有听说过，下面是一些常见的函数式编程中的名词说明">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数式编程之名词解释">
+<meta property="og:url" content="http://toggle.coding.io/2017/10/05/code-function-word/index.html">
+<meta property="og:site_name" content="Aitter&#39;s Blog">
+<meta property="og:description" content="函数式编程名词众多，可能有些我们在日常的编码中实践过，但并不知道他的学名，也有可能很多我们从来没有听说过，下面是一些常见的函数式编程中的名词说明">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-05T07:11:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="函数式编程之名词解释">
+<meta name="twitter:description" content="函数式编程名词众多，可能有些我们在日常的编码中实践过，但并不知道他的学名，也有可能很多我们从来没有听说过，下面是一些常见的函数式编程中的名词说明">
+
+
+
+
+
 
   <link rel="canonical" href="http://toggle.coding.io/2017/10/05/code-function-word/"/>
 
 
 
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title> 函数式编程之名词解释 | Aitter's Blog </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>函数式编程之名词解释 | Aitter's Blog</title>
   
+
+
+
 
 
 
@@ -142,7 +139,7 @@
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
+      hm.src = "https://hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
@@ -151,99 +148,134 @@
 
 
 
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
 
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
 
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Aitter's Blog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aitter's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">I can’t change the world, only change myself!</p>
+      
   </div>
-  <p class="site-subtitle">I can’t change the world, only change myself!</p>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+
+
 
 <nav class="site-nav">
-  
-
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+</li>
+
       
 
       
+      
     </ul>
+  
+
   
 
   
@@ -251,12 +283,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
 
@@ -269,32 +312,31 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2017/10/05/code-function-word/">
+  
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Aitter">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar100.jpg">
-  </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2017/10/05/code-function-word/">
 
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Aitter's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Aitter's Blog" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aitter">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar100.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aitter's Blog">
+    </span>
 
     
       <header class="post-header">
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                函数式编程之名词解释
+          <h1 class="post-title" itemprop="name headline">函数式编程之名词解释
               
             
           </h1>
@@ -303,15 +345,20 @@
         <div class="post-meta">
           <span class="post-time">
             
+                
+            
+
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-05T15:07:09+08:00">
-                2017-10-05
-              </time>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-05T15:07:09+08:00">2017-10-05</time>
             
 
+            
             
 
             
@@ -319,17 +366,17 @@
 
           
             <span class="post-category" >
+            
               <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web前端/" itemprop="url" rel="index">
-                    <span itemprop="name">Web前端</span>
-                  </a>
-                </span>
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Web前端/" itemprop="url" rel="index"><span itemprop="name">Web前端</span></a></span>
 
                 
                 
@@ -341,13 +388,14 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2017/10/05/code-function-word/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/10/05/code-function-word/" itemprop="commentCount"></span>
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/10/05/code-function-word/" itemprop="commentCount"></span>
                 </a>
               </span>
             
-          
-
           
 
           
@@ -357,9 +405,13 @@
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
           
 
           
@@ -370,7 +422,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -389,42 +443,39 @@
 <li>函数副作用 Side effects</li>
 </ul>
 <h2 id="纯函数-Purity"><a href="#纯函数-Purity" class="headerlink" title="纯函数 Purity"></a>纯函数 Purity</h2><p>与外界交换数据只有唯一渠道——参数和返回值，并且函数的执行不会对外部环境产生副作用</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</div><div class="line"></div><div class="line"><span class="comment">// Array.slice是纯函数，因为它没有副作用，对于固定的输入，输出总是固定的</span></div><div class="line"><span class="comment">// 可以，这很函数式</span></div><div class="line">xs.slice(<span class="number">0</span>,<span class="number">3</span>);</div><div class="line"><span class="comment">//=&gt; [1,2,3]</span></div><div class="line">xs.slice(<span class="number">0</span>,<span class="number">3</span>);</div><div class="line"><span class="comment">//=&gt; [1,2,3]</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// Array.splice是不纯的，它有副作用，对于固定的输入，输出不是固定的</span></div><div class="line"><span class="comment">// 这不函数式</span></div><div class="line">xs.splice(<span class="number">0</span>,<span class="number">3</span>);</div><div class="line"><span class="comment">//=&gt; [1,2,3]</span></div><div class="line">xs.splice(<span class="number">0</span>,<span class="number">3</span>);</div><div class="line"><span class="comment">//=&gt; [4,5]</span></div><div class="line">xs.splice(<span class="number">0</span>,<span class="number">3</span>);</div><div class="line"><span class="comment">//=&gt; []</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// Array.slice是纯函数，因为它没有副作用，对于固定的输入，输出总是固定的</span></span><br><span class="line"><span class="comment">// 可以，这很函数式</span></span><br><span class="line">xs.slice(<span class="number">0</span>,<span class="number">3</span>);</span><br><span class="line"><span class="comment">//=&gt; [1,2,3]</span></span><br><span class="line">xs.slice(<span class="number">0</span>,<span class="number">3</span>);</span><br><span class="line"><span class="comment">//=&gt; [1,2,3]</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// Array.splice是不纯的，它有副作用，对于固定的输入，输出不是固定的</span></span><br><span class="line"><span class="comment">// 这不函数式</span></span><br><span class="line">xs.splice(<span class="number">0</span>,<span class="number">3</span>);</span><br><span class="line"><span class="comment">//=&gt; [1,2,3]</span></span><br><span class="line">xs.splice(<span class="number">0</span>,<span class="number">3</span>);</span><br><span class="line"><span class="comment">//=&gt; [4,5]</span></span><br><span class="line">xs.splice(<span class="number">0</span>,<span class="number">3</span>);</span><br><span class="line"><span class="comment">//=&gt; []</span></span><br></pre></td></tr></table></figure>
 <h2 id="函数副作用-Side-effects"><a href="#函数副作用-Side-effects" class="headerlink" title="函数副作用 Side effects"></a>函数副作用 Side effects</h2><p>如果函数或表达式与其自身作用域之外的可变数据发生了读写操作，那么此时函数和表达式就产生了副作用</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">let</span> greeting;</div><div class="line"><span class="keyword">const</span> greet = <span class="function"><span class="params">()</span> =&gt;</span> greeting = <span class="string">"Hi, "</span> + <span class="built_in">window</span>.name;</div><div class="line"><span class="comment">// greet() 执行时更改了外部环境的变量</span></div><div class="line">greet(); </div><div class="line"><span class="comment">// =&gt; "Hi, Brianne"</span></div><div class="line"><span class="comment">// new Date() 是可变数据</span></div><div class="line"><span class="keyword">const</span> differentEveryTime = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line"><span class="comment">// 这里表示系统接收到的输入值是不确定的，是一种可变数据</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"IO is a side effect!"</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> greeting;</span><br><span class="line"><span class="keyword">const</span> greet = <span class="function"><span class="params">()</span> =&gt;</span> greeting = <span class="string">"Hi, "</span> + <span class="built_in">window</span>.name;</span><br><span class="line"><span class="comment">// greet() 执行时更改了外部环境的变量</span></span><br><span class="line">greet(); </span><br><span class="line"><span class="comment">// =&gt; "Hi, Brianne"</span></span><br><span class="line"><span class="comment">// new Date() 是可变数据</span></span><br><span class="line"><span class="keyword">const</span> differentEveryTime = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="comment">// 这里表示系统接收到的输入值是不确定的，是一种可变数据</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"IO is a side effect!"</span>);</span><br></pre></td></tr></table></figure>
 <h2 id="偏函数-Partial-Application"><a href="#偏函数-Partial-Application" class="headerlink" title="偏函数 Partial Application"></a>偏函数 Partial Application</h2><p>原函数的基础上预填充部分参数并返回的新函数</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 下面是一个创建偏函数的辅助函数</span></div><div class="line"><span class="keyword">const</span> partial = <span class="function">(<span class="params">f, ...args</span>) =&gt;</span> (...moreArgs) =&gt; f(...args, ...moreArgs);</div><div class="line"><span class="keyword">const</span> add3 = <span class="function">(<span class="params">a, b, c</span>) =&gt;</span> a + b + c;</div><div class="line"><span class="comment">// 预填充 (add3, 2, 3) 三个参数，空置最后一个参数，返回一个新的函数</span></div><div class="line"><span class="keyword">const</span> fivePlus = partial(add3, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">// (c) =&gt; 2 + 3 + c</span></div><div class="line">fivePlus(<span class="number">4</span>); </div><div class="line"><span class="comment">// =&gt; 9</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 下面是一个创建偏函数的辅助函数</span></span><br><span class="line"><span class="keyword">const</span> partial = <span class="function">(<span class="params">f, ...args</span>) =&gt;</span> (...moreArgs) =&gt; f(...args, ...moreArgs);</span><br><span class="line"><span class="keyword">const</span> add3 = <span class="function">(<span class="params">a, b, c</span>) =&gt;</span> a + b + c;</span><br><span class="line"><span class="comment">// 预填充 (add3, 2, 3) 三个参数，空置最后一个参数，返回一个新的函数</span></span><br><span class="line"><span class="keyword">const</span> fivePlus = partial(add3, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">// (c) =&gt; 2 + 3 + c</span></span><br><span class="line">fivePlus(<span class="number">4</span>); </span><br><span class="line"><span class="comment">// =&gt; 9</span></span><br></pre></td></tr></table></figure>
 <h2 id="惰性求值-Lazy-evaluation"><a href="#惰性求值-Lazy-evaluation" class="headerlink" title="惰性求值 Lazy evaluation"></a>惰性求值 Lazy evaluation</h2><p>惰性求值，是一种按需执行的求值策略，只有需要某个值时才会执行相关的表达式。在函数式编程语言中，这一特性可用于构造无限列表。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> rand = <span class="function"><span class="keyword">function</span>*(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</div><div class="line">        <span class="keyword">yield</span> <span class="built_in">Math</span>.random();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> randIter = rand();</div><div class="line">randIter.next().value; </div><div class="line"><span class="comment">// 每次执行 next() 函数都会返回一个新的随机数</span></div><div class="line"><span class="comment">// 有且只有在执行 next() 的时候才会返回新值</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> rand = <span class="function"><span class="keyword">function</span>*(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">yield</span> <span class="built_in">Math</span>.random();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> randIter = rand();</span><br><span class="line">randIter.next().value; </span><br><span class="line"><span class="comment">// 每次执行 next() 函数都会返回一个新的随机数</span></span><br><span class="line"><span class="comment">// 有且只有在执行 next() 的时候才会返回新值</span></span><br></pre></td></tr></table></figure>
 <h2 id="函数柯里化-Currying"><a href="#函数柯里化-Currying" class="headerlink" title="函数柯里化 Currying"></a>函数柯里化 Currying</h2><p>将一个接收多个参数的函数转化为单参数函数的方式<br>将接收多个参数的函数转换为一系列只接收一个参数的函数的过程</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">//比较容易读懂的ES5写法</span></div><div class="line"><span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">y</span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> x + y</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//ES6写法，也是比较正统的函数式写法</span></div><div class="line"><span class="keyword">var</span> add = <span class="function"><span class="params">x</span> =&gt;</span> (<span class="function"><span class="params">y</span> =&gt;</span> x + y);</div><div class="line"></div><div class="line"><span class="comment">//试试看</span></div><div class="line"><span class="keyword">var</span> add2 = add(<span class="number">2</span>);</div><div class="line"><span class="keyword">var</span> add200 = add(<span class="number">200</span>);</div><div class="line"></div><div class="line">add2(<span class="number">2</span>); <span class="comment">// =&gt;4</span></div><div class="line">add200(<span class="number">50</span>); <span class="comment">// =&gt;250</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//比较容易读懂的ES5写法</span></span><br><span class="line"><span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">y</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x + y</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//ES6写法，也是比较正统的函数式写法</span></span><br><span class="line"><span class="keyword">var</span> add = <span class="function"><span class="params">x</span> =&gt;</span> (<span class="function"><span class="params">y</span> =&gt;</span> x + y);</span><br><span class="line"></span><br><span class="line"><span class="comment">//试试看</span></span><br><span class="line"><span class="keyword">var</span> add2 = add(<span class="number">2</span>);</span><br><span class="line"><span class="keyword">var</span> add200 = add(<span class="number">200</span>);</span><br><span class="line"></span><br><span class="line">add2(<span class="number">2</span>); <span class="comment">// =&gt;4</span></span><br><span class="line">add200(<span class="number">50</span>); <span class="comment">// =&gt;250</span></span><br></pre></td></tr></table></figure>
 <h2 id="函数组合-Function-Composition"><a href="#函数组合-Function-Composition" class="headerlink" title="函数组合 Function Composition"></a>函数组合 Function Composition</h2><p>接收多个函数作为参数并返回一个新函数的方式</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> add = <span class="function"><span class="keyword">function</span> (<span class="params"> x, y </span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> x + y;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> square = <span class="function"><span class="keyword">function</span> (<span class="params"> x </span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> x * x;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> composeTwo = <span class="function"><span class="keyword">function</span> (<span class="params"> f, g </span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"> x, y </span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> g( f ( x, y ) );</div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> addThenSquare = composeTwo( add, square );</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> add = <span class="function"><span class="keyword">function</span> (<span class="params"> x, y </span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> square = <span class="function"><span class="keyword">function</span> (<span class="params"> x </span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x * x;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> composeTwo = <span class="function"><span class="keyword">function</span> (<span class="params"> f, g </span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"> x, y </span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> g( f ( x, y ) );</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> addThenSquare = composeTwo( add, square );</span><br></pre></td></tr></table></figure>
 <h2 id="高阶函数-Higher-Order-Functions"><a href="#高阶函数-Higher-Order-Functions" class="headerlink" title="高阶函数 Higher-Order Functions"></a>高阶函数 Higher-Order Functions</h2><p>函数接收一个或多个函数做为参数，并返回一个函数</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line"></div><div class="line"><span class="keyword">const</span> print = <span class="function"><span class="keyword">function</span> (<span class="params"> input </span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log( input );</div><div class="line">&#125;;</div><div class="line"></div><div class="line">numbers.forEach( print );</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> print = <span class="function"><span class="keyword">function</span> (<span class="params"> input </span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( input );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">numbers.forEach( print );</span><br></pre></td></tr></table></figure>
 <h2 id="函数记忆-Memoize"><a href="#函数记忆-Memoize" class="headerlink" title="函数记忆 Memoize"></a>函数记忆 Memoize</h2><p>得益于纯函数的特性，相同的参数可能返回相同的结果，那么就可以缓存参数对对应的结果，以减少反复的计算，从而提高性能</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> squareNumber  = memoize(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123; <span class="keyword">return</span> x*x; &#125;);</div><div class="line"></div><div class="line">squareNumber(<span class="number">4</span>);</div><div class="line"><span class="comment">//=&gt; 16</span></div><div class="line"></div><div class="line">squareNumber(<span class="number">4</span>); <span class="comment">// 从缓存中读取输入值为 4 的结果</span></div><div class="line"><span class="comment">//=&gt; 16</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> memoize = <span class="function"><span class="keyword">function</span>(<span class="params">f</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> cache = &#123;&#125;;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> arg_str = <span class="built_in">JSON</span>.stringify(<span class="built_in">arguments</span>);</div><div class="line">    cache[arg_str] = cache[arg_str] || f.apply(f, <span class="built_in">arguments</span>);</div><div class="line">    <span class="keyword">return</span> cache[arg_str];</div><div class="line">  &#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> memoize = <span class="function"><span class="keyword">function</span>(<span class="params">func, hasher</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> memoize = <span class="function"><span class="keyword">function</span>(<span class="params">key</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> cache = memoize.cache;</div><div class="line">        <span class="keyword">var</span> address = <span class="string">''</span> + (hasher ? hasher.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>) : key);</div><div class="line">        <span class="keyword">if</span> (!cache[address]) &#123;</div><div class="line">            cache[address] = func.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> cache[address];</div><div class="line">    &#125;;</div><div class="line">    memoize.cache = &#123;&#125;;</div><div class="line">    <span class="keyword">return</span> memoize;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> fibonacci = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">    count++;</div><div class="line">    <span class="keyword">return</span> n &lt; <span class="number">2</span>? n : fibonacci(n<span class="number">-1</span>) + fibonacci(n<span class="number">-2</span>);</div><div class="line">&#125;;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= <span class="number">10</span>; i++)&#123;</div><div class="line">    fibonacci(i)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(count) <span class="comment">// 453</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> fibonacci = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</div><div class="line">    count++;</div><div class="line">    <span class="keyword">return</span> n &lt; <span class="number">2</span> ? n : fibonacci(n - <span class="number">1</span>) + fibonacci(n - <span class="number">2</span>);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">fibonacci = memoize(fibonacci)</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= <span class="number">10</span>; i++) &#123;</div><div class="line">    fibonacci(i)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(count) <span class="comment">// 12</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> squareNumber  = memoize(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123; <span class="keyword">return</span> x*x; &#125;);</span><br><span class="line"></span><br><span class="line">squareNumber(<span class="number">4</span>);</span><br><span class="line"><span class="comment">//=&gt; 16</span></span><br><span class="line"></span><br><span class="line">squareNumber(<span class="number">4</span>); <span class="comment">// 从缓存中读取输入值为 4 的结果</span></span><br><span class="line"><span class="comment">//=&gt; 16</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> memoize = <span class="function"><span class="keyword">function</span>(<span class="params">f</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> cache = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arg_str = <span class="built_in">JSON</span>.stringify(<span class="built_in">arguments</span>);</span><br><span class="line">    cache[arg_str] = cache[arg_str] || f.apply(f, <span class="built_in">arguments</span>);</span><br><span class="line">    <span class="keyword">return</span> cache[arg_str];</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> memoize = <span class="function"><span class="keyword">function</span>(<span class="params">func, hasher</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> memoize = <span class="function"><span class="keyword">function</span>(<span class="params">key</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> cache = memoize.cache;</span><br><span class="line">        <span class="keyword">var</span> address = <span class="string">''</span> + (hasher ? hasher.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>) : key);</span><br><span class="line">        <span class="keyword">if</span> (!cache[address]) &#123;</span><br><span class="line">            cache[address] = func.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cache[address];</span><br><span class="line">    &#125;;</span><br><span class="line">    memoize.cache = &#123;&#125;;</span><br><span class="line">    <span class="keyword">return</span> memoize;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> fibonacci = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    count++;</span><br><span class="line">    <span class="keyword">return</span> n &lt; <span class="number">2</span>? n : fibonacci(n<span class="number">-1</span>) + fibonacci(n<span class="number">-2</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= <span class="number">10</span>; i++)&#123;</span><br><span class="line">    fibonacci(i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(count) <span class="comment">// 453</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> fibonacci = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    count++;</span><br><span class="line">    <span class="keyword">return</span> n &lt; <span class="number">2</span> ? n : fibonacci(n - <span class="number">1</span>) + fibonacci(n - <span class="number">2</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">fibonacci = memoize(fibonacci)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= <span class="number">10</span>; i++) &#123;</span><br><span class="line">    fibonacci(i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(count) <span class="comment">// 12</span></span><br></pre></td></tr></table></figure>
 <h2 id="pointfree-style"><a href="#pointfree-style" class="headerlink" title="pointfree style"></a>pointfree style</h2><p><code>point-free style</code> 是一种不显式向函数传递参数的代码风格，通常需要柯里化和高阶函数来实现</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 需求：输入 'kevin'，返回 'HELLO, KEVIN'。</span></div><div class="line"></div><div class="line"><span class="comment">// 非 pointfree，因为提到了数据：name</span></div><div class="line"><span class="keyword">var</span> greet = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> (<span class="string">'hello '</span> + name).toUpperCase();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// pointfree</span></div><div class="line"><span class="comment">// 先定义基本运算，这些可以封装起来复用</span></div><div class="line"><span class="keyword">var</span> toUpperCase = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123; <span class="keyword">return</span> x.toUpperCase(); &#125;;</div><div class="line"><span class="keyword">var</span> hello = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123; <span class="keyword">return</span> <span class="string">'HELLO, '</span> + x; &#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> greet = compose(hello, toUpperCase);</div><div class="line">greet(<span class="string">'kevin'</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 需求：输入 'kevin'，返回 'HELLO, KEVIN'。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 非 pointfree，因为提到了数据：name</span></span><br><span class="line"><span class="keyword">var</span> greet = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="string">'hello '</span> + name).toUpperCase();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// pointfree</span></span><br><span class="line"><span class="comment">// 先定义基本运算，这些可以封装起来复用</span></span><br><span class="line"><span class="keyword">var</span> toUpperCase = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123; <span class="keyword">return</span> x.toUpperCase(); &#125;;</span><br><span class="line"><span class="keyword">var</span> hello = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123; <span class="keyword">return</span> <span class="string">'HELLO, '</span> + x; &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> greet = compose(hello, toUpperCase);</span><br><span class="line">greet(<span class="string">'kevin'</span>);</span><br></pre></td></tr></table></figure>
 
       
     </div>
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
       
@@ -433,6 +484,10 @@
             <a href="/tags/JS/" rel="tag"># JS</a>
           
         </div>
+      
+
+      
+      
       
 
       
@@ -460,30 +515,15 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
 
     <div class="post-spread">
-      
-        <div class="ds-share flat" data-thread-key="2017/10/05/code-function-word/"
-     data-title="函数式编程之名词解释"
-     data-content=""
-     data-url="http://toggle.coding.io/2017/10/05/code-function-word/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
       
     </div>
   </div>
@@ -492,15 +532,11 @@
           </div>
           
 
+  
+    <div class="comments" id="comments">
+    </div>
+  
 
-          
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2017/10/05/code-function-word/"
-           data-title="函数式编程之名词解释" data-url="http://toggle.coding.io/2017/10/05/code-function-word/">
-      </div>
-    
-  </div>
 
 
         </div>
@@ -516,106 +552,205 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             站点概览
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar100.jpg"
-               alt="Aitter" />
-          <p class="site-author-name" itemprop="name">Aitter</p>
-          <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">71</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar100.jpg"
+                alt="Aitter" />
+            
+              <p class="site-author-name" itemprop="name">Aitter</p>
+              <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
           </div>
 
           
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">14</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/git-lt" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank" title="Zhihu"><i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                  
+                </span>
+              
             </div>
           
 
           
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hexo.io/" title="Hexo" target="_blank">Hexo</a>
+                  </li>
+                
+              </ul>
             </div>
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
           
             
-              <span class="links-of-author-item">
-                <a href="https://github.com/git-lt" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank" title="Zhihu">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  Zhihu
-                </a>
-              </span>
-            
           
+          
+
         </div>
-
-        
-        
-
-        
-        
-          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-            <div class="links-of-blogroll-title">
-              <i class="fa  fa-fw fa-globe"></i>
-              友情链接
-            </div>
-            <ul class="links-of-blogroll-list">
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://hexo.io/" title="Hexo" target="_blank">Hexo</a>
-                </li>
-              
-            </ul>
-          </div>
-        
-
-        
-
-
       </section>
 
       
@@ -636,6 +771,8 @@
       <!--/noindex-->
       
 
+      
+
     </div>
   </aside>
 
@@ -646,38 +783,55 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2015 - 
-  <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Aitter</span>
+
+  
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.1.0</div>
+
+
 
 
         
+
+
+
+
+
+
+
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
   </div>
 
   
@@ -696,35 +850,12 @@
 
 
 
-  
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
 
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
@@ -732,68 +863,133 @@
   
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
 
 
 
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
 
   
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
 
 
 
   
 
-  
-    
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
   
 
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
   <script type="text/javascript">
-    var duoshuoQuery = {short_name:"togglelt"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz',
+        appKey: 'IQ7Je02a33Mm5AVkAikKwxL2',
+        placeholder: 'ヾﾉ≧∀≦)o来呀，快活呀!',
+        avatar:'monsterid',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
   </script>
 
+
+
   
-    
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
-  
-
-
-
 
 
 
 
 
   
-  
 
   
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz", "IQ7Je02a33Mm5AVkAikKwxL2");</script>
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz", "IQ7Je02a33Mm5AVkAikKwxL2#<app_key>");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);
@@ -849,35 +1045,24 @@
             var counter = results[0];
             counter.fetchWhenSave(true);
             counter.increment("time");
+            
             counter.save(null, {
               success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
               },
               error: function(counter, error) {
                 console.log('Failed to save Visitor num, with error message: ' + error.message);
               }
             });
           } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
           }
         },
         error: function(error) {
@@ -902,6 +1087,18 @@
 
   
 
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>

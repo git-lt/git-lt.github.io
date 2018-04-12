@@ -1,15 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
 
 
 
@@ -27,36 +37,10 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
@@ -65,38 +49,25 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
 
 
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
 
 
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
+  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
 
 
 
-<meta name="description" content="最近项目中有在PC和移动端的在线播放视频的需求，H5的&amp;lt;video&amp;gt;标签无疑是最合适的方式但是由于不同的PC浏览器和不同的移动平台，有着诸多兼容性问题需要解决如：是否可以自动播放， 是否可以循环播放，是否能显示一致的界面，是否在播放的时候隐藏控制条，暂停的时候又显示出来等等这给开发者带来了很多不必要的麻烦和挑战。video.js的出现，很好的帮我们解决了这个问题。自定义外观按钮，提供统">
-<meta property="og:type" content="article">
-<meta property="og:title" content="HTML5视频播放器Video.Js的使用">
-<meta property="og:url" content="http://toggle.coding.io/2016/02/26/videojs-readme/index.html">
-<meta property="og:site_name" content="Aitter&#39;s Blog">
-<meta property="og:description" content="最近项目中有在PC和移动端的在线播放视频的需求，H5的&amp;lt;video&amp;gt;标签无疑是最合适的方式但是由于不同的PC浏览器和不同的移动平台，有着诸多兼容性问题需要解决如：是否可以自动播放， 是否可以循环播放，是否能显示一致的界面，是否在播放的时候隐藏控制条，暂停的时候又显示出来等等这给开发者带来了很多不必要的麻烦和挑战。video.js的出现，很好的帮我们解决了这个问题。自定义外观按钮，提供统">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.xuanfengge.com/wp-content/uploads/2015/01/700ca10a-5ffb-11e4-81d2-b11726e4ea38.jpg">
-<meta property="og:updated_time" content="2016-07-17T02:50:31.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTML5视频播放器Video.Js的使用">
-<meta name="twitter:description" content="最近项目中有在PC和移动端的在线播放视频的需求，H5的&amp;lt;video&amp;gt;标签无疑是最合适的方式但是由于不同的PC浏览器和不同的移动平台，有着诸多兼容性问题需要解决如：是否可以自动播放， 是否可以循环播放，是否能显示一致的界面，是否在播放的时候隐藏控制条，暂停的时候又显示出来等等这给开发者带来了很多不必要的麻烦和挑战。video.js的出现，很好的帮我们解决了这个问题。自定义外观按钮，提供统">
-<meta name="twitter:image" content="http://www.xuanfengge.com/wp-content/uploads/2015/01/700ca10a-5ffb-11e4-81d2-b11726e4ea38.jpg">
+
+
+
 
 
 
@@ -105,13 +76,13 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -123,19 +94,45 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="最近项目中有在PC和移动端的在线播放视频的需求，H5的&amp;lt;video&amp;gt;标签无疑是最合适的方式但是由于不同的PC浏览器和不同的移动平台，有着诸多兼容性问题需要解决如：是否可以自动播放， 是否可以循环播放，是否能显示一致的界面，是否在播放的时候隐藏控制条，暂停的时候又显示出来等等这给开发者带来了很多不必要的麻烦和挑战。video.js的出现，很好的帮我们解决了这个问题。自定义外观按钮，提供统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5视频播放器Video.Js的使用">
+<meta property="og:url" content="http://toggle.coding.io/2016/02/26/videojs-readme/index.html">
+<meta property="og:site_name" content="Aitter&#39;s Blog">
+<meta property="og:description" content="最近项目中有在PC和移动端的在线播放视频的需求，H5的&amp;lt;video&amp;gt;标签无疑是最合适的方式但是由于不同的PC浏览器和不同的移动平台，有着诸多兼容性问题需要解决如：是否可以自动播放， 是否可以循环播放，是否能显示一致的界面，是否在播放的时候隐藏控制条，暂停的时候又显示出来等等这给开发者带来了很多不必要的麻烦和挑战。video.js的出现，很好的帮我们解决了这个问题。自定义外观按钮，提供统">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.xuanfengge.com/wp-content/uploads/2015/01/700ca10a-5ffb-11e4-81d2-b11726e4ea38.jpg">
+<meta property="og:updated_time" content="2016-07-17T02:50:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML5视频播放器Video.Js的使用">
+<meta name="twitter:description" content="最近项目中有在PC和移动端的在线播放视频的需求，H5的&amp;lt;video&amp;gt;标签无疑是最合适的方式但是由于不同的PC浏览器和不同的移动平台，有着诸多兼容性问题需要解决如：是否可以自动播放， 是否可以循环播放，是否能显示一致的界面，是否在播放的时候隐藏控制条，暂停的时候又显示出来等等这给开发者带来了很多不必要的麻烦和挑战。video.js的出现，很好的帮我们解决了这个问题。自定义外观按钮，提供统">
+<meta name="twitter:image" content="http://www.xuanfengge.com/wp-content/uploads/2015/01/700ca10a-5ffb-11e4-81d2-b11726e4ea38.jpg">
+
+
+
+
+
 
   <link rel="canonical" href="http://toggle.coding.io/2016/02/26/videojs-readme/"/>
 
 
 
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title> HTML5视频播放器Video.Js的使用 | Aitter's Blog </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>HTML5视频播放器Video.Js的使用 | Aitter's Blog</title>
   
+
+
+
 
 
 
@@ -143,7 +140,7 @@
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
+      hm.src = "https://hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
@@ -152,99 +149,134 @@
 
 
 
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
 
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
 
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Aitter's Blog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aitter's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">I can’t change the world, only change myself!</p>
+      
   </div>
-  <p class="site-subtitle">I can’t change the world, only change myself!</p>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+
+
 
 <nav class="site-nav">
-  
-
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+</li>
+
       
 
       
+      
     </ul>
+  
+
   
 
   
@@ -252,12 +284,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
 
@@ -270,32 +313,31 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2016/02/26/videojs-readme/">
+  
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Aitter">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar100.jpg">
-  </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2016/02/26/videojs-readme/">
 
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Aitter's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Aitter's Blog" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aitter">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar100.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aitter's Blog">
+    </span>
 
     
       <header class="post-header">
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                HTML5视频播放器Video.Js的使用
+          <h1 class="post-title" itemprop="name headline">HTML5视频播放器Video.Js的使用
               
             
           </h1>
@@ -304,15 +346,20 @@
         <div class="post-meta">
           <span class="post-time">
             
+                
+            
+
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-02-26T20:24:11+08:00">
-                2016-02-26
-              </time>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-26T20:24:11+08:00">2016-02-26</time>
             
 
+            
             
 
             
@@ -320,17 +367,17 @@
 
           
             <span class="post-category" >
+            
               <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML5/" itemprop="url" rel="index">
-                    <span itemprop="name">HTML5</span>
-                  </a>
-                </span>
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/HTML5/" itemprop="url" rel="index"><span itemprop="name">HTML5</span></a></span>
 
                 
                 
@@ -342,13 +389,14 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2016/02/26/videojs-readme/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/26/videojs-readme/" itemprop="commentCount"></span>
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/02/26/videojs-readme/" itemprop="commentCount"></span>
                 </a>
               </span>
             
-          
-
           
 
           
@@ -358,9 +406,13 @@
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
           
 
           
@@ -371,7 +423,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -381,52 +435,53 @@
         <p>最近项目中有在PC和移动端的在线播放视频的需求，H5的<code>&lt;video&gt;</code>标签无疑是最合适的方式<br>但是由于不同的PC浏览器和不同的移动平台，有着诸多兼容性问题需要解决<br>如：是否可以自动播放， 是否可以循环播放，是否能显示一致的界面，是否在播放的时候隐藏控制条，暂停的时候又显示出来等等<br>这给开发者带来了很多不必要的麻烦和挑战。video.js的出现，很好的帮我们解决了这个问题。自定义外观按钮，提供统一的api，兼容各个平台。<br><a id="more"></a></p>
 <h3 id="原生Video在不同浏览器下的效果"><a href="#原生Video在不同浏览器下的效果" class="headerlink" title="原生Video在不同浏览器下的效果"></a>原生Video在不同浏览器下的效果</h3><p><img src="http://www.xuanfengge.com/wp-content/uploads/2015/01/700ca10a-5ffb-11e4-81d2-b11726e4ea38.jpg" alt=""></p>
 <h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
-<li>免费开源，可以在Github上获取它的最新代码 <a href="https://github.com/videojs/video.js" target="_blank" rel="external">vidoe.js</a></li>
-<li>简单易用<a href="http://videojs.com/getting-started/" target="_blank" rel="external">getting-started</a></li>
+<li>免费开源，可以在Github上获取它的最新代码 <a href="https://github.com/videojs/video.js" target="_blank" rel="noopener">vidoe.js</a></li>
+<li>简单易用<a href="http://videojs.com/getting-started/" target="_blank" rel="noopener">getting-started</a></li>
 <li>几乎兼容所有浏览器，自动判断是使用H5还是使用flash播放</li>
 <li>界面可以自定义，纯javascript和css打造，说明文档也非常的详细</li>
 </ul>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>在测试目录下，使用npm安装<br><figure class="highlight q"><table><tr><td class="code"><pre><div class="line">npm install --<span class="built_in">save</span>-<span class="built_in">dev</span> video.js</div></pre></td></tr></table></figure></p>
-<p>如果安装失败，请使用npm的淘宝镜像<br><figure class="highlight q"><table><tr><td class="code"><pre><div class="line">npm install --<span class="built_in">save</span>-<span class="built_in">dev</span> video.js</div></pre></td></tr></table></figure></p>
-<p>进入到 <code>node_modules/video.js/dist</code> 目录下面，目录结构为<br><figure class="highlight sqf"><table><tr><td class="code"><pre><div class="line">.</div><div class="line">|<span class="variable">____</span>.DS_Store</div><div class="line">|<span class="variable">____alt</span></div><div class="line">|<span class="variable">____examples</span></div><div class="line">|<span class="variable">____font</span></div><div class="line">|<span class="variable">____ie8</span></div><div class="line">|<span class="variable">____lang</span></div><div class="line">|<span class="variable">____video</span>-js-<span class="number">5.7</span>.<span class="number">1</span>.zip</div><div class="line">|<span class="variable">____video</span>-js.css</div><div class="line">|<span class="variable">____video</span>-js.<span class="built_in">min</span>.css</div><div class="line">|<span class="variable">____video</span>-js.swf</div><div class="line">|<span class="variable">____video</span>.js</div><div class="line">|<span class="variable">____video</span>.js.map</div><div class="line">|<span class="variable">____video</span>.<span class="built_in">min</span>.js</div><div class="line">|<span class="variable">____video</span>.<span class="built_in">min</span>.js.map</div></pre></td></tr></table></figure></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>在测试目录下，使用npm安装<br><figure class="highlight q"><table><tr><td class="code"><pre><span class="line">npm install --<span class="built_in">save</span>-<span class="built_in">dev</span> video.js</span><br></pre></td></tr></table></figure></p>
+<p>如果安装失败，请使用npm的淘宝镜像<br><figure class="highlight q"><table><tr><td class="code"><pre><span class="line">npm install --<span class="built_in">save</span>-<span class="built_in">dev</span> video.js</span><br></pre></td></tr></table></figure></p>
+<p>进入到 <code>node_modules/video.js/dist</code> 目录下面，目录结构为<br><figure class="highlight sqf"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">|<span class="variable">____</span>.DS_Store</span><br><span class="line">|<span class="variable">____alt</span></span><br><span class="line">|<span class="variable">____examples</span></span><br><span class="line">|<span class="variable">____font</span></span><br><span class="line">|<span class="variable">____ie8</span></span><br><span class="line">|<span class="variable">____lang</span></span><br><span class="line">|<span class="variable">____video</span>-js-<span class="number">5.7</span>.<span class="number">1</span>.zip</span><br><span class="line">|<span class="variable">____video</span>-js.css</span><br><span class="line">|<span class="variable">____video</span>-js.<span class="built_in">min</span>.css</span><br><span class="line">|<span class="variable">____video</span>-js.swf</span><br><span class="line">|<span class="variable">____video</span>.js</span><br><span class="line">|<span class="variable">____video</span>.js.map</span><br><span class="line">|<span class="variable">____video</span>.<span class="built_in">min</span>.js</span><br><span class="line">|<span class="variable">____video</span>.<span class="built_in">min</span>.js.map</span><br></pre></td></tr></table></figure></p>
 <p>主要使用<code>video.min.css</code>、<code>video.min.js</code>这两个文件。<br>如果是PC，要求兼容到ie9以下，那么需要<code>ie8</code>、<code>video-js.swf</code>这两个文件。<br>由于主题中有一些字体图标，所以要用到<code>font</code>文件中的字体文件<br>如果有提示文字相关，做本地化，则要用到<code>lang</code>中的语言文件</p>
-<h3 id="常用的功能"><a href="#常用的功能" class="headerlink" title="常用的功能"></a>常用的功能</h3><h4 id="通过DOM初始化"><a href="#通过DOM初始化" class="headerlink" title="通过DOM初始化"></a>通过DOM初始化</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">//引入video-js.css</span></div><div class="line">&lt;video id=<span class="string">"video1"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"video-js"</span> controls preload=<span class="string">"auto"</span> width=<span class="string">"640"</span> height=<span class="string">"264"</span> poster=<span class="string">"http://video-js.zencoder.com/oceans-clip.png"</span> data-setup=<span class="string">'&#123;"example_option":true&#125;'</span>&gt;</div><div class="line">	&lt;source id=<span class="string">"sourceBox"</span> src=<span class="string">"http://static.qiakr.com/movie/0060202.mp4"</span> type=<span class="string">'video/mp4'</span>&gt;</div><div class="line">	&lt;p <span class="class"><span class="keyword">class</span></span>=<span class="string">"vjs-no-js"</span>&gt;不支持播放&lt;<span class="regexp">/p&gt;</span></div><div class="line"><span class="regexp">&lt;/</span>video&gt;</div><div class="line"><span class="comment">//引入video-js.js</span></div></pre></td></tr></table></figure>
-<h4 id="通过JS初始化"><a href="#通过JS初始化" class="headerlink" title="通过JS初始化"></a>通过JS初始化</h4><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">//引入video-js.css</div><div class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">id</span>=<span class="string">"video2"</span> </span></div><div class="line"><span class="tag">				 <span class="attr">class</span>=<span class="string">"video-js vjs-default-skin vjs-big-play-centered"</span> </span></div><div class="line"><span class="tag">				 <span class="attr">controls</span> </span></div><div class="line"><span class="tag">				 <span class="attr">preload</span>=<span class="string">"auto"</span> </span></div><div class="line"><span class="tag">				 <span class="attr">width</span>=<span class="string">"640"</span> </span></div><div class="line"><span class="tag">				 <span class="attr">height</span>=<span class="string">"264"</span> </span></div><div class="line"><span class="tag">				 <span class="attr">poster</span>=<span class="string">"http://static.qiakr.com/app/full_res.jpg"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">source</span> <span class="attr">id</span>=<span class="string">"sourceBox"</span> <span class="attr">src</span>=<span class="string">"http://static.qiakr.com/movie/0060202.mp4"</span> <span class="attr">type</span>=<span class="string">'video/mp4'</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"vjs-no-js"</span>&gt;</span>不支持播放<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">video</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"actions"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">id</span>=<span class="string">"btn1"</span>&gt;</span>播放<span class="tag">&lt;/<span class="name">a</span>&gt;</span>		</div><div class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">id</span>=<span class="string">"btn2"</span>&gt;</span>暂停<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">id</span>=<span class="string">"btn3"</span>&gt;</span>隐藏音量调节控件<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">id</span>=<span class="string">"btn4"</span>&gt;</span>设置宽高<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">id</span>=<span class="string">"btn6"</span>&gt;</span>隐藏<span class="tag">&lt;/<span class="name">a</span>&gt;</span>		</div><div class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">id</span>=<span class="string">"btn5"</span>&gt;</span>显示<span class="tag">&lt;/<span class="name">a</span>&gt;</span>		</div><div class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">id</span>=<span class="string">"btn7"</span>&gt;</span>设置其它资源<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">id</span>=<span class="string">"btn8"</span>&gt;</span>销毁<span class="tag">&lt;/<span class="name">a</span>&gt;</span>		</div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">//引入video-js.js</div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="actionscript">	<span class="keyword">var</span> oV = videojs(<span class="string">'#video2'</span>);</span></div><div class="line"><span class="actionscript">	oV.src=<span class="string">"http://static.qiakr.com/movie/0080108.mp4"</span>;</span></div><div class="line"><span class="undefined">	oV.load();</span></div><div class="line"><span class="undefined">	oV.width(300).height(200);</span></div><div class="line"><span class="undefined">	oV.paly();</span></div><div class="line"><span class="undefined">	oV.pause();</span></div><div class="line"><span class="undefined">	...</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h4><p>播放按钮默认是在左上角，官方说这样可以不会遮挡内容的精彩部分，但是如果我们想要放到中间，处理也很简单。在video标签中增加一个vjs-big-play-centered样式就好了<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">&lt;video id=<span class="string">"video1"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"video-js"</span> controls preload=<span class="string">"auto"</span> width=<span class="string">"640"</span> height=<span class="string">"264"</span> poster=<span class="string">"http://video-js.zencoder.com/oceans-clip.png"</span> data-setup=<span class="string">'&#123;"example_option":true&#125;'</span>&gt;</div><div class="line">	&lt;source id=<span class="string">"sourceBox"</span> src=<span class="string">"http://static.qiakr.com/movie/0060202.mp4"</span> type=<span class="string">'video/mp4'</span>&gt;</div><div class="line">	&lt;p <span class="class"><span class="keyword">class</span></span>=<span class="string">"vjs-no-js"</span>&gt;不支持播放&lt;<span class="regexp">/p&gt;</span></div><div class="line"><span class="regexp">&lt;/</span>video&gt;</div></pre></td></tr></table></figure></p>
-<h4 id="自动播放"><a href="#自动播放" class="headerlink" title="自动播放"></a>自动播放</h4><p>autoplay<br><figure class="highlight lasso"><table><tr><td class="code"><pre><div class="line">&lt;video autoplay <span class="params">...</span>&gt;</div><div class="line"><span class="literal">or</span></div><div class="line">&#123; <span class="string">"autoplay"</span>: <span class="literal">true</span> &#125;</div></pre></td></tr></table></figure></p>
-<h4 id="预加载资源"><a href="#预加载资源" class="headerlink" title="预加载资源"></a>预加载资源</h4><p>preload<br><figure class="highlight dts"><table><tr><td class="code"><pre><div class="line"><span class="params">&lt;video preload ...&gt;</span></div><div class="line">or</div><div class="line">&#123; <span class="string">"preload"</span>: <span class="string">"auto"</span> &#125;</div></pre></td></tr></table></figure></p>
-<h4 id="视频缩略图"><a href="#视频缩略图" class="headerlink" title="视频缩略图"></a>视频缩略图</h4><p>poster<br><figure class="highlight routeros"><table><tr><td class="code"><pre><div class="line">&lt;video <span class="attribute">poster</span>=<span class="string">"myPoster.jpg"</span> <span class="built_in">..</span>.&gt;</div><div class="line"><span class="keyword">or</span></div><div class="line">&#123; <span class="string">"poster"</span>: <span class="string">"myPoster.jpg"</span> &#125;</div></pre></td></tr></table></figure></p>
-<h4 id="自动循环"><a href="#自动循环" class="headerlink" title="自动循环"></a>自动循环</h4><p>loop<br><figure class="highlight lasso"><table><tr><td class="code"><pre><div class="line">&lt;video <span class="keyword">loop</span> <span class="params">...</span>&gt;</div><div class="line"><span class="literal">or</span></div><div class="line">&#123; <span class="string">"loop"</span>: <span class="string">"true"</span> &#125;</div></pre></td></tr></table></figure></p>
-<h4 id="设置宽高"><a href="#设置宽高" class="headerlink" title="设置宽高"></a>设置宽高</h4><figure class="highlight routeros"><table><tr><td class="code"><pre><div class="line">&lt;video <span class="attribute">width</span>=<span class="string">"640"</span>  <span class="attribute">height</span>=<span class="string">"480"</span> <span class="built_in">..</span>.&gt;</div><div class="line"><span class="keyword">or</span></div><div class="line">&#123; <span class="string">"width"</span>: 640,<span class="string">"height"</span>:480 &#125;</div></pre></td></tr></table></figure>
-<h3 id="功能组件树"><a href="#功能组件树" class="headerlink" title="功能组件树"></a>功能组件树</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><div class="line"><span class="string">//移除静音按钮</span></div><div class="line"><span class="string">var</span> <span class="string">player</span> <span class="string">=</span> <span class="string">videojs(‘video-id‘,</span> <span class="string">&#123;</span></div><div class="line"><span class="attr">  controlBar:</span> <span class="string">&#123;</span></div><div class="line"><span class="attr">    muteToggle:</span> <span class="literal">false</span></div><div class="line">  <span class="string">&#125;</span></div><div class="line"><span class="string">&#125;);</span></div></pre></td></tr></table></figure>
-<p>videojs 有许多的组件，比如声音，播放按钮，字幕，时间，进度条等等，它们在html中的结构类似于这样子：<br><figure class="highlight armasm"><table><tr><td class="code"><pre><div class="line"><span class="symbol">Player</span></div><div class="line">    PosterImage</div><div class="line">    TextTrackDisplay</div><div class="line">    LoadingSpinner</div><div class="line">    <span class="keyword">BigPlayButton</span></div><div class="line"><span class="keyword"> </span>   ControlBar</div><div class="line">        PlayToggle</div><div class="line">        FullscreenToggle</div><div class="line">        CurrentTimeDisplay</div><div class="line">        TimeDivider</div><div class="line">        DurationDisplay</div><div class="line">        RemainingTimeDisplay</div><div class="line">        ProgressControl</div><div class="line">            SeekBar</div><div class="line">              LoadProgressBar</div><div class="line">              PlayProgressBar</div><div class="line">              SeekHandle</div><div class="line">        VolumeControl</div><div class="line">            VolumeBar</div><div class="line">                VolumeLevel</div><div class="line">                VolumeHandle</div><div class="line">        MuteToggle</div></pre></td></tr></table></figure></p>
-<h3 id="METHODS"><a href="#METHODS" class="headerlink" title="METHODS"></a>METHODS</h3><figure class="highlight delphi"><table><tr><td class="code"><pre><div class="line">autoplay</div><div class="line">buffered</div><div class="line">bufferedEnd</div><div class="line">bufferedPercent</div><div class="line">cancelFullScreen <span class="keyword">deprecated</span></div><div class="line">controls</div><div class="line">currentSrc</div><div class="line">currentTime</div><div class="line">currentType</div><div class="line">dispose</div><div class="line">duration</div><div class="line">ended</div><div class="line">error</div><div class="line">exitFullscreen</div><div class="line">init</div><div class="line">isFullScreen <span class="keyword">deprecated</span></div><div class="line">isFullscreen</div><div class="line">language</div><div class="line">load</div><div class="line">loop</div><div class="line">muted</div><div class="line">pause</div><div class="line">paused</div><div class="line">play</div><div class="line">playbackRate</div><div class="line">poster</div><div class="line">preload</div><div class="line">remainingTime</div><div class="line">requestFullScreen <span class="keyword">deprecated</span></div><div class="line">requestFullscreen</div><div class="line">seeking</div><div class="line">src</div><div class="line">volume</div><div class="line">addChild <span class="keyword">inherited</span></div><div class="line">addClass <span class="keyword">inherited</span></div><div class="line">buildCSSClass <span class="keyword">inherited</span></div><div class="line">children <span class="keyword">inherited</span></div><div class="line">contentEl <span class="keyword">inherited</span></div><div class="line">createEl <span class="keyword">inherited</span></div><div class="line">dimensions <span class="keyword">inherited</span></div><div class="line">el <span class="keyword">inherited</span></div><div class="line">enableTouchActivity <span class="keyword">inherited</span></div><div class="line">getChild <span class="keyword">inherited</span></div><div class="line">getChildById <span class="keyword">inherited</span></div><div class="line">hasClass <span class="keyword">inherited</span></div><div class="line">height <span class="keyword">inherited</span></div><div class="line">hide <span class="keyword">inherited</span></div><div class="line">id <span class="keyword">inherited</span></div><div class="line">initChildren <span class="keyword">inherited</span></div><div class="line"><span class="keyword">name</span> <span class="keyword">inherited</span></div><div class="line">off <span class="keyword">inherited</span></div><div class="line"><span class="keyword">on</span> <span class="keyword">inherited</span></div><div class="line">one <span class="keyword">inherited</span></div><div class="line">options <span class="keyword">inherited</span></div><div class="line">player <span class="keyword">inherited</span></div><div class="line">ready <span class="keyword">inherited</span></div><div class="line">removeChild <span class="keyword">inherited</span></div><div class="line">removeClass <span class="keyword">inherited</span></div><div class="line">show <span class="keyword">inherited</span></div><div class="line">trigger <span class="keyword">inherited</span></div><div class="line">triggerReady <span class="keyword">inherited</span></div><div class="line">width <span class="keyword">inherited</span></div></pre></td></tr></table></figure>
-<h3 id="EVENTS"><a href="#EVENTS" class="headerlink" title="EVENTS"></a>EVENTS</h3><figure class="highlight subunit"><table><tr><td class="code"><pre><div class="line">durationchange</div><div class="line">ended</div><div class="line">firstplay</div><div class="line">fullscreenchange</div><div class="line">loadedalldata</div><div class="line">loadeddata</div><div class="line">loadedmetadata</div><div class="line">loadstart</div><div class="line">pause</div><div class="line">play</div><div class="line"><span class="keyword">progress</span></div><div class="line">seeked</div><div class="line">seeking</div><div class="line">timeupdate</div><div class="line">volumechange</div><div class="line">waiting</div><div class="line">resize inherited</div></pre></td></tr></table></figure>
-<h3 id="CodePen示例"><a href="#CodePen示例" class="headerlink" title="CodePen示例"></a>CodePen示例</h3><p></p><p data-height="268" data-theme-id="13299" data-slug-hash="YqKmzG" data-default-tab="result" data-user="togglelt" class="codepen">See the Pen <a href="http://codepen.io/togglelt/pen/YqKmzG/" target="_blank" rel="external">Video.js示例</a> by LT (<a href="http://codepen.io/togglelt" target="_blank" rel="external">@togglelt</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<h3 id="常用的功能"><a href="#常用的功能" class="headerlink" title="常用的功能"></a>常用的功能</h3><h4 id="通过DOM初始化"><a href="#通过DOM初始化" class="headerlink" title="通过DOM初始化"></a>通过DOM初始化</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//引入video-js.css</span></span><br><span class="line">&lt;video id=<span class="string">"video1"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"video-js"</span> controls preload=<span class="string">"auto"</span> width=<span class="string">"640"</span> height=<span class="string">"264"</span> poster=<span class="string">"http://video-js.zencoder.com/oceans-clip.png"</span> data-setup=<span class="string">'&#123;"example_option":true&#125;'</span>&gt;</span><br><span class="line">	&lt;source id=<span class="string">"sourceBox"</span> src=<span class="string">"http://static.qiakr.com/movie/0060202.mp4"</span> type=<span class="string">'video/mp4'</span>&gt;</span><br><span class="line">	&lt;p <span class="class"><span class="keyword">class</span></span>=<span class="string">"vjs-no-js"</span>&gt;不支持播放&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>video&gt;</span><br><span class="line"><span class="comment">//引入video-js.js</span></span><br></pre></td></tr></table></figure>
+<h4 id="通过JS初始化"><a href="#通过JS初始化" class="headerlink" title="通过JS初始化"></a>通过JS初始化</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">//引入video-js.css</span><br><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">id</span>=<span class="string">"video2"</span> </span></span><br><span class="line"><span class="tag">				 <span class="attr">class</span>=<span class="string">"video-js vjs-default-skin vjs-big-play-centered"</span> </span></span><br><span class="line"><span class="tag">				 <span class="attr">controls</span> </span></span><br><span class="line"><span class="tag">				 <span class="attr">preload</span>=<span class="string">"auto"</span> </span></span><br><span class="line"><span class="tag">				 <span class="attr">width</span>=<span class="string">"640"</span> </span></span><br><span class="line"><span class="tag">				 <span class="attr">height</span>=<span class="string">"264"</span> </span></span><br><span class="line"><span class="tag">				 <span class="attr">poster</span>=<span class="string">"http://static.qiakr.com/app/full_res.jpg"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">source</span> <span class="attr">id</span>=<span class="string">"sourceBox"</span> <span class="attr">src</span>=<span class="string">"http://static.qiakr.com/movie/0060202.mp4"</span> <span class="attr">type</span>=<span class="string">'video/mp4'</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"vjs-no-js"</span>&gt;</span>不支持播放<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"actions"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">id</span>=<span class="string">"btn1"</span>&gt;</span>播放<span class="tag">&lt;/<span class="name">a</span>&gt;</span>		</span><br><span class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">id</span>=<span class="string">"btn2"</span>&gt;</span>暂停<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">id</span>=<span class="string">"btn3"</span>&gt;</span>隐藏音量调节控件<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">id</span>=<span class="string">"btn4"</span>&gt;</span>设置宽高<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">id</span>=<span class="string">"btn6"</span>&gt;</span>隐藏<span class="tag">&lt;/<span class="name">a</span>&gt;</span>		</span><br><span class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">id</span>=<span class="string">"btn5"</span>&gt;</span>显示<span class="tag">&lt;/<span class="name">a</span>&gt;</span>		</span><br><span class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">id</span>=<span class="string">"btn7"</span>&gt;</span>设置其它资源<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">id</span>=<span class="string">"btn8"</span>&gt;</span>销毁<span class="tag">&lt;/<span class="name">a</span>&gt;</span>		</span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">//引入video-js.js</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">	<span class="keyword">var</span> oV = videojs(<span class="string">'#video2'</span>);</span></span><br><span class="line"><span class="actionscript">	oV.src=<span class="string">"http://static.qiakr.com/movie/0080108.mp4"</span>;</span></span><br><span class="line"><span class="undefined">	oV.load();</span></span><br><span class="line"><span class="undefined">	oV.width(300).height(200);</span></span><br><span class="line"><span class="undefined">	oV.paly();</span></span><br><span class="line"><span class="undefined">	oV.pause();</span></span><br><span class="line"><span class="undefined">	...</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h4><p>播放按钮默认是在左上角，官方说这样可以不会遮挡内容的精彩部分，但是如果我们想要放到中间，处理也很简单。在video标签中增加一个vjs-big-play-centered样式就好了<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;video id=<span class="string">"video1"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"video-js"</span> controls preload=<span class="string">"auto"</span> width=<span class="string">"640"</span> height=<span class="string">"264"</span> poster=<span class="string">"http://video-js.zencoder.com/oceans-clip.png"</span> data-setup=<span class="string">'&#123;"example_option":true&#125;'</span>&gt;</span><br><span class="line">	&lt;source id=<span class="string">"sourceBox"</span> src=<span class="string">"http://static.qiakr.com/movie/0060202.mp4"</span> type=<span class="string">'video/mp4'</span>&gt;</span><br><span class="line">	&lt;p <span class="class"><span class="keyword">class</span></span>=<span class="string">"vjs-no-js"</span>&gt;不支持播放&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>video&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="自动播放"><a href="#自动播放" class="headerlink" title="自动播放"></a>自动播放</h4><p>autoplay<br><figure class="highlight lasso"><table><tr><td class="code"><pre><span class="line">&lt;video autoplay <span class="params">...</span>&gt;</span><br><span class="line"><span class="literal">or</span></span><br><span class="line">&#123; <span class="string">"autoplay"</span>: <span class="literal">true</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="预加载资源"><a href="#预加载资源" class="headerlink" title="预加载资源"></a>预加载资源</h4><p>preload<br><figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="params">&lt;video preload ...&gt;</span></span><br><span class="line">or</span><br><span class="line">&#123; <span class="string">"preload"</span>: <span class="string">"auto"</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="视频缩略图"><a href="#视频缩略图" class="headerlink" title="视频缩略图"></a>视频缩略图</h4><p>poster<br><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">&lt;video <span class="attribute">poster</span>=<span class="string">"myPoster.jpg"</span> <span class="built_in">..</span>.&gt;</span><br><span class="line"><span class="keyword">or</span></span><br><span class="line">&#123; <span class="string">"poster"</span>: <span class="string">"myPoster.jpg"</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="自动循环"><a href="#自动循环" class="headerlink" title="自动循环"></a>自动循环</h4><p>loop<br><figure class="highlight lasso"><table><tr><td class="code"><pre><span class="line">&lt;video <span class="keyword">loop</span> <span class="params">...</span>&gt;</span><br><span class="line"><span class="literal">or</span></span><br><span class="line">&#123; <span class="string">"loop"</span>: <span class="string">"true"</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="设置宽高"><a href="#设置宽高" class="headerlink" title="设置宽高"></a>设置宽高</h4><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">&lt;video <span class="attribute">width</span>=<span class="string">"640"</span>  <span class="attribute">height</span>=<span class="string">"480"</span> <span class="built_in">..</span>.&gt;</span><br><span class="line"><span class="keyword">or</span></span><br><span class="line">&#123; <span class="string">"width"</span>: 640,<span class="string">"height"</span>:480 &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="功能组件树"><a href="#功能组件树" class="headerlink" title="功能组件树"></a>功能组件树</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">//移除静音按钮</span></span><br><span class="line"><span class="string">var</span> <span class="string">player</span> <span class="string">=</span> <span class="string">videojs(‘video-id‘,</span> <span class="string">&#123;</span></span><br><span class="line"><span class="attr">  controlBar:</span> <span class="string">&#123;</span></span><br><span class="line"><span class="attr">    muteToggle:</span> <span class="literal">false</span></span><br><span class="line">  <span class="string">&#125;</span></span><br><span class="line"><span class="string">&#125;);</span></span><br></pre></td></tr></table></figure>
+<p>videojs 有许多的组件，比如声音，播放按钮，字幕，时间，进度条等等，它们在html中的结构类似于这样子：<br><figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">Player</span></span><br><span class="line">    PosterImage</span><br><span class="line">    TextTrackDisplay</span><br><span class="line">    LoadingSpinner</span><br><span class="line">    <span class="keyword">BigPlayButton</span></span><br><span class="line"><span class="keyword"> </span>   ControlBar</span><br><span class="line">        PlayToggle</span><br><span class="line">        FullscreenToggle</span><br><span class="line">        CurrentTimeDisplay</span><br><span class="line">        TimeDivider</span><br><span class="line">        DurationDisplay</span><br><span class="line">        RemainingTimeDisplay</span><br><span class="line">        ProgressControl</span><br><span class="line">            SeekBar</span><br><span class="line">              LoadProgressBar</span><br><span class="line">              PlayProgressBar</span><br><span class="line">              SeekHandle</span><br><span class="line">        VolumeControl</span><br><span class="line">            VolumeBar</span><br><span class="line">                VolumeLevel</span><br><span class="line">                VolumeHandle</span><br><span class="line">        MuteToggle</span><br></pre></td></tr></table></figure></p>
+<h3 id="METHODS"><a href="#METHODS" class="headerlink" title="METHODS"></a>METHODS</h3><figure class="highlight delphi"><table><tr><td class="code"><pre><span class="line">autoplay</span><br><span class="line">buffered</span><br><span class="line">bufferedEnd</span><br><span class="line">bufferedPercent</span><br><span class="line">cancelFullScreen <span class="keyword">deprecated</span></span><br><span class="line">controls</span><br><span class="line">currentSrc</span><br><span class="line">currentTime</span><br><span class="line">currentType</span><br><span class="line">dispose</span><br><span class="line">duration</span><br><span class="line">ended</span><br><span class="line">error</span><br><span class="line">exitFullscreen</span><br><span class="line">init</span><br><span class="line">isFullScreen <span class="keyword">deprecated</span></span><br><span class="line">isFullscreen</span><br><span class="line">language</span><br><span class="line">load</span><br><span class="line">loop</span><br><span class="line">muted</span><br><span class="line">pause</span><br><span class="line">paused</span><br><span class="line">play</span><br><span class="line">playbackRate</span><br><span class="line">poster</span><br><span class="line">preload</span><br><span class="line">remainingTime</span><br><span class="line">requestFullScreen <span class="keyword">deprecated</span></span><br><span class="line">requestFullscreen</span><br><span class="line">seeking</span><br><span class="line">src</span><br><span class="line">volume</span><br><span class="line">addChild <span class="keyword">inherited</span></span><br><span class="line">addClass <span class="keyword">inherited</span></span><br><span class="line">buildCSSClass <span class="keyword">inherited</span></span><br><span class="line">children <span class="keyword">inherited</span></span><br><span class="line">contentEl <span class="keyword">inherited</span></span><br><span class="line">createEl <span class="keyword">inherited</span></span><br><span class="line">dimensions <span class="keyword">inherited</span></span><br><span class="line">el <span class="keyword">inherited</span></span><br><span class="line">enableTouchActivity <span class="keyword">inherited</span></span><br><span class="line">getChild <span class="keyword">inherited</span></span><br><span class="line">getChildById <span class="keyword">inherited</span></span><br><span class="line">hasClass <span class="keyword">inherited</span></span><br><span class="line">height <span class="keyword">inherited</span></span><br><span class="line">hide <span class="keyword">inherited</span></span><br><span class="line">id <span class="keyword">inherited</span></span><br><span class="line">initChildren <span class="keyword">inherited</span></span><br><span class="line"><span class="keyword">name</span> <span class="keyword">inherited</span></span><br><span class="line">off <span class="keyword">inherited</span></span><br><span class="line"><span class="keyword">on</span> <span class="keyword">inherited</span></span><br><span class="line">one <span class="keyword">inherited</span></span><br><span class="line">options <span class="keyword">inherited</span></span><br><span class="line">player <span class="keyword">inherited</span></span><br><span class="line">ready <span class="keyword">inherited</span></span><br><span class="line">removeChild <span class="keyword">inherited</span></span><br><span class="line">removeClass <span class="keyword">inherited</span></span><br><span class="line">show <span class="keyword">inherited</span></span><br><span class="line">trigger <span class="keyword">inherited</span></span><br><span class="line">triggerReady <span class="keyword">inherited</span></span><br><span class="line">width <span class="keyword">inherited</span></span><br></pre></td></tr></table></figure>
+<h3 id="EVENTS"><a href="#EVENTS" class="headerlink" title="EVENTS"></a>EVENTS</h3><figure class="highlight subunit"><table><tr><td class="code"><pre><span class="line">durationchange</span><br><span class="line">ended</span><br><span class="line">firstplay</span><br><span class="line">fullscreenchange</span><br><span class="line">loadedalldata</span><br><span class="line">loadeddata</span><br><span class="line">loadedmetadata</span><br><span class="line">loadstart</span><br><span class="line">pause</span><br><span class="line">play</span><br><span class="line"><span class="keyword">progress</span></span><br><span class="line">seeked</span><br><span class="line">seeking</span><br><span class="line">timeupdate</span><br><span class="line">volumechange</span><br><span class="line">waiting</span><br><span class="line">resize inherited</span><br></pre></td></tr></table></figure>
+<h3 id="CodePen示例"><a href="#CodePen示例" class="headerlink" title="CodePen示例"></a>CodePen示例</h3><p></p><p data-height="268" data-theme-id="13299" data-slug-hash="YqKmzG" data-default-tab="result" data-user="togglelt" class="codepen">See the Pen <a href="http://codepen.io/togglelt/pen/YqKmzG/" target="_blank" rel="noopener">Video.js示例</a> by LT (<a href="http://codepen.io/togglelt" target="_blank" rel="noopener">@togglelt</a>) on <a href="http://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 
-<h3 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h3><p><a href="http://www.xuanfengge.com/html5-video-play.html" target="_blank" rel="external">移动端HTML5<video>视频播放优化实践</video></a><br><a href="http://mobile.51cto.com/abased-407001.htm" target="_blank" rel="external">android 4.0以上WebView不能全屏播放视频的解决办法</a></p>
+<h3 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h3><p><a href="http://www.xuanfengge.com/html5-video-play.html" target="_blank" rel="noopener">移动端HTML5<video>视频播放优化实践</video></a><br><a href="http://mobile.51cto.com/abased-407001.htm" target="_blank" rel="noopener">android 4.0以上WebView不能全屏播放视频的解决办法</a></p>
 
       
     </div>
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
+      
+
+      
+      
       
 
       
@@ -454,30 +509,15 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
 
     <div class="post-spread">
-      
-        <div class="ds-share flat" data-thread-key="2016/02/26/videojs-readme/"
-     data-title="HTML5视频播放器Video.Js的使用"
-     data-content=""
-     data-url="http://toggle.coding.io/2016/02/26/videojs-readme/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
       
     </div>
   </div>
@@ -486,15 +526,11 @@
           </div>
           
 
+  
+    <div class="comments" id="comments">
+    </div>
+  
 
-          
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2016/02/26/videojs-readme/"
-           data-title="HTML5视频播放器Video.Js的使用" data-url="http://toggle.coding.io/2016/02/26/videojs-readme/">
-      </div>
-    
-  </div>
 
 
         </div>
@@ -510,106 +546,205 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             站点概览
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar100.jpg"
-               alt="Aitter" />
-          <p class="site-author-name" itemprop="name">Aitter</p>
-          <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">71</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar100.jpg"
+                alt="Aitter" />
+            
+              <p class="site-author-name" itemprop="name">Aitter</p>
+              <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
           </div>
 
           
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">14</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/git-lt" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank" title="Zhihu"><i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                  
+                </span>
+              
             </div>
           
 
           
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hexo.io/" title="Hexo" target="_blank">Hexo</a>
+                  </li>
+                
+              </ul>
             </div>
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
           
             
-              <span class="links-of-author-item">
-                <a href="https://github.com/git-lt" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank" title="Zhihu">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  Zhihu
-                </a>
-              </span>
-            
           
+          
+
         </div>
-
-        
-        
-
-        
-        
-          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-            <div class="links-of-blogroll-title">
-              <i class="fa  fa-fw fa-globe"></i>
-              友情链接
-            </div>
-            <ul class="links-of-blogroll-list">
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://hexo.io/" title="Hexo" target="_blank">Hexo</a>
-                </li>
-              
-            </ul>
-          </div>
-        
-
-        
-
-
       </section>
 
       
@@ -630,6 +765,8 @@
       <!--/noindex-->
       
 
+      
+
     </div>
   </aside>
 
@@ -640,38 +777,55 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2015 - 
-  <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Aitter</span>
+
+  
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.1.0</div>
+
+
 
 
         
+
+
+
+
+
+
+
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
   </div>
 
   
@@ -690,35 +844,12 @@
 
 
 
-  
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
 
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
@@ -726,68 +857,133 @@
   
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
 
 
 
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
 
   
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
 
 
 
   
 
-  
-    
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
   
 
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
   <script type="text/javascript">
-    var duoshuoQuery = {short_name:"togglelt"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz',
+        appKey: 'IQ7Je02a33Mm5AVkAikKwxL2',
+        placeholder: 'ヾﾉ≧∀≦)o来呀，快活呀!',
+        avatar:'monsterid',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
   </script>
 
+
+
   
-    
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
-  
-
-
-
 
 
 
 
 
   
-  
 
   
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz", "IQ7Je02a33Mm5AVkAikKwxL2");</script>
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz", "IQ7Je02a33Mm5AVkAikKwxL2#<app_key>");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);
@@ -843,35 +1039,24 @@
             var counter = results[0];
             counter.fetchWhenSave(true);
             counter.increment("time");
+            
             counter.save(null, {
               success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
               },
               error: function(counter, error) {
                 console.log('Failed to save Visitor num, with error message: ' + error.message);
               }
             });
           } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
           }
         },
         error: function(error) {
@@ -896,6 +1081,18 @@
 
   
 
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>

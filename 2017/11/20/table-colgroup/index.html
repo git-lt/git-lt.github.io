@@ -1,15 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
 
 
 
@@ -27,36 +37,10 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
@@ -65,33 +49,64 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS3," />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
 
 
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
 
 
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
+  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
 
 
 
-<meta name="description" content="Table 在项目使用中十分频繁，特别是在后台管理系统中，table 无疑是数据展示的第一公民，在早些年的网页中，table 也是网页布局的第一选择，然后使用好 table 并不容易，其它有很多子元素和属性需要了解，在实际使用中，table 的自适应也十分重要，如果使用不当，就会导致数据展示混乱，影响用户阅读体验，table 可以说是一把利刃，只要使用恰当，可以简化 DOM 结构，减少很多样式编写">
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Table 在项目使用中十分频繁，特别是在后台管理系统中，table 无疑是数据展示的第一公民，在早些年的网页中，table 也是网页布局的第一选择，然后使用好 table 并不容易，其它有很多子元素和属性需要了解，在实际使用中，table 的自适应也十分重要，如果使用不当，就会导致数据展示混乱，影响用户阅读体验，table 可以说是一把利刃，只要使用恰当，可以简化 DOM 结构，减少很多样式编写">
 <meta name="keywords" content="CSS3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 colgroup 和 col 实现响应式表格">
 <meta property="og:url" content="http://toggle.coding.io/2017/11/20/table-colgroup/index.html">
 <meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="Table 在项目使用中十分频繁，特别是在后台管理系统中，table 无疑是数据展示的第一公民，在早些年的网页中，table 也是网页布局的第一选择，然后使用好 table 并不容易，其它有很多子元素和属性需要了解，在实际使用中，table 的自适应也十分重要，如果使用不当，就会导致数据展示混乱，影响用户阅读体验，table 可以说是一把利刃，只要使用恰当，可以简化 DOM 结构，减少很多样式编写">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/2017-11-17-屏幕快照 2017-11-17 上午10.20.35.png">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/2017-11-17-屏幕快照 2017-11-17 上午10.17.40.png">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/2017-11-17-屏幕快照 2017-11-17 上午10.19.09.png">
@@ -110,27 +125,6 @@
 
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
 
 
 
@@ -138,14 +132,17 @@
 
 
 
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title> 使用 colgroup 和 col 实现响应式表格 | Aitter's Blog </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>使用 colgroup 和 col 实现响应式表格 | Aitter's Blog</title>
   
+
+
+
 
 
 
@@ -153,7 +150,7 @@
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
+      hm.src = "https://hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
@@ -162,99 +159,134 @@
 
 
 
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
 
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
 
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Aitter's Blog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aitter's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">I can’t change the world, only change myself!</p>
+      
   </div>
-  <p class="site-subtitle">I can’t change the world, only change myself!</p>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+
+
 
 <nav class="site-nav">
-  
-
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+</li>
+
       
 
       
+      
     </ul>
+  
+
   
 
   
@@ -262,12 +294,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
 
@@ -280,32 +323,31 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2017/11/20/table-colgroup/">
+  
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Aitter">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar100.jpg">
-  </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2017/11/20/table-colgroup/">
 
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Aitter's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Aitter's Blog" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aitter">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar100.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aitter's Blog">
+    </span>
 
     
       <header class="post-header">
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                使用 colgroup 和 col 实现响应式表格
+          <h1 class="post-title" itemprop="name headline">使用 colgroup 和 col 实现响应式表格
               
             
           </h1>
@@ -314,15 +356,20 @@
         <div class="post-meta">
           <span class="post-time">
             
+                
+            
+
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-20T13:28:52+08:00">
-                2017-11-20
-              </time>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-20T13:28:52+08:00">2017-11-20</time>
             
 
+            
             
 
             
@@ -330,17 +377,17 @@
 
           
             <span class="post-category" >
+            
               <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web前端/" itemprop="url" rel="index">
-                    <span itemprop="name">Web前端</span>
-                  </a>
-                </span>
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Web前端/" itemprop="url" rel="index"><span itemprop="name">Web前端</span></a></span>
 
                 
                 
@@ -352,13 +399,14 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2017/11/20/table-colgroup/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/11/20/table-colgroup/" itemprop="commentCount"></span>
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/11/20/table-colgroup/" itemprop="commentCount"></span>
                 </a>
               </span>
             
-          
-
           
 
           
@@ -368,9 +416,13 @@
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
           
 
           
@@ -381,7 +433,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -390,7 +444,7 @@
       
         <p>Table 在项目使用中十分频繁，特别是在后台管理系统中，<code>table</code> 无疑是数据展示的第一公民，在早些年的网页中，<code>table</code> 也是网页布局的第一选择，然后使用好 <code>table</code> 并不容易，其它有很多子元素和属性需要了解，在实际使用中，<code>table</code> 的自适应也十分重要，如果使用不当，就会导致数据展示混乱，影响用户阅读体验，<code>table</code> 可以说是一把利刃，只要使用恰当，可以简化 <code>DOM</code> 结构，减少很多样式编写，提升布局效率。</p>
 <a id="more"></a>
-<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="表格的结构"><a href="#表格的结构" class="headerlink" title="表格的结构"></a>表格的结构</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="title">table</span><span class="params">(summary)</span></span></div><div class="line">    caption</div><div class="line">    colgroup(<span class="attribute">width</span> span)</div><div class="line">        col(<span class="attribute">width</span>)</div><div class="line">    thead</div><div class="line">        <span class="selector-tag">tr</span> &gt; th(colspan rowspan)</div><div class="line">    tbody</div><div class="line">        <span class="selector-tag">tr</span> &gt; td(colspan rowspan)</div><div class="line">    tbody</div><div class="line">        <span class="selector-tag">tr</span> &gt; td(colspan rowspan)</div><div class="line">    tfoot</div><div class="line">        <span class="selector-tag">tr</span> &gt; td(colspan rowspan)</div></pre></td></tr></table></figure>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="表格的结构"><a href="#表格的结构" class="headerlink" title="表格的结构"></a>表格的结构</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">table</span><span class="params">(summary)</span></span></span><br><span class="line">    caption</span><br><span class="line">    colgroup(<span class="attribute">width</span> span)</span><br><span class="line">        col(<span class="attribute">width</span>)</span><br><span class="line">    thead</span><br><span class="line">        <span class="selector-tag">tr</span> &gt; th(colspan rowspan)</span><br><span class="line">    tbody</span><br><span class="line">        <span class="selector-tag">tr</span> &gt; td(colspan rowspan)</span><br><span class="line">    tbody</span><br><span class="line">        <span class="selector-tag">tr</span> &gt; td(colspan rowspan)</span><br><span class="line">    tfoot</span><br><span class="line">        <span class="selector-tag">tr</span> &gt; td(colspan rowspan)</span><br></pre></td></tr></table></figure>
 <p><strong>说明</strong></p>
 <ul>
 <li><code>summary</code> 用于对描述表格</li>
@@ -418,20 +472,20 @@
 <li><code>&lt;colgroup&gt;</code> 元素只能包含 <code>&lt;col&gt;</code> 元素</li>
 <li><code>&lt;colgroup&gt;</code> 元素无法创建表格列，只用于控制列的样式</li>
 </ul>
-<h3 id="实现列的斑马纹"><a href="#实现列的斑马纹" class="headerlink" title="实现列的斑马纹"></a>实现列的斑马纹</h3><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col1"</span>&gt;</span><span class="tag">&lt;/<span class="name">col</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col1"</span>&gt;</span><span class="tag">&lt;/<span class="name">col</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col1"</span>&gt;</span><span class="tag">&lt;/<span class="name">col</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col1"</span>&gt;</span><span class="tag">&lt;/<span class="name">col</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col1"</span>&gt;</span><span class="tag">&lt;/<span class="name">col</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">thead</span>&gt;</span><span class="tag">&lt;/<span class="name">thead</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">tbody</span>&gt;</span><span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.col1</span><span class="selector-pseudo">:nth-child(2n)</span> &#123;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#F8F8F9</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.col1</span><span class="selector-pseudo">:nth-child(2n+1)</span>&#123;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#E5ECFB</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="实现列的斑马纹"><a href="#实现列的斑马纹" class="headerlink" title="实现列的斑马纹"></a>实现列的斑马纹</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col1"</span>&gt;</span><span class="tag">&lt;/<span class="name">col</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col1"</span>&gt;</span><span class="tag">&lt;/<span class="name">col</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col1"</span>&gt;</span><span class="tag">&lt;/<span class="name">col</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col1"</span>&gt;</span><span class="tag">&lt;/<span class="name">col</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col1"</span>&gt;</span><span class="tag">&lt;/<span class="name">col</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">thead</span>&gt;</span><span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tbody</span>&gt;</span><span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.col1</span><span class="selector-pseudo">:nth-child(2n)</span> &#123;</span><br><span class="line">	<span class="attribute">background</span>: <span class="number">#F8F8F9</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.col1</span><span class="selector-pseudo">:nth-child(2n+1)</span>&#123;</span><br><span class="line">	<span class="attribute">background</span>: <span class="number">#E5ECFB</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="http://7xi480.com1.z0.glb.clouddn.com/2017-11-17-屏幕快照 2017-11-17 上午10.17.40.png" alt="屏幕快照 2017-11-17 上午10.17.40"></p>
-<h3 id="给多列分组"><a href="#给多列分组" class="headerlink" title="给多列分组"></a>给多列分组</h3><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">col</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">col</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">colgroup</span> <span class="attr">class</span>=<span class="string">"group1"</span> <span class="attr">span</span>=<span class="string">"2"</span>&gt;</span><span class="tag">&lt;/<span class="name">colgroup</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">col</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">colgroup</span> <span class="attr">class</span>=<span class="string">"group1"</span> <span class="attr">span</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">colgroup</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">col</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">colgroup</span> <span class="attr">class</span>=<span class="string">"group1"</span> <span class="attr">span</span>=<span class="string">"1"</span>&gt;</span><span class="tag">&lt;/<span class="name">colgroup</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">thead</span>&gt;</span><span class="tag">&lt;/<span class="name">thead</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">tbody</span>&gt;</span><span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="给多列分组"><a href="#给多列分组" class="headerlink" title="给多列分组"></a>给多列分组</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">col</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">col</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">colgroup</span> <span class="attr">class</span>=<span class="string">"group1"</span> <span class="attr">span</span>=<span class="string">"2"</span>&gt;</span><span class="tag">&lt;/<span class="name">colgroup</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">col</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">colgroup</span> <span class="attr">class</span>=<span class="string">"group1"</span> <span class="attr">span</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">colgroup</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">col</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">colgroup</span> <span class="attr">class</span>=<span class="string">"group1"</span> <span class="attr">span</span>=<span class="string">"1"</span>&gt;</span><span class="tag">&lt;/<span class="name">colgroup</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">thead</span>&gt;</span><span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tbody</span>&gt;</span><span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><img src="http://7xi480.com1.z0.glb.clouddn.com/2017-11-17-屏幕快照 2017-11-17 上午10.19.09.png" alt="屏幕快照 2017-11-17 上午10.19.09"></p>
 <h3 id="列的样式控制"><a href="#列的样式控制" class="headerlink" title="列的样式控制"></a>列的样式控制</h3><p>给 col 添加样式 <code>width</code>、<code>background</code>、<code>border</code><br>设置 <code>color、font-size、text-align、min-width、max-width</code>等无效</p>
 <p><img src="http://7xi480.com1.z0.glb.clouddn.com/2017-11-17-屏幕快照 2017-11-17 上午10.19.22.png" alt="屏幕快照 2017-11-17 上午10.19.22"></p>
-<h3 id="使用百分比控制列的宽度"><a href="#使用百分比控制列的宽度" class="headerlink" title="使用百分比控制列的宽度"></a>使用百分比控制列的宽度</h3><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">colclass="col3"</span> <span class="attr">width</span>=<span class="string">"10%"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col3"</span> <span class="attr">width</span>=<span class="string">"30%"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col3"</span> <span class="attr">width</span>=<span class="string">"20%"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col3"</span> <span class="attr">width</span>=<span class="string">"10%"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col3"</span> <span class="attr">width</span>=<span class="string">"20%"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col3"</span> <span class="attr">width</span>=<span class="string">"10%"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">thead</span>&gt;</span><span class="tag">&lt;/<span class="name">thead</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">tbody</span>&gt;</span><span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="使用百分比控制列的宽度"><a href="#使用百分比控制列的宽度" class="headerlink" title="使用百分比控制列的宽度"></a>使用百分比控制列的宽度</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">colclass="col3"</span> <span class="attr">width</span>=<span class="string">"10%"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col3"</span> <span class="attr">width</span>=<span class="string">"30%"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col3"</span> <span class="attr">width</span>=<span class="string">"20%"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col3"</span> <span class="attr">width</span>=<span class="string">"10%"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col3"</span> <span class="attr">width</span>=<span class="string">"20%"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col3"</span> <span class="attr">width</span>=<span class="string">"10%"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">thead</span>&gt;</span><span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tbody</span>&gt;</span><span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><img src="http://7xi480.com1.z0.glb.clouddn.com/2017-11-17-屏幕快照 2017-11-17 上午10.19.34.png" alt="屏幕快照 2017-11-17 上午10.19.34"></p>
-<h3 id="使用固定宽度及自适应宽度"><a href="#使用固定宽度及自适应宽度" class="headerlink" title="使用固定宽度及自适应宽度"></a>使用固定宽度及自适应宽度</h3><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col3"</span> <span class="attr">width</span>=<span class="string">"100"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col3"</span> <span class="attr">width</span>=<span class="string">"300"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col3"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col3"</span> <span class="attr">width</span>=<span class="string">"100"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col3"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col3"</span> <span class="attr">width</span>=<span class="string">"100"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">thead</span>&gt;</span><span class="tag">&lt;/<span class="name">thead</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">tbody</span>&gt;</span><span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="使用固定宽度及自适应宽度"><a href="#使用固定宽度及自适应宽度" class="headerlink" title="使用固定宽度及自适应宽度"></a>使用固定宽度及自适应宽度</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col3"</span> <span class="attr">width</span>=<span class="string">"100"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col3"</span> <span class="attr">width</span>=<span class="string">"300"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col3"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col3"</span> <span class="attr">width</span>=<span class="string">"100"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col3"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">col</span> <span class="attr">class</span>=<span class="string">"col3"</span> <span class="attr">width</span>=<span class="string">"100"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">thead</span>&gt;</span><span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tbody</span>&gt;</span><span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><img src="http://7xi480.com1.z0.glb.clouddn.com/2017-11-17-屏幕快照 2017-11-17 上午10.19.43.png" alt="屏幕快照 2017-11-17 上午10.19.43"></p>
 <p>使用 <code>col</code> 及 <code>colgroup</code> 定义列的宽度自适应是最灵活的方式，但是对于浏览器来说，自适应的列会导致渲染的复杂度上升，降低渲染效率，所以css提供了一种渲染效率更高的样式属性 <code>table-layout:fixed</code></p>
 <h2 id="table-layout"><a href="#table-layout" class="headerlink" title="table-layout"></a>table-layout</h2><p>为表设置表格布局算法</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">table</span> &#123;</div><div class="line">  <span class="attribute">table-layout</span>: fixed;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">table</span> &#123;</span><br><span class="line">  <span class="attribute">table-layout</span>: fixed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -463,41 +517,38 @@
 <p>任何一个包含溢出内容的单元格可以使用 <code>overflow</code>  属性控制是否允许内容溢出 或者 使用 <code>word-break:break-all</code> 使内容换行</p>
 <p><img src="http://7xi480.com1.z0.glb.clouddn.com/2017-11-17-屏幕快照 2017-11-17 上午10.19.54.png" alt="屏幕快照 2017-11-17 上午10.19.54"></p>
 <h3 id="fixed-break-all"><a href="#fixed-break-all" class="headerlink" title="fixed + break-all"></a>fixed + break-all</h3><p>fixed布局带来的问题是单元格内容较长，英文或数字中间没有空格，是一连串的数字编码或字符时，不会换行，会溢出，所以加上 <code>word-break: break-all</code> 强制其换行显示</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">style</span>=<span class="string">"table-layout:fixed; word-break: break-all;"</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">style</span>=<span class="string">"table-layout:fixed; word-break: break-all;"</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><img src="http://7xi480.com1.z0.glb.clouddn.com/2017-11-17-屏幕快照 2017-11-17 上午10.20.09.png" alt="屏幕快照 2017-11-17 上午10.20.09"></p>
 <h3 id="fixed-不换行…显示"><a href="#fixed-不换行…显示" class="headerlink" title="fixed + 不换行…显示"></a>fixed + 不换行…显示</h3><p><code>fixed + break-all</code> 解决了字符换行的问题，但是如果内容过长，容易撑高行的高度，导致表格某几行或所有行的高度过高，致表格变形，影响阅读体验，所以可以让过长的内容以 <code>...</code> 显示</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">style</span>=<span class="string">"table-layout:fixed;"</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">style</span>=<span class="string">"table-layout:fixed;"</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>为内容过长的 <code>td</code> 添加样式 <code>.ell</code></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.ell</span> &#123;</div><div class="line">	<span class="attribute">overflow</span>: hidden; </div><div class="line">	<span class="attribute">text-overflow</span>: ellipsis; </div><div class="line">	<span class="attribute">white-space</span>: nowrap;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.ell</span> &#123;</span><br><span class="line">	<span class="attribute">overflow</span>: hidden; </span><br><span class="line">	<span class="attribute">text-overflow</span>: ellipsis; </span><br><span class="line">	<span class="attribute">white-space</span>: nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="http://7xi480.com1.z0.glb.clouddn.com/2017-11-17-屏幕快照 2017-11-17 上午10.20.19.png" alt="屏幕快照 2017-11-17 上午10.20.19"></p>
 <h3 id="fixed-多行-…-显示-【推荐】"><a href="#fixed-多行-…-显示-【推荐】" class="headerlink" title="fixed + 多行 … 显示 【推荐】"></a>fixed + 多行 … 显示 【推荐】</h3><p>如果单行…显示，可以保证所有行的高度一致，但当内容较多时，只能显示少量信息，也不利于阅读体验， 这样就需要单元格内容显示多行，超过规定行数再以 <code>...</code> 显示</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">style</span>=<span class="string">"table-layout:fixed;"</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">style</span>=<span class="string">"table-layout:fixed;"</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>为单元格内容添加 <code>mult-ell-3</code> 的样式，当内容多行三行时显示 <code>...</code>, 并设置title属性，鼠标悬停时显示全部内容，这样即兼顾了表格整体美观度也满足了用户的阅读体检</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.mult-ell-3</span> &#123;</div><div class="line">	 <span class="attribute">display</span>: -webkit-box;</div><div class="line">	<span class="attribute">-webkit-line-clamp</span>: <span class="number">3</span>;</div><div class="line">	<span class="attribute">-webkit-box-orient</span>: vertical;</div><div class="line">	<span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.mult-ell-3</span> &#123;</span><br><span class="line">	 <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">	<span class="attribute">-webkit-line-clamp</span>: <span class="number">3</span>;</span><br><span class="line">	<span class="attribute">-webkit-box-orient</span>: vertical;</span><br><span class="line">	<span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="http://7xi480.com1.z0.glb.clouddn.com/2017-11-17-屏幕快照 2017-11-17 上午10.20.27.png" alt="屏幕快照 2017-11-17 上午10.20.27"></p>
 <h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
-<li><a href="http://www.ruanyifeng.com/blog/2009/05/html_table_mastering.html" target="_blank" rel="external">精通HTML表格的使用</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/table-layout" target="_blank" rel="external">MDN table-layout</a></li>
-<li><a href="http://www.zhangxinxu.com/study/201510/webkit-line-clamp-text-overflow-ellipsis.html" target="_blank" rel="external">多行文本…显示</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2009/05/html_table_mastering.html" target="_blank" rel="noopener">精通HTML表格的使用</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/table-layout" target="_blank" rel="noopener">MDN table-layout</a></li>
+<li><a href="http://www.zhangxinxu.com/study/201510/webkit-line-clamp-text-overflow-ellipsis.html" target="_blank" rel="noopener">多行文本…显示</a></li>
 </ul>
 
       
     </div>
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
       
@@ -506,6 +557,10 @@
             <a href="/tags/CSS3/" rel="tag"># CSS3</a>
           
         </div>
+      
+
+      
+      
       
 
       
@@ -533,30 +588,15 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
 
     <div class="post-spread">
-      
-        <div class="ds-share flat" data-thread-key="2017/11/20/table-colgroup/"
-     data-title="使用 colgroup 和 col 实现响应式表格"
-     data-content=""
-     data-url="http://toggle.coding.io/2017/11/20/table-colgroup/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
       
     </div>
   </div>
@@ -565,15 +605,11 @@
           </div>
           
 
+  
+    <div class="comments" id="comments">
+    </div>
+  
 
-          
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2017/11/20/table-colgroup/"
-           data-title="使用 colgroup 和 col 实现响应式表格" data-url="http://toggle.coding.io/2017/11/20/table-colgroup/">
-      </div>
-    
-  </div>
 
 
         </div>
@@ -589,106 +625,205 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             站点概览
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar100.jpg"
-               alt="Aitter" />
-          <p class="site-author-name" itemprop="name">Aitter</p>
-          <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">71</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar100.jpg"
+                alt="Aitter" />
+            
+              <p class="site-author-name" itemprop="name">Aitter</p>
+              <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
           </div>
 
           
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">14</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/git-lt" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank" title="Zhihu"><i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                  
+                </span>
+              
             </div>
           
 
           
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hexo.io/" title="Hexo" target="_blank">Hexo</a>
+                  </li>
+                
+              </ul>
             </div>
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
           
             
-              <span class="links-of-author-item">
-                <a href="https://github.com/git-lt" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank" title="Zhihu">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  Zhihu
-                </a>
-              </span>
-            
           
+          
+
         </div>
-
-        
-        
-
-        
-        
-          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-            <div class="links-of-blogroll-title">
-              <i class="fa  fa-fw fa-globe"></i>
-              友情链接
-            </div>
-            <ul class="links-of-blogroll-list">
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://hexo.io/" title="Hexo" target="_blank">Hexo</a>
-                </li>
-              
-            </ul>
-          </div>
-        
-
-        
-
-
       </section>
 
       
@@ -709,6 +844,8 @@
       <!--/noindex-->
       
 
+      
+
     </div>
   </aside>
 
@@ -719,38 +856,55 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2015 - 
-  <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Aitter</span>
+
+  
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.1.0</div>
+
+
 
 
         
+
+
+
+
+
+
+
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
   </div>
 
   
@@ -769,35 +923,12 @@
 
 
 
-  
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
 
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
@@ -805,68 +936,133 @@
   
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
 
 
 
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
 
   
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
 
 
 
   
 
-  
-    
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
   
 
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
   <script type="text/javascript">
-    var duoshuoQuery = {short_name:"togglelt"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz',
+        appKey: 'IQ7Je02a33Mm5AVkAikKwxL2',
+        placeholder: 'ヾﾉ≧∀≦)o来呀，快活呀!',
+        avatar:'monsterid',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
   </script>
 
+
+
   
-    
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
-  
-
-
-
 
 
 
 
 
   
-  
 
   
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz", "IQ7Je02a33Mm5AVkAikKwxL2");</script>
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz", "IQ7Je02a33Mm5AVkAikKwxL2#<app_key>");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);
@@ -922,35 +1118,24 @@
             var counter = results[0];
             counter.fetchWhenSave(true);
             counter.increment("time");
+            
             counter.save(null, {
               success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
               },
               error: function(counter, error) {
                 console.log('Failed to save Visitor num, with error message: ' + error.message);
               }
             });
           } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
           }
         },
         error: function(error) {
@@ -975,6 +1160,18 @@
 
   
 
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>

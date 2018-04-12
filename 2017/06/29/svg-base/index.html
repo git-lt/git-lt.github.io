@@ -1,15 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
 
 
 
@@ -27,36 +37,10 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
@@ -65,39 +49,25 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="SVG," />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
 
 
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
 
 
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
+  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
 
 
 
-<meta name="description" content="SVG 是可缩放矢量图形的缩写（Scalable Vector Graphics）, 也就是矢量图。是基于可扩展标记语言XML来描述二维矢量图形的一种图形格式，由W3C制定，是一个开放标准（SVG 于 2003 年 1 月 14 日成为 W3C 推荐标准）">
-<meta name="keywords" content="SVG">
-<meta property="og:type" content="article">
-<meta property="og:title" content="SVG起手式">
-<meta property="og:url" content="http://toggle.coding.io/2017/06/29/svg-base/index.html">
-<meta property="og:site_name" content="Aitter&#39;s Blog">
-<meta property="og:description" content="SVG 是可缩放矢量图形的缩写（Scalable Vector Graphics）, 也就是矢量图。是基于可扩展标记语言XML来描述二维矢量图形的一种图形格式，由W3C制定，是一个开放标准（SVG 于 2003 年 1 月 14 日成为 W3C 推荐标准）">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://static.zybuluo.com/jimmythr/lc2lp9uqzofzdfndbhre0cpx/image.png">
-<meta property="og:updated_time" content="2017-06-30T05:48:42.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SVG起手式">
-<meta name="twitter:description" content="SVG 是可缩放矢量图形的缩写（Scalable Vector Graphics）, 也就是矢量图。是基于可扩展标记语言XML来描述二维矢量图形的一种图形格式，由W3C制定，是一个开放标准（SVG 于 2003 年 1 月 14 日成为 W3C 推荐标准）">
-<meta name="twitter:image" content="http://static.zybuluo.com/jimmythr/lc2lp9uqzofzdfndbhre0cpx/image.png">
+
+
+
 
 
 
@@ -106,13 +76,13 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -124,19 +94,46 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="SVG 是可缩放矢量图形的缩写（Scalable Vector Graphics）, 也就是矢量图。是基于可扩展标记语言XML来描述二维矢量图形的一种图形格式，由W3C制定，是一个开放标准（SVG 于 2003 年 1 月 14 日成为 W3C 推荐标准）">
+<meta name="keywords" content="SVG">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SVG起手式">
+<meta property="og:url" content="http://toggle.coding.io/2017/06/29/svg-base/index.html">
+<meta property="og:site_name" content="Aitter&#39;s Blog">
+<meta property="og:description" content="SVG 是可缩放矢量图形的缩写（Scalable Vector Graphics）, 也就是矢量图。是基于可扩展标记语言XML来描述二维矢量图形的一种图形格式，由W3C制定，是一个开放标准（SVG 于 2003 年 1 月 14 日成为 W3C 推荐标准）">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://static.zybuluo.com/jimmythr/lc2lp9uqzofzdfndbhre0cpx/image.png">
+<meta property="og:updated_time" content="2017-06-30T05:48:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SVG起手式">
+<meta name="twitter:description" content="SVG 是可缩放矢量图形的缩写（Scalable Vector Graphics）, 也就是矢量图。是基于可扩展标记语言XML来描述二维矢量图形的一种图形格式，由W3C制定，是一个开放标准（SVG 于 2003 年 1 月 14 日成为 W3C 推荐标准）">
+<meta name="twitter:image" content="http://static.zybuluo.com/jimmythr/lc2lp9uqzofzdfndbhre0cpx/image.png">
+
+
+
+
+
 
   <link rel="canonical" href="http://toggle.coding.io/2017/06/29/svg-base/"/>
 
 
 
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title> SVG起手式 | Aitter's Blog </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>SVG起手式 | Aitter's Blog</title>
   
+
+
+
 
 
 
@@ -144,7 +141,7 @@
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
+      hm.src = "https://hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
@@ -153,99 +150,134 @@
 
 
 
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
 
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
 
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Aitter's Blog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aitter's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">I can’t change the world, only change myself!</p>
+      
   </div>
-  <p class="site-subtitle">I can’t change the world, only change myself!</p>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+
+
 
 <nav class="site-nav">
-  
-
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+</li>
+
       
 
       
+      
     </ul>
+  
+
   
 
   
@@ -253,12 +285,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
 
@@ -271,32 +314,31 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2017/06/29/svg-base/">
+  
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Aitter">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar100.jpg">
-  </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2017/06/29/svg-base/">
 
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Aitter's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Aitter's Blog" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aitter">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar100.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aitter's Blog">
+    </span>
 
     
       <header class="post-header">
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                SVG起手式
+          <h1 class="post-title" itemprop="name headline">SVG起手式
               
             
           </h1>
@@ -305,15 +347,20 @@
         <div class="post-meta">
           <span class="post-time">
             
+                
+            
+
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-29T15:24:20+08:00">
-                2017-06-29
-              </time>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-29T15:24:20+08:00">2017-06-29</time>
             
 
+            
             
 
             
@@ -321,17 +368,17 @@
 
           
             <span class="post-category" >
+            
               <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/移动前端/" itemprop="url" rel="index">
-                    <span itemprop="name">移动前端</span>
-                  </a>
-                </span>
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/移动前端/" itemprop="url" rel="index"><span itemprop="name">移动前端</span></a></span>
 
                 
                 
@@ -343,13 +390,14 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2017/06/29/svg-base/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/29/svg-base/" itemprop="commentCount"></span>
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/06/29/svg-base/" itemprop="commentCount"></span>
                 </a>
               </span>
             
-          
-
           
 
           
@@ -359,9 +407,13 @@
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
           
 
           
@@ -372,7 +424,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -418,7 +472,7 @@
 </ul>
 <h2 id="SVG文件"><a href="#SVG文件" class="headerlink" title="SVG文件"></a>SVG文件</h2><p>SVG文件必须以 .svg 后缀结尾</p>
 <p><code>icon-left.svg</code> 文件内容： </p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span> standalone=<span class="string">"no"</span><span class="meta">?&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"8px"</span> <span class="attr">height</span>=<span class="string">"14px"</span> <span class="attr">viewBox</span>=<span class="string">"0 0 8 14"</span> <span class="attr">version</span>=<span class="string">"1.1"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- Generator: Sketch 3.5.2 (25235) - http://www.bohemiancoding.com/sketch --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>back<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">desc</span>&gt;</span>Created with Sketch.<span class="tag">&lt;/<span class="name">desc</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">defs</span>&gt;</span><span class="tag">&lt;/<span class="name">defs</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">g</span> <span class="attr">id</span>=<span class="string">"Page-1"</span> <span class="attr">stroke</span>=<span class="string">"none"</span> <span class="attr">stroke-width</span>=<span class="string">"1"</span> <span class="attr">fill</span>=<span class="string">"none"</span> <span class="attr">fill-rule</span>=<span class="string">"evenodd"</span> <span class="attr">sketch:type</span>=<span class="string">"MSPage"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">g</span> <span class="attr">id</span>=<span class="string">"back"</span> <span class="attr">sketch:type</span>=<span class="string">"MSArtboardGroup"</span> <span class="attr">fill</span>=<span class="string">"#4A4A4A"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"M2.05455283,7.19050037 L6.95392196 ... 7.19050037 Z"</span> <span class="attr">id</span>=<span class="string">"Shape"</span> <span class="attr">sketch:type</span>=<span class="string">"MSShapeGroup"</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">g</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">g</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span> standalone=<span class="string">"no"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"8px"</span> <span class="attr">height</span>=<span class="string">"14px"</span> <span class="attr">viewBox</span>=<span class="string">"0 0 8 14"</span> <span class="attr">version</span>=<span class="string">"1.1"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Generator: Sketch 3.5.2 (25235) - http://www.bohemiancoding.com/sketch --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>back<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">desc</span>&gt;</span>Created with Sketch.<span class="tag">&lt;/<span class="name">desc</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">defs</span>&gt;</span><span class="tag">&lt;/<span class="name">defs</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">g</span> <span class="attr">id</span>=<span class="string">"Page-1"</span> <span class="attr">stroke</span>=<span class="string">"none"</span> <span class="attr">stroke-width</span>=<span class="string">"1"</span> <span class="attr">fill</span>=<span class="string">"none"</span> <span class="attr">fill-rule</span>=<span class="string">"evenodd"</span> <span class="attr">sketch:type</span>=<span class="string">"MSPage"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">g</span> <span class="attr">id</span>=<span class="string">"back"</span> <span class="attr">sketch:type</span>=<span class="string">"MSArtboardGroup"</span> <span class="attr">fill</span>=<span class="string">"#4A4A4A"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"M2.05455283,7.19050037 L6.95392196 ... 7.19050037 Z"</span> <span class="attr">id</span>=<span class="string">"Shape"</span> <span class="attr">sketch:type</span>=<span class="string">"MSShapeGroup"</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="SVG基本概念"><a href="#SVG基本概念" class="headerlink" title="SVG基本概念"></a>SVG基本概念</h2><ul>
 <li><code>standalone=&quot;no&quot;</code> 表示SVG文档会引用一个外部文件，这时就是DTD文件，DTD文件中申明了允许的SVG元素</li>
 <li><code>viewprot</code>: 物理窗口(舞台大小，画布大小)，页面上固定的矩形区域</li>
@@ -426,8 +480,8 @@
 <li><code>preserveAspectRatio</code>: 保留横纵比</li>
 </ul>
 <p>SVG就像是我们的显示器屏幕，viewBox就是截屏工具选中的那个框框，最终的呈现就是把框框中的截屏内容再次在显示器中全屏显示</p>
-<p><a href="http://know.webhek.com/svg/svg-viewbox-preserveaspectratio.html" target="_blank" rel="external">SVG手册</a></p>
-<h3 id="SVG显示比例与对齐方式"><a href="#SVG显示比例与对齐方式" class="headerlink" title="SVG显示比例与对齐方式"></a>SVG显示比例与对齐方式</h3><figure class="highlight fsharp"><table><tr><td class="code"><pre><div class="line">preserveAspectRatio：&lt;align&gt; <span class="meta">[&lt;meetOrSlice&gt;]</span></div></pre></td></tr></table></figure>
+<p><a href="http://know.webhek.com/svg/svg-viewbox-preserveaspectratio.html" target="_blank" rel="noopener">SVG手册</a></p>
+<h3 id="SVG显示比例与对齐方式"><a href="#SVG显示比例与对齐方式" class="headerlink" title="SVG显示比例与对齐方式"></a>SVG显示比例与对齐方式</h3><figure class="highlight fsharp"><table><tr><td class="code"><pre><span class="line">preserveAspectRatio：&lt;align&gt; <span class="meta">[&lt;meetOrSlice&gt;]</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><p><code>align</code>: 定义viewbox在viewport中的对齐方式， xMin/xMid/xMax YMin/YMid/Ymax<br><img src="http://static.zybuluo.com/jimmythr/lc2lp9uqzofzdfndbhre0cpx/image.png" alt=""></p>
 </li>
@@ -442,7 +496,7 @@
 <li><code>&lt;use&gt;</code> 用于引用或复用图形，可引用 <code>&lt;def&gt;</code>、<code>&lt;g&gt;</code> 、<code>&lt;symbol&gt;</code> 中图形的id，来复用图形 <code>&lt;use xlink:href=&quot;#id&quot;&gt;</code></li>
 </ul>
 <h3 id="标题与描述"><a href="#标题与描述" class="headerlink" title="标题与描述"></a>标题与描述</h3><p>可以使用 <code>&lt;title&gt;</code>与 <code>&lt;desc&gt;</code>  标签来设置标题和描述，方便标记与SEO</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">viewBox</span>=<span class="string">"0 0 68 65"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>back<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">desc</span>&gt;</span>Created with Sketch.<span class="tag">&lt;/<span class="name">desc</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">path</span> <span class="attr">g</span>=<span class="string">"..."</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">viewBox</span>=<span class="string">"0 0 68 65"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>back<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">desc</span>&gt;</span>Created with Sketch.<span class="tag">&lt;/<span class="name">desc</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">path</span> <span class="attr">g</span>=<span class="string">"..."</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="SVG基本形状"><a href="#SVG基本形状" class="headerlink" title="SVG基本形状"></a>SVG基本形状</h2><ul>
 <li>矩形 rect</li>
 <li>圆形 circle</li>
@@ -454,64 +508,64 @@
 <li>路径 path</li>
 </ul>
 <h3 id="矩形-rect"><a href="#矩形-rect" class="headerlink" title="矩形 rect"></a>矩形 rect</h3><p>SVG中 <code>rect</code> 用于绘制矩形、圆角矩形，含有6个基本属性用于控制矩形的形状及坐标</p>
-<figure class="highlight llvm"><table><tr><td class="code"><pre><div class="line"><span class="keyword">x</span>       矩形左上角<span class="keyword">x</span>位置, 默认值为 <span class="number">0</span> </div><div class="line">y       矩形左上角y位置, 默认值为 <span class="number">0</span></div><div class="line">width   矩形的宽度</div><div class="line">height  矩形的高度</div><div class="line">rx      圆角<span class="keyword">x</span>方向半径</div><div class="line">ry      圆角y方向半径</div></pre></td></tr></table></figure>
+<figure class="highlight llvm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">x</span>       矩形左上角<span class="keyword">x</span>位置, 默认值为 <span class="number">0</span> </span><br><span class="line">y       矩形左上角y位置, 默认值为 <span class="number">0</span></span><br><span class="line">width   矩形的宽度</span><br><span class="line">height  矩形的高度</span><br><span class="line">rx      圆角<span class="keyword">x</span>方向半径</span><br><span class="line">ry      圆角y方向半径</span><br></pre></td></tr></table></figure>
 <ul>
 <li>默认没有圆角，即 <code>rx=ry=0</code></li>
 <li>如果 <code>rx</code> 或 <code>ry</code> 有一个为 <code>0</code>，则没有圆角效果</li>
 <li><code>rx</code> 或 <code>ry</code> 有一个有值，则 <code>rx=ry</code></li>
 <li><code>rx</code> 最大为 <code>width</code> 的一半，<code>ry</code> 最大为 <code>height</code> 的一半</li>
 </ul>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><div class="line">&lt;<span class="built_in">rect</span> </div><div class="line">	x=<span class="string">"20"</span> </div><div class="line">	y=<span class="string">"20"</span></div><div class="line">	rx=<span class="string">"5"</span></div><div class="line">	ry=<span class="string">"5"</span></div><div class="line">	<span class="built_in">width</span>=<span class="string">"58"</span> </div><div class="line">	<span class="built_in">height</span>=<span class="string">"58"</span> </div><div class="line">	<span class="built_in">fill</span>=<span class="string">"#eee"</span></div><div class="line">	<span class="built_in">stroke</span>=<span class="string">"#C4C4C4"</span></div><div class="line">	<span class="built_in">stroke</span>-<span class="built_in">width</span>=<span class="string">"2"</span></div><div class="line">	style=<span class="string">"stroke-dasharray:8 5; stroke-dashoffset: 10"</span></div><div class="line">	&gt;</div><div class="line">&lt;/<span class="built_in">rect</span>&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line">&lt;<span class="built_in">rect</span> </span><br><span class="line">	x=<span class="string">"20"</span> </span><br><span class="line">	y=<span class="string">"20"</span></span><br><span class="line">	rx=<span class="string">"5"</span></span><br><span class="line">	ry=<span class="string">"5"</span></span><br><span class="line">	<span class="built_in">width</span>=<span class="string">"58"</span> </span><br><span class="line">	<span class="built_in">height</span>=<span class="string">"58"</span> </span><br><span class="line">	<span class="built_in">fill</span>=<span class="string">"#eee"</span></span><br><span class="line">	<span class="built_in">stroke</span>=<span class="string">"#C4C4C4"</span></span><br><span class="line">	<span class="built_in">stroke</span>-<span class="built_in">width</span>=<span class="string">"2"</span></span><br><span class="line">	style=<span class="string">"stroke-dasharray:8 5; stroke-dashoffset: 10"</span></span><br><span class="line">	&gt;</span><br><span class="line">&lt;/<span class="built_in">rect</span>&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="圆形-circle"><a href="#圆形-circle" class="headerlink" title="圆形 circle"></a>圆形 circle</h3><p>svg的circle元素为用绘制圆形，含有3个基本属性用于控制其坐标及半径</p>
 <ul>
 <li><code>cx、cy</code>圆心的坐标，默认为(0,0)</li>
 <li><code>r</code> 圆的半径</li>
 </ul>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><div class="line">&lt;<span class="built_in">circle</span> </div><div class="line">	cx=<span class="string">"130"</span></div><div class="line">	cy=<span class="string">"50"</span></div><div class="line">	r=<span class="string">"30"</span></div><div class="line">	<span class="built_in">fill</span>=<span class="string">"#eee"</span></div><div class="line">	&gt;</div><div class="line">&lt;/<span class="built_in">circle</span>&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line">&lt;<span class="built_in">circle</span> </span><br><span class="line">	cx=<span class="string">"130"</span></span><br><span class="line">	cy=<span class="string">"50"</span></span><br><span class="line">	r=<span class="string">"30"</span></span><br><span class="line">	<span class="built_in">fill</span>=<span class="string">"#eee"</span></span><br><span class="line">	&gt;</span><br><span class="line">&lt;/<span class="built_in">circle</span>&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="椭圆-ellipse"><a href="#椭圆-ellipse" class="headerlink" title="椭圆 ellipse"></a>椭圆 ellipse</h3><p>SVG中 <code>ellipse</code> 元素是 <code>circle</code> 的扩展，含有4个基本属性用于控制椭圆的半径及圆心坐标</p>
 <ul>
 <li><code>cx</code>、<code>cy</code> 圆心坐标，默认(0, 0)</li>
 <li><code>rx</code>、<code>ry</code>分别为椭圆的 <code>x</code> 轴半径及 <code>y</code> 轴半径</li>
 </ul>
-<figure class="highlight processing"><table><tr><td class="code"><pre><div class="line">&lt;<span class="built_in">ellipse</span></div><div class="line">		 rx=<span class="string">"40"</span></div><div class="line">		 ry=<span class="string">"30"</span></div><div class="line">		 cx=<span class="string">"220"</span></div><div class="line">		 cy=<span class="string">"50"</span></div><div class="line">		 <span class="built_in">fill</span>=<span class="string">"#eee"</span></div><div class="line">		 &gt;</div><div class="line">&lt;/<span class="built_in">ellipse</span>&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight processing"><table><tr><td class="code"><pre><span class="line">&lt;<span class="built_in">ellipse</span></span><br><span class="line">		 rx=<span class="string">"40"</span></span><br><span class="line">		 ry=<span class="string">"30"</span></span><br><span class="line">		 cx=<span class="string">"220"</span></span><br><span class="line">		 cy=<span class="string">"50"</span></span><br><span class="line">		 <span class="built_in">fill</span>=<span class="string">"#eee"</span></span><br><span class="line">		 &gt;</span><br><span class="line">&lt;/<span class="built_in">ellipse</span>&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="直线"><a href="#直线" class="headerlink" title="直线"></a>直线</h3><p>SVG中 <code>line</code> 元素用于绘制直线，两点为线，以起点与终点定义一条直线</p>
 <ul>
 <li><code>x1、y1</code> 起点坐标</li>
 <li><code>x2、y2</code> 终点坐标</li>
 </ul>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><div class="line">&lt;<span class="built_in">line</span></div><div class="line">	x1=<span class="string">"280"</span></div><div class="line">	y1=<span class="string">"50"</span></div><div class="line">	x2=<span class="string">"380"</span></div><div class="line">	y2=<span class="string">"50"</span></div><div class="line">	<span class="built_in">stroke</span>=<span class="string">"#ddd"</span></div><div class="line">	<span class="built_in">stroke</span>-<span class="built_in">width</span>=<span class="string">"2"</span></div><div class="line">	&gt;</div><div class="line">&lt;/<span class="built_in">line</span>&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line">&lt;<span class="built_in">line</span></span><br><span class="line">	x1=<span class="string">"280"</span></span><br><span class="line">	y1=<span class="string">"50"</span></span><br><span class="line">	x2=<span class="string">"380"</span></span><br><span class="line">	y2=<span class="string">"50"</span></span><br><span class="line">	<span class="built_in">stroke</span>=<span class="string">"#ddd"</span></span><br><span class="line">	<span class="built_in">stroke</span>-<span class="built_in">width</span>=<span class="string">"2"</span></span><br><span class="line">	&gt;</span><br><span class="line">&lt;/<span class="built_in">line</span>&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="折线-polyline"><a href="#折线-polyline" class="headerlink" title="折线 polyline"></a>折线 polyline</h3><p>SVG的 <code>polyline</code> 元素用于绘制一条折线，连接多个点组成一条折线，points属性用于定义多个点的坐标位置</p>
 <p>points中是一系列坐标的集合，坐标与坐标之间使用逗号隔开</p>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><div class="line">&lt;polyline</div><div class="line">	points=<span class="string">"20 100, 60 140, 100 100, 140 140"</span></div><div class="line">	<span class="built_in">stroke</span>=<span class="string">"#888"</span></div><div class="line">	<span class="built_in">stroke</span>-<span class="built_in">width</span>=<span class="string">"2"</span></div><div class="line">	<span class="built_in">fill</span>=<span class="string">"transparent"</span></div><div class="line">	&gt;</div><div class="line">&lt;/polyline&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line">&lt;polyline</span><br><span class="line">	points=<span class="string">"20 100, 60 140, 100 100, 140 140"</span></span><br><span class="line">	<span class="built_in">stroke</span>=<span class="string">"#888"</span></span><br><span class="line">	<span class="built_in">stroke</span>-<span class="built_in">width</span>=<span class="string">"2"</span></span><br><span class="line">	<span class="built_in">fill</span>=<span class="string">"transparent"</span></span><br><span class="line">	&gt;</span><br><span class="line">&lt;/polyline&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="多边形-polygon"><a href="#多边形-polygon" class="headerlink" title="多边形 polygon"></a>多边形 polygon</h2><p>SVG的 <code>polygon</code> 元素用于绘制多边形如三角形、五边形、星形等，<code>polygon</code> 与 <code>polyline</code> 很像，都是由一系列坐标连接而成，不同的是 <code>polygon</code> 最后一个点会自动连接到原点，形成一个闭环</p>
-<figure class="highlight tap"><table><tr><td class="code"><pre><div class="line">&lt;polygon </div><div class="line">	points="50 160,<span class="number"> 55 </span>180,<span class="number"> 70 </span>180,<span class="number"> 60 </span>190,<span class="number"> 65 </span>205,<span class="number"> 50 </span>195,<span class="number"> 35 </span>205,<span class="number"> 40 </span>190,<span class="number"> 30 </span>180,<span class="number"> 45 </span>180"</div><div class="line">	fill="<span class="comment">#eee"/&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight tap"><table><tr><td class="code"><pre><span class="line">&lt;polygon </span><br><span class="line">	points="50 160,<span class="number"> 55 </span>180,<span class="number"> 70 </span>180,<span class="number"> 60 </span>190,<span class="number"> 65 </span>205,<span class="number"> 50 </span>195,<span class="number"> 35 </span>205,<span class="number"> 40 </span>190,<span class="number"> 30 </span>180,<span class="number"> 45 </span>180"</span><br><span class="line">	fill="<span class="comment">#eee"/&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="文本-text"><a href="#文本-text" class="headerlink" title="文本 text"></a>文本 text</h2><p>SVG的 <code>text</code> 元素用于定义文本</p>
 <p>路径上的文字</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">version</span>=<span class="string">"1.1"</span></span></div><div class="line"><span class="tag"><span class="attr">xmlns:xlink</span>=<span class="string">"http://www.w3.org/1999/xlink"</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">defs</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">id</span>=<span class="string">"path1"</span> <span class="attr">d</span>=<span class="string">"M75,20 a1,1 0 0,0 100,0"</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">defs</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">text</span> <span class="attr">x</span>=<span class="string">"10"</span> <span class="attr">y</span>=<span class="string">"100"</span> <span class="attr">style</span>=<span class="string">"fill:red;"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">textPath</span> <span class="attr">xlink:href</span>=<span class="string">"#path1"</span>&gt;</span>I love SVG I love SVG<span class="tag">&lt;/<span class="name">textPath</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">text</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">version</span>=<span class="string">"1.1"</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns:xlink</span>=<span class="string">"http://www.w3.org/1999/xlink"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">defs</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">id</span>=<span class="string">"path1"</span> <span class="attr">d</span>=<span class="string">"M75,20 a1,1 0 0,0 100,0"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">defs</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">text</span> <span class="attr">x</span>=<span class="string">"10"</span> <span class="attr">y</span>=<span class="string">"100"</span> <span class="attr">style</span>=<span class="string">"fill:red;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">textPath</span> <span class="attr">xlink:href</span>=<span class="string">"#path1"</span>&gt;</span>I love SVG I love SVG<span class="tag">&lt;/<span class="name">textPath</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>作为链接文本</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">version</span>=<span class="string">"1.1"</span></span></div><div class="line"><span class="tag"><span class="attr">xmlns:xlink</span>=<span class="string">"http://www.w3.org/1999/xlink"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">xlink:href</span>=<span class="string">"http://www.w3schools.com/svg/"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">text</span> <span class="attr">x</span>=<span class="string">"0"</span> <span class="attr">y</span>=<span class="string">"15"</span> <span class="attr">fill</span>=<span class="string">"red"</span>&gt;</span>I love SVG<span class="tag">&lt;/<span class="name">text</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">version</span>=<span class="string">"1.1"</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns:xlink</span>=<span class="string">"http://www.w3.org/1999/xlink"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">xlink:href</span>=<span class="string">"http://www.w3schools.com/svg/"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">text</span> <span class="attr">x</span>=<span class="string">"0"</span> <span class="attr">y</span>=<span class="string">"15"</span> <span class="attr">fill</span>=<span class="string">"red"</span>&gt;</span>I love SVG<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="路径-path"><a href="#路径-path" class="headerlink" title="路径 path"></a>路径 path</h3><p>SVG 中 path 功能最强大，不仅可以创建基本形状，还能创建更多复杂的图形，path可以就是所有上面基本形状的父类。<br>path 通过 d 属性来定义路径，d 是一系列命令的集合。</p>
 <p>相关指令及含义</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="title">M</span><span class="params">(m)</span></span> x y: 移动到起点位置</div><div class="line"><span class="function"><span class="title">L</span><span class="params">(m)</span></span> x y: 绘制直线至当前点</div><div class="line"><span class="function"><span class="title">H</span><span class="params">(h)</span></span> x : 水平绘制一条直线到x</div><div class="line"><span class="function"><span class="title">V</span><span class="params">(v)</span></span> y : 垂直绘制一条直线到y</div><div class="line"><span class="function"><span class="title">A</span><span class="params">(a)</span></span> rx ry x-axis-rotation large-arc sweep x y: 绘制一段圆弧</div><div class="line"><span class="function"><span class="title">Q</span><span class="params">(q)</span></span> cx cy x y : 绘制二次贝塞尔曲线</div><div class="line"><span class="function"><span class="title">T</span><span class="params">(t)</span></span> x y : 仅跟Q命令后面使用，绘制圆滑的二次贝塞尔曲线</div><div class="line"><span class="function"><span class="title">C</span><span class="params">(c)</span></span> cx1 cy1 cx2 cy2: 绘制三次贝塞尔曲线</div><div class="line"><span class="function"><span class="title">S</span><span class="params">(s)</span></span> cx2 cy2 x y: 仅跟C命令后面使用，绘制圆滑的三次贝塞尔曲线</div><div class="line">Z: 闭合路径</div></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">M</span><span class="params">(m)</span></span> x y: 移动到起点位置</span><br><span class="line"><span class="function"><span class="title">L</span><span class="params">(m)</span></span> x y: 绘制直线至当前点</span><br><span class="line"><span class="function"><span class="title">H</span><span class="params">(h)</span></span> x : 水平绘制一条直线到x</span><br><span class="line"><span class="function"><span class="title">V</span><span class="params">(v)</span></span> y : 垂直绘制一条直线到y</span><br><span class="line"><span class="function"><span class="title">A</span><span class="params">(a)</span></span> rx ry x-axis-rotation large-arc sweep x y: 绘制一段圆弧</span><br><span class="line"><span class="function"><span class="title">Q</span><span class="params">(q)</span></span> cx cy x y : 绘制二次贝塞尔曲线</span><br><span class="line"><span class="function"><span class="title">T</span><span class="params">(t)</span></span> x y : 仅跟Q命令后面使用，绘制圆滑的二次贝塞尔曲线</span><br><span class="line"><span class="function"><span class="title">C</span><span class="params">(c)</span></span> cx1 cy1 cx2 cy2: 绘制三次贝塞尔曲线</span><br><span class="line"><span class="function"><span class="title">S</span><span class="params">(s)</span></span> cx2 cy2 x y: 仅跟C命令后面使用，绘制圆滑的三次贝塞尔曲线</span><br><span class="line">Z: 闭合路径</span><br></pre></td></tr></table></figure>
 <p>path 绘制心电图</p>
-<figure class="highlight processing"><table><tr><td class="code"><pre><div class="line">&lt;path </div><div class="line">	class=<span class="string">"beat-loader"</span> </div><div class="line">	d=<span class="string">"M100,240 l50,0 l10,-40 l10,80 l20,-120 l10,100 l10,-20 l30 0"</span></div><div class="line">/&gt;</div><div class="line"></div><div class="line">.beat-loader&#123;</div><div class="line">	<span class="built_in">fill</span>: none;</div><div class="line">	<span class="built_in">stroke</span>-<span class="built_in">width</span>: <span class="number">1</span>;</div><div class="line">	<span class="built_in">stroke</span>: #<span class="number">000</span>;</div><div class="line">	<span class="built_in">stroke</span>-dasharray: <span class="number">0</span> <span class="number">10000</span>;</div><div class="line">	animation: <span class="title">draw</span> <span class="number">2.5</span>s linear infinite both;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@keyframes <span class="title">draw</span> &#123; to &#123; <span class="built_in">stroke</span>-dasharray: <span class="number">1000</span> <span class="number">10000</span>;&#125; &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight processing"><table><tr><td class="code"><pre><span class="line">&lt;path </span><br><span class="line">	class=<span class="string">"beat-loader"</span> </span><br><span class="line">	d=<span class="string">"M100,240 l50,0 l10,-40 l10,80 l20,-120 l10,100 l10,-20 l30 0"</span></span><br><span class="line">/&gt;</span><br><span class="line"></span><br><span class="line">.beat-loader&#123;</span><br><span class="line">	<span class="built_in">fill</span>: none;</span><br><span class="line">	<span class="built_in">stroke</span>-<span class="built_in">width</span>: <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">stroke</span>: #<span class="number">000</span>;</span><br><span class="line">	<span class="built_in">stroke</span>-dasharray: <span class="number">0</span> <span class="number">10000</span>;</span><br><span class="line">	animation: <span class="title">draw</span> <span class="number">2.5</span>s linear infinite both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@keyframes <span class="title">draw</span> &#123; to &#123; <span class="built_in">stroke</span>-dasharray: <span class="number">1000</span> <span class="number">10000</span>;&#125; &#125;</span><br></pre></td></tr></table></figure>
 <h2 id="SVG样式控制"><a href="#SVG样式控制" class="headerlink" title="SVG样式控制"></a>SVG样式控制</h2><p>除了普通HTML标签样式可以使用之外，SVG也有自身独特的样式属性：</p>
 <p><code>stroke</code> 用于描述图形边框样式</p>
-<figure class="highlight groovy"><table><tr><td class="code"><pre><div class="line"><span class="string">stroke:</span> 描边的颜色</div><div class="line">stroke-<span class="string">opacity:</span> 描边颜色的透明度</div><div class="line">stroke-<span class="string">width:</span> 描边的宽度</div><div class="line">stroke-<span class="string">linecap:</span> 描边的端点样式 butt 齐边<span class="regexp">/round 圆头 /</span>square 尖角</div><div class="line">stroke-<span class="string">dasharray:</span> 虚线描边样式，数值为重复线段与间隔，如 <span class="number">10</span> <span class="number">20</span> 线段长<span class="number">10</span> 间隔为<span class="number">20</span></div><div class="line">storke-<span class="string">dashoffset:</span> 虚线偏移</div><div class="line">stroke-<span class="string">linejoin:</span> 线段之间的连接样式 miter 尖角 <span class="regexp">/ round 圆弧 /</span> bevel 齐边</div></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="string">stroke:</span> 描边的颜色</span><br><span class="line">stroke-<span class="string">opacity:</span> 描边颜色的透明度</span><br><span class="line">stroke-<span class="string">width:</span> 描边的宽度</span><br><span class="line">stroke-<span class="string">linecap:</span> 描边的端点样式 butt 齐边<span class="regexp">/round 圆头 /</span>square 尖角</span><br><span class="line">stroke-<span class="string">dasharray:</span> 虚线描边样式，数值为重复线段与间隔，如 <span class="number">10</span> <span class="number">20</span> 线段长<span class="number">10</span> 间隔为<span class="number">20</span></span><br><span class="line">storke-<span class="string">dashoffset:</span> 虚线偏移</span><br><span class="line">stroke-<span class="string">linejoin:</span> 线段之间的连接样式 miter 尖角 <span class="regexp">/ round 圆弧 /</span> bevel 齐边</span><br></pre></td></tr></table></figure>
 <p><code>fill</code> 用于描述图形内部填充样式</p>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><div class="line"><span class="built_in">fill</span>: 填充颜色</div><div class="line"><span class="built_in">fill</span>-opacity: 填充颜色的透明度</div><div class="line"><span class="built_in">fill</span>-rule: 属性的取值可以是nonzero | evenodd | inherit</div></pre></td></tr></table></figure>
-<h2 id="CODE-PEN-示例"><a href="#CODE-PEN-示例" class="headerlink" title="CODE PEN 示例"></a>CODE PEN 示例</h2><iframe height="300" scrolling="no" title="SVG-shapes" src="//codepen.io/togglelt/embed/pwENbm/?height=300&theme-id=13299&default-tab=result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/togglelt/pen/pwENbm/" target="_blank" rel="external">SVG-shapes</a> by LT (<a href="https://codepen.io/togglelt" target="_blank" rel="external">@togglelt</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.<br></iframe>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="built_in">fill</span>: 填充颜色</span><br><span class="line"><span class="built_in">fill</span>-opacity: 填充颜色的透明度</span><br><span class="line"><span class="built_in">fill</span>-rule: 属性的取值可以是nonzero | evenodd | inherit</span><br></pre></td></tr></table></figure>
+<h2 id="CODE-PEN-示例"><a href="#CODE-PEN-示例" class="headerlink" title="CODE PEN 示例"></a>CODE PEN 示例</h2><iframe height="300" scrolling="no" title="SVG-shapes" src="//codepen.io/togglelt/embed/pwENbm/?height=300&theme-id=13299&default-tab=result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/togglelt/pen/pwENbm/" target="_blank" rel="noopener">SVG-shapes</a> by LT (<a href="https://codepen.io/togglelt" target="_blank" rel="noopener">@togglelt</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.<br></iframe>
 
 
-<h2 id="SVG的引用方式"><a href="#SVG的引用方式" class="headerlink" title="SVG的引用方式"></a>SVG的引用方式</h2><h3 id="IMG标签引用"><a href="#IMG标签引用" class="headerlink" title="IMG标签引用"></a>IMG标签引用</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><div class="line">&lt;img <span class="attribute">src</span>=<span class="string">"left-arrow.svg"</span> <span class="attribute">alt</span>=<span class="string">"left-arrow"</span> <span class="attribute">height</span>=<span class="string">"32"</span> <span class="attribute">width</span>=<span class="string">"32"</span>&gt;</div></pre></td></tr></table></figure>
-<h3 id="设置为样式背景"><a href="#设置为样式背景" class="headerlink" title="设置为样式背景"></a>设置为样式背景</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.logo</span> &#123;</div><div class="line">  <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">"data:image/svg+xml;base64,[data]"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="object标签引用"><a href="#object标签引用" class="headerlink" title="object标签引用"></a>object标签引用</h3><figure class="highlight haskell"><table><tr><td class="code"><pre><div class="line">&lt;object <span class="class"><span class="keyword">type</span>="image/svg+xml" <span class="keyword">data</span>="<span class="keyword">data</span>:image/svg+xml;base64,[<span class="keyword">data</span>]"&gt;</span></div><div class="line">  fallback</div><div class="line">&lt;/object&gt;</div></pre></td></tr></table></figure>
-<h3 id="直接内嵌至HTML中"><a href="#直接内嵌至HTML中" class="headerlink" title="直接内嵌至HTML中"></a>直接内嵌至HTML中</h3><figure class="highlight subunit"><table><tr><td class="code"><pre><div class="line">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 65"&gt;</div><div class="line">  &lt;path fill="#1A374D" d="M42 27v<span class="string">-20</span>c0<span class="string">-3</span>.7<span class="string">-3</span>.3<span class="string">-7</span><span class="string">-7</span><span class="string">-7</span>s<span class="string">-7</span> 3.3<span class="string">-7</span> 7v21l12 15<span class="string">-7</span> 15.7c14.5 13.9 35 2.8 35<span class="string">-13</span>.7 0<span class="string">-13</span>.3<span class="string">-13</span>.4<span class="string">-21</span>.8<span class="string">-26</span><span class="string">-18</span>zm6 25c<span class="string">-3</span>.9 0<span class="string">-7</span><span class="string">-3</span>.1<span class="string">-7</span><span class="string">-7</span>s3.1<span class="string">-7</span> 7<span class="string">-7</span> 7 3.1 7 7<span class="string">-3</span>.1 7<span class="string">-7</span> 7z"/&gt;</div><div class="line">  &lt;path d="M14 27v<span class="string">-20</span>c0<span class="string">-3</span>.7<span class="string">-3</span>.3<span class="string">-7</span><span class="string">-7</span><span class="string">-7</span>s<span class="string">-7</span> 3.3<span class="string">-7</span> 7v41c0 8.2 9.2 17 20 17s20<span class="string">-9</span>.2 20<span class="string">-20</span>c0<span class="string">-13</span>.3<span class="string">-13</span>.4<span class="string">-21</span>.8<span class="string">-26</span><span class="string">-18</span>zm6 25c<span class="string">-3</span>.9 0<span class="string">-7</span><span class="string">-3</span>.1<span class="string">-7</span><span class="string">-7</span>s3.1<span class="string">-7</span> 7<span class="string">-7</span> 7 3.1 7 7<span class="string">-3</span>.1 7<span class="string">-7</span> 7z"/&gt;</div><div class="line">&lt;/svg&gt;</div></pre></td></tr></table></figure>
-<h3 id="Symbol引用"><a href="#Symbol引用" class="headerlink" title="Symbol引用"></a>Symbol引用</h3><p>参考 <a href="http://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.13.imnhmJ&amp;helptype=code" target="_blank" rel="external">Iconfont</a> ，先将定义好的SVG图形，使用JS的方式引用到页面，再使用 <code>use</code> 引用图形的名称ID使用图标。</p>
-<h3 id="引用JS"><a href="#引用JS" class="headerlink" title="引用JS"></a>引用JS</h3><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://at.alicdn.com/t/font_1473319176_4914331.js"</span>&gt;</span><span class="undefined"></span></div></pre></td></tr></table></figure>
-<h3 id="通用样式"><a href="#通用样式" class="headerlink" title="通用样式"></a>通用样式</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-class">.icon</span> &#123;</div><div class="line">   <span class="attribute">width</span>: <span class="number">1em</span>; <span class="attribute">height</span>: <span class="number">1em</span>;</div><div class="line">   <span class="attribute">vertical-align</span>: -<span class="number">0.15em</span>;</div><div class="line">   <span class="attribute">fill</span>: currentColor;</div><div class="line">   <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="通过图标的ID引用图标"><a href="#通过图标的ID引用图标" class="headerlink" title="通过图标的ID引用图标"></a>通过图标的ID引用图标</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">&lt;svg <span class="class"><span class="keyword">class</span></span>=<span class="string">"icon"</span> aria-hidden=<span class="string">"true"</span>&gt;</div><div class="line">    &lt;use xlink:href=<span class="string">"#icon-xxx"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">use</span>&gt;</span></span></div><div class="line">&lt;<span class="regexp">/svg&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="SVG-兼容性"><a href="#SVG-兼容性" class="headerlink" title="SVG 兼容性"></a>SVG 兼容性</h2><p><a href="http://caniuse.com/#search=svg" target="_blank" rel="external">SVG 兼容一览</a></p>
+<h2 id="SVG的引用方式"><a href="#SVG的引用方式" class="headerlink" title="SVG的引用方式"></a>SVG的引用方式</h2><h3 id="IMG标签引用"><a href="#IMG标签引用" class="headerlink" title="IMG标签引用"></a>IMG标签引用</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">&lt;img <span class="attribute">src</span>=<span class="string">"left-arrow.svg"</span> <span class="attribute">alt</span>=<span class="string">"left-arrow"</span> <span class="attribute">height</span>=<span class="string">"32"</span> <span class="attribute">width</span>=<span class="string">"32"</span>&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="设置为样式背景"><a href="#设置为样式背景" class="headerlink" title="设置为样式背景"></a>设置为样式背景</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.logo</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">"data:image/svg+xml;base64,[data]"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="object标签引用"><a href="#object标签引用" class="headerlink" title="object标签引用"></a>object标签引用</h3><figure class="highlight haskell"><table><tr><td class="code"><pre><span class="line">&lt;object <span class="class"><span class="keyword">type</span>="image/svg+xml" <span class="keyword">data</span>="<span class="keyword">data</span>:image/svg+xml;base64,[<span class="keyword">data</span>]"&gt;</span></span><br><span class="line">  fallback</span><br><span class="line">&lt;/object&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="直接内嵌至HTML中"><a href="#直接内嵌至HTML中" class="headerlink" title="直接内嵌至HTML中"></a>直接内嵌至HTML中</h3><figure class="highlight subunit"><table><tr><td class="code"><pre><span class="line">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 65"&gt;</span><br><span class="line">  &lt;path fill="#1A374D" d="M42 27v<span class="string">-20</span>c0<span class="string">-3</span>.7<span class="string">-3</span>.3<span class="string">-7</span><span class="string">-7</span><span class="string">-7</span>s<span class="string">-7</span> 3.3<span class="string">-7</span> 7v21l12 15<span class="string">-7</span> 15.7c14.5 13.9 35 2.8 35<span class="string">-13</span>.7 0<span class="string">-13</span>.3<span class="string">-13</span>.4<span class="string">-21</span>.8<span class="string">-26</span><span class="string">-18</span>zm6 25c<span class="string">-3</span>.9 0<span class="string">-7</span><span class="string">-3</span>.1<span class="string">-7</span><span class="string">-7</span>s3.1<span class="string">-7</span> 7<span class="string">-7</span> 7 3.1 7 7<span class="string">-3</span>.1 7<span class="string">-7</span> 7z"/&gt;</span><br><span class="line">  &lt;path d="M14 27v<span class="string">-20</span>c0<span class="string">-3</span>.7<span class="string">-3</span>.3<span class="string">-7</span><span class="string">-7</span><span class="string">-7</span>s<span class="string">-7</span> 3.3<span class="string">-7</span> 7v41c0 8.2 9.2 17 20 17s20<span class="string">-9</span>.2 20<span class="string">-20</span>c0<span class="string">-13</span>.3<span class="string">-13</span>.4<span class="string">-21</span>.8<span class="string">-26</span><span class="string">-18</span>zm6 25c<span class="string">-3</span>.9 0<span class="string">-7</span><span class="string">-3</span>.1<span class="string">-7</span><span class="string">-7</span>s3.1<span class="string">-7</span> 7<span class="string">-7</span> 7 3.1 7 7<span class="string">-3</span>.1 7<span class="string">-7</span> 7z"/&gt;</span><br><span class="line">&lt;/svg&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Symbol引用"><a href="#Symbol引用" class="headerlink" title="Symbol引用"></a>Symbol引用</h3><p>参考 <a href="http://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.13.imnhmJ&amp;helptype=code" target="_blank" rel="noopener">Iconfont</a> ，先将定义好的SVG图形，使用JS的方式引用到页面，再使用 <code>use</code> 引用图形的名称ID使用图标。</p>
+<h3 id="引用JS"><a href="#引用JS" class="headerlink" title="引用JS"></a>引用JS</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://at.alicdn.com/t/font_1473319176_4914331.js"</span>&gt;</span><span class="undefined"></span></span><br></pre></td></tr></table></figure>
+<h3 id="通用样式"><a href="#通用样式" class="headerlink" title="通用样式"></a>通用样式</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.icon</span> &#123;</span><br><span class="line">   <span class="attribute">width</span>: <span class="number">1em</span>; <span class="attribute">height</span>: <span class="number">1em</span>;</span><br><span class="line">   <span class="attribute">vertical-align</span>: -<span class="number">0.15em</span>;</span><br><span class="line">   <span class="attribute">fill</span>: currentColor;</span><br><span class="line">   <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="通过图标的ID引用图标"><a href="#通过图标的ID引用图标" class="headerlink" title="通过图标的ID引用图标"></a>通过图标的ID引用图标</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;svg <span class="class"><span class="keyword">class</span></span>=<span class="string">"icon"</span> aria-hidden=<span class="string">"true"</span>&gt;</span><br><span class="line">    &lt;use xlink:href=<span class="string">"#icon-xxx"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">use</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/svg&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="SVG-兼容性"><a href="#SVG-兼容性" class="headerlink" title="SVG 兼容性"></a>SVG 兼容性</h2><p><a href="http://caniuse.com/#search=svg" target="_blank" rel="noopener">SVG 兼容一览</a></p>
 <iframe src="http://caniuse.com/#search=svg" frameborder="0" width="100%" height="400"></iframe>
 
 <ul>
@@ -523,20 +577,17 @@
       
     </div>
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
       
@@ -545,6 +596,10 @@
             <a href="/tags/SVG/" rel="tag"># SVG</a>
           
         </div>
+      
+
+      
+      
       
 
       
@@ -572,30 +627,15 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
 
     <div class="post-spread">
-      
-        <div class="ds-share flat" data-thread-key="2017/06/29/svg-base/"
-     data-title="SVG起手式"
-     data-content=""
-     data-url="http://toggle.coding.io/2017/06/29/svg-base/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
       
     </div>
   </div>
@@ -604,15 +644,11 @@
           </div>
           
 
+  
+    <div class="comments" id="comments">
+    </div>
+  
 
-          
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2017/06/29/svg-base/"
-           data-title="SVG起手式" data-url="http://toggle.coding.io/2017/06/29/svg-base/">
-      </div>
-    
-  </div>
 
 
         </div>
@@ -628,106 +664,205 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             站点概览
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar100.jpg"
-               alt="Aitter" />
-          <p class="site-author-name" itemprop="name">Aitter</p>
-          <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">71</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar100.jpg"
+                alt="Aitter" />
+            
+              <p class="site-author-name" itemprop="name">Aitter</p>
+              <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
           </div>
 
           
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">14</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/git-lt" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank" title="Zhihu"><i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                  
+                </span>
+              
             </div>
           
 
           
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hexo.io/" title="Hexo" target="_blank">Hexo</a>
+                  </li>
+                
+              </ul>
             </div>
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
           
             
-              <span class="links-of-author-item">
-                <a href="https://github.com/git-lt" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank" title="Zhihu">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  Zhihu
-                </a>
-              </span>
-            
           
+          
+
         </div>
-
-        
-        
-
-        
-        
-          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-            <div class="links-of-blogroll-title">
-              <i class="fa  fa-fw fa-globe"></i>
-              友情链接
-            </div>
-            <ul class="links-of-blogroll-list">
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://hexo.io/" title="Hexo" target="_blank">Hexo</a>
-                </li>
-              
-            </ul>
-          </div>
-        
-
-        
-
-
       </section>
 
       
@@ -748,6 +883,8 @@
       <!--/noindex-->
       
 
+      
+
     </div>
   </aside>
 
@@ -758,38 +895,55 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2015 - 
-  <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Aitter</span>
+
+  
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.1.0</div>
+
+
 
 
         
+
+
+
+
+
+
+
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
   </div>
 
   
@@ -808,35 +962,12 @@
 
 
 
-  
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
 
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
@@ -844,68 +975,133 @@
   
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
 
 
 
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
 
   
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
 
 
 
   
 
-  
-    
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
   
 
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
   <script type="text/javascript">
-    var duoshuoQuery = {short_name:"togglelt"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz',
+        appKey: 'IQ7Je02a33Mm5AVkAikKwxL2',
+        placeholder: 'ヾﾉ≧∀≦)o来呀，快活呀!',
+        avatar:'monsterid',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
   </script>
 
+
+
   
-    
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
-  
-
-
-
 
 
 
 
 
   
-  
 
   
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz", "IQ7Je02a33Mm5AVkAikKwxL2");</script>
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz", "IQ7Je02a33Mm5AVkAikKwxL2#<app_key>");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);
@@ -961,35 +1157,24 @@
             var counter = results[0];
             counter.fetchWhenSave(true);
             counter.increment("time");
+            
             counter.save(null, {
               success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
               },
               error: function(counter, error) {
                 console.log('Failed to save Visitor num, with error message: ' + error.message);
               }
             });
           } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
           }
         },
         error: function(error) {
@@ -1014,6 +1199,18 @@
 
   
 
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>

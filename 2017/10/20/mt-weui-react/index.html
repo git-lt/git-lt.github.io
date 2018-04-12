@@ -1,15 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
 
 
 
@@ -27,36 +37,10 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
@@ -65,33 +49,64 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="react," />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
 
 
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
 
 
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
+  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
 
 
 
-<meta name="description" content="目前社区没有较为优秀的 weui+react 框架，而我们使用的是 React0.13 的老版本，新版 React 框架并不兼容，weui 虽然提供了标准的视觉规范组件，但并没有封装成运用于项目的UI交互组件。 所以我们决定自己维护开发一套基于 weui+React 的组件库，以便在项目开发中使用搭积木的方式快速高质量的实现业务需求。">
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="目前社区没有较为优秀的 weui+react 框架，而我们使用的是 React0.13 的老版本，新版 React 框架并不兼容，weui 虽然提供了标准的视觉规范组件，但并没有封装成运用于项目的UI交互组件。 所以我们决定自己维护开发一套基于 weui+React 的组件库，以便在项目开发中使用搭积木的方式快速高质量的实现业务需求。">
 <meta name="keywords" content="react">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于Weui的React组件库mt-weui-react发布了">
 <meta property="og:url" content="http://toggle.coding.io/2017/10/20/mt-weui-react/index.html">
 <meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="目前社区没有较为优秀的 weui+react 框架，而我们使用的是 React0.13 的老版本，新版 React 框架并不兼容，weui 虽然提供了标准的视觉规范组件，但并没有封装成运用于项目的UI交互组件。 所以我们决定自己维护开发一套基于 weui+React 的组件库，以便在项目开发中使用搭积木的方式快速高质量的实现业务需求。">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/weui-react/weui-preview.jpg">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-07-19%20%E4%B8%8B%E5%8D%886.06.36.png">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/weui-react/weui-doc-3.png">
@@ -107,27 +122,6 @@
 
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
 
 
 
@@ -135,14 +129,17 @@
 
 
 
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title> 基于Weui的React组件库mt-weui-react发布了 | Aitter's Blog </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>基于Weui的React组件库mt-weui-react发布了 | Aitter's Blog</title>
   
+
+
+
 
 
 
@@ -150,7 +147,7 @@
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
+      hm.src = "https://hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
@@ -159,99 +156,134 @@
 
 
 
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
 
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
 
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Aitter's Blog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aitter's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">I can’t change the world, only change myself!</p>
+      
   </div>
-  <p class="site-subtitle">I can’t change the world, only change myself!</p>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+
+
 
 <nav class="site-nav">
-  
-
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+</li>
+
       
 
       
+      
     </ul>
+  
+
   
 
   
@@ -259,12 +291,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
 
@@ -277,32 +320,31 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2017/10/20/mt-weui-react/">
+  
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Aitter">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar100.jpg">
-  </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2017/10/20/mt-weui-react/">
 
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Aitter's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Aitter's Blog" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aitter">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar100.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aitter's Blog">
+    </span>
 
     
       <header class="post-header">
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                基于Weui的React组件库mt-weui-react发布了
+          <h1 class="post-title" itemprop="name headline">基于Weui的React组件库mt-weui-react发布了
               
             
           </h1>
@@ -311,15 +353,20 @@
         <div class="post-meta">
           <span class="post-time">
             
+                
+            
+
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-20T11:16:23+08:00">
-                2017-10-20
-              </time>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-20T11:16:23+08:00">2017-10-20</time>
             
 
+            
             
 
             
@@ -327,28 +374,24 @@
 
           
             <span class="post-category" >
+            
               <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/node/" itemprop="url" rel="index">
-                    <span itemprop="name">node</span>
-                  </a>
-                </span>
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/node/" itemprop="url" rel="index"><span itemprop="name">node</span></a></span>
 
                 
                 
                   ， 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/node/移动前端/" itemprop="url" rel="index">
-                    <span itemprop="name">移动前端</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/node/移动前端/" itemprop="url" rel="index"><span itemprop="name">移动前端</span></a></span>
 
                 
                 
@@ -360,13 +403,14 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2017/10/20/mt-weui-react/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/10/20/mt-weui-react/" itemprop="commentCount"></span>
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/10/20/mt-weui-react/" itemprop="commentCount"></span>
                 </a>
               </span>
             
-          
-
           
 
           
@@ -376,9 +420,13 @@
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
           
 
           
@@ -389,7 +437,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -401,14 +451,14 @@
 <a id="more"></a>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><code>mt-weui-react v1.0</code> 版本包含基础类、交互反馈类、数据展示类、数据录入类、导航类等多，已有 <code>37</code> 个基础组件，未来还会添加更多基础组件和业务组件以增强数据交互和展示。</p>
 <ul>
-<li>组件开发参考了优秀的移动端组件库 <a href="https://vux.li/#/zh-CN/README" target="_blank" rel="external">Vux2.5版本</a> ，Vux在不断的应用实践中跌代完善，是值得借鉴学习的样本库，让我们的组件开发少走很多弯路，也更加具有易用性、稳定性和扩展性。</li>
-<li>提供了详细的 <a href="http://doc.liutao.pw/#/" target="_blank" rel="external">使用文档</a>，每个组件各个功能点都有详细的说明和示例代码，如果需要应用到项目，直接复制文档上的代码即可。</li>
-<li>支持按需引用，使用Bable插件 <a href="https://github.com/ant-design/babel-plugin-import" target="_blank" rel="external">babel-plugin-import</a> 简单配置，可以优化代码体积，按需加载组件，搞高前端性能。</li>
-<li>使用 <a href="https://weui.io/" target="_blank" rel="external">weui</a> 样式库，统一标准的视觉规范。</li>
+<li>组件开发参考了优秀的移动端组件库 <a href="https://vux.li/#/zh-CN/README" target="_blank" rel="noopener">Vux2.5版本</a> ，Vux在不断的应用实践中跌代完善，是值得借鉴学习的样本库，让我们的组件开发少走很多弯路，也更加具有易用性、稳定性和扩展性。</li>
+<li>提供了详细的 <a href="http://doc.liutao.pw/#/" target="_blank" rel="noopener">使用文档</a>，每个组件各个功能点都有详细的说明和示例代码，如果需要应用到项目，直接复制文档上的代码即可。</li>
+<li>支持按需引用，使用Bable插件 <a href="https://github.com/ant-design/babel-plugin-import" target="_blank" rel="noopener">babel-plugin-import</a> 简单配置，可以优化代码体积，按需加载组件，搞高前端性能。</li>
+<li>使用 <a href="https://weui.io/" target="_blank" rel="noopener">weui</a> 样式库，统一标准的视觉规范。</li>
 </ul>
 <p>组件库将为C端业务开发提供标准基础组件服务，将提升业务开发的速度和质量，同时可以优化项目代码，提升维护性、扩展性并提供统一的UI规范。</p>
 <h2 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h2><p><img src="http://7xi480.com1.z0.glb.clouddn.com/weui-react/weui-preview.jpg" alt=""></p>
-<p><a href="http://aitter.oschina.io/" target="_blank" rel="external">在线Demo</a></p>
+<p><a href="http://aitter.oschina.io/" target="_blank" rel="noopener">在线Demo</a></p>
 <p><img src="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-07-19%20%E4%B8%8B%E5%8D%886.06.36.png" width="200" alt=""></p>
 <p>在线Demo</p>
 <p><img src="http://7xi480.com1.z0.glb.clouddn.com/weui-react/weui-doc-3.png" width="375" alt=""></p>
@@ -423,18 +473,18 @@
 <p>该版本会扩展部分基础组件，但会以业务组件开发为主，为业务需求提供定制更多标准组件，以便以后相似业务的快速实现</p>
 <p><img src="http://7xi480.com1.z0.glb.clouddn.com/weui-react/weui-map-2.png" alt=""></p>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>组件库提供了完善的中文文档及代码示例，以便快速查阅应用。</p>
-<p><a href="http://doc.liutao.pw" target="_blank" rel="external">在线文档</a></p>
+<p><a href="http://doc.liutao.pw" target="_blank" rel="noopener">在线文档</a></p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>组件库已发布到 <code>NPM</code> 仓库，直接使用npm安装到项目</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><div class="line">npm <span class="keyword">install</span> mt-weui-react <span class="comment">--save</span></div></pre></td></tr></table></figure>
-<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"><span class="keyword">import</span> &#123; Button, Flex &#125; <span class="keyword">from</span> <span class="string">'mt-weui-react'</span></div><div class="line"><span class="keyword">const</span> FlexItem = Flex.FlexItem</div><div class="line"></div><div class="line"><span class="keyword">let</span> App = React.createClass(&#123;</div><div class="line">  render() &#123;</div><div class="line">      <span class="keyword">return</span> (</div><div class="line">        &lt;Flex&gt;</div><div class="line">          &lt;FlexItem&gt;<span class="xml"><span class="tag">&lt;<span class="name">Button</span>&gt;</span>hello wechat<span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">FlexItem</span>&gt;</span></span></div><div class="line">          &lt;FlexItem&gt;<span class="xml"><span class="tag">&lt;<span class="name">Button</span>&gt;</span>hello wechat<span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">FlexItem</span>&gt;</span></span></div><div class="line">        &lt;<span class="regexp">/Flex&gt;</span></div><div class="line"><span class="regexp">      );</span></div><div class="line"><span class="regexp">  &#125;</span></div><div class="line"><span class="regexp">&#125;)</span></div><div class="line"><span class="regexp"></span></div><div class="line"><span class="regexp">ReactDOM.render((</span></div><div class="line"><span class="regexp">    &lt;App/</span>&gt;</div><div class="line">), <span class="built_in">document</span>.getElementById(<span class="string">'container'</span>));</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">npm <span class="keyword">install</span> mt-weui-react <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"><span class="keyword">import</span> &#123; Button, Flex &#125; <span class="keyword">from</span> <span class="string">'mt-weui-react'</span></span><br><span class="line"><span class="keyword">const</span> FlexItem = Flex.FlexItem</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> App = React.createClass(&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        &lt;Flex&gt;</span><br><span class="line">          &lt;FlexItem&gt;<span class="xml"><span class="tag">&lt;<span class="name">Button</span>&gt;</span>hello wechat<span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">FlexItem</span>&gt;</span></span></span><br><span class="line">          &lt;FlexItem&gt;<span class="xml"><span class="tag">&lt;<span class="name">Button</span>&gt;</span>hello wechat<span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">FlexItem</span>&gt;</span></span></span><br><span class="line">        &lt;<span class="regexp">/Flex&gt;</span></span><br><span class="line"><span class="regexp">      );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;)</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">ReactDOM.render((</span></span><br><span class="line"><span class="regexp">    &lt;App/</span>&gt;</span><br><span class="line">), <span class="built_in">document</span>.getElementById(<span class="string">'container'</span>));</span><br></pre></td></tr></table></figure>
 <h2 id="按需引用"><a href="#按需引用" class="headerlink" title="按需引用"></a>按需引用</h2><p>在非SPA应用中使用，最好使用按需要引用的方式加载需要用到的组件，以节省加载资源，按需引用有两中方式引用</p>
-<h3 id="直接引用"><a href="#直接引用" class="headerlink" title="直接引用"></a>直接引用</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> Button <span class="keyword">from</span> <span class="string">'mt-weui-react/lib/components/button'</span></div></pre></td></tr></table></figure>
-<h3 id="使用Babel插件，编译成上面的方式"><a href="#使用Babel插件，编译成上面的方式" class="headerlink" title="使用Babel插件，编译成上面的方式"></a>使用Babel插件，编译成上面的方式</h3><p>安装 <a href="https://github.com/QingWei-Li/babel-plugin-component" target="_blank" rel="external">babel-plugin-component</a> babel插件</p>
-<figure class="highlight q"><table><tr><td class="code"><pre><div class="line">npm i babel-plugin-component --<span class="built_in">save</span>-<span class="built_in">dev</span></div></pre></td></tr></table></figure>
+<h3 id="直接引用"><a href="#直接引用" class="headerlink" title="直接引用"></a>直接引用</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Button <span class="keyword">from</span> <span class="string">'mt-weui-react/lib/components/button'</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用Babel插件，编译成上面的方式"><a href="#使用Babel插件，编译成上面的方式" class="headerlink" title="使用Babel插件，编译成上面的方式"></a>使用Babel插件，编译成上面的方式</h3><p>安装 <a href="https://github.com/QingWei-Li/babel-plugin-component" target="_blank" rel="noopener">babel-plugin-component</a> babel插件</p>
+<figure class="highlight q"><table><tr><td class="code"><pre><span class="line">npm i babel-plugin-component --<span class="built_in">save</span>-<span class="built_in">dev</span></span><br></pre></td></tr></table></figure>
 <p>在文件 <code>.babelrc</code> 文件中添加配置</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="string">"plugins"</span>: [</div><div class="line"> [<span class="string">"component"</span>, &#123;<span class="string">"libraryName"</span>: <span class="string">"mt-weui-react"</span>, <span class="string">"libDir"</span>:<span class="string">"lib/components"</span>, <span class="string">"style"</span>: <span class="literal">false</span> &#125;]</div><div class="line">]</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">"plugins"</span>: [</span><br><span class="line"> [<span class="string">"component"</span>, &#123;<span class="string">"libraryName"</span>: <span class="string">"mt-weui-react"</span>, <span class="string">"libDir"</span>:<span class="string">"lib/components"</span>, <span class="string">"style"</span>: <span class="literal">false</span> &#125;]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <p>然后在项目中正常引入相关组件，最后会被编译成按需引入的方式</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Button &#125; <span class="keyword">from</span> <span class="string">'mt-weui-react'</span></div><div class="line"></div><div class="line"><span class="comment">// 经过插件转译为：</span></div><div class="line"><span class="keyword">import</span> Button <span class="keyword">from</span> <span class="string">'mt-weui-react/lib/components/button'</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Button &#125; <span class="keyword">from</span> <span class="string">'mt-weui-react'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 经过插件转译为：</span></span><br><span class="line"><span class="keyword">import</span> Button <span class="keyword">from</span> <span class="string">'mt-weui-react/lib/components/button'</span></span><br></pre></td></tr></table></figure>
 <h2 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h2><ul>
 <li>BUG修复、UI调整及组件增强发布小版本 0.1.x, <code>package.json</code> 中使用前缀 <code>～</code> 安装时更新</li>
 <li>删除组件或对组件API做调整时发布子版本 0.x.1, <code>package.json</code> 中使用前缀 <code>^</code> 安装时更新</li>
@@ -452,14 +502,14 @@
 <li><p><code>stable版</code>：稳定版。在开源软件中，都有stable版，这个就是开源软件的最终发行版，用户可以放心大胆的用了。</p>
 </li>
 </ul>
-<h2 id="本地开发"><a href="#本地开发" class="headerlink" title="本地开发"></a>本地开发</h2><p>到 <code>mt-weui-react</code> 的 <a href="https://github.com/git-lt/weui-react" target="_blank" rel="external">github仓库</a> 中fork项目</p>
+<h2 id="本地开发"><a href="#本地开发" class="headerlink" title="本地开发"></a>本地开发</h2><p>到 <code>mt-weui-react</code> 的 <a href="https://github.com/git-lt/weui-react" target="_blank" rel="noopener">github仓库</a> 中fork项目</p>
 <p>将项目克隆到本地</p>
 <h3 id="添加组件"><a href="#添加组件" class="headerlink" title="添加组件"></a>添加组件</h3><p>在项目目录 <code>src/components</code> 下添加组件</p>
 <p>组件目录文件</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">index<span class="selector-class">.js</span>   <span class="comment">// 组件主文件</span></div><div class="line">index<span class="selector-class">.less</span> <span class="comment">// 样式</span></div><div class="line">metas<span class="selector-class">.yml</span>  <span class="comment">// 组件描述</span></div></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">index<span class="selector-class">.js</span>   <span class="comment">// 组件主文件</span></span><br><span class="line">index<span class="selector-class">.less</span> <span class="comment">// 样式</span></span><br><span class="line">metas<span class="selector-class">.yml</span>  <span class="comment">// 组件描述</span></span><br></pre></td></tr></table></figure>
 <p><code>metas.yml</code> 用于描述组件，最后会生成该组件的说明文档</p>
 <p><code>metas.yml</code>  结构说明: </p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><div class="line"><span class="comment"># 属性说明</span></div><div class="line"><span class="attr">props:</span></div><div class="line"><span class="attr">  list:</span></div><div class="line"><span class="attr">    type:</span> <span class="string">Array</span></div><div class="line"><span class="attr">    default:</span> <span class="string">[]</span></div><div class="line"><span class="attr">    desc:</span> <span class="string">图片列表</span></div><div class="line"><span class="attr">  options:</span></div><div class="line"><span class="attr">    type:</span> <span class="string">Object</span></div><div class="line"><span class="attr">    default:</span> <span class="string">&#123;&#125;</span></div><div class="line"><span class="attr">    desc:</span> <span class="string">'`photoswipe` 的设置'</span></div><div class="line"><span class="comment"># 事件说明</span></div><div class="line"><span class="attr">events:</span></div><div class="line"><span class="attr">  onClose:</span></div><div class="line"><span class="attr">    desc:</span> <span class="string">关闭的回调</span></div><div class="line"><span class="comment"># 方法说明</span></div><div class="line"><span class="attr">methods:</span></div><div class="line"><span class="attr">  show:</span></div><div class="line"><span class="attr">    params:</span> <span class="string">'(index)'</span></div><div class="line"><span class="attr">    desc:</span> <span class="string">图片的索引</span></div><div class="line"><span class="attr">  close:</span></div><div class="line"><span class="attr">    params:</span> <span class="string">'(index)'</span></div><div class="line"><span class="attr">    desc:</span> <span class="string">图片的索引</span></div><div class="line"><span class="comment"># 组件更新说明</span></div><div class="line"><span class="attr">changes:</span></div><div class="line">  <span class="string">v0.1.15:</span></div><div class="line"><span class="bullet">    -</span> <span class="string">'[new] 新组件 图片查看器，点击放大查看图片'</span></div></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 属性说明</span></span><br><span class="line"><span class="attr">props:</span></span><br><span class="line"><span class="attr">  list:</span></span><br><span class="line"><span class="attr">    type:</span> <span class="string">Array</span></span><br><span class="line"><span class="attr">    default:</span> <span class="string">[]</span></span><br><span class="line"><span class="attr">    desc:</span> <span class="string">图片列表</span></span><br><span class="line"><span class="attr">  options:</span></span><br><span class="line"><span class="attr">    type:</span> <span class="string">Object</span></span><br><span class="line"><span class="attr">    default:</span> <span class="string">&#123;&#125;</span></span><br><span class="line"><span class="attr">    desc:</span> <span class="string">'`photoswipe` 的设置'</span></span><br><span class="line"><span class="comment"># 事件说明</span></span><br><span class="line"><span class="attr">events:</span></span><br><span class="line"><span class="attr">  onClose:</span></span><br><span class="line"><span class="attr">    desc:</span> <span class="string">关闭的回调</span></span><br><span class="line"><span class="comment"># 方法说明</span></span><br><span class="line"><span class="attr">methods:</span></span><br><span class="line"><span class="attr">  show:</span></span><br><span class="line"><span class="attr">    params:</span> <span class="string">'(index)'</span></span><br><span class="line"><span class="attr">    desc:</span> <span class="string">图片的索引</span></span><br><span class="line"><span class="attr">  close:</span></span><br><span class="line"><span class="attr">    params:</span> <span class="string">'(index)'</span></span><br><span class="line"><span class="attr">    desc:</span> <span class="string">图片的索引</span></span><br><span class="line"><span class="comment"># 组件更新说明</span></span><br><span class="line"><span class="attr">changes:</span></span><br><span class="line">  <span class="string">v0.1.15:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">'[new] 新组件 图片查看器，点击放大查看图片'</span></span><br></pre></td></tr></table></figure>
 <p><code>changes</code> 中 的 <code>[new]</code>  用于标识组件变动类型，内置有以下几中类型:</p>
 <ul>
 <li><code>feature</code> 添加新的功能</li>
@@ -477,7 +527,7 @@
 <li>到 <code>example/pages/home/index.js</code> 首页文件下添加组件链接</li>
 </ul>
 <p>示例页面</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"><span class="keyword">import</span> &#123; Group, Cell, Switch &#125; <span class="keyword">from</span> <span class="string">'../../../src'</span></div><div class="line"><span class="keyword">import</span> Page <span class="keyword">from</span> <span class="string">'../../component/page'</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> Demo = React.createClass(&#123;</div><div class="line">    changeEv(checked)&#123;</div><div class="line">      <span class="built_in">console</span>.log(checked);</div><div class="line">    &#125;,</div><div class="line">    render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">const</span> cusLabel = <span class="xml"><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">className</span>=<span class="string">"weui-icon-download"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>开启下载<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span>;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">          &lt;Page title=<span class="string">"Switch"</span>&gt;</div><div class="line">            &lt;Group title=<span class="string">"一般使用"</span>&gt;</div><div class="line">              &lt;Switch label=<span class="string">"飞行模式"</span> checked=&#123; <span class="literal">false</span> &#125;  onChange=&#123; <span class="keyword">this</span>.changeEv &#125;/&gt;</div><div class="line">              &lt;Switch label=<span class="string">"蓝牙"</span>  checked onChange=&#123; <span class="keyword">this</span>.changeEv &#125;/&gt;</div><div class="line">              &lt;Switch label=<span class="string">"禁用缓存"</span> checked=&#123; <span class="literal">true</span> &#125;  onChange=&#123; <span class="keyword">this</span>.changeEv &#125;/&gt;</div><div class="line">            &lt;<span class="regexp">/Group&gt;</span></div><div class="line"><span class="regexp"></span></div><div class="line"><span class="regexp">            &lt;Group title="禁用"&gt;</span></div><div class="line"><span class="regexp">              &lt;Switch label="蓝牙"  checked disabled onChange=&#123; this.changeEv &#125;/</span>&gt;</div><div class="line">              &lt;Switch label=<span class="string">"禁用缓存"</span> checked=&#123; <span class="literal">false</span> &#125; disabled onChange=&#123; <span class="keyword">this</span>.changeEv &#125;/&gt;</div><div class="line">            &lt;<span class="regexp">/Group&gt;</span></div><div class="line"><span class="regexp"></span></div><div class="line"><span class="regexp">            &lt;Group title="自定义label"&gt;</span></div><div class="line"><span class="regexp">              &lt;Switch label=&#123; cusLabel &#125;  checked onChange=&#123; this.changeEv &#125;/</span>&gt;</div><div class="line">            &lt;<span class="regexp">/Group&gt;</span></div><div class="line"><span class="regexp">          &lt;/</span>Page&gt;</div><div class="line">        );</div><div class="line">    &#125;,</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> Demo</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"><span class="keyword">import</span> &#123; Group, Cell, Switch &#125; <span class="keyword">from</span> <span class="string">'../../../src'</span></span><br><span class="line"><span class="keyword">import</span> Page <span class="keyword">from</span> <span class="string">'../../component/page'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Demo = React.createClass(&#123;</span><br><span class="line">    changeEv(checked)&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(checked);</span><br><span class="line">    &#125;,</span><br><span class="line">    render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">const</span> cusLabel = <span class="xml"><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">className</span>=<span class="string">"weui-icon-download"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>开启下载<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span>;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">          &lt;Page title=<span class="string">"Switch"</span>&gt;</span><br><span class="line">            &lt;Group title=<span class="string">"一般使用"</span>&gt;</span><br><span class="line">              &lt;Switch label=<span class="string">"飞行模式"</span> checked=&#123; <span class="literal">false</span> &#125;  onChange=&#123; <span class="keyword">this</span>.changeEv &#125;/&gt;</span><br><span class="line">              &lt;Switch label=<span class="string">"蓝牙"</span>  checked onChange=&#123; <span class="keyword">this</span>.changeEv &#125;/&gt;</span><br><span class="line">              &lt;Switch label=<span class="string">"禁用缓存"</span> checked=&#123; <span class="literal">true</span> &#125;  onChange=&#123; <span class="keyword">this</span>.changeEv &#125;/&gt;</span><br><span class="line">            &lt;<span class="regexp">/Group&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">            &lt;Group title="禁用"&gt;</span></span><br><span class="line"><span class="regexp">              &lt;Switch label="蓝牙"  checked disabled onChange=&#123; this.changeEv &#125;/</span>&gt;</span><br><span class="line">              &lt;Switch label=<span class="string">"禁用缓存"</span> checked=&#123; <span class="literal">false</span> &#125; disabled onChange=&#123; <span class="keyword">this</span>.changeEv &#125;/&gt;</span><br><span class="line">            &lt;<span class="regexp">/Group&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">            &lt;Group title="自定义label"&gt;</span></span><br><span class="line"><span class="regexp">              &lt;Switch label=&#123; cusLabel &#125;  checked onChange=&#123; this.changeEv &#125;/</span>&gt;</span><br><span class="line">            &lt;<span class="regexp">/Group&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>Page&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Demo</span><br></pre></td></tr></table></figure>
 <h3 id="预览构建"><a href="#预览构建" class="headerlink" title="预览构建"></a>预览构建</h3><ul>
 <li><p>启动项目 <code>npm run start</code>，默认访问地址 <code>http://localhost:8081</code></p>
 </li>
@@ -504,20 +554,17 @@
       
     </div>
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
       
@@ -526,6 +573,10 @@
             <a href="/tags/react/" rel="tag"># react</a>
           
         </div>
+      
+
+      
+      
       
 
       
@@ -553,30 +604,15 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
 
     <div class="post-spread">
-      
-        <div class="ds-share flat" data-thread-key="2017/10/20/mt-weui-react/"
-     data-title="基于Weui的React组件库mt-weui-react发布了"
-     data-content=""
-     data-url="http://toggle.coding.io/2017/10/20/mt-weui-react/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
       
     </div>
   </div>
@@ -585,15 +621,11 @@
           </div>
           
 
+  
+    <div class="comments" id="comments">
+    </div>
+  
 
-          
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2017/10/20/mt-weui-react/"
-           data-title="基于Weui的React组件库mt-weui-react发布了" data-url="http://toggle.coding.io/2017/10/20/mt-weui-react/">
-      </div>
-    
-  </div>
 
 
         </div>
@@ -609,106 +641,205 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             站点概览
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar100.jpg"
-               alt="Aitter" />
-          <p class="site-author-name" itemprop="name">Aitter</p>
-          <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">71</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar100.jpg"
+                alt="Aitter" />
+            
+              <p class="site-author-name" itemprop="name">Aitter</p>
+              <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
           </div>
 
           
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">14</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/git-lt" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank" title="Zhihu"><i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                  
+                </span>
+              
             </div>
           
 
           
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hexo.io/" title="Hexo" target="_blank">Hexo</a>
+                  </li>
+                
+              </ul>
             </div>
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
           
             
-              <span class="links-of-author-item">
-                <a href="https://github.com/git-lt" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank" title="Zhihu">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  Zhihu
-                </a>
-              </span>
-            
           
+          
+
         </div>
-
-        
-        
-
-        
-        
-          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-            <div class="links-of-blogroll-title">
-              <i class="fa  fa-fw fa-globe"></i>
-              友情链接
-            </div>
-            <ul class="links-of-blogroll-list">
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://hexo.io/" title="Hexo" target="_blank">Hexo</a>
-                </li>
-              
-            </ul>
-          </div>
-        
-
-        
-
-
       </section>
 
       
@@ -729,6 +860,8 @@
       <!--/noindex-->
       
 
+      
+
     </div>
   </aside>
 
@@ -739,38 +872,55 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2015 - 
-  <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Aitter</span>
+
+  
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.1.0</div>
+
+
 
 
         
+
+
+
+
+
+
+
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
   </div>
 
   
@@ -789,35 +939,12 @@
 
 
 
-  
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
 
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
@@ -825,68 +952,133 @@
   
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
 
 
 
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
 
   
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
 
 
 
   
 
-  
-    
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
   
 
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
   <script type="text/javascript">
-    var duoshuoQuery = {short_name:"togglelt"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz',
+        appKey: 'IQ7Je02a33Mm5AVkAikKwxL2',
+        placeholder: 'ヾﾉ≧∀≦)o来呀，快活呀!',
+        avatar:'monsterid',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
   </script>
 
+
+
   
-    
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
-  
-
-
-
 
 
 
 
 
   
-  
 
   
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz", "IQ7Je02a33Mm5AVkAikKwxL2");</script>
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz", "IQ7Je02a33Mm5AVkAikKwxL2#<app_key>");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);
@@ -942,35 +1134,24 @@
             var counter = results[0];
             counter.fetchWhenSave(true);
             counter.increment("time");
+            
             counter.save(null, {
               success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
               },
               error: function(counter, error) {
                 console.log('Failed to save Visitor num, with error message: ' + error.message);
               }
             });
           } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
           }
         },
         error: function(error) {
@@ -995,6 +1176,18 @@
 
   
 
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>

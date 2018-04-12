@@ -1,15 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
 
 
 
@@ -27,36 +37,10 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
@@ -65,39 +49,25 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
 
 
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
 
 
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
+  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
 
 
 
-<meta name="description" content="实时的数据通信在新的H5的JavascriptAPI出来以前，都是一个让人头疼的问题，实现实时数据展示的几种方式：  传统方式：用ajax设置定时器不断的请求后端，发现数据改变时更新前端显示 Comet方式：一次ajax请求，后端设置一个死循环不返回结果以保持连接，不断的监听数据变化，一旦变化则跳出循环返回数据 webSocket方式：采用了一些特殊的报头(Header)，使得浏览器和服务器只需要">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Express4 + Socket.io 实现聊天室">
-<meta property="og:url" content="http://toggle.coding.io/2015/10/08/151008-express4-chat/index.html">
-<meta property="og:site_name" content="Aitter&#39;s Blog">
-<meta property="og:description" content="实时的数据通信在新的H5的JavascriptAPI出来以前，都是一个让人头疼的问题，实现实时数据展示的几种方式：  传统方式：用ajax设置定时器不断的请求后端，发现数据改变时更新前端显示 Comet方式：一次ajax请求，后端设置一个死循环不返回结果以保持连接，不断的监听数据变化，一旦变化则跳出循环返回数据 webSocket方式：采用了一些特殊的报头(Header)，使得浏览器和服务器只需要">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://i3.tietuku.com/f83aa2ff4ec2414b.jpg">
-<meta property="og:image" content="http://i13.tietuku.com/cbfca2f1e8218b9b.jpg">
-<meta property="og:updated_time" content="2016-07-17T02:51:50.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Express4 + Socket.io 实现聊天室">
-<meta name="twitter:description" content="实时的数据通信在新的H5的JavascriptAPI出来以前，都是一个让人头疼的问题，实现实时数据展示的几种方式：  传统方式：用ajax设置定时器不断的请求后端，发现数据改变时更新前端显示 Comet方式：一次ajax请求，后端设置一个死循环不返回结果以保持连接，不断的监听数据变化，一旦变化则跳出循环返回数据 webSocket方式：采用了一些特殊的报头(Header)，使得浏览器和服务器只需要">
-<meta name="twitter:image" content="http://i3.tietuku.com/f83aa2ff4ec2414b.jpg">
+
+
+
 
 
 
@@ -106,13 +76,13 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -124,19 +94,46 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="实时的数据通信在新的H5的JavascriptAPI出来以前，都是一个让人头疼的问题，实现实时数据展示的几种方式：  传统方式：用ajax设置定时器不断的请求后端，发现数据改变时更新前端显示 Comet方式：一次ajax请求，后端设置一个死循环不返回结果以保持连接，不断的监听数据变化，一旦变化则跳出循环返回数据 webSocket方式：采用了一些特殊的报头(Header)，使得浏览器和服务器只需要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Express4 + Socket.io 实现聊天室">
+<meta property="og:url" content="http://toggle.coding.io/2015/10/08/151008-express4-chat/index.html">
+<meta property="og:site_name" content="Aitter&#39;s Blog">
+<meta property="og:description" content="实时的数据通信在新的H5的JavascriptAPI出来以前，都是一个让人头疼的问题，实现实时数据展示的几种方式：  传统方式：用ajax设置定时器不断的请求后端，发现数据改变时更新前端显示 Comet方式：一次ajax请求，后端设置一个死循环不返回结果以保持连接，不断的监听数据变化，一旦变化则跳出循环返回数据 webSocket方式：采用了一些特殊的报头(Header)，使得浏览器和服务器只需要">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://i3.tietuku.com/f83aa2ff4ec2414b.jpg">
+<meta property="og:image" content="http://i13.tietuku.com/cbfca2f1e8218b9b.jpg">
+<meta property="og:updated_time" content="2016-07-17T02:51:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Express4 + Socket.io 实现聊天室">
+<meta name="twitter:description" content="实时的数据通信在新的H5的JavascriptAPI出来以前，都是一个让人头疼的问题，实现实时数据展示的几种方式：  传统方式：用ajax设置定时器不断的请求后端，发现数据改变时更新前端显示 Comet方式：一次ajax请求，后端设置一个死循环不返回结果以保持连接，不断的监听数据变化，一旦变化则跳出循环返回数据 webSocket方式：采用了一些特殊的报头(Header)，使得浏览器和服务器只需要">
+<meta name="twitter:image" content="http://i3.tietuku.com/f83aa2ff4ec2414b.jpg">
+
+
+
+
+
 
   <link rel="canonical" href="http://toggle.coding.io/2015/10/08/151008-express4-chat/"/>
 
 
 
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title> Express4 + Socket.io 实现聊天室 | Aitter's Blog </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>Express4 + Socket.io 实现聊天室 | Aitter's Blog</title>
   
+
+
+
 
 
 
@@ -144,7 +141,7 @@
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
+      hm.src = "https://hm.baidu.com/hm.js?2b4e0202baeda5f901b13a86cf9d65cf";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
@@ -153,99 +150,134 @@
 
 
 
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
 
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
 
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Aitter's Blog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aitter's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">I can’t change the world, only change myself!</p>
+      
   </div>
-  <p class="site-subtitle">I can’t change the world, only change myself!</p>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+
+
 
 <nav class="site-nav">
-  
-
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+</li>
+
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
+        
+          
+  
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+</li>
+
       
 
       
+      
     </ul>
+  
+
   
 
   
@@ -253,12 +285,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
 
@@ -271,32 +314,31 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2015/10/08/151008-express4-chat/">
+  
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Aitter">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar100.jpg">
-  </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://toggle.coding.io/2015/10/08/151008-express4-chat/">
 
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Aitter's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Aitter's Blog" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aitter">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar100.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aitter's Blog">
+    </span>
 
     
       <header class="post-header">
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                Express4 + Socket.io 实现聊天室
+          <h1 class="post-title" itemprop="name headline">Express4 + Socket.io 实现聊天室
               
             
           </h1>
@@ -305,15 +347,20 @@
         <div class="post-meta">
           <span class="post-time">
             
+                
+            
+
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-10-08T10:58:35+08:00">
-                2015-10-08
-              </time>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-08T10:58:35+08:00">2015-10-08</time>
             
 
+            
             
 
             
@@ -321,17 +368,17 @@
 
           
             <span class="post-category" >
+            
               <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NodeJS/" itemprop="url" rel="index">
-                    <span itemprop="name">NodeJS</span>
-                  </a>
-                </span>
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/NodeJS/" itemprop="url" rel="index"><span itemprop="name">NodeJS</span></a></span>
 
                 
                 
@@ -343,13 +390,14 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2015/10/08/151008-express4-chat/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/08/151008-express4-chat/" itemprop="commentCount"></span>
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2015/10/08/151008-express4-chat/" itemprop="commentCount"></span>
                 </a>
               </span>
             
-          
-
           
 
           
@@ -359,9 +407,13 @@
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
           
 
           
@@ -372,7 +424,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -400,45 +454,46 @@
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><p>安装全局的express<br>npm install express -g</p>
 <p>使用express项目生成器快速创建express应用<br>npm install express-generator -g</p>
 <h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>express -e –git chat<br>参数说明：<code>-e</code> 使用ejs模板   <code>--git</code> 添加.gitignore文件 <code>项目名称</code> chat</p>
-<p>创建成功后目录结构如下：<br><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">.</div><div class="line">├── app.js</div><div class="line">├── bin</div><div class="line">│   └── www</div><div class="line">├── package.json</div><div class="line">├── public</div><div class="line">│   ├── images</div><div class="line">│   ├── javascripts</div><div class="line">│   └── stylesheets</div><div class="line">│       └── style.css</div><div class="line">├── routes</div><div class="line">│   ├── index.js</div><div class="line">│   └── users.js</div><div class="line">└── views</div><div class="line">    ├── error.ejs</div><div class="line">    └── index.ejs</div></pre></td></tr></table></figure></p>
-<h3 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h3><p>打开 package.json<br><figure class="highlight clojure"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"name"</span>: <span class="string">"chat"</span>,</div><div class="line">  <span class="string">"version"</span>: <span class="string">"0.0.0"</span>,</div><div class="line">  <span class="string">"private"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="string">"scripts"</span>: &#123;</div><div class="line">    <span class="string">"start"</span>: <span class="string">"node ./bin/www"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"dependencies"</span>: &#123;</div><div class="line">    <span class="string">"body-parser"</span>: <span class="string">"~1.13.2"</span>,</div><div class="line">    <span class="string">"cookie-parser"</span>: <span class="string">"~1.3.5"</span>,</div><div class="line">    <span class="string">"debug"</span>: <span class="string">"~2.2.0"</span>,</div><div class="line">    <span class="string">"ejs"</span>: <span class="string">"~2.3.3"</span>,</div><div class="line">    <span class="string">"express"</span>: <span class="string">"~4.13.1"</span>,</div><div class="line">    <span class="string">"morgan"</span>: <span class="string">"~1.6.1"</span>,</div><div class="line">    <span class="string">"serve-favicon"</span>: <span class="string">"~2.3.0"</span>,</div><div class="line"></div><div class="line">    <span class="string">"socket.io"</span>: <span class="string">"^1.0.6"</span>, #添加socket.io通信模块</div><div class="line">    <span class="string">"xss-escape"</span>: <span class="string">"0.0.5"</span>  #添加处理xss的模块</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>创建成功后目录结构如下：<br><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── app.js</span><br><span class="line">├── bin</span><br><span class="line">│   └── www</span><br><span class="line">├── package.json</span><br><span class="line">├── public</span><br><span class="line">│   ├── images</span><br><span class="line">│   ├── javascripts</span><br><span class="line">│   └── stylesheets</span><br><span class="line">│       └── style.css</span><br><span class="line">├── routes</span><br><span class="line">│   ├── index.js</span><br><span class="line">│   └── users.js</span><br><span class="line">└── views</span><br><span class="line">    ├── error.ejs</span><br><span class="line">    └── index.ejs</span><br></pre></td></tr></table></figure></p>
+<h3 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h3><p>打开 package.json<br><figure class="highlight clojure"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"chat"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"0.0.0"</span>,</span><br><span class="line">  <span class="string">"private"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"start"</span>: <span class="string">"node ./bin/www"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"body-parser"</span>: <span class="string">"~1.13.2"</span>,</span><br><span class="line">    <span class="string">"cookie-parser"</span>: <span class="string">"~1.3.5"</span>,</span><br><span class="line">    <span class="string">"debug"</span>: <span class="string">"~2.2.0"</span>,</span><br><span class="line">    <span class="string">"ejs"</span>: <span class="string">"~2.3.3"</span>,</span><br><span class="line">    <span class="string">"express"</span>: <span class="string">"~4.13.1"</span>,</span><br><span class="line">    <span class="string">"morgan"</span>: <span class="string">"~1.6.1"</span>,</span><br><span class="line">    <span class="string">"serve-favicon"</span>: <span class="string">"~2.3.0"</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">"socket.io"</span>: <span class="string">"^1.0.6"</span>, #添加socket.io通信模块</span><br><span class="line">    <span class="string">"xss-escape"</span>: <span class="string">"0.0.5"</span>  #添加处理xss的模块</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>安装依赖<br>cd chat &amp; npm install<br>配置调试项目 并启动预览<br>set DEBUG = chat &amp; npm start</p>
 <p>预览成功<br><img src="http://i3.tietuku.com/f83aa2ff4ec2414b.jpg" alt=""></p>
-<h2 id="编写前端页面"><a href="#编写前端页面" class="headerlink" title="编写前端页面"></a>编写前端页面</h2><h3 id="代码编辑"><a href="#代码编辑" class="headerlink" title="代码编辑"></a>代码编辑</h3><p>打开 <code>views/index.ejs</code>， 编辑内容如下：<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Socket聊天室v0.0.1<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- Bootstrap--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"/css/index.css"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- 聊天区 --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-8"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="comment">&lt;!-- 个人信息 --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-4"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="comment">&lt;!-- 在线列表 --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-4"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    </div><div class="line"><span class="comment">&lt;!-- 添加或修改昵称弹窗 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modal fade"</span> <span class="attr">id</span>=<span class="string">"login-modal"</span> <span class="attr">tabindex</span>=<span class="string">"-1"</span> <span class="attr">role</span>=<span class="string">"dialog"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modal-dialog"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://libs.baidu.com/jquery/2.0.0/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/js/socket.io.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/js/emotion.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/js/index.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="编写前端页面"><a href="#编写前端页面" class="headerlink" title="编写前端页面"></a>编写前端页面</h2><h3 id="代码编辑"><a href="#代码编辑" class="headerlink" title="代码编辑"></a>代码编辑</h3><p>打开 <code>views/index.ejs</code>， 编辑内容如下：<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Socket聊天室v0.0.1<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Bootstrap--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"/css/index.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 聊天区 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-8"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 个人信息 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-4"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 在线列表 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-4"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">&lt;!-- 添加或修改昵称弹窗 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modal fade"</span> <span class="attr">id</span>=<span class="string">"login-modal"</span> <span class="attr">tabindex</span>=<span class="string">"-1"</span> <span class="attr">role</span>=<span class="string">"dialog"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modal-dialog"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://libs.baidu.com/jquery/2.0.0/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/js/socket.io.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/js/emotion.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/js/index.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>引入的文件<br><code>bootstrap</code> bootstrop主题相关<br><code>socket.io.js</code>  通过websocket方式处理与服务器的的通信<br><code>jquery.cookie.js</code> 用于存储用户信息<br><code>emotion.js</code> 表情插件</p>
 <p>客户端文件<code>socket.io.js</code>来源：<code>node_modules\socket.io\node_modules\socket.io-client\socket.io.js</code><br>将其复制到 <code>public\js\</code>文件夹内（个人习惯：将public文件下的三个文件重新命令成css/img/js三个文件夹）</p>
 <h3 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h3><p><img src="http://i13.tietuku.com/cbfca2f1e8218b9b.jpg" alt=""></p>
-<h3 id="页面逻辑编写"><a href="#页面逻辑编写" class="headerlink" title="页面逻辑编写"></a>页面逻辑编写</h3><p><code>public/js/index.js</code><br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * index.js 聊天室页面逻辑</span></div><div class="line"><span class="comment"> * deps:[jquery.js, socket.io.js, emotion.js]</span></div><div class="line"><span class="comment"> * email:935486956@qq.com</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">var</span> chat_Utils,     <span class="comment">//聊天室 工具类</span></div><div class="line">    chat_UI,        <span class="comment">//聊天室 界面逻辑</span></div><div class="line">    chat_Socket;    <span class="comment">//聊天室 数据逻辑</span></div><div class="line"></div><div class="line"><span class="comment">// 与后台服务器建立websocket连接</span></div><div class="line"><span class="keyword">var</span> chat_server = <span class="string">"http://"</span> + location.hostname + <span class="string">':3000'</span>;</div><div class="line"><span class="keyword">var</span> socket = io.connect(chat_server);</div><div class="line">chat_Utils = &#123;</div><div class="line">    getLocalHMS: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,  <span class="comment">//获取当前时间</span></div><div class="line">    getUserColor:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;   <span class="comment">//获取随机颜色</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">chat_UI = &#123;</div><div class="line">    init:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">this</span>.initEmotion(); <span class="comment">//初始化表情插件</span></div><div class="line"></div><div class="line">        <span class="keyword">this</span>.nameEditModalShowEv(); <span class="comment">//注册 点击弹出修改昵称弹窗事件</span></div><div class="line">        <span class="keyword">this</span>.sendMsgEv();           <span class="comment">//注册 发送消息事件</span></div><div class="line">        <span class="keyword">this</span>.subNameEv();           <span class="comment">//注册 提交昵称事件</span></div><div class="line">        </div><div class="line">        <span class="keyword">this</span>.loginModalShowEv();    <span class="comment">//弹窗打开时调整弹窗样式</span></div><div class="line">        <span class="keyword">this</span>.loginModalShownEv();   <span class="comment">//弹窗打开后input获取焦点</span></div><div class="line">    &#125;,</div><div class="line">    initEmotion:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line">    chatBodyToBottom: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line">    addMessage: <span class="function"><span class="keyword">function</span>(<span class="params">_time, _content, _name, clr</span>)</span>&#123;&#125;,</div><div class="line">    removeListUser: <span class="function"><span class="keyword">function</span>(<span class="params">_user</span>)</span>&#123;&#125;,</div><div class="line">    addUserToList: <span class="function"><span class="keyword">function</span>(<span class="params">_user</span>)</span>&#123;&#125;,</div><div class="line">    useUserList: <span class="function"><span class="keyword">function</span>(<span class="params">_user_list</span>)</span>&#123;&#125;,</div><div class="line">    updateListCount: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line">    sendMessage: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line">    applyNickname: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line">    sendMsgEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line">    nameEditModalShowEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line">    subNameEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line">    loginModalShowEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line">    loginModalShownEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">chat_Socket = &#123;</div><div class="line">    init:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'server:'</span> + chat_server);</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.needNicknameEv(); <span class="comment">//监听后端 需要昵称 事件</span></div><div class="line">        <span class="keyword">this</span>.serverMessageEv(); <span class="comment">//监听后端 用户新消息 事件</span></div><div class="line">        <span class="keyword">this</span>.changeNicknameErrorEv(); <span class="comment">//监听后端 昵称错误 事件</span></div><div class="line">        <span class="keyword">this</span>.changeNicknameDoneEv();  <span class="comment">//监听后端 昵称添加成功 事件</span></div><div class="line">        <span class="keyword">this</span>.sayDoneEv();  <span class="comment">//监听后端 用户新消息 事件</span></div><div class="line">        <span class="keyword">this</span>.userListEv(); <span class="comment">//监听后端 显示用户列表 事件</span></div><div class="line">        <span class="keyword">this</span>.userChangeNicknameEv(); <span class="comment">//监听后端 修改昵称提示 事件</span></div><div class="line">        <span class="keyword">this</span>.userJoinEv(); <span class="comment">//监听后端 新用户加入 广播</span></div><div class="line">        <span class="keyword">this</span>.userQuitEv(); <span class="comment">//监听后端 用户离开 广播</span></div><div class="line">        <span class="keyword">this</span>.userSayEv();  <span class="comment">//监听后端 其它用户消息 广播</span></div><div class="line">    &#125;,</div><div class="line">    changeNickname:<span class="function"><span class="keyword">function</span>(<span class="params">_nickname, clr</span>)</span>&#123;&#125;,</div><div class="line">    say:<span class="function"><span class="keyword">function</span>(<span class="params">_content</span>)</span>&#123;&#125;,</div><div class="line">    needNicknameEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line">    serverMessageEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line">    changeNicknameErrorEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line">    changeNicknameDoneEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line">    sayDoneEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line">    userListEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line">    userChangeNicknameEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line">    userJoinEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line">    userQuitEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line">    userSayEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">chat_UI.init();</div><div class="line">chat_Socket.init();</div></pre></td></tr></table></figure></p>
+<h3 id="页面逻辑编写"><a href="#页面逻辑编写" class="headerlink" title="页面逻辑编写"></a>页面逻辑编写</h3><p><code>public/js/index.js</code><br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * index.js 聊天室页面逻辑</span></span><br><span class="line"><span class="comment"> * deps:[jquery.js, socket.io.js, emotion.js]</span></span><br><span class="line"><span class="comment"> * email:935486956@qq.com</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> chat_Utils,     <span class="comment">//聊天室 工具类</span></span><br><span class="line">    chat_UI,        <span class="comment">//聊天室 界面逻辑</span></span><br><span class="line">    chat_Socket;    <span class="comment">//聊天室 数据逻辑</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 与后台服务器建立websocket连接</span></span><br><span class="line"><span class="keyword">var</span> chat_server = <span class="string">"http://"</span> + location.hostname + <span class="string">':3000'</span>;</span><br><span class="line"><span class="keyword">var</span> socket = io.connect(chat_server);</span><br><span class="line">chat_Utils = &#123;</span><br><span class="line">    getLocalHMS: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,  <span class="comment">//获取当前时间</span></span><br><span class="line">    getUserColor:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;   <span class="comment">//获取随机颜色</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">chat_UI = &#123;</span><br><span class="line">    init:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.initEmotion(); <span class="comment">//初始化表情插件</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.nameEditModalShowEv(); <span class="comment">//注册 点击弹出修改昵称弹窗事件</span></span><br><span class="line">        <span class="keyword">this</span>.sendMsgEv();           <span class="comment">//注册 发送消息事件</span></span><br><span class="line">        <span class="keyword">this</span>.subNameEv();           <span class="comment">//注册 提交昵称事件</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">this</span>.loginModalShowEv();    <span class="comment">//弹窗打开时调整弹窗样式</span></span><br><span class="line">        <span class="keyword">this</span>.loginModalShownEv();   <span class="comment">//弹窗打开后input获取焦点</span></span><br><span class="line">    &#125;,</span><br><span class="line">    initEmotion:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">    chatBodyToBottom: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">    addMessage: <span class="function"><span class="keyword">function</span>(<span class="params">_time, _content, _name, clr</span>)</span>&#123;&#125;,</span><br><span class="line">    removeListUser: <span class="function"><span class="keyword">function</span>(<span class="params">_user</span>)</span>&#123;&#125;,</span><br><span class="line">    addUserToList: <span class="function"><span class="keyword">function</span>(<span class="params">_user</span>)</span>&#123;&#125;,</span><br><span class="line">    useUserList: <span class="function"><span class="keyword">function</span>(<span class="params">_user_list</span>)</span>&#123;&#125;,</span><br><span class="line">    updateListCount: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">    sendMessage: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">    applyNickname: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">    sendMsgEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">    nameEditModalShowEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">    subNameEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">    loginModalShowEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">    loginModalShownEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">chat_Socket = &#123;</span><br><span class="line">    init:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'server:'</span> + chat_server);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.needNicknameEv(); <span class="comment">//监听后端 需要昵称 事件</span></span><br><span class="line">        <span class="keyword">this</span>.serverMessageEv(); <span class="comment">//监听后端 用户新消息 事件</span></span><br><span class="line">        <span class="keyword">this</span>.changeNicknameErrorEv(); <span class="comment">//监听后端 昵称错误 事件</span></span><br><span class="line">        <span class="keyword">this</span>.changeNicknameDoneEv();  <span class="comment">//监听后端 昵称添加成功 事件</span></span><br><span class="line">        <span class="keyword">this</span>.sayDoneEv();  <span class="comment">//监听后端 用户新消息 事件</span></span><br><span class="line">        <span class="keyword">this</span>.userListEv(); <span class="comment">//监听后端 显示用户列表 事件</span></span><br><span class="line">        <span class="keyword">this</span>.userChangeNicknameEv(); <span class="comment">//监听后端 修改昵称提示 事件</span></span><br><span class="line">        <span class="keyword">this</span>.userJoinEv(); <span class="comment">//监听后端 新用户加入 广播</span></span><br><span class="line">        <span class="keyword">this</span>.userQuitEv(); <span class="comment">//监听后端 用户离开 广播</span></span><br><span class="line">        <span class="keyword">this</span>.userSayEv();  <span class="comment">//监听后端 其它用户消息 广播</span></span><br><span class="line">    &#125;,</span><br><span class="line">    changeNickname:<span class="function"><span class="keyword">function</span>(<span class="params">_nickname, clr</span>)</span>&#123;&#125;,</span><br><span class="line">    say:<span class="function"><span class="keyword">function</span>(<span class="params">_content</span>)</span>&#123;&#125;,</span><br><span class="line">    needNicknameEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">    serverMessageEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">    changeNicknameErrorEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">    changeNicknameDoneEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">    sayDoneEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">    userListEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">    userChangeNicknameEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">    userJoinEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">    userQuitEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">    userSayEv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">chat_UI.init();</span><br><span class="line">chat_Socket.init();</span><br></pre></td></tr></table></figure></p>
 <p>几个要注意的地方：</p>
 <ul>
 <li>当前用户的昵称和颜色在后端保存于当前的socket对象中</li>
 <li>判断当前连接的用户是否与页面中的用户相同，以便判断消息对齐方式</li>
 </ul>
-<h2 id="编写服务端"><a href="#编写服务端" class="headerlink" title="编写服务端"></a>编写服务端</h2><p><code>app.js</code> 不用修改，因为是单页面，注释掉users相关代码即可<br><figure class="highlight awk"><table><tr><td class="code"><pre><div class="line"><span class="regexp">//</span> var users = require(<span class="string">'./routes/users'</span>);</div><div class="line"><span class="regexp">//</span> app.use(<span class="string">'/users'</span>, users);</div></pre></td></tr></table></figure></p>
-<p>根目录下新建 <code>chat_server.js</code><br><figure class="highlight sqf"><table><tr><td class="code"><pre><div class="line">var io = require(<span class="string">'socket.io'</span>)();</div><div class="line">var xssEscape = require(<span class="string">'xss-escape'</span>);</div><div class="line">var nickname_list = [];</div><div class="line"></div><div class="line"><span class="comment">// 检查是昵称是否已经存在</span></div><div class="line">function HasNickname(<span class="variable">_nickname</span>)&#123;</div><div class="line">    <span class="keyword">for</span>(var i=<span class="number">0</span>; i&lt;nickname_list.length; i++)&#123;</div><div class="line">        <span class="keyword">if</span>(nickname_list[i] == <span class="variable">_nickname</span>)&#123;</div><div class="line">            return <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 删除昵称</span></div><div class="line">function RemoveNickname(<span class="variable">_nickname</span>)&#123;</div><div class="line">    <span class="keyword">for</span>(var i=<span class="number">0</span>; i&lt; nickname_list.length; i++)&#123;</div><div class="line">        <span class="keyword">if</span>(nickname_list[i] == <span class="variable">_nickname</span>)&#123;</div><div class="line">            nickname_list.splice(i, <span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">io.on(<span class="string">'connection'</span>, function(<span class="variable">_socket</span>)&#123;</div><div class="line">    console.<span class="built_in">log</span>(<span class="variable">_socket</span>.id + <span class="string">':connection'</span>);</div><div class="line"></div><div class="line">    <span class="comment">// 向当前用户发送命令和消息</span></div><div class="line">    <span class="variable">_socket</span>.emit(<span class="string">'user_list'</span>, nickname_list);</div><div class="line">    <span class="variable">_socket</span>.emit(<span class="string">'need_nickname'</span>);</div><div class="line">    <span class="variable">_socket</span>.emit(<span class="string">'server_message'</span>,<span class="string">'欢迎来到聊天室 :)'</span>);</div><div class="line"></div><div class="line">    <span class="comment">// 监听当前用户的请求和数据</span></div><div class="line">    <span class="comment">// 离开 </span></div><div class="line">    <span class="variable">_socket</span>.on(<span class="string">'disconnect'</span>, function()&#123;</div><div class="line">        console.<span class="built_in">log</span>(<span class="variable">_socket</span>.id + <span class="string">':disconnect'</span>);</div><div class="line">        <span class="keyword">if</span>(<span class="variable">_socket</span>.nickname != null &amp;&amp; <span class="variable">_socket</span>.nickname != <span class="string">""</span>)&#123;</div><div class="line">            <span class="comment">// 广播 用户退出</span></div><div class="line">            <span class="variable">_socket</span>.broadcast.emit(<span class="string">'user_quit'</span>, <span class="variable">_socket</span>.nickname);</div><div class="line">            RemoveNickname(<span class="variable">_socket</span>.nickname);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="comment">// 添加 和 修改 昵称</span></div><div class="line">    <span class="variable">_socket</span>.on(<span class="string">'change_nickname'</span>, function(<span class="variable">_nickname</span>, clr)&#123;</div><div class="line">        console.<span class="built_in">log</span>(<span class="variable">_socket</span>.id + <span class="string">': change_nickname('</span>+<span class="variable">_nickname</span>+<span class="string">')'</span>);</div><div class="line">        <span class="variable">_nickname</span> = xssEscape(<span class="variable">_nickname</span>.trim());</div><div class="line"></div><div class="line">        <span class="comment">// 半角替换为tt，模拟为全角字符判断长度</span></div><div class="line">        var name_len = <span class="variable">_nickname</span>.replace(/[^\u0000-\u00ff]/g, <span class="string">"tt"</span>).length;</div><div class="line"></div><div class="line">        <span class="comment">// 字符长度必须在4到16个字符之间</span></div><div class="line">        <span class="keyword">if</span>(name_len &lt; <span class="number">4</span> || name_len &gt; <span class="number">16</span>)&#123;</div><div class="line">            return <span class="variable">_socket</span>.emit(<span class="string">'change_nickname_error'</span>, <span class="string">'请填写正确的用户昵称，应在4到16个字符之间。'</span>)</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 昵称重复</span></div><div class="line">        <span class="keyword">if</span>(<span class="variable">_socket</span>.nickname == <span class="variable">_nickname</span>)&#123;</div><div class="line">            return <span class="variable">_socket</span>.emit(<span class="string">'change_nickname_error'</span>, <span class="string">'你本来就叫这个名字。'</span>)</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 昵称已经被占用</span></div><div class="line">        <span class="keyword">if</span>(HasNickname(<span class="variable">_nickname</span>))&#123;</div><div class="line">            return <span class="variable">_socket</span>.emit(<span class="string">'change_nickname_error'</span>, <span class="string">'此昵称已经被占用。'</span>)</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        var old_name = <span class="string">''</span>;</div><div class="line">        <span class="keyword">if</span>(<span class="variable">_socket</span>.nickname != <span class="string">''</span> &amp;&amp; <span class="variable">_socket</span>.nickname != null)&#123;</div><div class="line">            old_name = <span class="variable">_socket</span>.nickname;</div><div class="line">            RemoveNickname(old_name);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        nickname_list.push(<span class="variable">_nickname</span>);</div><div class="line">        <span class="variable">_socket</span>.nickname = <span class="variable">_nickname</span>;</div><div class="line">        <span class="variable">_socket</span>.color = clr;</div><div class="line"></div><div class="line">        console.<span class="built_in">log</span>(nickname_list);</div><div class="line">        <span class="variable">_socket</span>.emit(<span class="string">'change_nickname_done'</span>, old_name, <span class="variable">_nickname</span>, clr);</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(old_name == <span class="string">''</span>)&#123;</div><div class="line">            <span class="comment">// 广播 用户加入</span></div><div class="line">            return <span class="variable">_socket</span>.broadcast.emit(<span class="string">'user_join'</span>, <span class="variable">_nickname</span>);</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="comment">// 广播 用户改名</span></div><div class="line">            return <span class="variable">_socket</span>.broadcast.emit(<span class="string">'user_change_nickname'</span>, old_name, <span class="variable">_nickname</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="comment">// 说话</span></div><div class="line">    <span class="variable">_socket</span>.on(<span class="string">'say'</span>, function(<span class="variable">_content</span>)&#123;</div><div class="line">        <span class="keyword">if</span>(<span class="string">''</span> == <span class="variable">_socket</span>.nickname || null == <span class="variable">_socket</span>.nickname)&#123;</div><div class="line">            return <span class="variable">_socket</span>.emit(<span class="string">'need_nickname'</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="variable">_content</span> = <span class="variable">_content</span>.trim();</div><div class="line">        console.<span class="built_in">log</span>(<span class="variable">_socket</span>.nickname + <span class="string">': say('</span>+<span class="variable">_content</span>+<span class="string">')'</span>);</div><div class="line">        <span class="comment">// 广播 用户新消息</span></div><div class="line">        <span class="variable">_socket</span>.broadcast.emit(<span class="string">'user_say'</span>, <span class="variable">_socket</span>.nickname, xssEscape(<span class="variable">_content</span>), <span class="variable">_socket</span>.color);</div><div class="line">        return <span class="variable">_socket</span>.emit(<span class="string">'say_done'</span>, <span class="variable">_socket</span>.nickname, xssEscape(<span class="variable">_content</span>), <span class="variable">_socket</span>.color);</div><div class="line">    &#125;);</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// 这里的listen函数在 bin/www 文件中被调用</span></div><div class="line">exports.listen = function(<span class="variable">_server</span>)&#123;</div><div class="line">    return io.listen(<span class="variable">_server</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>去掉  <code>routes/index.js</code> 中返回到页面的 <code>title</code>参数<br><figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line"><span class="comment">/* GET home page. */</span></div><div class="line">router.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res, next)</span> </span>&#123;</div><div class="line">  res.render(<span class="string">'index'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p><a href="https://coding.net/u/coderlt/p/Express_Chat_Demo/git" target="_blank" rel="external">Coding托管的实例源码</a></p>
+<h2 id="编写服务端"><a href="#编写服务端" class="headerlink" title="编写服务端"></a>编写服务端</h2><p><code>app.js</code> 不用修改，因为是单页面，注释掉users相关代码即可<br><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">//</span> var users = require(<span class="string">'./routes/users'</span>);</span><br><span class="line"><span class="regexp">//</span> app.use(<span class="string">'/users'</span>, users);</span><br></pre></td></tr></table></figure></p>
+<p>根目录下新建 <code>chat_server.js</code><br><figure class="highlight sqf"><table><tr><td class="code"><pre><span class="line">var io = require(<span class="string">'socket.io'</span>)();</span><br><span class="line">var xssEscape = require(<span class="string">'xss-escape'</span>);</span><br><span class="line">var nickname_list = [];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 检查是昵称是否已经存在</span></span><br><span class="line">function HasNickname(<span class="variable">_nickname</span>)&#123;</span><br><span class="line">    <span class="keyword">for</span>(var i=<span class="number">0</span>; i&lt;nickname_list.length; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nickname_list[i] == <span class="variable">_nickname</span>)&#123;</span><br><span class="line">            return <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除昵称</span></span><br><span class="line">function RemoveNickname(<span class="variable">_nickname</span>)&#123;</span><br><span class="line">    <span class="keyword">for</span>(var i=<span class="number">0</span>; i&lt; nickname_list.length; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nickname_list[i] == <span class="variable">_nickname</span>)&#123;</span><br><span class="line">            nickname_list.splice(i, <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">io.on(<span class="string">'connection'</span>, function(<span class="variable">_socket</span>)&#123;</span><br><span class="line">    console.<span class="built_in">log</span>(<span class="variable">_socket</span>.id + <span class="string">':connection'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 向当前用户发送命令和消息</span></span><br><span class="line">    <span class="variable">_socket</span>.emit(<span class="string">'user_list'</span>, nickname_list);</span><br><span class="line">    <span class="variable">_socket</span>.emit(<span class="string">'need_nickname'</span>);</span><br><span class="line">    <span class="variable">_socket</span>.emit(<span class="string">'server_message'</span>,<span class="string">'欢迎来到聊天室 :)'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 监听当前用户的请求和数据</span></span><br><span class="line">    <span class="comment">// 离开 </span></span><br><span class="line">    <span class="variable">_socket</span>.on(<span class="string">'disconnect'</span>, function()&#123;</span><br><span class="line">        console.<span class="built_in">log</span>(<span class="variable">_socket</span>.id + <span class="string">':disconnect'</span>);</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">_socket</span>.nickname != null &amp;&amp; <span class="variable">_socket</span>.nickname != <span class="string">""</span>)&#123;</span><br><span class="line">            <span class="comment">// 广播 用户退出</span></span><br><span class="line">            <span class="variable">_socket</span>.broadcast.emit(<span class="string">'user_quit'</span>, <span class="variable">_socket</span>.nickname);</span><br><span class="line">            RemoveNickname(<span class="variable">_socket</span>.nickname);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 添加 和 修改 昵称</span></span><br><span class="line">    <span class="variable">_socket</span>.on(<span class="string">'change_nickname'</span>, function(<span class="variable">_nickname</span>, clr)&#123;</span><br><span class="line">        console.<span class="built_in">log</span>(<span class="variable">_socket</span>.id + <span class="string">': change_nickname('</span>+<span class="variable">_nickname</span>+<span class="string">')'</span>);</span><br><span class="line">        <span class="variable">_nickname</span> = xssEscape(<span class="variable">_nickname</span>.trim());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 半角替换为tt，模拟为全角字符判断长度</span></span><br><span class="line">        var name_len = <span class="variable">_nickname</span>.replace(/[^\u0000-\u00ff]/g, <span class="string">"tt"</span>).length;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 字符长度必须在4到16个字符之间</span></span><br><span class="line">        <span class="keyword">if</span>(name_len &lt; <span class="number">4</span> || name_len &gt; <span class="number">16</span>)&#123;</span><br><span class="line">            return <span class="variable">_socket</span>.emit(<span class="string">'change_nickname_error'</span>, <span class="string">'请填写正确的用户昵称，应在4到16个字符之间。'</span>)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 昵称重复</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">_socket</span>.nickname == <span class="variable">_nickname</span>)&#123;</span><br><span class="line">            return <span class="variable">_socket</span>.emit(<span class="string">'change_nickname_error'</span>, <span class="string">'你本来就叫这个名字。'</span>)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 昵称已经被占用</span></span><br><span class="line">        <span class="keyword">if</span>(HasNickname(<span class="variable">_nickname</span>))&#123;</span><br><span class="line">            return <span class="variable">_socket</span>.emit(<span class="string">'change_nickname_error'</span>, <span class="string">'此昵称已经被占用。'</span>)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        var old_name = <span class="string">''</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">_socket</span>.nickname != <span class="string">''</span> &amp;&amp; <span class="variable">_socket</span>.nickname != null)&#123;</span><br><span class="line">            old_name = <span class="variable">_socket</span>.nickname;</span><br><span class="line">            RemoveNickname(old_name);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        nickname_list.push(<span class="variable">_nickname</span>);</span><br><span class="line">        <span class="variable">_socket</span>.nickname = <span class="variable">_nickname</span>;</span><br><span class="line">        <span class="variable">_socket</span>.color = clr;</span><br><span class="line"></span><br><span class="line">        console.<span class="built_in">log</span>(nickname_list);</span><br><span class="line">        <span class="variable">_socket</span>.emit(<span class="string">'change_nickname_done'</span>, old_name, <span class="variable">_nickname</span>, clr);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(old_name == <span class="string">''</span>)&#123;</span><br><span class="line">            <span class="comment">// 广播 用户加入</span></span><br><span class="line">            return <span class="variable">_socket</span>.broadcast.emit(<span class="string">'user_join'</span>, <span class="variable">_nickname</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">// 广播 用户改名</span></span><br><span class="line">            return <span class="variable">_socket</span>.broadcast.emit(<span class="string">'user_change_nickname'</span>, old_name, <span class="variable">_nickname</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 说话</span></span><br><span class="line">    <span class="variable">_socket</span>.on(<span class="string">'say'</span>, function(<span class="variable">_content</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="string">''</span> == <span class="variable">_socket</span>.nickname || null == <span class="variable">_socket</span>.nickname)&#123;</span><br><span class="line">            return <span class="variable">_socket</span>.emit(<span class="string">'need_nickname'</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="variable">_content</span> = <span class="variable">_content</span>.trim();</span><br><span class="line">        console.<span class="built_in">log</span>(<span class="variable">_socket</span>.nickname + <span class="string">': say('</span>+<span class="variable">_content</span>+<span class="string">')'</span>);</span><br><span class="line">        <span class="comment">// 广播 用户新消息</span></span><br><span class="line">        <span class="variable">_socket</span>.broadcast.emit(<span class="string">'user_say'</span>, <span class="variable">_socket</span>.nickname, xssEscape(<span class="variable">_content</span>), <span class="variable">_socket</span>.color);</span><br><span class="line">        return <span class="variable">_socket</span>.emit(<span class="string">'say_done'</span>, <span class="variable">_socket</span>.nickname, xssEscape(<span class="variable">_content</span>), <span class="variable">_socket</span>.color);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里的listen函数在 bin/www 文件中被调用</span></span><br><span class="line">exports.listen = function(<span class="variable">_server</span>)&#123;</span><br><span class="line">    return io.listen(<span class="variable">_server</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>去掉  <code>routes/index.js</code> 中返回到页面的 <code>title</code>参数<br><figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* GET home page. */</span></span><br><span class="line">router.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res, next)</span> </span>&#123;</span><br><span class="line">  res.render(<span class="string">'index'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://coding.net/u/coderlt/p/Express_Chat_Demo/git" target="_blank" rel="noopener">Coding托管的实例源码</a></p>
 <p>下一节 将介绍koa.io 聊天室的具体实现</p>
 
       
     </div>
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
+      
+
+      
+      
       
 
       
@@ -466,30 +521,15 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
 
     <div class="post-spread">
-      
-        <div class="ds-share flat" data-thread-key="2015/10/08/151008-express4-chat/"
-     data-title="Express4 + Socket.io 实现聊天室"
-     data-content=""
-     data-url="http://toggle.coding.io/2015/10/08/151008-express4-chat/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
       
     </div>
   </div>
@@ -498,15 +538,11 @@
           </div>
           
 
+  
+    <div class="comments" id="comments">
+    </div>
+  
 
-          
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2015/10/08/151008-express4-chat/"
-           data-title="Express4 + Socket.io 实现聊天室" data-url="http://toggle.coding.io/2015/10/08/151008-express4-chat/">
-      </div>
-    
-  </div>
 
 
         </div>
@@ -522,106 +558,205 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             站点概览
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar100.jpg"
-               alt="Aitter" />
-          <p class="site-author-name" itemprop="name">Aitter</p>
-          <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">71</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar100.jpg"
+                alt="Aitter" />
+            
+              <p class="site-author-name" itemprop="name">Aitter</p>
+              <p class="site-description motion-element" itemprop="description">javascript | HTML5 | CSS3 | Node | React</p>
           </div>
 
           
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">14</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/git-lt" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank" title="Zhihu"><i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                  
+                </span>
+              
             </div>
           
 
           
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hexo.io/" title="Hexo" target="_blank">Hexo</a>
+                  </li>
+                
+              </ul>
             </div>
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
           
             
-              <span class="links-of-author-item">
-                <a href="https://github.com/git-lt" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/lt-lt-98" target="_blank" title="Zhihu">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  Zhihu
-                </a>
-              </span>
-            
           
+          
+
         </div>
-
-        
-        
-
-        
-        
-          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-            <div class="links-of-blogroll-title">
-              <i class="fa  fa-fw fa-globe"></i>
-              友情链接
-            </div>
-            <ul class="links-of-blogroll-list">
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://hexo.io/" title="Hexo" target="_blank">Hexo</a>
-                </li>
-              
-            </ul>
-          </div>
-        
-
-        
-
-
       </section>
 
       
@@ -642,6 +777,8 @@
       <!--/noindex-->
       
 
+      
+
     </div>
   </aside>
 
@@ -652,38 +789,55 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2015 - 
-  <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Aitter</span>
+
+  
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.1.0</div>
+
+
 
 
         
+
+
+
+
+
+
+
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
   </div>
 
   
@@ -702,35 +856,12 @@
 
 
 
-  
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
 
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
@@ -738,68 +869,133 @@
   
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
 
 
 
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
 
   
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
 
 
 
   
 
-  
-    
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
   
 
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
   <script type="text/javascript">
-    var duoshuoQuery = {short_name:"togglelt"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz',
+        appKey: 'IQ7Je02a33Mm5AVkAikKwxL2',
+        placeholder: 'ヾﾉ≧∀≦)o来呀，快活呀!',
+        avatar:'monsterid',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
   </script>
 
+
+
   
-    
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
-  
-
-
-
 
 
 
 
 
   
-  
 
   
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz", "IQ7Je02a33Mm5AVkAikKwxL2");</script>
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("GAHOQoW5LU5k5MstvbjHJiQn-gzGzoHsz", "IQ7Je02a33Mm5AVkAikKwxL2#<app_key>");</script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);
@@ -855,35 +1051,24 @@
             var counter = results[0];
             counter.fetchWhenSave(true);
             counter.increment("time");
+            
             counter.save(null, {
               success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
               },
               error: function(counter, error) {
                 console.log('Failed to save Visitor num, with error message: ' + error.message);
               }
             });
           } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
           }
         },
         error: function(error) {
@@ -908,6 +1093,18 @@
 
   
 
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>
