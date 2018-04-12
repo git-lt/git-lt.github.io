@@ -52,16 +52,16 @@
 <link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.1.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.1.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.1.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.1.0" color="#222">
 
 
 
@@ -651,7 +651,7 @@
 <li><a href="http://babeljs.io/docs/plugins/transform-object-rest-spread" target="_blank" rel="noopener">transform-object-reset-spread</a></li>
 </ul>
 <p>syntax-trailing-function-commas 添加行尾逗号，减少文件的改动</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clownPuppiesEverywhere</span>(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  param1,</span></span></span><br><span class="line"><span class="function"><span class="params">  param2,</span></span></span><br><span class="line"><span class="function"><span class="params"></span>) </span>&#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"></span><br><span class="line">clownPuppiesEverywhere(</span><br><span class="line">  <span class="string">'foo'</span>,</span><br><span class="line">  <span class="string">'bar'</span>,</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clownPuppiesEverywhere</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">  param1,</span></span></span><br><span class="line"><span class="function"><span class="params">  param2,</span></span></span><br><span class="line"><span class="function"><span class="params">)</span> </span>&#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"></span><br><span class="line">clownPuppiesEverywhere(</span><br><span class="line">  <span class="string">'foo'</span>,</span><br><span class="line">  <span class="string">'bar'</span>,</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <p>transform-object-reset-spread 支持使用展开符展开对象</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; x, y, ...z &#125; = &#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span>, <span class="attr">a</span>: <span class="number">3</span>, <span class="attr">b</span>: <span class="number">4</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(x); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(y); <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(z); <span class="comment">// &#123; a: 3, b: 4 &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 属性展开</span></span><br><span class="line"><span class="keyword">let</span> n = &#123; x, y, ...z &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(n); <span class="comment">// &#123; x: 1, y: 2, a: 3, b: 4 &#125;</span></span><br></pre></td></tr></table></figure>
 <h3 id="stage-3"><a href="#stage-3" class="headerlink" title="stage-3"></a>stage-3</h3><p>提供对ES7的<code>async</code>和<code>await</code>的支持 及提供幂操作的语法糖</p>

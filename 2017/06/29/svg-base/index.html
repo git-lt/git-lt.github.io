@@ -52,16 +52,16 @@
 <link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.1.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.1.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.1.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.1.0" color="#222">
 
 
 
@@ -570,7 +570,7 @@
 <figure class="highlight tap"><table><tr><td class="code"><pre><span class="line">&lt;polygon </span><br><span class="line">	points="50 160,<span class="number"> 55 </span>180,<span class="number"> 70 </span>180,<span class="number"> 60 </span>190,<span class="number"> 65 </span>205,<span class="number"> 50 </span>195,<span class="number"> 35 </span>205,<span class="number"> 40 </span>190,<span class="number"> 30 </span>180,<span class="number"> 45 </span>180"</span><br><span class="line">	fill="<span class="comment">#eee"/&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="文本-text"><a href="#文本-text" class="headerlink" title="文本 text"></a>文本 text</h2><p>SVG的 <code>text</code> 元素用于定义文本</p>
 <p>路径上的文字</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;svg xmlns=<span class="string">"http://www.w3.org/2000/svg"</span> version=<span class="string">"1.1"</span></span><br><span class="line">xmlns:xlink=<span class="string">"http://www.w3.org/1999/xlink"</span>&gt;</span><br><span class="line">   &lt;defs&gt;</span><br><span class="line">    &lt;path id=<span class="string">"path1"</span> d=<span class="string">"M75,20 a1,1 0 0,0 100,0"</span> /&gt;</span><br><span class="line">  &lt;<span class="regexp">/defs&gt;</span></span><br><span class="line"><span class="regexp">  &lt;text x="10" y="100" style="fill:red;"&gt;</span></span><br><span class="line"><span class="regexp">    &lt;textPath xlink:href="#path1"&gt;I love SVG I love SVG&lt;/</span>textPath&gt;</span><br><span class="line">  &lt;<span class="regexp">/text&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>svg&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">version</span>=<span class="string">"1.1"</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns:xlink</span>=<span class="string">"http://www.w3.org/1999/xlink"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">defs</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">id</span>=<span class="string">"path1"</span> <span class="attr">d</span>=<span class="string">"M75,20 a1,1 0 0,0 100,0"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">defs</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">text</span> <span class="attr">x</span>=<span class="string">"10"</span> <span class="attr">y</span>=<span class="string">"100"</span> <span class="attr">style</span>=<span class="string">"fill:red;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">textPath</span> <span class="attr">xlink:href</span>=<span class="string">"#path1"</span>&gt;</span>I love SVG I love SVG<span class="tag">&lt;/<span class="name">textPath</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>作为链接文本</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">version</span>=<span class="string">"1.1"</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns:xlink</span>=<span class="string">"http://www.w3.org/1999/xlink"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">xlink:href</span>=<span class="string">"http://www.w3schools.com/svg/"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">text</span> <span class="attr">x</span>=<span class="string">"0"</span> <span class="attr">y</span>=<span class="string">"15"</span> <span class="attr">fill</span>=<span class="string">"red"</span>&gt;</span>I love SVG<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="路径-path"><a href="#路径-path" class="headerlink" title="路径 path"></a>路径 path</h3><p>SVG 中 path 功能最强大，不仅可以创建基本形状，还能创建更多复杂的图形，path可以就是所有上面基本形状的父类。<br>path 通过 d 属性来定义路径，d 是一系列命令的集合。</p>

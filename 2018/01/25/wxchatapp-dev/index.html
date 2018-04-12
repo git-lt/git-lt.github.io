@@ -52,16 +52,16 @@
 <link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.1.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.1.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.1.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.1.0" color="#222">
 
 
 
@@ -617,7 +617,7 @@
 <p>触发自定义事件</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">bindtap</span>=<span class="string">"onTap"</span>&gt;</span>点击这个按钮将触发“myevent”事件<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>使用 <code>this.triggerEvent</code> 触发自定义事件</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">Component(&#123;</span><br><span class="line">  properties: &#123;&#125;</span><br><span class="line">  methods: &#123;</span><br><span class="line">    onTap: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">var</span> myEventDetail = &#123;&#125; <span class="comment">// detail对象，提供给事件监听函数</span></span><br><span class="line">      <span class="keyword">var</span> myEventOption = &#123;&#125; <span class="comment">// 触发事件的选项</span></span><br><span class="line">      <span class="keyword">this</span>.triggerEvent(<span class="string">'myevent'</span>, myEventDetail, myEventOption)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">Component(&#123;</span><br><span class="line">  properties: &#123;&#125;</span><br><span class="line">  methods: &#123;</span><br><span class="line">    onTap: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">var</span> myEventDetail = &#123;&#125; <span class="comment">// detail对象，提供给事件监听函数</span></span><br><span class="line">      <span class="keyword">var</span> myEventOption = &#123;&#125; <span class="comment">// 触发事件的选项</span></span><br><span class="line">      <span class="keyword">this</span>.triggerEvent(<span class="string">'myevent'</span>, myEventDetail, myEventOption)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>下面两个特性由于没有实践过，这里一笔带过，详情请查看相关文档</p>
 <ul>
 <li>使用 <code>behaviors</code> 实现类似 <code>mixins</code> 的功能</li>

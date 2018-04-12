@@ -52,16 +52,16 @@
 <link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.1.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.1.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.1.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.1.0" color="#222">
 
 
 
@@ -465,14 +465,14 @@
 <figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">var React</span> = require(<span class="string">'react'</span>);</span><br><span class="line"><span class="attribute">var PropTypes</span> = React.PropTypes;</span><br></pre></td></tr></table></figure>
 <p>ES6</p>
 <p>使用 <code>import</code> 导出模块或模块中的方法</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123;PropTypes&#125; <span class="keyword">from</span> <span class="string">'react'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight clean"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123;PropTypes&#125; <span class="keyword">from</span> <span class="string">'react'</span></span><br></pre></td></tr></table></figure>
 <h2 id="导出模块"><a href="#导出模块" class="headerlink" title="导出模块"></a>导出模块</h2><p>ES5</p>
 <figure class="highlight lasso"><table><tr><td class="code"><pre><span class="line"><span class="built_in">var</span> <span class="keyword">Header</span> = React.createClass(&#123; <span class="params">...</span> &#125;)</span><br><span class="line">module.exports = <span class="keyword">Header</span>;</span><br></pre></td></tr></table></figure>
 <p>ES6</p>
 <p>使用 <code>export default</code> 来导出模块中的内容</p>
 <figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Header</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123; ... &#125;</span><br></pre></td></tr></table></figure>
 <h2 id="组件定义"><a href="#组件定义" class="headerlink" title="组件定义"></a>组件定义</h2><p>ES5</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Photo = React.createClass(&#123;</span><br><span class="line">	render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Photo = React.createClass(&#123;</span><br><span class="line">	render: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>ES6</p>
 <p>使用 <code>class</code> 关键字标识为组件 使用 <code>extends</code> 来继承父组件</p>
 <figure class="highlight scala"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Photo</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">	render()&#123;</span><br><span class="line">		<span class="keyword">return</span>(</span><br><span class="line">			 &lt;<span class="type">Image</span> source=&#123;<span class="keyword">this</span>.props.source&#125; /&gt;</span><br><span class="line">		)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -489,7 +489,7 @@
 <p>使用 <code>static</code> 关键字标识为组件的属性</p>
 <figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">class Video extends React.Component&#123;</span><br><span class="line">	static defaultProps = &#123;</span><br><span class="line">		autoPlay: false,</span><br><span class="line">		maxLoops: <span class="number">10</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	static propTypes = &#123;</span><br><span class="line">		autoPlay: React<span class="selector-class">.PropTypes</span><span class="selector-class">.bool</span><span class="selector-class">.isRequired</span>,</span><br><span class="line">		maxLoops: React<span class="selector-class">.PropTypes</span><span class="selector-class">.number</span><span class="selector-class">.isRequired</span>,</span><br><span class="line">		posterFrameSrc: React<span class="selector-class">.PropTypes</span><span class="selector-class">.string</span><span class="selector-class">.isRequired</span>,</span><br><span class="line">		videoSrc: React<span class="selector-class">.PropTypes</span><span class="selector-class">.string</span><span class="selector-class">.isRequired</span>,</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	render()&#123;</span><br><span class="line">		return (</span><br><span class="line">			&lt;View /&gt;</span><br><span class="line">		)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="STATE-初始化"><a href="#STATE-初始化" class="headerlink" title="STATE 初始化"></a>STATE 初始化</h2><p>ES5</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Video = React.createClass(&#123;</span><br><span class="line">	getInitialState: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (</span><br><span class="line">			loopsRemaining: <span class="keyword">this</span>.props.maxLoops</span><br><span class="line">		)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Video = React.createClass(&#123;</span><br><span class="line">	getInitialState: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (</span><br><span class="line">			loopsRemaining: <span class="keyword">this</span>.props.maxLoops</span><br><span class="line">		)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>ES6</p>
 <p>在构造函数 <code>constructor</code> 中使用 <code>this.state</code> 来指定组件的状态</p>
 <figure class="highlight scala"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Video</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">	constructor(props)&#123;</span><br><span class="line">		<span class="keyword">super</span>(props)</span><br><span class="line">		<span class="keyword">this</span>.state = &#123;</span><br><span class="line">			loopsRemaining: <span class="keyword">this</span>.props.maxLoops</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
