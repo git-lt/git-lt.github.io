@@ -486,7 +486,7 @@
 <li>Table列表数据异步加载示</li>
 <li>按钮点击有异步请求时</li>
 </ol>
-<h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><figure class="highlight gams"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Button 按钮</span></span><br><span class="line"><span class="symbol">$</span>(<span class="string">'#btn1'</span>).uiLoading(<span class="string">'sm'</span>);<span class="comment">//调用插件传入参数sm，在button上显示loading动画			</span></span><br><span class="line"><span class="symbol">$</span>(<span class="string">'#btn1'</span>).uiLoading(<span class="string">'sm'</span>);<span class="comment">//再次调用隐藏button上的loading动画</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//列表或模块卡片上</span></span><br><span class="line"><span class="symbol">$</span>(<span class="string">'#table1'</span>).uiLoading(<span class="string">'lg'</span>);<span class="comment">//调用插件传入参数lg，在table容器上显示较大的loading动画					</span></span><br><span class="line"><span class="symbol">$</span>(<span class="string">'#table1'</span>).uiLoading(<span class="string">'lg'</span>);<span class="comment">//再次调用隐藏table上的loading</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Button 按钮</span></span><br><span class="line">$(<span class="string">'#btn1'</span>).uiLoading(<span class="string">'sm'</span>);<span class="comment">//调用插件传入参数sm，在button上显示loading动画			</span></span><br><span class="line">$(<span class="string">'#btn1'</span>).uiLoading(<span class="string">'sm'</span>);<span class="comment">//再次调用隐藏button上的loading动画</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//列表或模块卡片上</span></span><br><span class="line">$(<span class="string">'#table1'</span>).uiLoading(<span class="string">'lg'</span>);<span class="comment">//调用插件传入参数lg，在table容器上显示较大的loading动画					</span></span><br><span class="line">$(<span class="string">'#table1'</span>).uiLoading(<span class="string">'lg'</span>);<span class="comment">//再次调用隐藏table上的loading</span></span><br></pre></td></tr></table></figure>
 <p><strong>如果不传入任何参数，则默认显示较大的loading</strong></p>
 <h2 id="按钮Loading效果"><a href="#按钮Loading效果" class="headerlink" title="按钮Loading效果"></a>按钮Loading效果</h2><p><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20160301-0%402x.png" alt=""></p>
 <h2 id="列表Loading效果"><a href="#列表Loading效果" class="headerlink" title="列表Loading效果"></a>列表Loading效果</h2><p><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20160301-1%402x.png" alt=""></p>
@@ -654,10 +654,6 @@
                     
                       
                     
-                      
-                    
-                      
-                    
                     <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
@@ -670,8 +666,6 @@
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
                     
-                    
-                      
                     
                       
                     

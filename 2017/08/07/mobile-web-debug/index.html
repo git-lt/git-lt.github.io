@@ -533,7 +533,7 @@
 <p>在PC上调试，有很方便Chrome调试工具，在移动端调试可以使用 vConsole 代替调试面板，查看基本调试信息</p>
 <p>功能：可以查看console日志、网络请求、设备信息、执行js代码</p>
 <p>设置标识 <code>xxxxxxx</code>，线上启用调试</p>
-<figure class="highlight flix"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 添加线上调试配置</span></span><br><span class="line"><span class="keyword">if</span>(/xxxxxx/ig.test(location.href))&#123;</span><br><span class="line">  document.writeln('&lt;script <span class="keyword">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"//coding.net/u/coderlt/p/CDN/git/raw/master/vconsole.min.js"</span><span class="string">'+'</span>&gt;<span class="string">'+'</span>&lt;<span class="string">'+'</span>/<span class="string">'+'</span>script&gt;');</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 添加线上调试配置</span></span><br><span class="line"><span class="keyword">if</span>(<span class="regexp">/xxxxxx/ig</span>.test(location.href))&#123;</span><br><span class="line">  <span class="built_in">document</span>.writeln(<span class="string">'&lt;script type="text/javascript" src="//coding.net/u/coderlt/p/CDN/git/raw/master/vconsole.min.js"'</span>+<span class="string">'&gt;'</span>+<span class="string">'&lt;'</span>+<span class="string">'/'</span>+<span class="string">'script&gt;'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Charles抓包工具"><a href="#Charles抓包工具" class="headerlink" title="Charles抓包工具"></a>Charles抓包工具</h2><p><a href="http://www.charlesproxy.com/" target="_blank" rel="noopener">Charles</a> Mac 下常用的网络封包截取工具，通过将自己设置成系统的网络访问代理服务器，使得所有的网络访问请求都通过它来完成，从而实现了网络封包的截取和分析。</p>
 <p>Windows 用户可使用 <a href="http://blog.csdn.net/qq_21445563/article/details/51017605" target="_blank" rel="noopener">Fildder</a> 来替代 Charles</p>
 <h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><ul>
@@ -794,10 +794,6 @@
                     
                       
                     
-                      
-                    
-                      
-                    
                     <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
@@ -810,8 +806,6 @@
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
                     
-                    
-                      
                     
                       
                     
