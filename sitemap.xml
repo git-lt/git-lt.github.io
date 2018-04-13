@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://toggle.coding.io/2017/11/13/docker/</loc>
+    
+    <lastmod>2018-04-13T07:38:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2017/04/13/mac-itrem/</loc>
+    
+    <lastmod>2018-04-13T07:34:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2017/12/13/event-loop/</loc>
+    
+    <lastmod>2018-04-13T07:31:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://toggle.coding.io/404.html</loc>
     
     <lastmod>2018-04-12T06:28:47.000Z</lastmod>
