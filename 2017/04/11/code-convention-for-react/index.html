@@ -111,7 +111,7 @@
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/0x01.png">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/e97ecd1d1e6483ea8cd749beee5666a2">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/95a218e30a986e4480c504ddeef1946c">
-<meta property="og:updated_time" content="2017-04-11T09:41:07.000Z">
+<meta property="og:updated_time" content="2018-04-20T05:28:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactJS代码规范">
 <meta name="twitter:description" content="一个项目大多都是由一个团队来完成，如果没有统一的代码规范，那么每个人的代码必定会风格迥异。且不说会存在多个人同时开发同一模块的情况，即使是分工十分明晰的，等到要整合代码的时候也有够头疼的了。大多数情况下，并非程序中有复杂的算法或是复杂的逻辑，而是去读别人的代码实在是一件痛苦的事情。统一的风格使得代码可读性大大提高了，人们看到任何一段代码都会觉得异常熟悉。显然的，规范的代码在团队的合作开发中是非常有">
@@ -402,7 +402,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
 
                 
                 
@@ -438,14 +438,6 @@
              </span>
           
 
-          
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
           
 
           
@@ -515,7 +507,7 @@
 <ul>
 <li><strong>建议</strong> 代码块使用多行注释，语句使用单行注释，参数说明使用代码后注释</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * desc: xxx组件</span></span><br><span class="line"><span class="comment"> * author: lt</span></span><br><span class="line"><span class="comment"> * useage: Toast.info('')</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> CONFIG = &#123;</span><br><span class="line">	itemIds: TJ.getUrlParams(<span class="string">'itemIds'</span>), <span class="comment">// 套餐默认项</span></span><br><span class="line">	orderId: TJ.getUrlParams(<span class="string">'orderId'</span>), <span class="comment">// 订单id</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exprot <span class="keyword">default</span> React.createClass(&#123;</span><br><span class="line">	</span><br><span class="line">	getInitialState()&#123;&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 选中当前项</span></span><br><span class="line">	selectCurrent()&#123;&#125;,</span><br><span class="line">	</span><br><span class="line">	render()&#123;</span><br><span class="line">		<span class="keyword">return</span> (</span><br><span class="line">			&lt;div&gt;</span><br><span class="line">				&#123;<span class="comment">/*头部*/</span>&#125;</span><br><span class="line">				&lt;HeaderView /&gt;</span><br><span class="line">			&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">		)</span></span><br><span class="line"><span class="regexp">	&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&#125;)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * desc: xxx组件</span></span><br><span class="line"><span class="comment"> * author: lt</span></span><br><span class="line"><span class="comment"> * useage: Toast.info('')</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> CONFIG = &#123;</span><br><span class="line">	itemIds: TJ.getUrlParams(<span class="string">'itemIds'</span>), <span class="comment">// 套餐默认项</span></span><br><span class="line">	orderId: TJ.getUrlParams(<span class="string">'orderId'</span>), <span class="comment">// 订单id</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exprot <span class="keyword">default</span> React.createClass(&#123;</span><br><span class="line"></span><br><span class="line">	getInitialState()&#123;&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 选中当前项</span></span><br><span class="line">	selectCurrent()&#123;&#125;,</span><br><span class="line"></span><br><span class="line">	render()&#123;</span><br><span class="line">		<span class="keyword">return</span> (</span><br><span class="line">			&lt;div&gt;</span><br><span class="line">				&#123;<span class="comment">/*头部*/</span>&#125;</span><br><span class="line">				&lt;HeaderView /&gt;</span><br><span class="line">			&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">		)</span></span><br><span class="line"><span class="regexp">	&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&#125;)</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>必须</strong>在DOM片段中使用双引号 <code>&quot;</code>, js中使用 <code>&#39;</code></li>
 </ul>
@@ -542,7 +534,7 @@
 <li><strong>必须</strong>只能使用 <code>React.createClass()</code> 来创建一个 <code>React Component</code></li>
 <li><strong>建议</strong>书写 <code>propTypes</code>，规定每个可接受属性的类型，并对 <code>propTypes</code> 加以说明，设置默认值，并申明在类外部</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> React.createClass(&#123;</span><br><span class="line">	displayName: <span class="string">'Toast'</span>,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">Toast.propTypes = &#123;</span><br><span class="line">  	<span class="comment">// display tips</span></span><br><span class="line">    show: React.PropTypes.bool, </span><br><span class="line">  	<span class="comment">// type: `default`, `success`, `loading`</span></span><br><span class="line">    type: React.PropTypes.string, </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Toast.defaultProps = &#123;</span><br><span class="line">    show: <span class="literal">false</span>,</span><br><span class="line">    type: <span class="string">'default'</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> React.createClass(&#123;</span><br><span class="line">	displayName: <span class="string">'Toast'</span>,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">Toast.propTypes = &#123;</span><br><span class="line">  	<span class="comment">// display tips</span></span><br><span class="line">    show: React.PropTypes.bool,</span><br><span class="line">  	<span class="comment">// type: `default`, `success`, `loading`</span></span><br><span class="line">    type: React.PropTypes.string,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Toast.defaultProps = &#123;</span><br><span class="line">    show: <span class="literal">false</span>,</span><br><span class="line">    type: <span class="string">'default'</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>必须</strong>使用 <code>camalCase</code> 来命名 <code>props</code></li>
 </ul>
@@ -554,7 +546,7 @@
 <ul>
 <li><strong>建议</strong>遵循如下的顺序排列JSX文件中的方法<br><code>render()</code> 始终放在最后</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">React.createClass(&#123;</span><br><span class="line">  displayName: <span class="string">''</span>,</span><br><span class="line">  </span><br><span class="line">  mixins: [],</span><br><span class="line">  </span><br><span class="line">  statics: &#123;&#125;,</span><br><span class="line">  </span><br><span class="line">  propTypes: &#123;&#125;,</span><br><span class="line">  </span><br><span class="line">  getDefaultProps() &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;,</span><br><span class="line">  </span><br><span class="line">  getInitialState() &#123;</span><br><span class="line">    <span class="comment">// do something</span></span><br><span class="line">  &#125;,</span><br><span class="line">  </span><br><span class="line">  componentWillMount() &#123;</span><br><span class="line">      <span class="comment">// do something</span></span><br><span class="line">  &#125;,</span><br><span class="line">  </span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    <span class="comment">// do something: add DOM event listener, etc.</span></span><br><span class="line">  &#125;,</span><br><span class="line">  </span><br><span class="line">  componentWillReceiveProps() &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  </span><br><span class="line">  shouldComponentUpdate() &#123;&#125;,</span><br><span class="line">  </span><br><span class="line">  componentWillUpdate() &#123;&#125;,</span><br><span class="line">  </span><br><span class="line">  componentDidUpdate() &#123;&#125;,</span><br><span class="line">  </span><br><span class="line">  componentWillUnmount() &#123;</span><br><span class="line">      <span class="comment">// do something: remove DOM event listener. etc.</span></span><br><span class="line">  &#125;,</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// clickHandlers or eventHandlers like onClickSubmit() or onChangeDescription()</span></span><br><span class="line">  handleClick() &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;,</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// getter methods for render like getSelectReason() or getFooterContent()</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// Optional render methods like renderNavigation() or renderProfilePicture()</span></span><br><span class="line">  </span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">React.createClass(&#123;</span><br><span class="line">  displayName: <span class="string">''</span>,</span><br><span class="line"></span><br><span class="line">  mixins: [],</span><br><span class="line"></span><br><span class="line">  statics: &#123;&#125;,</span><br><span class="line"></span><br><span class="line">  propTypes: &#123;&#125;,</span><br><span class="line"></span><br><span class="line">  getDefaultProps() &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  getInitialState() &#123;</span><br><span class="line">    <span class="comment">// do something</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  componentWillMount() &#123;</span><br><span class="line">      <span class="comment">// do something</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    <span class="comment">// do something: add DOM event listener, etc.</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  componentWillReceiveProps() &#123;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  shouldComponentUpdate() &#123;&#125;,</span><br><span class="line"></span><br><span class="line">  componentWillUpdate() &#123;&#125;,</span><br><span class="line"></span><br><span class="line">  componentDidUpdate() &#123;&#125;,</span><br><span class="line"></span><br><span class="line">  componentWillUnmount() &#123;</span><br><span class="line">      <span class="comment">// do something: remove DOM event listener. etc.</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// clickHandlers or eventHandlers like onClickSubmit() or onChangeDescription()</span></span><br><span class="line">  handleClick() &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// getter methods for render like getSelectReason() or getFooterContent()</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// Optional render methods like renderNavigation() or renderProfilePicture()</span></span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>必须</strong>在state中只存放组件运行期的状态，保持 <code>state</code> 的简洁性</li>
 <li><strong>必须</strong> 仅在实例化生命周期中绑定window或body事件</li>
@@ -731,7 +723,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-count">77</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -768,13 +760,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -847,7 +833,27 @@
                     
                       
                     
-                    <span class="site-state-item-count">30</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

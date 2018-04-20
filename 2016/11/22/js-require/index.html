@@ -111,7 +111,7 @@
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-22%20%E4%B8%8B%E5%8D%886.05.50.png">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-22%20%E4%B8%8B%E5%8D%886.06.17.png">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-22%20%E4%B8%8B%E5%8D%886.34.00.png">
-<meta property="og:updated_time" content="2016-11-24T03:07:04.000Z">
+<meta property="og:updated_time" content="2018-04-20T05:34:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Requirejs源码浅析">
 <meta name="twitter:description" content="Requirejs在项目中使用很多，平时配置好以后，只是在用，很少去探究其内部实现，只知道是通过script标签去加载依赖，监听加载成功或失败的事件，再去继续逐步加载。今天大致看了一下源码，发现其内部实现还是十分复杂的，看了一小部分，做个笔记。">
@@ -402,7 +402,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
 
                 
                 
@@ -438,14 +438,6 @@
              </span>
           
 
-          
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
           
 
           
@@ -504,7 +496,7 @@
 <h2 id="define"><a href="#define" class="headerlink" title="define()"></a>define()</h2><p>用于定义模块，将模块推入到一个队列中，用于Module的初始化</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">define = <span class="function"><span class="keyword">function</span> (<span class="params">name, deps, callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> node, context;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//允许匿名模块：define([...], function()&#123;&#125;)</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> name !== <span class="string">'string'</span>) &#123;</span><br><span class="line">        callback = deps;</span><br><span class="line">        deps = name;</span><br><span class="line">        name = <span class="literal">null</span>; <span class="comment">//没有自定义模块名称</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//没有依赖的模块 define(function()&#123;&#125;)</span></span><br><span class="line">    <span class="keyword">if</span> (!isArray(deps)) &#123;</span><br><span class="line">        callback = deps;</span><br><span class="line">        deps = <span class="literal">null</span>; <span class="comment">//没有依赖</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//没有依赖模块，按照CommonJS的模块规则，去查找依赖</span></span><br><span class="line">    <span class="keyword">if</span> (!deps &amp;&amp; isFunction(callback)) &#123;</span><br><span class="line">        deps = [];</span><br><span class="line">        <span class="comment">//如果回调没有参数，则不分析内部依赖</span></span><br><span class="line">        <span class="comment">//如果有参数，将函数转成字符串</span></span><br><span class="line">        <span class="comment">//用正则匹配出使用require('')方法加载的模块，将这些模块加到依赖队列中deps</span></span><br><span class="line">        <span class="keyword">if</span> (callback.length) &#123;</span><br><span class="line">            callback</span><br><span class="line">            	<span class="comment">//回调函数转成字符串</span></span><br><span class="line">                .toString()</span><br><span class="line">                <span class="comment">//去掉所有的注释commentRegExp = /\/\*[\s\S]*?\*\/|([^:"'=]|^)\/\/.*$/mg,</span></span><br><span class="line">                .replace(commentRegExp, commentReplace)</span><br><span class="line">                <span class="comment">//解析出require('')加载的模块，push到deps中</span></span><br><span class="line">                <span class="comment">//cjsRequireRegExp = /[^.]\s*require\s*\(\s*["']([^'"\s]+)["']\s*\)/g,</span></span><br><span class="line">                .replace(cjsRequireRegExp, <span class="function"><span class="keyword">function</span> (<span class="params">match, dep</span>) </span>&#123;</span><br><span class="line">                    deps.push(dep);</span><br><span class="line">                &#125;);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//如果是模块commonjs的标准，那么注入 requier,exports,module 三个对象，如果不是，则注入require对象</span></span><br><span class="line">            deps = (callback.length === <span class="number">1</span> ? [<span class="string">'require'</span>] : [<span class="string">'require'</span>, <span class="string">'exports'</span>, <span class="string">'module'</span>]).concat(deps);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//如果IE 6-8有匿名的define，修正name和context的值</span></span><br><span class="line">    <span class="keyword">if</span> (useInteractive) &#123;</span><br><span class="line">        node = currentlyAddingScript || getInteractiveScript();</span><br><span class="line">        <span class="keyword">if</span> (node) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!name) &#123;</span><br><span class="line">                name = node.getAttribute(<span class="string">'data-requiremodule'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            context = contexts[node.getAttribute(<span class="string">'data-requirecontext'</span>)];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">   	<span class="comment">//如果有上下文，则将define的模块push到defQueue中</span></span><br><span class="line">   	<span class="comment">//如果没有，则将模块push到globalDefQueue中</span></span><br><span class="line">    <span class="keyword">if</span> (context) &#123;</span><br><span class="line">        context.defQueue.push([name, deps, callback]);</span><br><span class="line">        context.defQueueMap[name] = <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        globalDefQueue.push([name, deps, callback]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h3 id="context-nextTick"><a href="#context-nextTick" class="headerlink" title="context.nextTick()"></a>context.nextTick()</h3><p>requirejs() 方法最终会调用这个方法，并延迟4s执行,  放在一个setTimeout中，用于加载依赖模块。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//确保所有的依赖都加载完成</span></span><br><span class="line"> context.nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="comment">//Some defines could have been added since the require call, collect them.</span></span><br><span class="line">    intakeDefines();</span><br><span class="line">	<span class="comment">//创建模块映射，并创建模块实例</span></span><br><span class="line">    requireMod = getModule(makeModuleMap(<span class="literal">null</span>, relMap));</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Store if map config should be applied to this require call for dependencies.</span></span><br><span class="line">    requireMod.skipMap = options.skipMap;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//调用模块init方法初始化模块并加载依赖 </span></span><br><span class="line">	<span class="comment">//=&gt;enable()注册defined和error事件</span></span><br><span class="line">	<span class="comment">//=&gt;check()</span></span><br><span class="line">	<span class="comment">//=&gt;fetch()</span></span><br><span class="line">	<span class="comment">//=&gt;load() //创建script标签</span></span><br><span class="line">    requireMod.init(deps, callback, errback, &#123;</span><br><span class="line">        enabled: <span class="literal">true</span></span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">	<span class="comment">//检查是否加载完成</span></span><br><span class="line">    checkLoaded();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//确保所有的依赖都加载完成</span></span><br><span class="line"> context.nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="comment">//Some defines could have been added since the require call, collect them.</span></span><br><span class="line">    intakeDefines();</span><br><span class="line">	<span class="comment">//创建模块映射，并创建模块实例</span></span><br><span class="line">    requireMod = getModule(makeModuleMap(<span class="literal">null</span>, relMap));</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Store if map config should be applied to this require call for dependencies.</span></span><br><span class="line">    requireMod.skipMap = options.skipMap;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//调用模块init方法初始化模块并加载依赖</span></span><br><span class="line">	<span class="comment">//=&gt;enable()注册defined和error事件</span></span><br><span class="line">	<span class="comment">//=&gt;check()</span></span><br><span class="line">	<span class="comment">//=&gt;fetch()</span></span><br><span class="line">	<span class="comment">//=&gt;load() //创建script标签</span></span><br><span class="line">    requireMod.init(deps, callback, errback, &#123;</span><br><span class="line">        enabled: <span class="literal">true</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//检查是否加载完成</span></span><br><span class="line">    checkLoaded();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h3 id="intakeDefines"><a href="#intakeDefines" class="headerlink" title="intakeDefines"></a>intakeDefines</h3><p>对队列中的模块做初始化</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">intakeDefines</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> args;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//将globalQueue全局队列中的模块移到defQueue队列中</span></span><br><span class="line">    takeGlobalQueue();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//确保所有的依赖模块都是define()生成的模块</span></span><br><span class="line">    <span class="keyword">while</span> (defQueue.length) &#123;</span><br><span class="line">        args = defQueue.shift();<span class="comment">//[name, deps, callback]</span></span><br><span class="line">        <span class="keyword">if</span> (args[<span class="number">0</span>] === <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> onError(makeError(<span class="string">'mismatch'</span>, <span class="string">'Mismatched anonymous define() module: '</span> +</span><br><span class="line">                args[args.length - <span class="number">1</span>]));</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//args are id, deps, factory. Should be normalized by the</span></span><br><span class="line">            <span class="comment">//define() function.</span></span><br><span class="line">            callGetModule(args);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    context.defQueueMap = &#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="load"><a href="#load" class="headerlink" title="load"></a>load</h2><p>上面 从 <code>requireMod.init()</code> 开始，就会调用 enable()=&gt;check()=&gt;fetch()=&gt;load()，到 <code>req.load</code> 这里，终于可以创建script标签到head中了</p>
@@ -638,7 +630,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-count">77</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -675,13 +667,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -754,7 +740,27 @@
                     
                       
                     
-                    <span class="site-state-item-count">30</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

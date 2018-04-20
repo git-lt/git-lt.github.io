@@ -108,7 +108,7 @@
 <meta property="og:description" content="经过上一篇 深入理解 Promise （上） 的理论知识和用法学习，这一篇让我们深入源码层面，一步一步去封装一个Promise，去了解Promise的内部实现，以便我们在项目中对Promise的使用运用自如。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-04%20%E4%B8%8A%E5%8D%889.20.57.png">
-<meta property="og:updated_time" content="2016-12-05T02:09:54.000Z">
+<meta property="og:updated_time" content="2018-04-20T05:37:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解 Promise (中)">
 <meta name="twitter:description" content="经过上一篇 深入理解 Promise （上） 的理论知识和用法学习，这一篇让我们深入源码层面，一步一步去封装一个Promise，去了解Promise的内部实现，以便我们在项目中对Promise的使用运用自如。">
@@ -399,7 +399,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
 
                 
                 
@@ -435,14 +435,6 @@
              </span>
           
 
-          
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
           
 
           
@@ -492,7 +484,7 @@
 </li>
 <li>添加扩展功能函数<ul>
 <li>all</li>
-<li>race </li>
+<li>race</li>
 <li>resolve</li>
 <li>reject</li>
 <li>wait</li>
@@ -527,11 +519,11 @@
 <li>Promise对象必须有一个 <code>then</code> 方法，且只接受两个可函数参数 <code>onFulfilled</code>、<code>onRejected</code></li>
 </ol>
 <p>由以上标准就容易就能实现这个类的大致结构</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// resolver为 function(resolve, reject)&#123; ... &#125;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Promise</span>(<span class="params">resolver</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(resolver &amp;&amp; <span class="keyword">typeof</span> resolver !== <span class="string">'function'</span>)&#123; <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Promise resolver is not a function'</span>) &#125;</span><br><span class="line">  <span class="comment">//当前promise对象的状态</span></span><br><span class="line">  <span class="keyword">this</span>.state = PENDING;</span><br><span class="line">  <span class="comment">//当前promise对象的数据（成功或失败）</span></span><br><span class="line">  <span class="keyword">this</span>.data = UNDEFINED; </span><br><span class="line">  <span class="comment">//当前promise对象注册的回调队列</span></span><br><span class="line">  <span class="keyword">this</span>.callbackQueue=[]; </span><br><span class="line">  <span class="comment">//执行resove()或reject()方法</span></span><br><span class="line">  <span class="keyword">if</span>(resolver) executeResolver.call(<span class="keyword">this</span>, resolver);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Promise</span>.prototype.then = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// resolver为 function(resolve, reject)&#123; ... &#125;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Promise</span>(<span class="params">resolver</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(resolver &amp;&amp; <span class="keyword">typeof</span> resolver !== <span class="string">'function'</span>)&#123; <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Promise resolver is not a function'</span>) &#125;</span><br><span class="line">  <span class="comment">//当前promise对象的状态</span></span><br><span class="line">  <span class="keyword">this</span>.state = PENDING;</span><br><span class="line">  <span class="comment">//当前promise对象的数据（成功或失败）</span></span><br><span class="line">  <span class="keyword">this</span>.data = UNDEFINED;</span><br><span class="line">  <span class="comment">//当前promise对象注册的回调队列</span></span><br><span class="line">  <span class="keyword">this</span>.callbackQueue=[];</span><br><span class="line">  <span class="comment">//执行resove()或reject()方法</span></span><br><span class="line">  <span class="keyword">if</span>(resolver) executeResolver.call(<span class="keyword">this</span>, resolver);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Promise</span>.prototype.then = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
 <p>所以，一个 <code>Promise构造函数</code> 和<code>一个实例方法then</code> 就是Promise的核心的了，其它的都是Promise的语法糖或者说是扩展。</p>
 <h2 id="构造器的初始化"><a href="#构造器的初始化" class="headerlink" title="构造器的初始化"></a>构造器的初始化</h2><p>使用 <code>new Promise(function(resolve, reject){...} )</code>实例化 Promise 时，去改变promise的状态，是执行 resolve() 或 reject()方法，那么，resolver的两个参数分别是成功的操作函数和失败的操作函数。</p>
 <h3 id="executeResolver"><a href="#executeResolver" class="headerlink" title="executeResolver"></a>executeResolver</h3><p>这里将上面执行 <code>resolver</code> 的方法抽象出来，内部再将 <code>resovle</code> 和 <code>reject</code> 两个参数包装成 成功和失败的回调。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 用于执行 new Promise(function(resolve, reject)&#123;&#125;) 中的resove或reject方法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">executeResolver</span>(<span class="params">resolver</span>)</span>&#123;</span><br><span class="line"> <span class="comment">//[标准 2.3.3.3.3] 如果resove()方法多次调用，只响应第一次，后面的忽略</span></span><br><span class="line">  <span class="keyword">var</span> called = <span class="literal">false</span>, _this = <span class="keyword">this</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">onError</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (called) &#123; <span class="keyword">return</span>; &#125; </span><br><span class="line">    called = <span class="literal">true</span>;</span><br><span class="line">    <span class="comment">//[标准 2.3.3.3.2] 如果是错误 使用reject方法</span></span><br><span class="line">    executeCallback.bind(_this)(<span class="string">'reject'</span>, value);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">onSuccess</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (called) &#123; <span class="keyword">return</span>; &#125;</span><br><span class="line">    called = <span class="literal">true</span>;</span><br><span class="line">    <span class="comment">//[标准 2.3.3.3.1] 如果是成功 使用resolve方法</span></span><br><span class="line">    executeCallback.bind(_this)(<span class="string">'resolve'</span>, value);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 使用try...catch执行</span></span><br><span class="line">  <span class="comment">//[标准 2.3.3.3.4] 如果调用resolve()或reject()时发生错误，则将状态改成rejected，并将错误reject出去</span></span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    resolver(onSuccess, onError);</span><br><span class="line">  &#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">    onError(e);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 用于执行 new Promise(function(resolve, reject)&#123;&#125;) 中的resove或reject方法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">executeResolver</span>(<span class="params">resolver</span>)</span>&#123;</span><br><span class="line"> <span class="comment">//[标准 2.3.3.3.3] 如果resove()方法多次调用，只响应第一次，后面的忽略</span></span><br><span class="line">  <span class="keyword">var</span> called = <span class="literal">false</span>, _this = <span class="keyword">this</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">onError</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (called) &#123; <span class="keyword">return</span>; &#125;</span><br><span class="line">    called = <span class="literal">true</span>;</span><br><span class="line">    <span class="comment">//[标准 2.3.3.3.2] 如果是错误 使用reject方法</span></span><br><span class="line">    executeCallback.bind(_this)(<span class="string">'reject'</span>, value);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">onSuccess</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (called) &#123; <span class="keyword">return</span>; &#125;</span><br><span class="line">    called = <span class="literal">true</span>;</span><br><span class="line">    <span class="comment">//[标准 2.3.3.3.1] 如果是成功 使用resolve方法</span></span><br><span class="line">    executeCallback.bind(_this)(<span class="string">'resolve'</span>, value);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 使用try...catch执行</span></span><br><span class="line">  <span class="comment">//[标准 2.3.3.3.4] 如果调用resolve()或reject()时发生错误，则将状态改成rejected，并将错误reject出去</span></span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    resolver(onSuccess, onError);</span><br><span class="line">  &#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">    onError(e);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="executeCallback"><a href="#executeCallback" class="headerlink" title="executeCallback"></a>executeCallback</h3><p>因为执行 <code>resolved()</code> 或 <code>reject()</code> 内部主要作用是更改当前实例的状态为 <code>rejected</code> 或 <code>resolved</code>，然后执行当前实例 <code>then()</code> 中注册的 成功或失败的回调函数， 所以从过程上来看，大致是相同的，抽象出来共用</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 用于执行成功或失败的回调 new Promise((resolve, reject) =&gt; &#123; resolve(1)或 reject(1) &#125;)</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">executeCallback</span>(<span class="params">type, x</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> isResolve = type === <span class="string">'resolve'</span>, thenable;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// [标准 2.3.3] 如果x是一个对象或一个函数</span></span><br><span class="line">    <span class="keyword">if</span>(isResolve &amp;&amp; (<span class="keyword">typeof</span> x === <span class="string">'object'</span> || <span class="keyword">typeof</span> x === <span class="string">'function'</span>))&#123;</span><br><span class="line">	  <span class="comment">//[标准 2.3.3.2]</span></span><br><span class="line">      <span class="keyword">try</span>&#123;</span><br><span class="line">        thenable = getThen(x);</span><br><span class="line">      &#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">        <span class="keyword">return</span> executeCallback.bind(<span class="keyword">this</span>)(<span class="string">'reject'</span>, e);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(isResolve &amp;&amp; thenable)&#123;</span><br><span class="line">      executeResolver.bind(<span class="keyword">this</span>)(thenable);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="comment">//[标准 2.3.4]</span></span><br><span class="line">      <span class="keyword">this</span>.state = isResolve ? RESOLVED : REJECTED;</span><br><span class="line">      <span class="keyword">this</span>.data = x;</span><br><span class="line">      <span class="keyword">this</span>.callbackQueue &amp;&amp; <span class="keyword">this</span>.callbackQueue.length &amp;&amp; <span class="keyword">this</span>.callbackQueue.forEach(<span class="function"><span class="params">v</span> =&gt;</span> v[type](x));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <h3 id="getThen"><a href="#getThen" class="headerlink" title="getThen"></a>getThen</h3><p>用于判断是否是thenable对象，如果是，则返回一个执行thenable中then方法的函数<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getThen</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> then = obj &amp;&amp; obj.then;</span><br><span class="line">  <span class="keyword">if</span> (obj &amp;&amp; <span class="keyword">typeof</span> obj === <span class="string">'object'</span> &amp;&amp; <span class="keyword">typeof</span> then === <span class="string">'function'</span>) &#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">appyThen</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     then.apply(obj, <span class="built_in">arguments</span>);</span><br><span class="line">   &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -762,7 +754,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-count">77</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -799,13 +791,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -878,7 +864,27 @@
                     
                       
                     
-                    <span class="site-state-item-count">30</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

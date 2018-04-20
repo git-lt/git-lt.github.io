@@ -100,13 +100,14 @@
 
 
   <meta name="description" content="组件的封装有利用于代码的复用，封装统一的数据处理逻辑，对外提供接口，灵活配置与扩展，调用方便，利于维护。">
+<meta name="keywords" content="规范">
 <meta property="og:type" content="article">
 <meta property="og:title" content="组件编写规范">
 <meta property="og:url" content="http://toggle.coding.io/2016/05/10/Define-Component-guid/index.html">
 <meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="组件的封装有利用于代码的复用，封装统一的数据处理逻辑，对外提供接口，灵活配置与扩展，调用方便，利于维护。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2016-07-17T07:25:14.000Z">
+<meta property="og:updated_time" content="2018-04-20T05:31:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="组件编写规范">
 <meta name="twitter:description" content="组件的封装有利用于代码的复用，封装统一的数据处理逻辑，对外提供接口，灵活配置与扩展，调用方便，利于维护。">
@@ -433,14 +434,6 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
 
           
 
@@ -496,7 +489,7 @@
 <li>PLUGIN NOCONFLICT:插件命名冲突解决</li>
 <li>DATA-API：DATA-属性接口</li>
 </ul>
-<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* module: Button</span></span><br><span class="line"><span class="comment">* author: XXX</span></span><br><span class="line"><span class="comment">* version: v0.0.1</span></span><br><span class="line"><span class="comment">* use age: ....</span></span><br><span class="line"><span class="comment">* deps: [...]</span></span><br><span class="line"><span class="comment">* github: ...</span></span><br><span class="line"><span class="comment">**/</span></span><br><span class="line"></span><br><span class="line">!<span class="function"><span class="keyword">function</span> (<span class="params">$</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">  "use strict"</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// CLASS DEFINITION</span></span><br><span class="line">  <span class="comment">// ================ </span></span><br><span class="line">  <span class="keyword">var</span> Button = <span class="function"><span class="keyword">function</span> (<span class="params">element, options</span>) </span>&#123;<span class="comment">/*some code*&#125;</span></span><br><span class="line"><span class="comment">  </span></span><br><span class="line"><span class="comment">  Button.VERSION='v1.0.1';</span></span><br><span class="line"><span class="comment">  </span></span><br><span class="line"><span class="comment">  Button.prototype.setState = function (state) &#123;/*some code*/</span>&#125;</span><br><span class="line">  Button.prototype.toggle = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="comment">/*some code*/</span>&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">// PLUGIN DEFINITION</span></span><br><span class="line">  <span class="comment">// =================</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">Plugin</span>(<span class="params">option</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.each(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> $<span class="keyword">this</span> = $(<span class="keyword">this</span>)</span><br><span class="line">      <span class="keyword">var</span> data  = $<span class="keyword">this</span>.data(<span class="string">'qk.button'</span>)</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (!data) $<span class="keyword">this</span>.data(<span class="string">'qk.button'</span>, (data = <span class="keyword">new</span> Button(<span class="keyword">this</span>)))</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> option == <span class="string">'string'</span>) data[option].call($<span class="keyword">this</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> old = $.fn.button;</span><br><span class="line"></span><br><span class="line">  $.fn.button             = Plugin;</span><br><span class="line">  $.fn.button.Constructor = Button;</span><br><span class="line">  $.fn.button.defaults = &#123;<span class="attr">loadingText</span>: <span class="string">'loading...'</span>&#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// NO CONFLICT</span></span><br><span class="line">  <span class="comment">// ===========</span></span><br><span class="line">  $.fn.button.noConflict = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      $.fn.button = old;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// DATA-API</span></span><br><span class="line">  <span class="comment">// ========</span></span><br><span class="line">  $(<span class="built_in">document</span>).on(<span class="string">'click.button.data-api'</span>, <span class="string">'[data-toggle^=button]'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;<span class="comment">/*some code*/</span>&#125;)</span><br><span class="line"></span><br><span class="line">&#125;(jQuery, <span class="built_in">window</span>, <span class="literal">undefined</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* module: Button</span></span><br><span class="line"><span class="comment">* author: XXX</span></span><br><span class="line"><span class="comment">* version: v0.0.1</span></span><br><span class="line"><span class="comment">* use age: ....</span></span><br><span class="line"><span class="comment">* deps: [...]</span></span><br><span class="line"><span class="comment">* github: ...</span></span><br><span class="line"><span class="comment">**/</span></span><br><span class="line"></span><br><span class="line">!<span class="function"><span class="keyword">function</span> (<span class="params">$</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">  "use strict"</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// CLASS DEFINITION</span></span><br><span class="line">  <span class="comment">// ================</span></span><br><span class="line">  <span class="keyword">var</span> Button = <span class="function"><span class="keyword">function</span> (<span class="params">element, options</span>) </span>&#123;<span class="comment">/*some code*&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  Button.VERSION='v1.0.1';</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  Button.prototype.setState = function (state) &#123;/*some code*/</span>&#125;</span><br><span class="line">  Button.prototype.toggle = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="comment">/*some code*/</span>&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">// PLUGIN DEFINITION</span></span><br><span class="line">  <span class="comment">// =================</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">Plugin</span>(<span class="params">option</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.each(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> $<span class="keyword">this</span> = $(<span class="keyword">this</span>)</span><br><span class="line">      <span class="keyword">var</span> data  = $<span class="keyword">this</span>.data(<span class="string">'qk.button'</span>)</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (!data) $<span class="keyword">this</span>.data(<span class="string">'qk.button'</span>, (data = <span class="keyword">new</span> Button(<span class="keyword">this</span>)))</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> option == <span class="string">'string'</span>) data[option].call($<span class="keyword">this</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> old = $.fn.button;</span><br><span class="line"></span><br><span class="line">  $.fn.button             = Plugin;</span><br><span class="line">  $.fn.button.Constructor = Button;</span><br><span class="line">  $.fn.button.defaults = &#123;<span class="attr">loadingText</span>: <span class="string">'loading...'</span>&#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// NO CONFLICT</span></span><br><span class="line">  <span class="comment">// ===========</span></span><br><span class="line">  $.fn.button.noConflict = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      $.fn.button = old;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// DATA-API</span></span><br><span class="line">  <span class="comment">// ========</span></span><br><span class="line">  $(<span class="built_in">document</span>).on(<span class="string">'click.button.data-api'</span>, <span class="string">'[data-toggle^=button]'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;<span class="comment">/*some code*/</span>&#125;)</span><br><span class="line"></span><br><span class="line">&#125;(jQuery, <span class="built_in">window</span>, <span class="literal">undefined</span>);</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -514,6 +507,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/规范/" rel="tag"># 规范</a>
+          
+        </div>
       
 
       
@@ -617,7 +616,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-count">77</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -654,13 +653,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -733,7 +726,27 @@
                     
                       
                     
-                    <span class="site-state-item-count">30</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

@@ -107,7 +107,7 @@
 <meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="为了解决多重嵌套回调会使代码变得难以维护的问题，javascript一直在不但的寻找改善和解决这个问题的方案，一直在不但的演进着…">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2016-11-15T07:18:10.000Z">
+<meta property="og:updated_time" content="2018-04-20T05:27:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="异步编程的前世今生">
 <meta name="twitter:description" content="为了解决多重嵌套回调会使代码变得难以维护的问题，javascript一直在不但的寻找改善和解决这个问题的方案，一直在不但的演进着…">
@@ -397,7 +397,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
 
                 
                 
@@ -434,14 +434,6 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
 
           
 
@@ -463,7 +455,7 @@
         <p>为了解决多重嵌套回调会使代码变得难以维护的问题，javascript一直在不但的寻找改善和解决这个问题的方案，一直在不但的演进着…<br><a id="more"></a></p>
 <p><strong> 异步编程的终极目标：无招（异步）胜有招（异步） </strong></p>
 <h2 id="ES6之前的解决方案"><a href="#ES6之前的解决方案" class="headerlink" title="ES6之前的解决方案"></a>ES6之前的解决方案</h2><h3 id="嵌套回调（洋葱语法）"><a href="#嵌套回调（洋葱语法）" class="headerlink" title="嵌套回调（洋葱语法）"></a>嵌套回调（洋葱语法）</h3><p>最简单的回调处理就是这种多重嵌套，如果嵌套太多，还要做处理异常的话，代码将变得异常复杂。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$.post(<span class="string">'data1.json'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">	$.post(<span class="string">'data2.json'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">		$.post(<span class="string">'data3.json'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">			$.post(<span class="string">'data4.json'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">				</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$.post(<span class="string">'data1.json'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">	$.post(<span class="string">'data2.json'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">		$.post(<span class="string">'data3.json'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">			$.post(<span class="string">'data4.json'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h3 id="具名函数"><a href="#具名函数" class="headerlink" title="具名函数"></a>具名函数</h3><p>一种减少嵌套的方法就是使用具名函数</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$.post(<span class="string">'data1.json'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		getData2();</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$.post(<span class="string">'data2.json'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		getData3();</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData3</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$.post(<span class="string">'data3.json'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		getData4()</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData4</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$.post(<span class="string">'data1=4.json'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="comment">//...</span></span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getData1()</span><br></pre></td></tr></table></figure>
 <p>使用具名函数虽然减少了嵌套层级，但是直观上无法反应各个函数之间的层级关系，以致逻辑不清</p>
@@ -645,7 +637,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-count">77</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -682,13 +674,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -761,7 +747,27 @@
                     
                       
                     
-                    <span class="site-state-item-count">30</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

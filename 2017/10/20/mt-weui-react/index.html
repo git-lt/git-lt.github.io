@@ -100,7 +100,7 @@
 
 
   <meta name="description" content="目前社区没有较为优秀的 weui+react 框架，而我们使用的是 React0.13 的老版本，新版 React 框架并不兼容，weui 虽然提供了标准的视觉规范组件，但并没有封装成运用于项目的UI交互组件。 所以我们决定自己维护开发一套基于 weui+React 的组件库，以便在项目开发中使用搭积木的方式快速高质量的实现业务需求。">
-<meta name="keywords" content="react">
+<meta name="keywords" content="React">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于Weui的React组件库mt-weui-react发布了">
 <meta property="og:url" content="http://toggle.coding.io/2017/10/20/mt-weui-react/index.html">
@@ -114,7 +114,7 @@
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/weui-react/weui-doc-2.png">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/weui-react/weui-map-1.png">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/weui-react/weui-map-2.png">
-<meta property="og:updated_time" content="2017-10-20T03:17:32.000Z">
+<meta property="og:updated_time" content="2018-04-20T05:36:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Weui的React组件库mt-weui-react发布了">
 <meta name="twitter:description" content="目前社区没有较为优秀的 weui+react 框架，而我们使用的是 React0.13 的老版本，新版 React 框架并不兼容，weui 虽然提供了标准的视觉规范组件，但并没有封装成运用于项目的UI交互组件。 所以我们决定自己维护开发一套基于 weui+React 的组件库，以便在项目开发中使用搭积木的方式快速高质量的实现业务需求。">
@@ -405,14 +405,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/node/" itemprop="url" rel="index"><span itemprop="name">node</span></a></span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/node/移动前端/" itemprop="url" rel="index"><span itemprop="name">移动前端</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/移动前端/" itemprop="url" rel="index"><span itemprop="name">移动前端</span></a></span>
 
                 
                 
@@ -448,14 +441,6 @@
              </span>
           
 
-          
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
           
 
           
@@ -537,7 +522,7 @@
 <p>组件目录文件</p>
 <figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">index<span class="selector-class">.js</span>   <span class="comment">// 组件主文件</span></span><br><span class="line">index<span class="selector-class">.less</span> <span class="comment">// 样式</span></span><br><span class="line">metas<span class="selector-class">.yml</span>  <span class="comment">// 组件描述</span></span><br></pre></td></tr></table></figure>
 <p><code>metas.yml</code> 用于描述组件，最后会生成该组件的说明文档</p>
-<p><code>metas.yml</code>  结构说明: </p>
+<p><code>metas.yml</code>  结构说明:</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 属性说明</span></span><br><span class="line"><span class="attr">props:</span></span><br><span class="line"><span class="attr">  list:</span></span><br><span class="line"><span class="attr">    type:</span> <span class="string">Array</span></span><br><span class="line"><span class="attr">    default:</span> <span class="string">[]</span></span><br><span class="line"><span class="attr">    desc:</span> <span class="string">图片列表</span></span><br><span class="line"><span class="attr">  options:</span></span><br><span class="line"><span class="attr">    type:</span> <span class="string">Object</span></span><br><span class="line"><span class="attr">    default:</span> <span class="string">&#123;&#125;</span></span><br><span class="line"><span class="attr">    desc:</span> <span class="string">'`photoswipe` 的设置'</span></span><br><span class="line"><span class="comment"># 事件说明</span></span><br><span class="line"><span class="attr">events:</span></span><br><span class="line"><span class="attr">  onClose:</span></span><br><span class="line"><span class="attr">    desc:</span> <span class="string">关闭的回调</span></span><br><span class="line"><span class="comment"># 方法说明</span></span><br><span class="line"><span class="attr">methods:</span></span><br><span class="line"><span class="attr">  show:</span></span><br><span class="line"><span class="attr">    params:</span> <span class="string">'(index)'</span></span><br><span class="line"><span class="attr">    desc:</span> <span class="string">图片的索引</span></span><br><span class="line"><span class="attr">  close:</span></span><br><span class="line"><span class="attr">    params:</span> <span class="string">'(index)'</span></span><br><span class="line"><span class="attr">    desc:</span> <span class="string">图片的索引</span></span><br><span class="line"><span class="comment"># 组件更新说明</span></span><br><span class="line"><span class="attr">changes:</span></span><br><span class="line">  <span class="string">v0.1.15:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">'[new] 新组件 图片查看器，点击放大查看图片'</span></span><br></pre></td></tr></table></figure>
 <p><code>changes</code> 中 的 <code>[new]</code>  用于标识组件变动类型，内置有以下几中类型:</p>
 <ul>
@@ -599,7 +584,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/react/" rel="tag"># react</a>
+            <a href="/tags/React/" rel="tag"># React</a>
           
         </div>
       
@@ -705,7 +690,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-count">77</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -742,13 +727,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -821,7 +800,27 @@
                     
                       
                     
-                    <span class="site-state-item-count">30</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

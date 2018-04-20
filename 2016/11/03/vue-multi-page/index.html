@@ -100,7 +100,7 @@
 
 
   <meta name="description" content="基于vue-cli脚手架修改而成的多页面项目脚手架，每一个页面是一个独立的SPA应用，可用于复杂的项目开发或多项目开发中。">
-<meta name="keywords" content="ES6">
+<meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue.js2.0多页项目脚手架设计">
 <meta property="og:url" content="http://toggle.coding.io/2016/11/03/vue-multi-page/index.html">
@@ -111,7 +111,7 @@
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-02%20%E4%B8%8B%E5%8D%882.55.27.png">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/22016-11-02%20%E4%B8%8B%E5%8D%882.55.12.jpg">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-02%20%E4%B8%8B%E5%8D%8811.34.57.png">
-<meta property="og:updated_time" content="2016-11-11T07:30:55.000Z">
+<meta property="og:updated_time" content="2018-04-20T05:40:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue.js2.0多页项目脚手架设计">
 <meta name="twitter:description" content="基于vue-cli脚手架修改而成的多页面项目脚手架，每一个页面是一个独立的SPA应用，可用于复杂的项目开发或多项目开发中。">
@@ -402,7 +402,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
 
                 
                 
@@ -439,14 +439,6 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
 
           
 
@@ -467,7 +459,7 @@
       
         <p>基于vue-cli脚手架修改而成的多页面项目脚手架，每一个页面是一个独立的SPA应用，可用于复杂的项目开发或多项目开发中。<br><a id="more"></a></p>
 <h2 id="必备知识点"><a href="#必备知识点" class="headerlink" title="必备知识点"></a>必备知识点</h2><ul>
-<li><code>Vue.js2.0</code> <a href="https://vuefe.cn/guide/" target="_blank" rel="noopener">中文文档</a> </li>
+<li><code>Vue.js2.0</code> <a href="https://vuefe.cn/guide/" target="_blank" rel="noopener">中文文档</a></li>
 <li><code>Vuex</code> 状态管理 <a href="https://vuefe.cn/vuex/" target="_blank" rel="noopener">中文文档</a></li>
 <li><code>Vue-router</code> 路由管理  <a href="https://router.vuejs.org/zh-cn/index.html" target="_blank" rel="noopener">中文文档</a></li>
 <li><code>Vue-resource</code> 异步请求处理 <a href="https://github.com/vuejs/vue-resource/blob/master/docs/api.md" target="_blank" rel="noopener">中文文档</a></li>
@@ -534,6 +526,7 @@
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//api.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> VueResource <span class="keyword">from</span> <span class="string">'vue-resource'</span></span><br><span class="line"></span><br><span class="line">Vue.use(VueResource)</span><br><span class="line">Vue.http.options.emulateJSON = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> apiMenus = Vue.resource(<span class="string">'/api/menus'</span>)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> apiSession = Vue.resource(<span class="string">'/api/session&#123;/id&#125;'</span>)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> apiUser = Vue.resource(<span class="string">'/api/user&#123;/id&#125;'</span>)</span><br></pre></td></tr></table></figure>
 <p>在actions中导入api模块进行异步请求操作</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; apiSession, apiMenus &#125; <span class="keyword">from</span> <span class="string">'../../../api/'</span></span><br><span class="line"></span><br><span class="line">apiSession.save(&#123;<span class="attr">uName</span>:<span class="string">''</span>, <span class="attr">password</span>: <span class="string">''</span>&#125;).then().catch()</span><br><span class="line">apiSession.get().then().catch()</span><br><span class="line">apiSession.put(&#123;<span class="attr">state</span>: <span class="number">1</span>&#125;).then().catch()</span><br><span class="line">apiSession.delete().then().catch()</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -553,7 +546,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ES6/" rel="tag"># ES6</a>
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
           
         </div>
       
@@ -659,7 +652,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-count">77</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -696,13 +689,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -775,7 +762,27 @@
                     
                       
                     
-                    <span class="site-state-item-count">30</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

@@ -2,6 +2,398 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://toggle.coding.io/2018/01/25/wxchatapp-dev/</loc>
+    
+    <lastmod>2018-04-20T05:41:09.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2018/01/25/wechatapp-2018/</loc>
+    
+    <lastmod>2018-04-20T05:41:01.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/11/02/vuejs-vuex/</loc>
+    
+    <lastmod>2018-04-20T05:40:18.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/11/03/vue-multi-page/</loc>
+    
+    <lastmod>2018-04-20T05:40:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2017/03/06/vue-base-01/</loc>
+    
+    <lastmod>2018-04-20T05:39:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/03/01/uiLoading-readme/</loc>
+    
+    <lastmod>2018-04-20T05:39:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2017/11/20/table-colgroup/</loc>
+    
+    <lastmod>2018-04-20T05:39:17.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/03/08/retina-screen-adapter/</loc>
+    
+    <lastmod>2018-04-20T05:38:52.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/12/29/retina-mobile/</loc>
+    
+    <lastmod>2018-04-20T05:38:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/06/10/ReactJS-JSX/</loc>
+    
+    <lastmod>2018-04-20T05:38:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/05/17/React-ES5-ES6/</loc>
+    
+    <lastmod>2018-04-20T05:37:48.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/02/18/QKPlatform-readme/</loc>
+    
+    <lastmod>2018-04-20T05:37:42.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/12/05/promise-in-depth-an-introduction-3/</loc>
+    
+    <lastmod>2018-04-20T05:37:22.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/12/04/promise-in-depth-an-introduction-2/</loc>
+    
+    <lastmod>2018-04-20T05:37:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/12/03/promise-in-depth-an-introduction-1/</loc>
+    
+    <lastmod>2018-04-20T05:37:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/09/13/mTools/</loc>
+    
+    <lastmod>2018-04-20T05:37:09.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2017/10/20/mt-weui-react/</loc>
+    
+    <lastmod>2018-04-20T05:36:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2017/08/07/mobile-web-debug/</loc>
+    
+    <lastmod>2018-04-20T05:36:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2017/06/09/media-queries/</loc>
+    
+    <lastmod>2018-04-20T05:36:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/03/16/mac-osx-tree/</loc>
+    
+    <lastmod>2018-04-20T05:36:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/03/22/mac-command-curl/</loc>
+    
+    <lastmod>2018-04-20T05:35:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/12/18/lite-validator/</loc>
+    
+    <lastmod>2018-04-20T05:35:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2015/10/09/koa-chat/</loc>
+    
+    <lastmod>2018-04-20T05:35:29.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/04/10/JS-throttle-debounce/</loc>
+    
+    <lastmod>2018-04-20T05:35:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/04/12/JS-template-20/</loc>
+    
+    <lastmod>2018-04-20T05:34:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/11/22/js-require/</loc>
+    
+    <lastmod>2018-04-20T05:34:39.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/11/20/JS-Feach/</loc>
+    
+    <lastmod>2018-04-20T05:33:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/09/13/JS-extends/</loc>
+    
+    <lastmod>2018-04-20T05:33:52.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/11/22/js-event/</loc>
+    
+    <lastmod>2018-04-20T05:33:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/11/21/JS-Cookie/</loc>
+    
+    <lastmod>2018-04-20T05:33:15.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/09/23/JS-Array/</loc>
+    
+    <lastmod>2018-04-20T05:33:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/11/20/js-ajax/</loc>
+    
+    <lastmod>2018-04-20T05:33:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/11/25/isomorphism-koa2-react-antd/</loc>
+    
+    <lastmod>2018-04-20T05:33:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2015/09/24/hexo-to-coding-150924/</loc>
+    
+    <lastmod>2018-04-20T05:32:26.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/11/02/ES6-useful/</loc>
+    
+    <lastmod>2018-04-20T05:31:55.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/07/17/ES6-promise/</loc>
+    
+    <lastmod>2018-04-20T05:31:52.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/11/11/ES6-Generator/</loc>
+    
+    <lastmod>2018-04-20T05:31:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/11/24/es6-events/</loc>
+    
+    <lastmod>2018-04-20T05:31:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/09/09/ES6-base/</loc>
+    
+    <lastmod>2018-04-20T05:31:39.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2015/05/17/ES5-features/</loc>
+    
+    <lastmod>2018-04-20T05:31:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/05/10/Define-Component-guid/</loc>
+    
+    <lastmod>2018-04-20T05:31:17.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/04/28/decoration-for-store/</loc>
+    
+    <lastmod>2018-04-20T05:31:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/03/16/debug-nodejs/</loc>
+    
+    <lastmod>2018-04-20T05:30:23.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2017/03/21/create-htts-server/</loc>
+    
+    <lastmod>2018-04-20T05:30:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2017/10/05/code-function/</loc>
+    
+    <lastmod>2018-04-20T05:29:18.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2017/10/05/code-function-word/</loc>
+    
+    <lastmod>2018-04-20T05:29:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2017/04/11/code-convention-for-react/</loc>
+    
+    <lastmod>2018-04-20T05:28:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/11/16/co-source-analysis/</loc>
+    
+    <lastmod>2018-04-20T05:28:42.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/02/24/bs-pagination/</loc>
+    
+    <lastmod>2018-04-20T05:28:29.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2015/09/21/blog-with-hexo/</loc>
+    
+    <lastmod>2018-04-20T05:27:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2017/05/02/babel-readme/</loc>
+    
+    <lastmod>2018-04-20T05:27:41.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2017/03/21/axios-api-md/</loc>
+    
+    <lastmod>2018-04-20T05:27:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/11/14/async-life-cycle/</loc>
+    
+    <lastmod>2018-04-20T05:27:05.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/05/11/AMD-Module-guid/</loc>
+    
+    <lastmod>2018-04-20T05:26:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2015/10/08/151008-express4-chat/</loc>
+    
+    <lastmod>2018-04-20T05:26:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2018/04/20/js-object/</loc>
+    
+    <lastmod>2018-04-20T05:17:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://toggle.coding.io/2018/01/13/nginx/</loc>
     
     <lastmod>2018-04-13T07:43:20.000Z</lastmod>
@@ -44,58 +436,9 @@
   </url>
   
   <url>
-    <loc>http://toggle.coding.io/2017/10/05/code-function-word/</loc>
-    
-    <lastmod>2018-02-05T07:11:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2017/10/05/code-function/</loc>
-    
-    <lastmod>2018-02-05T07:10:26.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2018/01/25/wxchatapp-dev/</loc>
-    
-    <lastmod>2018-02-05T07:00:58.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2018/01/25/wechatapp-2018/</loc>
-    
-    <lastmod>2018-02-05T06:51:47.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2017/11/20/table-colgroup/</loc>
-    
-    <lastmod>2017-11-20T05:33:41.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2017/10/20/mt-weui-react/</loc>
-    
-    <lastmod>2017-10-20T03:17:32.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://toggle.coding.io/2017/08/31/svg-line-effect/</loc>
     
     <lastmod>2017-08-31T07:04:30.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2017/08/07/mobile-web-debug/</loc>
-    
-    <lastmod>2017-08-07T01:51:19.000Z</lastmod>
     
   </url>
   
@@ -121,72 +464,9 @@
   </url>
   
   <url>
-    <loc>http://toggle.coding.io/2017/06/09/media-queries/</loc>
-    
-    <lastmod>2017-06-09T06:22:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2017/05/02/babel-readme/</loc>
-    
-    <lastmod>2017-05-02T10:42:32.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2017/04/11/code-convention-for-react/</loc>
-    
-    <lastmod>2017-04-11T09:41:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/12/03/promise-in-depth-an-introduction-1/</loc>
-    
-    <lastmod>2017-03-21T09:18:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2017/03/21/axios-api-md/</loc>
-    
-    <lastmod>2017-03-21T09:14:33.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2017/03/21/create-htts-server/</loc>
-    
-    <lastmod>2017-03-21T09:11:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2017/03/06/vue-base-01/</loc>
-    
-    <lastmod>2017-03-06T03:02:18.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://toggle.coding.io/2017/02/07/flex-layout/</loc>
     
     <lastmod>2017-02-07T06:03:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/12/29/retina-mobile/</loc>
-    
-    <lastmod>2016-12-29T06:27:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/12/18/lite-validator/</loc>
-    
-    <lastmod>2016-12-18T15:38:02.000Z</lastmod>
     
   </url>
   
@@ -198,156 +478,9 @@
   </url>
   
   <url>
-    <loc>http://toggle.coding.io/2016/12/05/promise-in-depth-an-introduction-3/</loc>
-    
-    <lastmod>2016-12-05T02:10:03.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/12/04/promise-in-depth-an-introduction-2/</loc>
-    
-    <lastmod>2016-12-05T02:09:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/11/25/isomorphism-koa2-react-antd/</loc>
-    
-    <lastmod>2016-11-25T14:56:45.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/11/24/es6-events/</loc>
-    
-    <lastmod>2016-11-25T05:23:59.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/11/22/js-require/</loc>
-    
-    <lastmod>2016-11-24T03:07:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/11/21/JS-Cookie/</loc>
-    
-    <lastmod>2016-11-24T03:06:32.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/11/16/co-source-analysis/</loc>
-    
-    <lastmod>2016-11-24T03:06:24.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/11/22/js-event/</loc>
-    
-    <lastmod>2016-11-22T02:55:41.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://toggle.coding.io/2016/11/21/web-cache/</loc>
     
     <lastmod>2016-11-21T11:33:23.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/11/20/JS-Feach/</loc>
-    
-    <lastmod>2016-11-21T06:08:45.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/11/20/js-ajax/</loc>
-    
-    <lastmod>2016-11-20T13:13:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/11/14/async-life-cycle/</loc>
-    
-    <lastmod>2016-11-15T07:18:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/07/17/ES6-promise/</loc>
-    
-    <lastmod>2016-11-11T07:35:30.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/11/02/ES6-useful/</loc>
-    
-    <lastmod>2016-11-11T07:34:38.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/11/11/ES6-Generator/</loc>
-    
-    <lastmod>2016-11-11T07:33:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/11/03/vue-multi-page/</loc>
-    
-    <lastmod>2016-11-11T07:30:55.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/11/02/vuejs-vuex/</loc>
-    
-    <lastmod>2016-11-02T06:49:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/09/23/JS-Array/</loc>
-    
-    <lastmod>2016-09-23T11:34:38.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2015/05/17/ES5-features/</loc>
-    
-    <lastmod>2016-09-13T14:32:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/09/13/mTools/</loc>
-    
-    <lastmod>2016-09-13T02:02:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/09/13/JS-extends/</loc>
-    
-    <lastmod>2016-09-13T01:16:18.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/09/09/ES6-base/</loc>
-    
-    <lastmod>2016-09-09T00:50:02.000Z</lastmod>
     
   </url>
   
@@ -359,27 +492,6 @@
   </url>
   
   <url>
-    <loc>http://toggle.coding.io/2016/05/11/AMD-Module-guid/</loc>
-    
-    <lastmod>2016-07-17T07:27:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/05/10/Define-Component-guid/</loc>
-    
-    <lastmod>2016-07-17T07:25:14.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/05/17/React-ES5-ES6/</loc>
-    
-    <lastmod>2016-07-17T03:33:05.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://toggle.coding.io/2016/02/28/FED-entry-guide/</loc>
     
     <lastmod>2016-07-17T03:11:13.000Z</lastmod>
@@ -387,37 +499,9 @@
   </url>
   
   <url>
-    <loc>http://toggle.coding.io/2016/04/10/JS-throttle-debounce/</loc>
-    
-    <lastmod>2016-07-17T03:10:52.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/04/12/JS-template-20/</loc>
-    
-    <lastmod>2016-07-17T03:10:41.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/03/01/uiLoading-readme/</loc>
-    
-    <lastmod>2016-07-17T02:54:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://toggle.coding.io/2015/12/09/react-native-ls1/</loc>
     
     <lastmod>2016-07-17T02:53:42.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2015/10/09/koa-chat/</loc>
-    
-    <lastmod>2016-07-17T02:53:24.000Z</lastmod>
     
   </url>
   
@@ -436,86 +520,9 @@
   </url>
   
   <url>
-    <loc>http://toggle.coding.io/2016/03/16/debug-nodejs/</loc>
-    
-    <lastmod>2016-07-17T02:52:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/02/24/bs-pagination/</loc>
-    
-    <lastmod>2016-07-17T02:52:03.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2015/10/08/151008-express4-chat/</loc>
-    
-    <lastmod>2016-07-17T02:51:50.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2015/09/21/blog-with-hexo/</loc>
-    
-    <lastmod>2016-07-17T02:51:39.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://toggle.coding.io/2016/02/26/videojs-readme/</loc>
     
     <lastmod>2016-07-17T02:50:31.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/03/08/retina-screen-adapter/</loc>
-    
-    <lastmod>2016-07-17T02:49:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/02/18/QKPlatform-readme/</loc>
-    
-    <lastmod>2016-07-17T02:48:41.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/03/16/mac-osx-tree/</loc>
-    
-    <lastmod>2016-07-17T02:48:32.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/03/22/mac-command-curl/</loc>
-    
-    <lastmod>2016-07-17T02:48:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2015/09/24/hexo-to-coding-150924/</loc>
-    
-    <lastmod>2016-07-17T02:47:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/04/28/decoration-for-store/</loc>
-    
-    <lastmod>2016-07-17T02:46:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2016/06/10/ReactJS-JSX/</loc>
-    
-    <lastmod>2016-07-17T02:39:28.000Z</lastmod>
     
   </url>
   

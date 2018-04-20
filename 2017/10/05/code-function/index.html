@@ -100,14 +100,14 @@
 
 
   <meta name="description" content="易有太极，始生两仪，两仪生四象，四象生八卦，函数就相当于太极，组合时灵活多变，但函数本身是不变的">
-<meta name="keywords" content="js">
+<meta name="keywords" content="函数式编程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数式编程之认识函数式编程">
 <meta property="og:url" content="http://toggle.coding.io/2017/10/05/code-function/index.html">
 <meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="易有太极，始生两仪，两仪生四象，四象生八卦，函数就相当于太极，组合时灵活多变，但函数本身是不变的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-02-05T07:10:26.000Z">
+<meta property="og:updated_time" content="2018-04-20T05:29:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="函数式编程之认识函数式编程">
 <meta name="twitter:description" content="易有太极，始生两仪，两仪生四象，四象生八卦，函数就相当于太极，组合时灵活多变，但函数本身是不变的">
@@ -434,14 +434,6 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
 
           
 
@@ -486,7 +478,7 @@
 <p>面向对象编程</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Man</span>(<span class="params">sexy</span>)</span>&#123;</span><br><span class="line">   <span class="keyword">var</span> self = <span class="keyword">this</span>;</span><br><span class="line">   self._sexy = sexy;</span><br><span class="line">   self.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params">string</span>)</span>&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">"I'm a "</span>+self._sexy+<span class="string">",I want to say:"</span>+string);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> male = <span class="keyword">new</span> Man(<span class="string">"man"</span>);</span><br><span class="line">male.sayHello(<span class="string">'my name is homker'</span>);</span><br></pre></td></tr></table></figure>
 <p>面向函数编程</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Man</span>(<span class="params">sexy</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">string</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"I'm a "</span>+sexy+<span class="string">",I want to say:"</span>+string);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">var</span> sayHello = Man(<span class="string">'man'</span>);</span><br><span class="line">sayHello(<span class="string">'my name is homker'</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Man</span>(<span class="params">sexy</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">string</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"I'm a "</span>+sexy+<span class="string">",I want to say:"</span>+string);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sayHello = Man(<span class="string">'man'</span>);</span><br><span class="line">sayHello(<span class="string">'my name is homker'</span>);</span><br></pre></td></tr></table></figure>
 <p>在函数式编程中，我们去除掉了主语。你不知道这个动作是由谁发出的。相比于在面向对象编程中，数据是对象的属性，在函数式编程中，我们并不在乎这个数据的内容是什么，而更在乎其变化。</p>
 <p><strong>为什么使用函数式编程？</strong></p>
 <p>在实际的开发过程中，我们有的时候很难抽象出一个对象来描述我们到底要做什么，或者说，我们其实并不在乎这堆数据里面的内容是什么，我们要关心的，只是把数据经过加工，得出结果，仅此而已。至于这个数据，到底是用来干什么的，我们其实可以并不用关心。</p>
@@ -546,7 +538,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/js/" rel="tag"># js</a>
+            <a href="/tags/函数式编程/" rel="tag"># 函数式编程</a>
           
         </div>
       
@@ -652,7 +644,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-count">77</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -689,13 +681,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -768,7 +754,27 @@
                     
                       
                     
-                    <span class="site-state-item-count">30</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

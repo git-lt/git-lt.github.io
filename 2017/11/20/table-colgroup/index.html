@@ -100,7 +100,7 @@
 
 
   <meta name="description" content="Table 在项目使用中十分频繁，特别是在后台管理系统中，table 无疑是数据展示的第一公民，在早些年的网页中，table 也是网页布局的第一选择，然后使用好 table 并不容易，其它有很多子元素和属性需要了解，在实际使用中，table 的自适应也十分重要，如果使用不当，就会导致数据展示混乱，影响用户阅读体验，table 可以说是一把利刃，只要使用恰当，可以简化 DOM 结构，减少很多样式编写">
-<meta name="keywords" content="CSS3">
+<meta name="keywords" content="屏幕适配">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 colgroup 和 col 实现响应式表格">
 <meta property="og:url" content="http://toggle.coding.io/2017/11/20/table-colgroup/index.html">
@@ -117,7 +117,7 @@
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/2017-11-17-屏幕快照 2017-11-17 上午10.20.09.png">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/2017-11-17-屏幕快照 2017-11-17 上午10.20.19.png">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/2017-11-17-屏幕快照 2017-11-17 上午10.20.27.png">
-<meta property="og:updated_time" content="2017-11-20T05:33:41.000Z">
+<meta property="og:updated_time" content="2018-04-20T05:39:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 colgroup 和 col 实现响应式表格">
 <meta name="twitter:description" content="Table 在项目使用中十分频繁，特别是在后台管理系统中，table 无疑是数据展示的第一公民，在早些年的网页中，table 也是网页布局的第一选择，然后使用好 table 并不容易，其它有很多子元素和属性需要了解，在实际使用中，table 的自适应也十分重要，如果使用不当，就会导致数据展示混乱，影响用户阅读体验，table 可以说是一把利刃，只要使用恰当，可以简化 DOM 结构，减少很多样式编写">
@@ -445,14 +445,6 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
 
           
 
@@ -551,7 +543,7 @@
 <h3 id="fixed-不换行…显示"><a href="#fixed-不换行…显示" class="headerlink" title="fixed + 不换行…显示"></a>fixed + 不换行…显示</h3><p><code>fixed + break-all</code> 解决了字符换行的问题，但是如果内容过长，容易撑高行的高度，导致表格某几行或所有行的高度过高，致表格变形，影响阅读体验，所以可以让过长的内容以 <code>...</code> 显示</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">style</span>=<span class="string">"table-layout:fixed;"</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>为内容过长的 <code>td</code> 添加样式 <code>.ell</code></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.ell</span> &#123;</span><br><span class="line">	<span class="attribute">overflow</span>: hidden; </span><br><span class="line">	<span class="attribute">text-overflow</span>: ellipsis; </span><br><span class="line">	<span class="attribute">white-space</span>: nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.ell</span> &#123;</span><br><span class="line">	<span class="attribute">overflow</span>: hidden;</span><br><span class="line">	<span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">	<span class="attribute">white-space</span>: nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="http://7xi480.com1.z0.glb.clouddn.com/2017-11-17-屏幕快照 2017-11-17 上午10.20.19.png" alt="屏幕快照 2017-11-17 上午10.20.19"></p>
 <h3 id="fixed-多行-…-显示-【推荐】"><a href="#fixed-多行-…-显示-【推荐】" class="headerlink" title="fixed + 多行 … 显示 【推荐】"></a>fixed + 多行 … 显示 【推荐】</h3><p>如果单行…显示，可以保证所有行的高度一致，但当内容较多时，只能显示少量信息，也不利于阅读体验， 这样就需要单元格内容显示多行，超过规定行数再以 <code>...</code> 显示</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">style</span>=<span class="string">"table-layout:fixed;"</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -583,7 +575,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS3/" rel="tag"># CSS3</a>
+            <a href="/tags/屏幕适配/" rel="tag"># 屏幕适配</a>
           
         </div>
       
@@ -689,7 +681,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-count">77</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -726,13 +718,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -805,7 +791,27 @@
                     
                       
                     
-                    <span class="site-state-item-count">30</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

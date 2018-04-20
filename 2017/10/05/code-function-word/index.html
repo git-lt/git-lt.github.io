@@ -100,14 +100,14 @@
 
 
   <meta name="description" content="函数式编程名词众多，可能有些我们在日常的编码中实践过，但并不知道他的学名，也有可能很多我们从来没有听说过，下面是一些常见的函数式编程中的名词说明">
-<meta name="keywords" content="JS">
+<meta name="keywords" content="函数式编程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数式编程之名词解释">
 <meta property="og:url" content="http://toggle.coding.io/2017/10/05/code-function-word/index.html">
 <meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="函数式编程名词众多，可能有些我们在日常的编码中实践过，但并不知道他的学名，也有可能很多我们从来没有听说过，下面是一些常见的函数式编程中的名词说明">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-02-05T07:11:34.000Z">
+<meta property="og:updated_time" content="2018-04-20T05:29:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="函数式编程之名词解释">
 <meta name="twitter:description" content="函数式编程名词众多，可能有些我们在日常的编码中实践过，但并不知道他的学名，也有可能很多我们从来没有听说过，下面是一些常见的函数式编程中的名词说明">
@@ -434,14 +434,6 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
 
           
 
@@ -474,11 +466,11 @@
 <h2 id="纯函数-Purity"><a href="#纯函数-Purity" class="headerlink" title="纯函数 Purity"></a>纯函数 Purity</h2><p>与外界交换数据只有唯一渠道——参数和返回值，并且函数的执行不会对外部环境产生副作用</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// Array.slice是纯函数，因为它没有副作用，对于固定的输入，输出总是固定的</span></span><br><span class="line"><span class="comment">// 可以，这很函数式</span></span><br><span class="line">xs.slice(<span class="number">0</span>,<span class="number">3</span>);</span><br><span class="line"><span class="comment">//=&gt; [1,2,3]</span></span><br><span class="line">xs.slice(<span class="number">0</span>,<span class="number">3</span>);</span><br><span class="line"><span class="comment">//=&gt; [1,2,3]</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// Array.splice是不纯的，它有副作用，对于固定的输入，输出不是固定的</span></span><br><span class="line"><span class="comment">// 这不函数式</span></span><br><span class="line">xs.splice(<span class="number">0</span>,<span class="number">3</span>);</span><br><span class="line"><span class="comment">//=&gt; [1,2,3]</span></span><br><span class="line">xs.splice(<span class="number">0</span>,<span class="number">3</span>);</span><br><span class="line"><span class="comment">//=&gt; [4,5]</span></span><br><span class="line">xs.splice(<span class="number">0</span>,<span class="number">3</span>);</span><br><span class="line"><span class="comment">//=&gt; []</span></span><br></pre></td></tr></table></figure>
 <h2 id="函数副作用-Side-effects"><a href="#函数副作用-Side-effects" class="headerlink" title="函数副作用 Side effects"></a>函数副作用 Side effects</h2><p>如果函数或表达式与其自身作用域之外的可变数据发生了读写操作，那么此时函数和表达式就产生了副作用</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> greeting;</span><br><span class="line"><span class="keyword">const</span> greet = <span class="function"><span class="params">()</span> =&gt;</span> greeting = <span class="string">"Hi, "</span> + <span class="built_in">window</span>.name;</span><br><span class="line"><span class="comment">// greet() 执行时更改了外部环境的变量</span></span><br><span class="line">greet(); </span><br><span class="line"><span class="comment">// =&gt; "Hi, Brianne"</span></span><br><span class="line"><span class="comment">// new Date() 是可变数据</span></span><br><span class="line"><span class="keyword">const</span> differentEveryTime = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="comment">// 这里表示系统接收到的输入值是不确定的，是一种可变数据</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"IO is a side effect!"</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> greeting;</span><br><span class="line"><span class="keyword">const</span> greet = <span class="function"><span class="params">()</span> =&gt;</span> greeting = <span class="string">"Hi, "</span> + <span class="built_in">window</span>.name;</span><br><span class="line"><span class="comment">// greet() 执行时更改了外部环境的变量</span></span><br><span class="line">greet();</span><br><span class="line"><span class="comment">// =&gt; "Hi, Brianne"</span></span><br><span class="line"><span class="comment">// new Date() 是可变数据</span></span><br><span class="line"><span class="keyword">const</span> differentEveryTime = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="comment">// 这里表示系统接收到的输入值是不确定的，是一种可变数据</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"IO is a side effect!"</span>);</span><br></pre></td></tr></table></figure>
 <h2 id="偏函数-Partial-Application"><a href="#偏函数-Partial-Application" class="headerlink" title="偏函数 Partial Application"></a>偏函数 Partial Application</h2><p>原函数的基础上预填充部分参数并返回的新函数</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 下面是一个创建偏函数的辅助函数</span></span><br><span class="line"><span class="keyword">const</span> partial = <span class="function">(<span class="params">f, ...args</span>) =&gt;</span> (...moreArgs) =&gt; f(...args, ...moreArgs);</span><br><span class="line"><span class="keyword">const</span> add3 = <span class="function">(<span class="params">a, b, c</span>) =&gt;</span> a + b + c;</span><br><span class="line"><span class="comment">// 预填充 (add3, 2, 3) 三个参数，空置最后一个参数，返回一个新的函数</span></span><br><span class="line"><span class="keyword">const</span> fivePlus = partial(add3, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">// (c) =&gt; 2 + 3 + c</span></span><br><span class="line">fivePlus(<span class="number">4</span>); </span><br><span class="line"><span class="comment">// =&gt; 9</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 下面是一个创建偏函数的辅助函数</span></span><br><span class="line"><span class="keyword">const</span> partial = <span class="function">(<span class="params">f, ...args</span>) =&gt;</span> (...moreArgs) =&gt; f(...args, ...moreArgs);</span><br><span class="line"><span class="keyword">const</span> add3 = <span class="function">(<span class="params">a, b, c</span>) =&gt;</span> a + b + c;</span><br><span class="line"><span class="comment">// 预填充 (add3, 2, 3) 三个参数，空置最后一个参数，返回一个新的函数</span></span><br><span class="line"><span class="keyword">const</span> fivePlus = partial(add3, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">// (c) =&gt; 2 + 3 + c</span></span><br><span class="line">fivePlus(<span class="number">4</span>);</span><br><span class="line"><span class="comment">// =&gt; 9</span></span><br></pre></td></tr></table></figure>
 <h2 id="惰性求值-Lazy-evaluation"><a href="#惰性求值-Lazy-evaluation" class="headerlink" title="惰性求值 Lazy evaluation"></a>惰性求值 Lazy evaluation</h2><p>惰性求值，是一种按需执行的求值策略，只有需要某个值时才会执行相关的表达式。在函数式编程语言中，这一特性可用于构造无限列表。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> rand = <span class="function"><span class="keyword">function</span>*(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">yield</span> <span class="built_in">Math</span>.random();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> randIter = rand();</span><br><span class="line">randIter.next().value; </span><br><span class="line"><span class="comment">// 每次执行 next() 函数都会返回一个新的随机数</span></span><br><span class="line"><span class="comment">// 有且只有在执行 next() 的时候才会返回新值</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> rand = <span class="function"><span class="keyword">function</span>*(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">yield</span> <span class="built_in">Math</span>.random();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> randIter = rand();</span><br><span class="line">randIter.next().value;</span><br><span class="line"><span class="comment">// 每次执行 next() 函数都会返回一个新的随机数</span></span><br><span class="line"><span class="comment">// 有且只有在执行 next() 的时候才会返回新值</span></span><br></pre></td></tr></table></figure>
 <h2 id="函数柯里化-Currying"><a href="#函数柯里化-Currying" class="headerlink" title="函数柯里化 Currying"></a>函数柯里化 Currying</h2><p>将一个接收多个参数的函数转化为单参数函数的方式<br>将接收多个参数的函数转换为一系列只接收一个参数的函数的过程</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//比较容易读懂的ES5写法</span></span><br><span class="line"><span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">y</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x + y</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//ES6写法，也是比较正统的函数式写法</span></span><br><span class="line"><span class="keyword">var</span> add = <span class="function"><span class="params">x</span> =&gt;</span> (<span class="function"><span class="params">y</span> =&gt;</span> x + y);</span><br><span class="line"></span><br><span class="line"><span class="comment">//试试看</span></span><br><span class="line"><span class="keyword">var</span> add2 = add(<span class="number">2</span>);</span><br><span class="line"><span class="keyword">var</span> add200 = add(<span class="number">200</span>);</span><br><span class="line"></span><br><span class="line">add2(<span class="number">2</span>); <span class="comment">// =&gt;4</span></span><br><span class="line">add200(<span class="number">50</span>); <span class="comment">// =&gt;250</span></span><br></pre></td></tr></table></figure>
 <h2 id="函数组合-Function-Composition"><a href="#函数组合-Function-Composition" class="headerlink" title="函数组合 Function Composition"></a>函数组合 Function Composition</h2><p>接收多个函数作为参数并返回一个新函数的方式</p>
@@ -510,7 +502,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JS/" rel="tag"># JS</a>
+            <a href="/tags/函数式编程/" rel="tag"># 函数式编程</a>
           
         </div>
       
@@ -616,7 +608,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-count">77</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -653,13 +645,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -732,7 +718,27 @@
                     
                       
                     
-                    <span class="site-state-item-count">30</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

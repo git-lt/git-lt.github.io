@@ -100,14 +100,14 @@
 
 
   <meta name="description" content="ES6有许多新的特性，语法也在ES5上有较大的变化，在React中应用广泛，下面列举部分示例，体会一下ES6的语法给我们带来的便利…">
-<meta name="keywords" content="ReactJS">
+<meta name="keywords" content="React">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React的ES5与ES6写法对比">
 <meta property="og:url" content="http://toggle.coding.io/2016/05/17/React-ES5-ES6/index.html">
 <meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="ES6有许多新的特性，语法也在ES5上有较大的变化，在React中应用广泛，下面列举部分示例，体会一下ES6的语法给我们带来的便利…">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2016-07-17T03:33:05.000Z">
+<meta property="og:updated_time" content="2018-04-20T05:37:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React的ES5与ES6写法对比">
 <meta name="twitter:description" content="ES6有许多新的特性，语法也在ES5上有较大的变化，在React中应用广泛，下面列举部分示例，体会一下ES6的语法给我们带来的便利…">
@@ -397,7 +397,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
 
                 
                 
@@ -433,14 +433,6 @@
              </span>
           
 
-          
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
           
 
           
@@ -487,7 +479,7 @@
 <figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">var</span> Video = React.createClass(&#123;</span><br><span class="line">	getDefaultProps: function()&#123;</span><br><span class="line">		return &#123;</span><br><span class="line">			autoPlay: false,</span><br><span class="line">			maxLoops: <span class="number">10</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line"></span><br><span class="line">	propTypes: &#123;</span><br><span class="line">		autoPlay: React<span class="selector-class">.PropTypes</span><span class="selector-class">.bool</span><span class="selector-class">.isRequired</span>,</span><br><span class="line">		maxLoops: React<span class="selector-class">.PropTypes</span><span class="selector-class">.number</span><span class="selector-class">.isRequired</span>,</span><br><span class="line">		posterFrameSrc: React<span class="selector-class">.PropTypes</span><span class="selector-class">.string</span><span class="selector-class">.isRequired</span>,</span><br><span class="line">		videoSrc: React<span class="selector-class">.PropTypes</span><span class="selector-class">.string</span><span class="selector-class">.isRequired</span>,</span><br><span class="line">	&#125;,</span><br><span class="line"></span><br><span class="line">	render: function()&#123;</span><br><span class="line">		return (</span><br><span class="line">			&lt;View /&gt;</span><br><span class="line">		)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>ES6</p>
 <p>使用 <code>static</code> 关键字标识为组件的属性</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">class Video extends React.Component&#123;</span><br><span class="line">	static defaultProps = &#123;</span><br><span class="line">		autoPlay: false,</span><br><span class="line">		maxLoops: <span class="number">10</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	static propTypes = &#123;</span><br><span class="line">		autoPlay: React<span class="selector-class">.PropTypes</span><span class="selector-class">.bool</span><span class="selector-class">.isRequired</span>,</span><br><span class="line">		maxLoops: React<span class="selector-class">.PropTypes</span><span class="selector-class">.number</span><span class="selector-class">.isRequired</span>,</span><br><span class="line">		posterFrameSrc: React<span class="selector-class">.PropTypes</span><span class="selector-class">.string</span><span class="selector-class">.isRequired</span>,</span><br><span class="line">		videoSrc: React<span class="selector-class">.PropTypes</span><span class="selector-class">.string</span><span class="selector-class">.isRequired</span>,</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	render()&#123;</span><br><span class="line">		return (</span><br><span class="line">			&lt;View /&gt;</span><br><span class="line">		)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">class Video extends React.Component&#123;</span><br><span class="line">	static defaultProps = &#123;</span><br><span class="line">		autoPlay: false,</span><br><span class="line">		maxLoops: <span class="number">10</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	static propTypes = &#123;</span><br><span class="line">		autoPlay: React<span class="selector-class">.PropTypes</span><span class="selector-class">.bool</span><span class="selector-class">.isRequired</span>,</span><br><span class="line">		maxLoops: React<span class="selector-class">.PropTypes</span><span class="selector-class">.number</span><span class="selector-class">.isRequired</span>,</span><br><span class="line">		posterFrameSrc: React<span class="selector-class">.PropTypes</span><span class="selector-class">.string</span><span class="selector-class">.isRequired</span>,</span><br><span class="line">		videoSrc: React<span class="selector-class">.PropTypes</span><span class="selector-class">.string</span><span class="selector-class">.isRequired</span>,</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	render()&#123;</span><br><span class="line">		return (</span><br><span class="line">			&lt;View /&gt;</span><br><span class="line">		)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="STATE-初始化"><a href="#STATE-初始化" class="headerlink" title="STATE 初始化"></a>STATE 初始化</h2><p>ES5</p>
 <figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Video = React.createClass(&#123;</span><br><span class="line">	getInitialState: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (</span><br><span class="line">			loopsRemaining: <span class="keyword">this</span>.props.maxLoops</span><br><span class="line">		)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>ES6</p>
@@ -524,7 +516,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ReactJS/" rel="tag"># ReactJS</a>
+            <a href="/tags/React/" rel="tag"># React</a>
           
         </div>
       
@@ -630,7 +622,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-count">77</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -667,13 +659,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -746,7 +732,27 @@
                     
                       
                     
-                    <span class="site-state-item-count">30</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

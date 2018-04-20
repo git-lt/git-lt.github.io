@@ -100,6 +100,7 @@
 
 
   <meta name="description" content="使用HTTS的应用越来越多，现在大部分网站都采用了HTTS，虽然安全性得到了保障，但对于开发调试来说，并不方便调试预览,越来越多的Web API调用依赖HTTPS环境，比如Web Bluetooth API, Web Geo API, Web Notificaiton API等等所以在HTTS环境下调试将是一个常态，有必要本地建站HTTS的开发环境，以下内容教我们快速搭建一个HTTS服务器">
+<meta name="keywords" content="Https">
 <meta property="og:type" content="article">
 <meta property="og:title" content="快速搭建本地HTTPS开发服务器">
 <meta property="og:url" content="http://toggle.coding.io/2017/03/21/create-htts-server/index.html">
@@ -113,7 +114,7 @@
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-7@2x.png">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-4@2x.png">
 <meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-6@2x.png">
-<meta property="og:updated_time" content="2017-03-21T09:11:43.000Z">
+<meta property="og:updated_time" content="2018-04-20T05:30:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="快速搭建本地HTTPS开发服务器">
 <meta name="twitter:description" content="使用HTTS的应用越来越多，现在大部分网站都采用了HTTS，虽然安全性得到了保障，但对于开发调试来说，并不方便调试预览,越来越多的Web API调用依赖HTTPS环境，比如Web Bluetooth API, Web Geo API, Web Notificaiton API等等所以在HTTS环境下调试将是一个常态，有必要本地建站HTTS的开发环境，以下内容教我们快速搭建一个HTTS服务器">
@@ -404,7 +405,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
 
                 
                 
@@ -441,14 +442,6 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
 
           
 
@@ -480,7 +473,7 @@
 <p><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-1@2x.png" width="300" alt=""></p>
 <p>然后回车，填写相关信息（随意填写），但是 Common Name 这项要填写一个域名，将来做为htts访问的域名，例如此项填写为 lt，那么访问时使用 htts://lt:4443/index.html 访问</p>
 <p>信息录入完成后，会在当前目录下生成server.pem证书</p>
-<h2 id="使用证书"><a href="#使用证书" class="headerlink" title="使用证书"></a>使用证书</h2><p>新建一个 <code>Python</code> 文件 </p>
+<h2 id="使用证书"><a href="#使用证书" class="headerlink" title="使用证书"></a>使用证书</h2><p>新建一个 <code>Python</code> 文件</p>
 <p><code>vi https-server.py</code></p>
 <p>写入<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import BaseHTTPServer, SimpleHTTPServer</span><br><span class="line">import ssl</span><br><span class="line">httpd = BaseHTTPServer.HTTPServer((<span class="string">'localhost'</span>, 4443), SimpleHTTPServer.SimpleHTTPRequestHandler)</span><br><span class="line">httpd.socket = ssl.wrap_socket (httpd.socket, certfile=<span class="string">'./server.pem'</span>, server_side=True)</span><br><span class="line">httpd.serve_forever()</span><br></pre></td></tr></table></figure></p>
 <h2 id="启动HTTS服务器"><a href="#启动HTTS服务器" class="headerlink" title="启动HTTS服务器"></a>启动HTTS服务器</h2><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">python</span> simple-https-server.<span class="keyword">py</span></span><br></pre></td></tr></table></figure>
@@ -513,6 +506,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Https/" rel="tag"># Https</a>
+          
+        </div>
       
 
       
@@ -616,7 +615,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-count">77</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -653,13 +652,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -732,7 +725,27 @@
                     
                       
                     
-                    <span class="site-state-item-count">30</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

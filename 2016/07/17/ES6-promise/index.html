@@ -107,7 +107,7 @@
 <meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="Promise 为异步编程提供统一的解决方案，比传统的回调和事件更加合理有效。多重嵌套的回调函数，代码是横向发展，不是纵向发展，容易乱成一团，不便管理，称之为”callback hell”，回调地狱或回调恶梦。Promise就是为了解决这个问题而提出的。它不是新的语法功能，而是一种新的写法，允许将回调函数的横向加载，改成纵向加载。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2016-11-11T07:35:30.000Z">
+<meta property="og:updated_time" content="2018-04-20T05:31:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6笔记 - Promise模式">
 <meta name="twitter:description" content="Promise 为异步编程提供统一的解决方案，比传统的回调和事件更加合理有效。多重嵌套的回调函数，代码是横向发展，不是纵向发展，容易乱成一团，不便管理，称之为”callback hell”，回调地狱或回调恶梦。Promise就是为了解决这个问题而提出的。它不是新的语法功能，而是一种新的写法，允许将回调函数的横向加载，改成纵向加载。">
@@ -397,7 +397,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
 
                 
                 
@@ -433,14 +433,6 @@
              </span>
           
 
-          
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
           
 
           
@@ -501,9 +493,9 @@
 <p><code>p.catch()</code>用于处理promise中rejected状态的回调，与<code>p.then(resolveFn, rejectFn)</code>中 rejectFn的作用相同</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123; ... &#125;);</span><br><span class="line"></span><br><span class="line">p.then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</span><br><span class="line">等同于</span><br><span class="line">p.then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</span><br></pre></td></tr></table></figure>
 <p>reject(‘error’) 与 throw new Error(‘…’) 都能被catch捕获</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123; </span><br><span class="line">	<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'some error1'</span>);</span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span>  <span class="built_in">console</span>.log(err.message))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123; </span><br><span class="line">	reject(<span class="string">'some error2'</span>)</span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.log(err))</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出</span></span><br><span class="line"><span class="comment">// some error1</span></span><br><span class="line"><span class="comment">// some error2</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'some error1'</span>);</span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span>  <span class="built_in">console</span>.log(err.message))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">	reject(<span class="string">'some error2'</span>)</span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.log(err))</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出</span></span><br><span class="line"><span class="comment">// some error1</span></span><br><span class="line"><span class="comment">// some error2</span></span><br></pre></td></tr></table></figure>
 <h2 id="异常捕获"><a href="#异常捕获" class="headerlink" title="异常捕获"></a>异常捕获</h2><p>promise对象的错误，具有 冒泡 性质，会一直向后传递，直到被捕获</p>
-<figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Promise(<span class="function"><span class="params">(resolve, reject)</span> =&gt;</span> &#123; </span><br><span class="line">	<span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">'some error1'</span>);</span><br><span class="line">&#125;).<span class="keyword">then</span>().<span class="keyword">then</span>().<span class="keyword">then</span>().<span class="keyword">catch</span>(err =&gt;  <span class="built_in">console</span>.log(err.message))</span><br></pre></td></tr></table></figure>
+<figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Promise(<span class="function"><span class="params">(resolve, reject)</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">'some error1'</span>);</span><br><span class="line">&#125;).<span class="keyword">then</span>().<span class="keyword">then</span>().<span class="keyword">then</span>().<span class="keyword">catch</span>(err =&gt;  <span class="built_in">console</span>.log(err.message))</span><br></pre></td></tr></table></figure>
 <p>推荐使用 catch 代替then(null, rejectFn)中的rejectFn</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;&#125;).then(resolveFn, rejectFn)</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;&#125;).then(resoveFn).catch(rejectFn)</span><br></pre></td></tr></table></figure>
 <p>原因是：catch可以捕获前面then函数返回的错误信息，也更接近同步的写法</p>
@@ -670,7 +662,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-count">77</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -707,13 +699,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -786,7 +772,27 @@
                     
                       
                     
-                    <span class="site-state-item-count">30</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

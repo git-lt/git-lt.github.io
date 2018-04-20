@@ -100,13 +100,14 @@
 
 
   <meta name="description" content="新版管理后台主要以Twitter的Bootstrap框架为基础，结合MVVM框架avalonJS，实现模块化，组件化，频道单页，数据双向绑定等功能。此次框架的改进主要有以几点作用：  使用界面更加标准美观，提供较佳的用户体验 减少UI设计师与前端在UI界面上的工作量 利用UI组件快速构建页面，提升开发效率 让前端更专注于接口调试，业务和数据处理，减少数据错误率。">
+<meta name="keywords" content="规范">
 <meta property="og:type" content="article">
 <meta property="og:title" content="新版管理后台框架调整说明文档">
 <meta property="og:url" content="http://toggle.coding.io/2016/02/18/QKPlatform-readme/index.html">
 <meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="新版管理后台主要以Twitter的Bootstrap框架为基础，结合MVVM框架avalonJS，实现模块化，组件化，频道单页，数据双向绑定等功能。此次框架的改进主要有以几点作用：  使用界面更加标准美观，提供较佳的用户体验 减少UI设计师与前端在UI界面上的工作量 利用UI组件快速构建页面，提升开发效率 让前端更专注于接口调试，业务和数据处理，减少数据错误率。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2016-07-17T02:48:41.000Z">
+<meta property="og:updated_time" content="2018-04-20T05:37:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="新版管理后台框架调整说明文档">
 <meta name="twitter:description" content="新版管理后台主要以Twitter的Bootstrap框架为基础，结合MVVM框架avalonJS，实现模块化，组件化，频道单页，数据双向绑定等功能。此次框架的改进主要有以几点作用：  使用界面更加标准美观，提供较佳的用户体验 减少UI设计师与前端在UI界面上的工作量 利用UI组件快速构建页面，提升开发效率 让前端更专注于接口调试，业务和数据处理，减少数据错误率。">
@@ -396,7 +397,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/文档/" itemprop="url" rel="index"><span itemprop="name">文档</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Web前端/" itemprop="url" rel="index"><span itemprop="name">Web前端</span></a></span>
 
                 
                 
@@ -433,14 +434,6 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
 
           
 
@@ -476,7 +469,7 @@
 <h4 id="qk-config-js"><a href="#qk-config-js" class="headerlink" title="qk.config.js"></a>qk.config.js</h4><p>AMD加载配置 与 全局变量配置文件</p>
 <h4 id="qk-common-js"><a href="#qk-common-js" class="headerlink" title="qk.common.js"></a>qk.common.js</h4><p>公共组件库(依赖于 jquery)<br><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1. </span>dialog 对话框</span><br><span class="line"><span class="bullet">2. </span>toastr 消息提示</span><br><span class="line"><span class="bullet">3. </span>uiLoading 加载提示</span><br><span class="line"><span class="bullet">4. </span>artTemplate 模板</span><br><span class="line"><span class="bullet">5. </span>bootstrap 框架基础组件</span><br><span class="line"><span class="bullet">6. </span>pagination 分页组件</span><br><span class="line"><span class="bullet">7. </span>select2 下拉组件</span><br><span class="line"><span class="bullet">8. </span>core.js 框架初始化相关</span><br></pre></td></tr></table></figure></p>
 <h4 id="qk-utils-js"><a href="#qk-utils-js" class="headerlink" title="qk.utils.js"></a>qk.utils.js</h4><p>工具库(依赖于 qk.common.js)<br><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">- Utils 工具库</span><br><span class="line">- Filters 框架过滤器</span><br><span class="line">- Components<span class="built_in"> Config </span>组件的全局配置</span><br></pre></td></tr></table></figure></p>
-<h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><p>频道页中引用如下<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"chrome=1;IE=edge"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>管理平台<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"http://static.qiakr.com/source/qk.common.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"wrapper"</span> <span class="attr">ms-controller</span>=<span class="string">"rootCtr"</span>&gt;</span> <span class="comment">&lt;!-- Your Code --&gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/avalon.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/qk.config.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="built_in">require</span>([<span class="string">'./pro/main'</span>],<span class="function"><span class="keyword">function</span>(<span class="params">main</span>)</span>&#123;</span></span><br><span class="line"><span class="undefined">        main.init();</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><p>频道页中引用如下<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"chrome=1;IE=edge"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>管理平台<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"http://static.qiakr.com/source/qk.common.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"wrapper"</span> <span class="attr">ms-controller</span>=<span class="string">"rootCtr"</span>&gt;</span> <span class="comment">&lt;!-- Your Code --&gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/avalon.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/qk.config.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="built_in">require</span>([<span class="string">'./pro/main'</span>],<span class="function"><span class="keyword">function</span>(<span class="params">main</span>)</span>&#123;</span></span><br><span class="line"><span class="undefined">        main.init();</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>main.js 页面主模块中的示例代码<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * [频道 主模块]</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">define([<span class="string">'utils'</span>,<span class="string">'mmRouter'</span>],<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> mainVM;</span><br><span class="line"></span><br><span class="line">	mainVM = avalon.define(&#123;</span><br><span class="line">		$id: <span class="string">"rootCtr"</span>,</span><br><span class="line">	  oldPage: <span class="string">''</span>,</span><br><span class="line">	  currPage: <span class="string">'childPage'</span>,</span><br><span class="line">	  subPage:<span class="string">''</span>,</span><br><span class="line">	  params: &#123;&#125;, <span class="comment">//Url参数</span></span><br><span class="line">	  renderedFn: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	      <span class="keyword">if</span>(mainVM.$model.oldPage!= mainVM.$model.currPage )&#123;</span><br><span class="line">	        mainVM.$model.oldPage = mainVM.$model.currPage;</span><br><span class="line"></span><br><span class="line">	        <span class="comment">// 加载相应的模块</span></span><br><span class="line">	        <span class="built_in">require</span>([<span class="string">'./qiakr/'</span>+mainVM.$model.currPage], <span class="function"><span class="keyword">function</span>(<span class="params">pageModel</span>)</span>&#123;</span><br><span class="line">	            pageModel &amp;&amp; pageModel[<span class="string">'init'</span>] &amp;&amp; pageModel[<span class="string">'init'</span>]();</span><br><span class="line">	        &#125;);</span><br><span class="line"></span><br><span class="line">	        <span class="comment">//选中对应的菜单</span></span><br><span class="line">	        <span class="comment">// $('#sidebar-menu').find('[href*='+mainVM.$model.currPage+']').addClass('click');</span></span><br><span class="line">	      &#125;</span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> p_main = &#123;</span><br><span class="line">		init:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			toastr.success(<span class="string">'引用成功！'</span>);</span><br><span class="line">			<span class="keyword">this</span>.initRouter();</span><br><span class="line">		&#125;,</span><br><span class="line">		initRouter:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		    <span class="keyword">this</span>.params.page &amp;&amp; (mainVM.currPage = <span class="keyword">this</span>.params.page);</span><br><span class="line">		    mainVM.params = <span class="keyword">this</span>.query;</span><br><span class="line">		    mainVM.subPage = <span class="keyword">this</span>.query.subPage || <span class="string">''</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			avalon.router.get(<span class="string">'/:page'</span>, callback);</span><br><span class="line">			avalon.history.start(&#123; <span class="attr">basepath</span>: <span class="string">"/"</span>&#125;);</span><br><span class="line">			avalon.scan();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		init:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			p_main.init();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <p><strong>注意</strong></p>
 <ul>
@@ -484,26 +477,8 @@
 <li>模块必须返回一个init函数</li>
 </ul>
 <p>子频道 childPage.html 代码示例<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span></span><br><span class="line">	子频道A 页面</span><br><span class="line"><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>子频道 childPage.js 模块示例</p>
-<pre><code>/**
- * [账务结算 模块]
- */
-define([&apos;domReady!&apos;],function(){
-    var childVM;
+<p>子频道 childPage.js 模块示例<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * [账务结算 模块]</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">define([<span class="string">'domReady!'</span>],<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> childVM;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> p_child = &#123;</span><br><span class="line">		init:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">'子频道A init!'</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		init:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			p_child.init();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 
-    var p_child = {
-        init:function(){
-            console.log(&apos;子频道A init!&apos;);
-        }
-    }
-
-    return {
-        init:function(){
-            p_child.init();
-        }
-    }
-});
-</code></pre>
       
     </div>
 
@@ -520,6 +495,12 @@ define([&apos;domReady!&apos;],function(){
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/规范/" rel="tag"># 规范</a>
+          
+        </div>
       
 
       
@@ -623,7 +604,7 @@ define([&apos;domReady!&apos;],function(){
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-count">77</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -660,13 +641,7 @@ define([&apos;domReady!&apos;],function(){
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -739,7 +714,27 @@ define([&apos;domReady!&apos;],function(){
                     
                       
                     
-                    <span class="site-state-item-count">30</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

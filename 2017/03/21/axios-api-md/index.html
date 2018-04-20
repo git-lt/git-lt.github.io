@@ -100,14 +100,14 @@
 
 
   <meta name="description" content="vue更新到2.0之后，作者就宣告不再对vue-resource更新，而是推荐的 axios">
-<meta name="keywords" content="vue">
+<meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="axios的基本使用">
 <meta property="og:url" content="http://toggle.coding.io/2017/03/21/axios-api-md/index.html">
 <meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="vue更新到2.0之后，作者就宣告不再对vue-resource更新，而是推荐的 axios">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-03-21T09:14:33.000Z">
+<meta property="og:updated_time" content="2018-04-20T05:27:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="axios的基本使用">
 <meta name="twitter:description" content="vue更新到2.0之后，作者就宣告不再对vue-resource更新，而是推荐的 axios">
@@ -434,14 +434,6 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
 
           
 
@@ -483,7 +475,7 @@
 <h2 id="axios实例"><a href="#axios实例" class="headerlink" title="axios实例"></a>axios实例</h2><h3 id="实例配置"><a href="#实例配置" class="headerlink" title="实例配置"></a>实例配置</h3><p>使用自定义的配置创建一个axios实例</p>
 <figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">var</span> axiosIns = axios.create(&#123;</span><br><span class="line">	baseURL: <span class="string">''</span>,</span><br><span class="line">	timeout: <span class="number">60000</span>,</span><br><span class="line">	headers: &#123;<span class="string">'X-Custom-Header'</span>: <span class="string">'foo'</span>&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>axiosIns.get/post/delete/put/patch/head 都可以共用实例配置</p>
-<h2 id="请求配置"><a href="#请求配置" class="headerlink" title="请求配置"></a>请求配置</h2><figure class="highlight qml"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="comment">// 请求地址</span></span><br><span class="line">	<span class="attribute">url</span>: <span class="string">'/user'</span>,</span><br><span class="line">	<span class="comment">// 请求类型</span></span><br><span class="line">	<span class="attribute">method</span>: <span class="string">'get'</span>,</span><br><span class="line">	<span class="comment">// 请根路径</span></span><br><span class="line">	<span class="attribute">baseURL</span>: <span class="string">'http://www.mt.com/api'</span>,</span><br><span class="line">	<span class="comment">// 请求前的数据处理</span></span><br><span class="line">	<span class="attribute">transformRequest</span>:[<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;&#125;],</span><br><span class="line">	<span class="comment">// 请求后的数据处理</span></span><br><span class="line">	<span class="attribute">transformResponse</span>: [<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;&#125;],</span><br><span class="line">	<span class="comment">// 自定义的请求头</span></span><br><span class="line">	<span class="attribute">headers</span>:&#123;<span class="string">'x-Requested-With'</span>:<span class="string">'XMLHttpRequest'</span>&#125;,</span><br><span class="line">	<span class="comment">// URL查询对象</span></span><br><span class="line">	<span class="attribute">params</span>:&#123; <span class="attribute">id:</span><span class="string"> 12 &#125;,</span></span><br><span class="line"><span class="string">	// 查询对象序列化函数</span></span><br><span class="line"><span class="string">	paramsSerializer</span>: <span class="function"><span class="keyword">function</span>(<span class="params">params</span>)</span>&#123; &#125;</span><br><span class="line">	<span class="comment">// request body</span></span><br><span class="line">	<span class="attribute">data</span>: &#123; <span class="attribute">key</span>: <span class="string">'aa'</span>&#125;,</span><br><span class="line">	<span class="comment">// 超时设置s</span></span><br><span class="line">	<span class="attribute">timeout</span>: <span class="number">1000</span>,</span><br><span class="line">	<span class="comment">// 跨域是否带Token</span></span><br><span class="line">	<span class="attribute">withCredentials</span>: <span class="literal">false</span>,</span><br><span class="line">	<span class="comment">// 自定义请求处理</span></span><br><span class="line">	<span class="attribute">adapter</span>: <span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject, config</span>)</span>&#123;&#125;,</span><br><span class="line">	<span class="comment">// 身份验证信息</span></span><br><span class="line">	<span class="attribute">auth</span>: &#123; <span class="attribute">uname</span>: <span class="string">''</span>, <span class="attribute">pwd</span>: <span class="string">'12'</span>&#125;,</span><br><span class="line">	<span class="comment">// 响应的数据格式 json / blob /document /arraybuffer / text / stream</span></span><br><span class="line">	<span class="attribute">responseType</span>: <span class="string">'json'</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// xsrf 设置</span></span><br><span class="line">	<span class="attribute">xsrfCookieName</span>: <span class="string">'XSRF-TOKEN'</span>,</span><br><span class="line">	<span class="attribute">xsrfHeaderName</span>: <span class="string">'X-XSRF-TOKEN'</span>,</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 下传和下载进度回调</span></span><br><span class="line">	<span class="attribute">onUploadProgress</span>: <span class="function"><span class="keyword">function</span>(<span class="params">progressEvent</span>)</span>&#123;</span><br><span class="line">		<span class="built_in">Math</span>.round( (progressEvent.loaded * <span class="number">100</span>) / progressEvent.total )</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attribute">onDownloadProgress</span>: <span class="function"><span class="keyword">function</span>(<span class="params">progressEvent</span>)</span>&#123;&#125;,</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 最多转发数，用于node.js</span></span><br><span class="line">	<span class="attribute">maxRedirects</span>: <span class="number">5</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 最大响应数据大小</span></span><br><span class="line">	<span class="attribute">maxContentLength</span>: <span class="number">2000</span>,</span><br><span class="line">	<span class="comment">// 自定义错误状态码范围</span></span><br><span class="line">	<span class="attribute">validateStatus</span>: <span class="function"><span class="keyword">function</span>(<span class="params">status</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> status &gt;= <span class="number">200</span> &amp;&amp; status &lt; <span class="number">300</span>;</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="comment">// 用于node.js </span></span><br><span class="line">	<span class="attribute">httpAgent</span>: <span class="keyword">new</span> http.Agent(&#123; <span class="attribute">keepAlive</span>: treu &#125;),</span><br><span class="line">	<span class="attribute">httpsAgent</span>: <span class="keyword">new</span> https.Agent(&#123; <span class="attribute">keepAlive</span>: <span class="literal">true</span> &#125;),</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 用于设置跨域请求代理</span></span><br><span class="line">	<span class="attribute">proxy</span>: &#123;</span><br><span class="line">		<span class="attribute">host</span>: <span class="string">'127.0.0.1'</span>,</span><br><span class="line">		<span class="attribute">port</span>: <span class="number">8080</span>,</span><br><span class="line">		<span class="attribute">auth</span>: &#123;</span><br><span class="line">			<span class="attribute">username</span>: <span class="string">'aa'</span>,</span><br><span class="line">			<span class="attribute">password</span>: <span class="string">'2123'</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="comment">// 用于取消请求</span></span><br><span class="line">	<span class="attribute">cancelToken</span>: <span class="keyword">new</span> CancelToken(<span class="function"><span class="keyword">function</span>(<span class="params">cancel</span>)</span>&#123;&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="请求配置"><a href="#请求配置" class="headerlink" title="请求配置"></a>请求配置</h2><figure class="highlight qml"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="comment">// 请求地址</span></span><br><span class="line">	<span class="attribute">url</span>: <span class="string">'/user'</span>,</span><br><span class="line">	<span class="comment">// 请求类型</span></span><br><span class="line">	<span class="attribute">method</span>: <span class="string">'get'</span>,</span><br><span class="line">	<span class="comment">// 请根路径</span></span><br><span class="line">	<span class="attribute">baseURL</span>: <span class="string">'http://www.mt.com/api'</span>,</span><br><span class="line">	<span class="comment">// 请求前的数据处理</span></span><br><span class="line">	<span class="attribute">transformRequest</span>:[<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;&#125;],</span><br><span class="line">	<span class="comment">// 请求后的数据处理</span></span><br><span class="line">	<span class="attribute">transformResponse</span>: [<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;&#125;],</span><br><span class="line">	<span class="comment">// 自定义的请求头</span></span><br><span class="line">	<span class="attribute">headers</span>:&#123;<span class="string">'x-Requested-With'</span>:<span class="string">'XMLHttpRequest'</span>&#125;,</span><br><span class="line">	<span class="comment">// URL查询对象</span></span><br><span class="line">	<span class="attribute">params</span>:&#123; <span class="attribute">id:</span><span class="string"> 12 &#125;,</span></span><br><span class="line"><span class="string">	// 查询对象序列化函数</span></span><br><span class="line"><span class="string">	paramsSerializer</span>: <span class="function"><span class="keyword">function</span>(<span class="params">params</span>)</span>&#123; &#125;</span><br><span class="line">	<span class="comment">// request body</span></span><br><span class="line">	<span class="attribute">data</span>: &#123; <span class="attribute">key</span>: <span class="string">'aa'</span>&#125;,</span><br><span class="line">	<span class="comment">// 超时设置s</span></span><br><span class="line">	<span class="attribute">timeout</span>: <span class="number">1000</span>,</span><br><span class="line">	<span class="comment">// 跨域是否带Token</span></span><br><span class="line">	<span class="attribute">withCredentials</span>: <span class="literal">false</span>,</span><br><span class="line">	<span class="comment">// 自定义请求处理</span></span><br><span class="line">	<span class="attribute">adapter</span>: <span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject, config</span>)</span>&#123;&#125;,</span><br><span class="line">	<span class="comment">// 身份验证信息</span></span><br><span class="line">	<span class="attribute">auth</span>: &#123; <span class="attribute">uname</span>: <span class="string">''</span>, <span class="attribute">pwd</span>: <span class="string">'12'</span>&#125;,</span><br><span class="line">	<span class="comment">// 响应的数据格式 json / blob /document /arraybuffer / text / stream</span></span><br><span class="line">	<span class="attribute">responseType</span>: <span class="string">'json'</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// xsrf 设置</span></span><br><span class="line">	<span class="attribute">xsrfCookieName</span>: <span class="string">'XSRF-TOKEN'</span>,</span><br><span class="line">	<span class="attribute">xsrfHeaderName</span>: <span class="string">'X-XSRF-TOKEN'</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 下传和下载进度回调</span></span><br><span class="line">	<span class="attribute">onUploadProgress</span>: <span class="function"><span class="keyword">function</span>(<span class="params">progressEvent</span>)</span>&#123;</span><br><span class="line">		<span class="built_in">Math</span>.round( (progressEvent.loaded * <span class="number">100</span>) / progressEvent.total )</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attribute">onDownloadProgress</span>: <span class="function"><span class="keyword">function</span>(<span class="params">progressEvent</span>)</span>&#123;&#125;,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 最多转发数，用于node.js</span></span><br><span class="line">	<span class="attribute">maxRedirects</span>: <span class="number">5</span>,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 最大响应数据大小</span></span><br><span class="line">	<span class="attribute">maxContentLength</span>: <span class="number">2000</span>,</span><br><span class="line">	<span class="comment">// 自定义错误状态码范围</span></span><br><span class="line">	<span class="attribute">validateStatus</span>: <span class="function"><span class="keyword">function</span>(<span class="params">status</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> status &gt;= <span class="number">200</span> &amp;&amp; status &lt; <span class="number">300</span>;</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="comment">// 用于node.js</span></span><br><span class="line">	<span class="attribute">httpAgent</span>: <span class="keyword">new</span> http.Agent(&#123; <span class="attribute">keepAlive</span>: treu &#125;),</span><br><span class="line">	<span class="attribute">httpsAgent</span>: <span class="keyword">new</span> https.Agent(&#123; <span class="attribute">keepAlive</span>: <span class="literal">true</span> &#125;),</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 用于设置跨域请求代理</span></span><br><span class="line">	<span class="attribute">proxy</span>: &#123;</span><br><span class="line">		<span class="attribute">host</span>: <span class="string">'127.0.0.1'</span>,</span><br><span class="line">		<span class="attribute">port</span>: <span class="number">8080</span>,</span><br><span class="line">		<span class="attribute">auth</span>: &#123;</span><br><span class="line">			<span class="attribute">username</span>: <span class="string">'aa'</span>,</span><br><span class="line">			<span class="attribute">password</span>: <span class="string">'2123'</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="comment">// 用于取消请求</span></span><br><span class="line">	<span class="attribute">cancelToken</span>: <span class="keyword">new</span> CancelToken(<span class="function"><span class="keyword">function</span>(<span class="params">cancel</span>)</span>&#123;&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="响应的数据结构"><a href="#响应的数据结构" class="headerlink" title="响应的数据结构"></a>响应的数据结构</h2><figure class="highlight less"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attribute">data</span>: &#123;&#125;, <span class="comment">//服务器返回的数据</span></span><br><span class="line">	<span class="attribute">status</span>: <span class="number">200</span>,</span><br><span class="line">	<span class="attribute">statusText</span>: <span class="string">'OK'</span>,</span><br><span class="line">	<span class="attribute">headers</span>: &#123;&#125;,</span><br><span class="line">	<span class="attribute">config</span>: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h2><p>应用于所有请求</p>
 <p>axios.defaults.baseURL = ‘<a href="http://www.mt.com/api&#39;" target="_blank" rel="noopener">http://www.mt.com/api&#39;</a><br>axios.defaults.headers.post[‘Content-Type’] = ‘application/x-www-form-urlencoded’;</p>
@@ -515,7 +507,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/vue/" rel="tag"># vue</a>
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
           
         </div>
       
@@ -621,7 +613,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-count">77</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -658,13 +650,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -737,7 +723,27 @@
                     
                       
                     
-                    <span class="site-state-item-count">30</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
