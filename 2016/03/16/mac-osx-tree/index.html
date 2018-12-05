@@ -107,12 +107,12 @@
 <meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="通常我们在使用命令行工具时，习惯性的会查看当前文件下的目录结构和文件，tree命令很好的帮我们解决了这个问题，但是在liunx和mac系统下没有这个命令，在Windows中，系统有自带的tree命令。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20160316-1%402x.png">
-<meta property="og:updated_time" content="2018-04-20T05:36:04.000Z">
+<meta property="og:image" content="http://img.aitter.cn/QQ20160316-1%402x.png">
+<meta property="og:updated_time" content="2018-12-05T05:26:17.110Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MAC终端中安装命令行工具TREE">
 <meta name="twitter:description" content="通常我们在使用命令行工具时，习惯性的会查看当前文件下的目录结构和文件，tree命令很好的帮我们解决了这个问题，但是在liunx和mac系统下没有这个命令，在Windows中，系统有自带的tree命令。">
-<meta name="twitter:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20160316-1%402x.png">
+<meta name="twitter:image" content="http://img.aitter.cn/QQ20160316-1%402x.png">
 
 
 
@@ -455,7 +455,7 @@
 
       
         <p>通常我们在使用命令行工具时，习惯性的会查看当前文件下的目录结构和文件，tree命令很好的帮我们解决了这个问题，但是在liunx和mac系统下没有这个命令，在Windows中，系统有自带的tree命令。<br><a id="more"></a></p>
-<p><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20160316-1%402x.png" width="400"></p>
+<p><img src="http://img.aitter.cn/QQ20160316-1%402x.png" width="400"></p>
 <h2 id="两种方式"><a href="#两种方式" class="headerlink" title="两种方式"></a>两种方式</h2><p>下面我们在Mac OSX中安装 tree 命令</p>
 <p>方法一：我们可以写一个alias 到~/.zshrc下<br><figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">alias <span class="built_in">tree</span>="<span class="built_in">find</span> . -<span class="built_in">print</span> | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"</span><br></pre></td></tr></table></figure></p>
 <p>使用 <code>source .zshrc</code> 更新配置<br>缺点是<strong>没有层级参数配置，会递归显示所有文件，包括隐藏文件</strong></p>

@@ -107,14 +107,14 @@
 <meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="ECMAScript 中没有 Event Loops 规范的定义，Event Loops 是在 HTML Strandard 中定义的，规范中定义了浏览器何时进行渲染更新，了解Event Loop有助于性能优化">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/2018-04-13-15210108828390.jpg">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/2018-04-13-15209951193670.png">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/2018-04-13-15209984614060.png">
-<meta property="og:updated_time" content="2018-04-13T07:31:24.000Z">
+<meta property="og:image" content="http://img.aitter.cn/2018-04-13-15210108828390.jpg">
+<meta property="og:image" content="http://img.aitter.cn/2018-04-13-15209951193670.png">
+<meta property="og:image" content="http://img.aitter.cn/2018-04-13-15209984614060.png">
+<meta property="og:updated_time" content="2018-12-05T05:26:17.102Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript中的事件循环 Event Loop">
 <meta name="twitter:description" content="ECMAScript 中没有 Event Loops 规范的定义，Event Loops 是在 HTML Strandard 中定义的，规范中定义了浏览器何时进行渲染更新，了解Event Loop有助于性能优化">
-<meta name="twitter:image" content="http://7xi480.com1.z0.glb.clouddn.com/2018-04-13-15210108828390.jpg">
+<meta name="twitter:image" content="http://img.aitter.cn/2018-04-13-15210108828390.jpg">
 
 
 
@@ -462,7 +462,7 @@
 <h2 id="什么是事件驱动？"><a href="#什么是事件驱动？" class="headerlink" title="什么是事件驱动？"></a>什么是事件驱动？</h2><p>所谓的事件驱动，就是将一切抽象为事件。IO操作完成是一个事件，用户点击一次鼠标是事件，Ajax 完成了是一个事件，一个图片加载完成是一个事件</p>
 <p>“任务队列”中的事件，除了IO设备的事件以外，还包括一些用户产生的事件（比如鼠标点击、页面滚动等等）。只要指定过回调函数，这些事件发生时就会进入”任务队列”，等待主线程读取</p>
 <p>事件驱动的的实现过程主要靠事件循环完成。进程启动后就进入主循环。主循环的过程就是不停的从事件队列里读取事件。如果事件有关联的handle(也就是注册的callback)，就执行handle。一个事件并不一定有callback</p>
-<p><img src="http://7xi480.com1.z0.glb.clouddn.com/2018-04-13-15210108828390.jpg" alt=""></p>
+<p><img src="http://img.aitter.cn/2018-04-13-15210108828390.jpg" alt=""></p>
 <p>上图中，主线程运行的时候，产生堆（heap）和栈（stack），栈中的代码调用各种外部API，它们在”任务队列”中加入各种事件（click，load，done）。只要栈中的代码执行完毕，主线程就会去读取”任务队列”，依次执行那些事件所对应的回调函数。</p>
 <p>执行栈中的代码，总是在读取”任务队列”之前执行</p>
 <h2 id="事件循环-Event-Loop"><a href="#事件循环-Event-Loop" class="headerlink" title="事件循环 Event Loop"></a>事件循环 Event Loop</h2><p>JS 是单线程的，同一时间，只能做同一件事，为了协调事件、用户交互、脚本、UI渲染和网络处理等行为，防止主线程阻塞，Event Loop方案应运而生，事件循环是JS实现异步的方式，也是JS的执行机制。</p>
@@ -491,7 +491,7 @@
 <li>重复以上步骤</li>
 </ol>
 <p>宏任务 -&gt; 所有微任务 -&gt; 宏任务</p>
-<p><img src="http://7xi480.com1.z0.glb.clouddn.com/2018-04-13-15209951193670.png" alt=""></p>
+<p><img src="http://img.aitter.cn/2018-04-13-15209951193670.png" alt=""></p>
 <h2 id="宏任务-macrotask-与-微任务-microtask"><a href="#宏任务-macrotask-与-微任务-microtask" class="headerlink" title="宏任务 macrotask 与 微任务 microtask"></a>宏任务 macrotask 与 微任务 microtask</h2><p>异步任务分为 宏任务<code>task</code>（macrotask） 与 微任务 <code>microtask</code>，不同的API注册的任务会依次进入自身对应的队列中，然后等待 <code>Event Loop</code> 将它们依次压入执行栈中执行</p>
 <ul>
 <li><p><code>task</code> 宏任务: script代码执行、setTimeout、setInterval、I/O、UI交互事件、postMessage、requestAnimationFrame、MessageChannel、setImmediate(Node.js环境）</p>
@@ -522,7 +522,7 @@
 <p>event loop、轮询、事件 就是实现异步的方法</p>
 <h2 id="为什么JS是单线程的？"><a href="#为什么JS是单线程的？" class="headerlink" title="为什么JS是单线程的？"></a>为什么JS是单线程的？</h2><p>为了保证交互效果的一致性，如一个线程在某个DOM节点上添加内容，另一个线程同时将这个DOM节点删除，这里浏览器无法判断优先级</p>
 <p>为了利用多核CPU的计算能力，H5提出了Web Worker标准，允许JS创建多个线程，但子线程完全受主线程控制，且不能操作DOM，所以这个新标准并没有改变JS是单线程的本质。</p>
-<h2 id="更新渲染（Update-the-rendering"><a href="#更新渲染（Update-the-rendering" class="headerlink" title="更新渲染（Update the rendering)"></a>更新渲染（Update the rendering)</h2><p>每一次事件循环，浏览器都可能会去更新渲染，渲染的基本流程如下：<br><img src="http://7xi480.com1.z0.glb.clouddn.com/2018-04-13-15209984614060.png" alt=""></p>
+<h2 id="更新渲染（Update-the-rendering"><a href="#更新渲染（Update-the-rendering" class="headerlink" title="更新渲染（Update the rendering)"></a>更新渲染（Update the rendering)</h2><p>每一次事件循环，浏览器都可能会去更新渲染，渲染的基本流程如下：<br><img src="http://img.aitter.cn/2018-04-13-15209984614060.png" alt=""></p>
 <ol>
 <li>处理 HTML 标记并构建DOM树</li>
 <li>处理 CSS 标记并构建CSSOM树，将DOM树与CSSOS树合并成一个渲染树</li>

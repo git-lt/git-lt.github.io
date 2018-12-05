@@ -107,19 +107,19 @@
 <meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="前言微商城装修是一个纯前端的交互逻辑，具有一定的复杂度，需要合理的数据结构、逻辑设计与友好的交互体验，对于设计者一个很大的考验。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20160502-3%402x.png">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20160502-2%402x.png">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20160502-1%402x.png">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/IMG_2068.PNG">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/IMG_2069.PNG">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/IMG_2070.PNG">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20160502-0@2x.png">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/IMG_2068.PNG">
-<meta property="og:updated_time" content="2018-04-20T05:31:02.000Z">
+<meta property="og:image" content="http://img.aitter.cn/QQ20160502-3%402x.png">
+<meta property="og:image" content="http://img.aitter.cn/QQ20160502-2%402x.png">
+<meta property="og:image" content="http://img.aitter.cn/QQ20160502-1%402x.png">
+<meta property="og:image" content="http://img.aitter.cn/IMG_2068.PNG">
+<meta property="og:image" content="http://img.aitter.cn/IMG_2069.PNG">
+<meta property="og:image" content="http://img.aitter.cn/IMG_2070.PNG">
+<meta property="og:image" content="http://img.aitter.cn/QQ20160502-0@2x.png">
+<meta property="og:image" content="http://img.aitter.cn/IMG_2068.PNG">
+<meta property="og:updated_time" content="2018-12-05T05:26:17.104Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微商城装修的设计实现">
 <meta name="twitter:description" content="前言微商城装修是一个纯前端的交互逻辑，具有一定的复杂度，需要合理的数据结构、逻辑设计与友好的交互体验，对于设计者一个很大的考验。">
-<meta name="twitter:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20160502-3%402x.png">
+<meta name="twitter:image" content="http://img.aitter.cn/QQ20160502-3%402x.png">
 
 
 
@@ -462,13 +462,13 @@
 
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>微商城装修是一个纯前端的交互逻辑，具有一定的复杂度，需要合理的数据结构、逻辑设计与友好的交互体验，对于设计者一个很大的考验。<br><a id="more"></a></p>
-<p><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20160502-3%402x.png" width="500"></p>
-<div style="display:none"><br><strong> 编辑 </strong><br><strong> 工作间 </strong><br><br><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20160502-2%402x.png" width="500"><br><br><br><strong> 选择模板 </strong><br><br><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20160502-1%402x.png" width="500"><br><br><strong> 门店装修效果 </strong><br><br><img src="http://7xi480.com1.z0.glb.clouddn.com/IMG_2068.PNG" style="width:200px; display:inline-block;"><br><img src="http://7xi480.com1.z0.glb.clouddn.com/IMG_2069.PNG" style="width:200px; display:none;"><br><img src="http://7xi480.com1.z0.glb.clouddn.com/IMG_2070.PNG" style="width:200px; display:none;"><br></div>
+<p><img src="http://img.aitter.cn/QQ20160502-3%402x.png" width="500"></p>
+<div style="display:none"><br><strong> 编辑 </strong><br><strong> 工作间 </strong><br><br><img src="http://img.aitter.cn/QQ20160502-2%402x.png" width="500"><br><br><br><strong> 选择模板 </strong><br><br><img src="http://img.aitter.cn/QQ20160502-1%402x.png" width="500"><br><br><strong> 门店装修效果 </strong><br><br><img src="http://img.aitter.cn/IMG_2068.PNG" style="width:200px; display:inline-block;"><br><img src="http://img.aitter.cn/IMG_2069.PNG" style="width:200px; display:none;"><br><img src="http://img.aitter.cn/IMG_2070.PNG" style="width:200px; display:none;"><br></div>
 
 <h2 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h2><h3 id="数据结构设计"><a href="#数据结构设计" class="headerlink" title="数据结构设计"></a>数据结构设计</h3><p>数据结构的设计必须考虑到业务需求的多样性，要易于扩展，方便修改，便于存储与解析。<br>这里我采用JSON对象的形式，每个模块为一个JSON对象，键名为模块的ID，键值为模块的配置，易于解析。<br>每个模块携带一个排序值方便调整模块的显示顺序。<br>整个配置携带一个version字段，以记录用户的编辑次数，和该配置的版本。</p>
 <figure class="highlight xquery"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">'m1000'</span>:&#123;&#125;,</span><br><span class="line">	<span class="string">'m1011'</span>:&#123;&#125;,</span><br><span class="line">	<span class="string">'m1012'</span>:&#123;&#125;,</span><br><span class="line">	<span class="string">'m1004'</span>:&#123;&#125;,</span><br><span class="line">	<span class="string">'version'</span>:<span class="number">10</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="交互设计"><a href="#交互设计" class="headerlink" title="交互设计"></a>交互设计</h3><p>通过拖动生成预览的交互，可以让用户方便的添加模块，调整模块的位置。<br>始终保持一个唯一激活的界面展现给用户操作，以提升操作流程的专注性，潜移默化的引导用户进行下一步操作。</p>
-<h2 id="业务逻辑"><a href="#业务逻辑" class="headerlink" title="业务逻辑"></a>业务逻辑</h2><p><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20160502-0@2x.png" style="width:400px;"></p>
+<h2 id="业务逻辑"><a href="#业务逻辑" class="headerlink" title="业务逻辑"></a>业务逻辑</h2><p><img src="http://img.aitter.cn/QQ20160502-0@2x.png" style="width:400px;"></p>
 <h3 id="模板类型"><a href="#模板类型" class="headerlink" title="模板类型"></a>模板类型</h3><pre><code>默认模板
     所有门店在没有设置模板的情况下使用默认模板
 自定义装修
@@ -535,7 +535,7 @@
     失败：
         显示报错信息
 </code></pre><p><strong> 门店装修效果 </strong></p>
-<p><img src="http://7xi480.com1.z0.glb.clouddn.com/IMG_2068.PNG" style="width:200px; display:inline-block;"></p>
+<p><img src="http://img.aitter.cn/IMG_2068.PNG" style="width:200px; display:inline-block;"></p>
 
       
     </div>

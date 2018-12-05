@@ -107,13 +107,13 @@
 <meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="在使用NodeJS中，我们最初会发现，如果一直是使用console.log()的方式去定位错误，去调试node，是一件很痛苦的事情，不仅效率低，而且不容易查错定位。这里使用 node-inspector 配合 supervisor 来调试node，将命nodejs调试变得更简单有效！当然我们也可以使用webstrom自带的调试器进行调试">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QB20160316-1.jpg">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QB20160316-2.jpg">
-<meta property="og:updated_time" content="2018-04-20T05:30:23.000Z">
+<meta property="og:image" content="http://img.aitter.cn/QB20160316-1.jpg">
+<meta property="og:image" content="http://img.aitter.cn/QB20160316-2.jpg">
+<meta property="og:updated_time" content="2018-12-05T05:26:17.103Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="畅快的调试NodeJS">
 <meta name="twitter:description" content="在使用NodeJS中，我们最初会发现，如果一直是使用console.log()的方式去定位错误，去调试node，是一件很痛苦的事情，不仅效率低，而且不容易查错定位。这里使用 node-inspector 配合 supervisor 来调试node，将命nodejs调试变得更简单有效！当然我们也可以使用webstrom自带的调试器进行调试">
-<meta name="twitter:image" content="http://7xi480.com1.z0.glb.clouddn.com/QB20160316-1.jpg">
+<meta name="twitter:image" content="http://img.aitter.cn/QB20160316-1.jpg">
 
 
 
@@ -459,9 +459,9 @@
 <h2 id="安装全局模块"><a href="#安装全局模块" class="headerlink" title="安装全局模块"></a>安装全局模块</h2> <figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line">npm install <span class="keyword">node</span><span class="title">-inspector</span> supervisor -g</span><br></pre></td></tr></table></figure>
 <h2 id="开启调试监听服务"><a href="#开启调试监听服务" class="headerlink" title="开启调试监听服务"></a>开启调试监听服务</h2><figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line"><span class="keyword">node</span><span class="title">-inspector</span></span><br></pre></td></tr></table></figure>
 <p>如果报错，一般是我们端口被占用了，使用 –web-port=8988 来指定端口<br>成功后会返回一个url地址，我们在chrome中打开返回的地址<br><figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line"><span class="keyword">node</span><span class="title">-inspector</span> --<span class="attr">web-port=</span><span class="number">8891</span></span><br><span class="line"><span class="keyword">Node</span> <span class="title">Inspector</span> v0.<span class="number">12.7</span></span><br><span class="line">Visit http://<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">8891</span>/?<span class="attr">port=</span><span class="number">5858</span> to <span class="literal">start</span> debugging.</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://7xi480.com1.z0.glb.clouddn.com/QB20160316-1.jpg" width="500"></p>
+<p><img src="http://img.aitter.cn/QB20160316-1.jpg" width="500"></p>
 <h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line">supervisor --<span class="built_in">debug</span>-<span class="keyword">brk </span>debugme.<span class="keyword">js</span></span><br></pre></td></tr></table></figure>
-<p>这时，如果<a href="http://127.0.0.1:8891/?port=5858页面没有加载js，可以刷新一下就有了，打上断点，畅快的调试吧" target="_blank" rel="noopener">http://127.0.0.1:8891/?port=5858页面没有加载js，可以刷新一下就有了，打上断点，畅快的调试吧</a><br><img src="http://7xi480.com1.z0.glb.clouddn.com/QB20160316-2.jpg" width="500"></p>
+<p>这时，如果<a href="http://127.0.0.1:8891/?port=5858页面没有加载js，可以刷新一下就有了，打上断点，畅快的调试吧" target="_blank" rel="noopener">http://127.0.0.1:8891/?port=5858页面没有加载js，可以刷新一下就有了，打上断点，畅快的调试吧</a><br><img src="http://img.aitter.cn/QB20160316-2.jpg" width="500"></p>
 
       
     </div>

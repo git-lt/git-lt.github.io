@@ -107,12 +107,12 @@
 <meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="gollum 是github的使用的一个基于markdown的 wiki系统的构造工具，简单实用。 gollum直接和git集成不需要数据库，你可以选择在Web页面撰写文档，也可以用你喜欢的markdown工具编辑文档在命令行进行提交，用来搭建自己的知识管理wiki系统。 “markdown+git = wiki” 这对程序员来讲绝对是最优(zhe)雅(teng)的方式。 类似于博客系统jekyl">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/005yyi5Jjw1eojhaxfc75j31gm0xqgoz.jpg">
-<meta property="og:updated_time" content="2016-05-02T16:39:33.000Z">
+<meta property="og:image" content="http://img.aitter.cn/005yyi5Jjw1eojhaxfc75j31gm0xqgoz.jpg">
+<meta property="og:updated_time" content="2018-12-05T05:26:17.112Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Github上建立自己的Wiki">
 <meta name="twitter:description" content="gollum 是github的使用的一个基于markdown的 wiki系统的构造工具，简单实用。 gollum直接和git集成不需要数据库，你可以选择在Web页面撰写文档，也可以用你喜欢的markdown工具编辑文档在命令行进行提交，用来搭建自己的知识管理wiki系统。 “markdown+git = wiki” 这对程序员来讲绝对是最优(zhe)雅(teng)的方式。 类似于博客系统jekyl">
-<meta name="twitter:image" content="http://7xi480.com1.z0.glb.clouddn.com/005yyi5Jjw1eojhaxfc75j31gm0xqgoz.jpg">
+<meta name="twitter:image" content="http://img.aitter.cn/005yyi5Jjw1eojhaxfc75j31gm0xqgoz.jpg">
 
 
 
@@ -478,7 +478,7 @@
 <figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git@github<span class="selector-class">.com</span>:gitlt/qkfe<span class="selector-class">.wiki</span><span class="selector-class">.git</span></span><br></pre></td></tr></table></figure>
 <h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git clone git@github<span class="selector-class">.com</span>:gitlt/qkfe<span class="selector-class">.wiki</span><span class="selector-class">.git</span> wiki</span><br><span class="line">gollum</span><br></pre></td></tr></table></figure>
 <p>提示 <code>INFO  WEBrick::HTTPServer#start: pid=70851 port=4567</code><br>在浏览器打开地址 <code>127.0.0.1:4567</code> 即可看到如下操作界面</p>
-<p><img src="http://7xi480.com1.z0.glb.clouddn.com/005yyi5Jjw1eojhaxfc75j31gm0xqgoz.jpg" alt=""></p>
+<p><img src="http://img.aitter.cn/005yyi5Jjw1eojhaxfc75j31gm0xqgoz.jpg" alt=""></p>
 <p>添加新的文章，进行<code>wiki</code>目录，执行命令推送到github上就能完成更新了</p>
 <figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cd</span> wiki</span><br><span class="line">git <span class="built_in">add</span> .</span><br><span class="line">git commit -<span class="keyword">am</span><span class="comment">"我的wiki的第一次提交“</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
 <p>如果提示提交失败，请检查 是否github没有添加本地的SSH keys, 是否github项目中没有初始化wiki，添加一个wiki页面。</p>

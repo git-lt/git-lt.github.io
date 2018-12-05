@@ -107,15 +107,15 @@
 <meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="面试的时候经常会被问到，事件代理是利用了事件的什么机制？一般我们都会说，是利用了事件冒泡机制，但具体冒泡机制在事件代理的过程了起到了什么关键作用，我想大部分人也是不了解的。静下心来，仔细看了下有关事件和事件代理问题，自己终于找到了合适的答案。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/121ba0d37798d6d23227d2dd49d0e58c_articlex.png">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-22%20%E4%B8%8A%E5%8D%8810.46.02.png">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-22%20%E4%B8%8A%E5%8D%8810.46.35.png">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-22%20%E4%B8%8A%E5%8D%8810.46.56.png">
-<meta property="og:updated_time" content="2018-04-20T05:33:19.000Z">
+<meta property="og:image" content="http://img.aitter.cn/121ba0d37798d6d23227d2dd49d0e58c_articlex.png">
+<meta property="og:image" content="http://img.aitter.cn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-22%20%E4%B8%8A%E5%8D%8810.46.02.png">
+<meta property="og:image" content="http://img.aitter.cn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-22%20%E4%B8%8A%E5%8D%8810.46.35.png">
+<meta property="og:image" content="http://img.aitter.cn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-22%20%E4%B8%8A%E5%8D%8810.46.56.png">
+<meta property="og:updated_time" content="2018-12-05T05:26:17.103Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM事件机制解惑">
 <meta name="twitter:description" content="面试的时候经常会被问到，事件代理是利用了事件的什么机制？一般我们都会说，是利用了事件冒泡机制，但具体冒泡机制在事件代理的过程了起到了什么关键作用，我想大部分人也是不了解的。静下心来，仔细看了下有关事件和事件代理问题，自己终于找到了合适的答案。">
-<meta name="twitter:image" content="http://7xi480.com1.z0.glb.clouddn.com/121ba0d37798d6d23227d2dd49d0e58c_articlex.png">
+<meta name="twitter:image" content="http://img.aitter.cn/121ba0d37798d6d23227d2dd49d0e58c_articlex.png">
 
 
 
@@ -500,14 +500,14 @@
 <li>处于目标阶段</li>
 <li>事件冒泡阶段</li>
 </ol>
-<p><img src="http://7xi480.com1.z0.glb.clouddn.com/121ba0d37798d6d23227d2dd49d0e58c_articlex.png" alt=""><br>有了捕获和冒泡这两种模式，我们就可以很好的控制父元素和子元素的事件执行顺序了</p>
+<p><img src="http://img.aitter.cn/121ba0d37798d6d23227d2dd49d0e58c_articlex.png" alt=""><br>有了捕获和冒泡这两种模式，我们就可以很好的控制父元素和子元素的事件执行顺序了</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span> <span class="attr">id</span>=<span class="string">"wrap"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box box1"</span> <span class="attr">id</span>=<span class="string">"box1"</span>&gt;</span>box1</span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box box2"</span> <span class="attr">id</span>=<span class="string">"box2"</span>&gt;</span>box2</span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box box3"</span> <span class="attr">id</span>=<span class="string">"box3"</span>&gt;</span>box3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"loger"</span> <span class="attr">id</span>=<span class="string">"loger"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> useCapture = <span class="literal">true</span>; <span class="comment">//是否使用捕获模式</span></span><br><span class="line"><span class="keyword">var</span> type = useCapture ? <span class="string">'捕获'</span>:<span class="string">'冒泡'</span>;</span><br><span class="line"><span class="keyword">var</span> logerBox = <span class="built_in">document</span>.getElementById(<span class="string">'loger'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 捕获 与 冒泡</span></span><br><span class="line"><span class="built_in">Array</span>.from(<span class="built_in">document</span>.querySelectorAll(<span class="string">'.box'</span>)).forEach(<span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">var</span> id = v.id;</span><br><span class="line">	v.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">		logerBox.innerHTML += <span class="string">'&lt;p&gt;'</span>+type+<span class="string">': '</span>+id+<span class="string">'&lt;/p&gt;'</span>;</span><br><span class="line">		<span class="comment">//e.stopPropagation()</span></span><br><span class="line">	&#125;, useCapture);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>当我想事件的执行顺序是先父元素再子元素时，就使用事件捕获模式<br>点击box3时<br><img src="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-22%20%E4%B8%8A%E5%8D%8810.46.02.png" width="400"><br>如果是想先子元素上的事件先执行再执行父元素的上的事件时，使用冒泡模式<br>点击box3时<br><img src="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-22%20%E4%B8%8A%E5%8D%8810.46.35.png" width="400"></p>
+<p>当我想事件的执行顺序是先父元素再子元素时，就使用事件捕获模式<br>点击box3时<br><img src="http://img.aitter.cn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-22%20%E4%B8%8A%E5%8D%8810.46.02.png" width="400"><br>如果是想先子元素上的事件先执行再执行父元素的上的事件时，使用冒泡模式<br>点击box3时<br><img src="http://img.aitter.cn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-22%20%E4%B8%8A%E5%8D%8810.46.35.png" width="400"></p>
 <p>这里我们是同时让这三个元素上的事件都执行了，那么我们要想实现点击某个元素，只触发这个元素本身的事件，而不影响父元素或子元素呢？</p>
 <p>所以这里需要一种方法，不让事件向下捕获或向上冒泡</p>
 <p>所以有了 <code>e.stopPropagation()</code> 方法，用于阻止事件的继续传递。</p>
-<p>执行这条语句，无论我们是使用捕获模式还是冒泡模式，事件都不会继续传递，只会响应我们点击的元素。<br>点击box3时<br><img src="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-22%20%E4%B8%8A%E5%8D%8810.46.56.png" width="400"></p>
+<p>执行这条语句，无论我们是使用捕获模式还是冒泡模式，事件都不会继续传递，只会响应我们点击的元素。<br>点击box3时<br><img src="http://img.aitter.cn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-11-22%20%E4%B8%8A%E5%8D%8810.46.56.png" width="400"></p>
 <h2 id="事件代理"><a href="#事件代理" class="headerlink" title="事件代理"></a>事件代理</h2><p>那么利用事件冒泡或捕获的机制，我们可以对事件绑定做一些优化。<br>在JS中，如果我们注册的事件越来越多，页面的性能就越来越差，因为：</p>
 <ul>
 <li>函数是对象，会占用内存，内存中的对象越多，浏览器性能越差</li>

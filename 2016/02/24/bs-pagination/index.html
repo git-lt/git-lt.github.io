@@ -107,14 +107,14 @@
 <meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="jquery.pagination.js 是一款基于bootstrap分页样式的分页插件，具有灵活配置，方便易用的特性。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QB20160224-1.jpg">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QB20160224-2.jpg">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QB20160224-4.jpg">
-<meta property="og:updated_time" content="2018-04-20T05:28:29.000Z">
+<meta property="og:image" content="http://img.aitter.cn/QB20160224-1.jpg">
+<meta property="og:image" content="http://img.aitter.cn/QB20160224-2.jpg">
+<meta property="og:image" content="http://img.aitter.cn/QB20160224-4.jpg">
+<meta property="og:updated_time" content="2018-12-05T05:26:17.102Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Bootstrap的分页插件">
 <meta name="twitter:description" content="jquery.pagination.js 是一款基于bootstrap分页样式的分页插件，具有灵活配置，方便易用的特性。">
-<meta name="twitter:image" content="http://7xi480.com1.z0.glb.clouddn.com/QB20160224-1.jpg">
+<meta name="twitter:image" content="http://img.aitter.cn/QB20160224-1.jpg">
 
 
 
@@ -463,15 +463,15 @@
 <li>使用 <code>ul</code> 标签容器，并添加BS组件样式 <code>pagination</code></li>
 </ul>
 <figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="comment">//HTML</span></span><br><span class="line">&lt;div <span class="keyword">class</span>=<span class="string">"nav-box"</span>&gt;</span><br><span class="line">	&lt;ul <span class="keyword">class</span>=<span class="string">"pagination"</span> id=<span class="string">"p1"</span>&gt;&lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"><span class="comment">//JS</span></span><br><span class="line">$(<span class="string">'#p1'</span>).pagination(&#123;totalData:<span class="number">80</span>, showData:<span class="number">5</span>&#125;)</span><br></pre></td></tr></table></figure>
-<p>效果<br><img src="http://7xi480.com1.z0.glb.clouddn.com/QB20160224-1.jpg" alt=""></p>
+<p>效果<br><img src="http://img.aitter.cn/QB20160224-1.jpg" alt=""></p>
 <h3 id="显示’…’和’首页末页’"><a href="#显示’…’和’首页末页’" class="headerlink" title="显示’…’和’首页末页’"></a>显示’…’和’首页末页’</h3><p>页码过多时，显示<code>...</code>，显示 <code>首页</code>和<code>末页</code><br><figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="comment">//HTML</span></span><br><span class="line">&lt;div <span class="keyword">class</span>=<span class="string">"nav-box"</span>&gt;</span><br><span class="line">&lt;ul <span class="keyword">class</span>=<span class="string">"pagination"</span> id=<span class="string">"p2"</span>&gt;&lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"><span class="comment">//JS</span></span><br><span class="line">$(<span class="string">'#p2'</span>).pagination(&#123;totalData:<span class="number">100</span>, showData:<span class="number">5</span>, coping:<span class="literal">true</span>&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>效果<br><img src="http://7xi480.com1.z0.glb.clouddn.com/QB20160224-2.jpg" alt=""></p>
+<p>效果<br><img src="http://img.aitter.cn/QB20160224-2.jpg" alt=""></p>
 <h3 id="回调函数API"><a href="#回调函数API" class="headerlink" title="回调函数API"></a>回调函数API</h3><ul>
 <li>插件提供一个配置回调和两个实例方法</li>
 <li>实例方法在初始化时执行，配置回调在点击页码时触发</li>
 </ul>
 <figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="comment">//HTML</span></span><br><span class="line">&lt;div <span class="keyword">class</span>=<span class="string">"nav-box"</span>&gt;</span><br><span class="line">&lt;ul <span class="keyword">class</span>=<span class="string">"pagination"</span> id=<span class="string">"p3"</span>&gt;&lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"><span class="comment">//HTML</span></span><br><span class="line">&lt;div <span class="keyword">class</span>=<span class="string">"nav-box"</span>&gt;</span><br><span class="line">&lt;ul <span class="keyword">class</span>=<span class="string">"pagination"</span> id=<span class="string">"p3"</span>&gt;&lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"><span class="comment">//JS</span></span><br><span class="line">$(<span class="string">'#p3'</span>).pagination(&#123;</span><br><span class="line">totalData:<span class="number">100</span>,</span><br><span class="line">showData:<span class="number">5</span>,</span><br><span class="line">coping:<span class="literal">true</span>,</span><br><span class="line">callback:function(i)&#123; $(<span class="string">'#logBox'</span>).append(<span class="string">'&lt;p&gt;当前页码为：'</span>+i+<span class="string">'&lt;/p&gt;'</span>);&#125;</span><br><span class="line">&#125;, function(api)&#123;</span><br><span class="line">	$(<span class="string">'#logBox'</span>).append(<span class="string">'&lt;p&gt;*当前页码为：'</span>+api.getCurrent()+<span class="string">'&lt;/p&gt;'</span>);</span><br><span class="line">	$(<span class="string">'#logBox'</span>).append(<span class="string">'&lt;p&gt;*当前总页数：'</span>+api.getTotalPage()+<span class="string">'&lt;/p&gt;'</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>效果<br><img src="http://7xi480.com1.z0.glb.clouddn.com/QB20160224-4.jpg" alt=""></p>
+<p>效果<br><img src="http://img.aitter.cn/QB20160224-4.jpg" alt=""></p>
 <p>CodePen 示例</p>
 <p></p><p data-height="268" data-theme-id="13299" data-slug-hash="OMKVgV" data-default-tab="result" data-user="togglelt" class="codepen">See the Pen <a href="http://codepen.io/togglelt/pen/OMKVgV/" target="_blank" rel="noopener">pagination分页示例</a> by LT (<a href="http://codepen.io/togglelt" target="_blank" rel="noopener">@togglelt</a>) on <a href="http://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>

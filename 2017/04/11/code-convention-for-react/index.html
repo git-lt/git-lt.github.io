@@ -107,15 +107,15 @@
 <meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="一个项目大多都是由一个团队来完成，如果没有统一的代码规范，那么每个人的代码必定会风格迥异。且不说会存在多个人同时开发同一模块的情况，即使是分工十分明晰的，等到要整合代码的时候也有够头疼的了。大多数情况下，并非程序中有复杂的算法或是复杂的逻辑，而是去读别人的代码实在是一件痛苦的事情。统一的风格使得代码可读性大大提高了，人们看到任何一段代码都会觉得异常熟悉。显然的，规范的代码在团队的合作开发中是非常有">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/00b0.png">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/0x01.png">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/e97ecd1d1e6483ea8cd749beee5666a2">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/95a218e30a986e4480c504ddeef1946c">
-<meta property="og:updated_time" content="2018-04-20T05:28:49.000Z">
+<meta property="og:image" content="http://img.aitter.cn/00b0.png">
+<meta property="og:image" content="http://img.aitter.cn/0x01.png">
+<meta property="og:image" content="http://img.aitter.cn/e97ecd1d1e6483ea8cd749beee5666a2">
+<meta property="og:image" content="http://img.aitter.cn/95a218e30a986e4480c504ddeef1946c">
+<meta property="og:updated_time" content="2018-12-05T05:26:17.102Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactJS代码规范">
 <meta name="twitter:description" content="一个项目大多都是由一个团队来完成，如果没有统一的代码规范，那么每个人的代码必定会风格迥异。且不说会存在多个人同时开发同一模块的情况，即使是分工十分明晰的，等到要整合代码的时候也有够头疼的了。大多数情况下，并非程序中有复杂的算法或是复杂的逻辑，而是去读别人的代码实在是一件痛苦的事情。统一的风格使得代码可读性大大提高了，人们看到任何一段代码都会觉得异常熟悉。显然的，规范的代码在团队的合作开发中是非常有">
-<meta name="twitter:image" content="http://7xi480.com1.z0.glb.clouddn.com/00b0.png">
+<meta name="twitter:image" content="http://img.aitter.cn/00b0.png">
 
 
 
@@ -560,12 +560,12 @@
 <ul>
 <li><strong>建议</strong>复杂的render逻辑使用IIFE，在闭包中使用 <code>if else</code></li>
 </ul>
-<p><img src="http://7xi480.com1.z0.glb.clouddn.com/00b0.png" width="900"></p>
-<p>复杂的渲染逻辑中使用 <code>if else</code><br><img src="http://7xi480.com1.z0.glb.clouddn.com/0x01.png" width="900"></p>
+<p><img src="http://img.aitter.cn/00b0.png" width="900"></p>
+<p>复杂的渲染逻辑中使用 <code>if else</code><br><img src="http://img.aitter.cn/0x01.png" width="900"></p>
 <p>牺牲性能提升可读性</p>
 <h3 id="组件分类"><a href="#组件分类" class="headerlink" title="组件分类"></a>组件分类</h3><p>约束好组件的职责，能让组件更好地解耦，知道什么功能是组件实现的，什么功能不需要实现</p>
 <p>组件主要分为 通用组件（可复用组件）与 业务组件（一次性组件）</p>
-<p><img src="http://7xi480.com1.z0.glb.clouddn.com/e97ecd1d1e6483ea8cd749beee5666a2" width="500"></p>
+<p><img src="http://img.aitter.cn/e97ecd1d1e6483ea8cd749beee5666a2" width="500"></p>
 <p>可复用组件实现通用的功能（不会因组件使用的位置、场景而变化）</p>
 <ul>
 <li>命名与业务无关（ Dialog/Toast/Button/Cell…)</li>
@@ -594,7 +594,7 @@
 </ul>
 <h4 id="父子组件的通信"><a href="#父子组件的通信" class="headerlink" title="父子组件的通信"></a>父子组件的通信</h4><p>原则：props down, events up！</p>
 <p>父组件通过 <code>props</code> 向下传递数据给子组件，子组件通过 <code>events</code> 给父组件发送消息，遵循单向数据流动的原则。</p>
-<p><img src="http://7xi480.com1.z0.glb.clouddn.com/95a218e30a986e4480c504ddeef1946c" width="140"></p>
+<p><img src="http://img.aitter.cn/95a218e30a986e4480c504ddeef1946c" width="140"></p>
 <h4 id="同级子组件的通信"><a href="#同级子组件的通信" class="headerlink" title="同级子组件的通信"></a>同级子组件的通信</h4><p>使用 Pubsub 的事件发布订阅模式</p>
 <p>在父组件中使用 <code>Pubsub.subscribe()</code> 订阅事件<br>在子组件中使用 <code>Pubsub.publish()</code> 触发事件，向父组件传递数据<br>在 <code>componentWillUnmount</code> 中使用 <code>Pubsub.unsubscribe()</code> 取消事件订阅</p>
 

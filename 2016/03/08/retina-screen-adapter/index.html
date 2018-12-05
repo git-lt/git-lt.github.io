@@ -107,17 +107,17 @@
 <meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="在众多移动设备中，前端开发人员如何在不同屏幕大小，不同程度的高清屏下去百分百的还原设计稿，从来都不是一件简单的事情，需要考虑众多因素，权衡利弊，做出取舍，结合需求去选择最合适的方案。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20160305-0%402x.png">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20160305-1%402x.png">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20160305-3%402x.png">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20160305-2%402x.png">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20160305-4%402x.png">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/53EE95949E438DAB192CB452CFAA973D.png">
-<meta property="og:updated_time" content="2018-04-20T05:38:52.000Z">
+<meta property="og:image" content="http://img.aitter.cn/QQ20160305-0%402x.png">
+<meta property="og:image" content="http://img.aitter.cn/QQ20160305-1%402x.png">
+<meta property="og:image" content="http://img.aitter.cn/QQ20160305-3%402x.png">
+<meta property="og:image" content="http://img.aitter.cn/QQ20160305-2%402x.png">
+<meta property="og:image" content="http://img.aitter.cn/QQ20160305-4%402x.png">
+<meta property="og:image" content="http://img.aitter.cn/53EE95949E438DAB192CB452CFAA973D.png">
+<meta property="og:updated_time" content="2018-12-05T05:26:17.101Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端高清屏适配方案">
 <meta name="twitter:description" content="在众多移动设备中，前端开发人员如何在不同屏幕大小，不同程度的高清屏下去百分百的还原设计稿，从来都不是一件简单的事情，需要考虑众多因素，权衡利弊，做出取舍，结合需求去选择最合适的方案。">
-<meta name="twitter:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20160305-0%402x.png">
+<meta name="twitter:image" content="http://img.aitter.cn/QQ20160305-0%402x.png">
 
 
 
@@ -491,14 +491,14 @@
 <li>有几种不同的flex标准，在低端ios和安卓中有着各种各样的兼容性问题</li>
 </ul>
 <p><a href="http://jsfiddle.net/johnchat/Lbdkd0fq/" target="_blank" rel="noopener">Flex 布局DEMO</a></p>
-<h3 id="方案四-使用rem单位"><a href="#方案四-使用rem单位" class="headerlink" title="方案四 使用rem单位"></a>方案四 使用rem单位</h3><h4 id="和上面的几种布局方案结合使用，主要做高度调整，保证布局一致"><a href="#和上面的几种布局方案结合使用，主要做高度调整，保证布局一致" class="headerlink" title="和上面的几种布局方案结合使用，主要做高度调整，保证布局一致"></a>和上面的几种布局方案结合使用，主要做高度调整，保证布局一致</h4><h4 id="视口不缩放使用rem"><a href="#视口不缩放使用rem" class="headerlink" title="视口不缩放使用rem"></a>视口不缩放使用rem</h4><p>手机网易为例<br><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20160305-0%402x.png" alt=""><br><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20160305-1%402x.png" alt=""><br>分析：</p>
+<h3 id="方案四-使用rem单位"><a href="#方案四-使用rem单位" class="headerlink" title="方案四 使用rem单位"></a>方案四 使用rem单位</h3><h4 id="和上面的几种布局方案结合使用，主要做高度调整，保证布局一致"><a href="#和上面的几种布局方案结合使用，主要做高度调整，保证布局一致" class="headerlink" title="和上面的几种布局方案结合使用，主要做高度调整，保证布局一致"></a>和上面的几种布局方案结合使用，主要做高度调整，保证布局一致</h4><h4 id="视口不缩放使用rem"><a href="#视口不缩放使用rem" class="headerlink" title="视口不缩放使用rem"></a>视口不缩放使用rem</h4><p>手机网易为例<br><img src="http://img.aitter.cn/QQ20160305-0%402x.png" alt=""><br><img src="http://img.aitter.cn/QQ20160305-1%402x.png" alt=""><br>分析：</p>
 <ol>
 <li>根据图片可以看出网易为750的设计稿，因为750下是html字体大小是100px，这样在切图时，方便px转rem，750设计稿上是大小是50px，那么转换成rem就是.5rem(如：24px -&gt; .24rem);</li>
 <li>px转rem简单方便</li>
 <li>没有做1px高清屏处理</li>
 <li>未做图片高清处理</li>
 </ol>
-<h4 id="视口缩放下使用rem"><a href="#视口缩放下使用rem" class="headerlink" title="视口缩放下使用rem"></a>视口缩放下使用rem</h4><p>手机淘宝为例<br><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20160305-3%402x.png" alt=""><br><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20160305-2%402x.png" alt=""><br><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20160305-4%402x.png" alt=""><br>分析：</p>
+<h4 id="视口缩放下使用rem"><a href="#视口缩放下使用rem" class="headerlink" title="视口缩放下使用rem"></a>视口缩放下使用rem</h4><p>手机淘宝为例<br><img src="http://img.aitter.cn/QQ20160305-3%402x.png" alt=""><br><img src="http://img.aitter.cn/QQ20160305-2%402x.png" alt=""><br><img src="http://img.aitter.cn/QQ20160305-4%402x.png" alt=""><br>分析：</p>
 <ol>
 <li>设计稿为750的设计稿<br> 320 dpr=1 font-size=32px<br> 320 dpr=2 font-size=64px<br> 375 dpr=2 font-size=75px<br> 414 dpr=3 font-size=124.2px<br> 换算规则：(屏幕宽度 * dpr )/10 （除以10是为了将屏幕平分10份，为了将来替换成vm或vh单位）</li>
 <li>屏幕根据dpr的值进行了相应的缩放</li>
@@ -517,7 +517,7 @@
 <p>缺点：占用了伪类，容易和原样式冲突</p>
 <h4 id="使用0-5px适配ios8以上的iPhone机型"><a href="#使用0-5px适配ios8以上的iPhone机型" class="headerlink" title="使用0.5px适配ios8以上的iPhone机型"></a>使用0.5px适配ios8以上的iPhone机型</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">media</span> (-webkit-min-device-pixel-ratio:<span class="number">2</span>)&#123;</span><br><span class="line"> <span class="selector-class">.box5</span> &#123;<span class="attribute">border-width</span>:.<span class="number">5px</span>&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>缺点：只适用于ios8+以上的iOS系统，安卓机不支持0.5px</p>
-<p><img src="http://7xi480.com1.z0.glb.clouddn.com/53EE95949E438DAB192CB452CFAA973D.png" alt="iphone6 上的效果"><br>CodePen 示例：</p>
+<p><img src="http://img.aitter.cn/53EE95949E438DAB192CB452CFAA973D.png" alt="iphone6 上的效果"><br>CodePen 示例：</p>
 <p></p><p data-height="268" data-theme-id="13299" data-slug-hash="Xdmxvm" data-default-tab="result" data-user="togglelt" class="codepen">See the Pen <a href="http://codepen.io/togglelt/pen/Xdmxvm/" target="_blank" rel="noopener">1PX 的梗</a> by LT (<a href="http://codepen.io/togglelt" target="_blank" rel="noopener">@togglelt</a>) on <a href="http://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 

@@ -107,18 +107,18 @@
 <meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="使用HTTS的应用越来越多，现在大部分网站都采用了HTTS，虽然安全性得到了保障，但对于开发调试来说，并不方便调试预览,越来越多的Web API调用依赖HTTPS环境，比如Web Bluetooth API, Web Geo API, Web Notificaiton API等等所以在HTTS环境下调试将是一个常态，有必要本地建站HTTS的开发环境，以下内容教我们快速搭建一个HTTS服务器">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-1@2x.png">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/14715989422211.jpg">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-2@2x.png">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-5@2x.png">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-7@2x.png">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-4@2x.png">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-6@2x.png">
-<meta property="og:updated_time" content="2018-04-20T05:30:10.000Z">
+<meta property="og:image" content="http://img.aitter.cn/QQ20170321-1@2x.png">
+<meta property="og:image" content="http://img.aitter.cn/14715989422211.jpg">
+<meta property="og:image" content="http://img.aitter.cn/QQ20170321-2@2x.png">
+<meta property="og:image" content="http://img.aitter.cn/QQ20170321-5@2x.png">
+<meta property="og:image" content="http://img.aitter.cn/QQ20170321-7@2x.png">
+<meta property="og:image" content="http://img.aitter.cn/QQ20170321-4@2x.png">
+<meta property="og:image" content="http://img.aitter.cn/QQ20170321-6@2x.png">
+<meta property="og:updated_time" content="2018-12-05T05:26:17.110Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="快速搭建本地HTTPS开发服务器">
 <meta name="twitter:description" content="使用HTTS的应用越来越多，现在大部分网站都采用了HTTS，虽然安全性得到了保障，但对于开发调试来说，并不方便调试预览,越来越多的Web API调用依赖HTTPS环境，比如Web Bluetooth API, Web Geo API, Web Notificaiton API等等所以在HTTS环境下调试将是一个常态，有必要本地建站HTTS的开发环境，以下内容教我们快速搭建一个HTTS服务器">
-<meta name="twitter:image" content="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-1@2x.png">
+<meta name="twitter:image" content="http://img.aitter.cn/QQ20170321-1@2x.png">
 
 
 
@@ -470,7 +470,7 @@
 </ul>
 <h2 id="生成证书"><a href="#生成证书" class="headerlink" title="生成证书"></a>生成证书</h2><p>进入一个目录（用于搭建Web服务器的根目录）</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">openssl req -new -x509 -keyout server.pem -out server.pem -days 365 -nodes</span><br></pre></td></tr></table></figure>
-<p><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-1@2x.png" width="300" alt=""></p>
+<p><img src="http://img.aitter.cn/QQ20170321-1@2x.png" width="300" alt=""></p>
 <p>然后回车，填写相关信息（随意填写），但是 Common Name 这项要填写一个域名，将来做为htts访问的域名，例如此项填写为 lt，那么访问时使用 htts://lt:4443/index.html 访问</p>
 <p>信息录入完成后，会在当前目录下生成server.pem证书</p>
 <h2 id="使用证书"><a href="#使用证书" class="headerlink" title="使用证书"></a>使用证书</h2><p>新建一个 <code>Python</code> 文件</p>
@@ -478,17 +478,17 @@
 <p>写入<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import BaseHTTPServer, SimpleHTTPServer</span><br><span class="line">import ssl</span><br><span class="line">httpd = BaseHTTPServer.HTTPServer((<span class="string">'localhost'</span>, 4443), SimpleHTTPServer.SimpleHTTPRequestHandler)</span><br><span class="line">httpd.socket = ssl.wrap_socket (httpd.socket, certfile=<span class="string">'./server.pem'</span>, server_side=True)</span><br><span class="line">httpd.serve_forever()</span><br></pre></td></tr></table></figure></p>
 <h2 id="启动HTTS服务器"><a href="#启动HTTS服务器" class="headerlink" title="启动HTTS服务器"></a>启动HTTS服务器</h2><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">python</span> simple-https-server.<span class="keyword">py</span></span><br></pre></td></tr></table></figure>
 <p>如果端口冲突，请修改上面 <code>https-server.py</code> 中的端口号</p>
-<h2 id="Chrome访问"><a href="#Chrome访问" class="headerlink" title="Chrome访问"></a>Chrome访问</h2><p>打开 <code>chorme</code> 浏览器访问<br><img src="http://7xi480.com1.z0.glb.clouddn.com/14715989422211.jpg" alt=""></p>
+<h2 id="Chrome访问"><a href="#Chrome访问" class="headerlink" title="Chrome访问"></a>Chrome访问</h2><p>打开 <code>chorme</code> 浏览器访问<br><img src="http://img.aitter.cn/14715989422211.jpg" alt=""></p>
 <h2 id="授权证书"><a href="#授权证书" class="headerlink" title="授权证书"></a>授权证书</h2><p>查看当前证书 -&gt; 拖动到桌面 -&gt; 双击导入到Keychain Access -&gt; 设置为总是信任 -&gt; 保存</p>
 <p>打开控制台查看当前证书</p>
-<p><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-2@2x.png" width="300" alt=""><br><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-5@2x.png" width="300" alt=""></p>
-<p>将证书拖动到桌面，点击打开<br><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-7@2x.png" width="300" alt=""></p>
-<p><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-4@2x.png" width="300" alt=""></p>
+<p><img src="http://img.aitter.cn/QQ20170321-2@2x.png" width="300" alt=""><br><img src="http://img.aitter.cn/QQ20170321-5@2x.png" width="300" alt=""></p>
+<p>将证书拖动到桌面，点击打开<br><img src="http://img.aitter.cn/QQ20170321-7@2x.png" width="300" alt=""></p>
+<p><img src="http://img.aitter.cn/QQ20170321-4@2x.png" width="300" alt=""></p>
 <h2 id="添加自定义域名"><a href="#添加自定义域名" class="headerlink" title="添加自定义域名"></a>添加自定义域名</h2><p><code>vi /etc/hosts</code></p>
 <p>设置本地代理</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">127.0.0.1 lt</span><br></pre></td></tr></table></figure>
 <h2 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h2><p>重启chrome，访问</p>
-<p><img src="http://7xi480.com1.z0.glb.clouddn.com/QQ20170321-6@2x.png" width="400" alt=""></p>
+<p><img src="http://img.aitter.cn/QQ20170321-6@2x.png" width="400" alt=""></p>
 
       
     </div>

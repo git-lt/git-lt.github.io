@@ -107,12 +107,12 @@
 <meta property="og:site_name" content="Aitter&#39;s Blog">
 <meta property="og:description" content="经过上一篇 深入理解 Promise （上） 的理论知识和用法学习，这一篇让我们深入源码层面，一步一步去封装一个Promise，去了解Promise的内部实现，以便我们在项目中对Promise的使用运用自如。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-04%20%E4%B8%8A%E5%8D%889.20.57.png">
-<meta property="og:updated_time" content="2018-04-20T05:37:19.000Z">
+<meta property="og:image" content="http://img.aitter.cn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-04%20%E4%B8%8A%E5%8D%889.20.57.png">
+<meta property="og:updated_time" content="2018-12-05T05:26:17.111Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解 Promise (中)">
 <meta name="twitter:description" content="经过上一篇 深入理解 Promise （上） 的理论知识和用法学习，这一篇让我们深入源码层面，一步一步去封装一个Promise，去了解Promise的内部实现，以便我们在项目中对Promise的使用运用自如。">
-<meta name="twitter:image" content="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-04%20%E4%B8%8A%E5%8D%889.20.57.png">
+<meta name="twitter:image" content="http://img.aitter.cn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-04%20%E4%B8%8A%E5%8D%889.20.57.png">
 
 
 
@@ -616,7 +616,7 @@
 <p>社区有一个开源的<a href="https://github.com/promises-aplus/promises-tests" target="_blank" rel="noopener">测试脚本</a><br>只需两步，就能检验我们的实现是否符合标准了</p>
 <figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="comment">//全局安装</span></span><br><span class="line">npm <span class="selector-tag">i</span> -g promises-aplus-tests</span><br><span class="line"><span class="comment">//运行测试</span></span><br><span class="line">promises-aplus-tests Promise.js</span><br></pre></td></tr></table></figure>
 <p>下面是我们自定义的Promise类库的测试结果，全部通过</p>
-<p><img src="http://7xi480.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-04%20%E4%B8%8A%E5%8D%889.20.57.png" alt=""></p>
+<p><img src="http://img.aitter.cn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-12-04%20%E4%B8%8A%E5%8D%889.20.57.png" alt=""></p>
 <p>在一开始运行测试的时候并没有那么顺利</p>
 <p>首先要注意的一点是，自己封装的Promise，要提供 <code>Promise.deferred()</code> 静态方法，测试脚本是基于这个方法去测试的，一定要有!</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.deferred = <span class="built_in">Promise</span>.defer = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> dfd = &#123;&#125;</span><br><span class="line">  dfd.promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    dfd.resolve = resolve;</span><br><span class="line">    dfd.reject = reject;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> dfd</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
