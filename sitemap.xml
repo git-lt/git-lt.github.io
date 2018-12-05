@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://toggle.coding.io/2017/11/20/table-colgroup/</loc>
+    
+    <lastmod>2018-12-05T05:29:53.996Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://toggle.coding.io/2016/12/05/promise-in-depth-an-introduction-3/</loc>
     
     <lastmod>2018-12-05T05:26:17.113Z</lastmod>
@@ -9,14 +16,14 @@
   </url>
   
   <url>
-    <loc>http://toggle.coding.io/2016/05/01/build-github-wiki/</loc>
+    <loc>http://toggle.coding.io/2017/06/09/animation-qzone/</loc>
     
     <lastmod>2018-12-05T05:26:17.112Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://toggle.coding.io/2017/06/09/animation-qzone/</loc>
+    <loc>http://toggle.coding.io/2016/05/01/build-github-wiki/</loc>
     
     <lastmod>2018-12-05T05:26:17.112Z</lastmod>
     
@@ -30,14 +37,14 @@
   </url>
   
   <url>
-    <loc>http://toggle.coding.io/2016/11/03/vue-multi-page/</loc>
+    <loc>http://toggle.coding.io/2016/12/04/promise-in-depth-an-introduction-2/</loc>
     
     <lastmod>2018-12-05T05:26:17.111Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://toggle.coding.io/2016/12/04/promise-in-depth-an-introduction-2/</loc>
+    <loc>http://toggle.coding.io/2016/11/03/vue-multi-page/</loc>
     
     <lastmod>2018-12-05T05:26:17.111Z</lastmod>
     
@@ -58,7 +65,7 @@
   </url>
   
   <url>
-    <loc>http://toggle.coding.io/2017/11/20/table-colgroup/</loc>
+    <loc>http://toggle.coding.io/2017/03/21/create-htts-server/</loc>
     
     <lastmod>2018-12-05T05:26:17.110Z</lastmod>
     
@@ -66,13 +73,6 @@
   
   <url>
     <loc>http://toggle.coding.io/2016/03/16/http-server-nodejs/</loc>
-    
-    <lastmod>2018-12-05T05:26:17.110Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2017/03/21/create-htts-server/</loc>
     
     <lastmod>2018-12-05T05:26:17.110Z</lastmod>
     
@@ -93,6 +93,13 @@
   </url>
   
   <url>
+    <loc>http://toggle.coding.io/2017/10/20/mt-weui-react/</loc>
+    
+    <lastmod>2018-12-05T05:26:17.104Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://toggle.coding.io/2016/04/28/decoration-for-store/</loc>
     
     <lastmod>2018-12-05T05:26:17.104Z</lastmod>
@@ -100,9 +107,9 @@
   </url>
   
   <url>
-    <loc>http://toggle.coding.io/2017/10/20/mt-weui-react/</loc>
+    <loc>http://toggle.coding.io/2016/11/22/js-event/</loc>
     
-    <lastmod>2018-12-05T05:26:17.104Z</lastmod>
+    <lastmod>2018-12-05T05:26:17.103Z</lastmod>
     
   </url>
   
@@ -121,21 +128,7 @@
   </url>
   
   <url>
-    <loc>http://toggle.coding.io/2016/11/22/js-event/</loc>
-    
-    <lastmod>2018-12-05T05:26:17.103Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://toggle.coding.io/2016/02/24/bs-pagination/</loc>
-    
-    <lastmod>2018-12-05T05:26:17.102Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://toggle.coding.io/2017/12/13/event-loop/</loc>
     
     <lastmod>2018-12-05T05:26:17.102Z</lastmod>
     
@@ -149,7 +142,14 @@
   </url>
   
   <url>
-    <loc>http://toggle.coding.io/2018/01/25/wxchatapp-dev/</loc>
+    <loc>http://toggle.coding.io/2017/12/13/event-loop/</loc>
+    
+    <lastmod>2018-12-05T05:26:17.102Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://toggle.coding.io/2016/09/01/velocity-koa-gulp/</loc>
     
     <lastmod>2018-12-05T05:26:17.101Z</lastmod>
     
@@ -163,14 +163,14 @@
   </url>
   
   <url>
-    <loc>http://toggle.coding.io/2016/09/01/velocity-koa-gulp/</loc>
+    <loc>http://toggle.coding.io/2016/03/08/retina-screen-adapter/</loc>
     
     <lastmod>2018-12-05T05:26:17.101Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://toggle.coding.io/2016/03/08/retina-screen-adapter/</loc>
+    <loc>http://toggle.coding.io/2018/01/25/wxchatapp-dev/</loc>
     
     <lastmod>2018-12-05T05:26:17.101Z</lastmod>
     
